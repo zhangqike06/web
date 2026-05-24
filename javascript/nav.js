@@ -25,6 +25,28 @@
     });
   }
 
+  /* 跨页面导航当前项高亮 */
+  var currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  var navLinks = document.querySelectorAll('.nav-menu a[href]');
+
+  navLinks.forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (!href || href === '#') return;
+
+    if (href === currentPath) {
+      link.classList.add('active');
+
+      var parentSubmenu = link.closest('.submenu');
+      if (parentSubmenu) {
+        var parentItem = parentSubmenu.parentElement;
+        var parentLink = parentItem ? parentItem.querySelector(':scope > a') : null;
+        if (parentLink) {
+          parentLink.classList.add('active');
+        }
+      }
+    }
+  });
+
   /* ============================================================
    * JS二级下拉菜单（移动端触摸适配）
    * ============================================================ */
