@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#CE6C7B"/>
+      <stop offset="100%" style="stop-color:#CA8F7B"/>
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="58" fill="none" stroke="url(#g)" stroke-width="3"/>
+  <circle cx="60" cy="60" r="48" fill="rgba(206,108,123,0.08)"/>
+  <text x="60" y="52" text-anchor="middle" font-family="KaiTi,serif" font-size="28" fill="#CE6C7B" font-weight="bold">本草</text>
+  <text x="60" y="82" text-anchor="middle" font-family="KaiTi,serif" font-size="18" fill="#CA8F7B">寻源</text>
+</svg>

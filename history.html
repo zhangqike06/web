@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中医历史 - 本草寻源</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/history.css">
+</head>
+<body>
+
+  <!-- 固定导航栏 -->
+  <header id="nav-header">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="images/logo.svg" alt="本草寻源">
+        <span>本草寻源</span>
+      </div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">首页</a></li>
+          <li class="has-sub">
+            <a href="#">中医文化 ▾</a>
+            <ul class="submenu">
+              <li><a href="history.html">历史溯源</a></li>
+              <li><a href="meridian.html">经络穴位</a></li>
+            </ul>
+          </li>
+          <li><a href="herbs.html">本草百科</a></li>
+          <li><a href="prescription.html">经典名方</a></li>
+          <li><a href="wellness.html">养生保健</a></li>
+          <li><a href="login.html" class="nav-login">登录</a></li>
+        </ul>
+      </nav>
+      <div class="nav-search">
+        <input type="text" id="search-input" placeholder="搜索草药、穴位、名方...">
+        <button id="search-btn">&#128269;</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 水墨横幅 -->
+  <section class="banner">
+    <div class="banner-bg" style="background: linear-gradient(160deg, #4a403a, #5a4e46, #3e3630);"></div>
+    <div class="banner-content">
+      <h1>杏林春秋</h1>
+      <p>千年医脉，薪火相传 —— 探寻中医药发展的壮阔历史</p>
+    </div>
+  </section>
+
+  <!-- 纵向时间轴 -->
+  <section class="timeline-section">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;margin-bottom:40px;">中医药发展时间轴</h2>
+
+      <div class="timeline">
+        <!-- 上古神农 -->
+        <div class="timeline-item" data-animate="left">
+          <div class="timeline-dot">&#9678;</div>
+          <div class="timeline-card">
+            <div class="timeline-era">上古时期</div>
+            <h3>神农尝百草</h3>
+            <p>中华医药始祖。传说神农氏亲尝百草，辨别药性，一日而遇七十毒，开创了中医药的先河。著有《神农本草经》，收载药物365种，分上中下三品，奠定了中药学基础理论。</p>
+            <div class="timeline-tags">
+              <span class="tag">中药起源</span>
+              <span class="tag">本草第一经</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 春秋扁鹊 -->
+        <div class="timeline-item" data-animate="right">
+          <div class="timeline-dot">&#9678;</div>
+          <div class="timeline-card">
+            <div class="timeline-era">春秋战国</div>
+            <h3>扁鹊 —— 神医</h3>
+            <p>姓秦名越人，春秋时期著名医学家。创"望、闻、问、切"四诊法，奠定中医诊断学基础。擅长各科，随俗为变，在赵国为妇科，在周国为五官科，在秦国为儿科。著有《难经》，对脉诊理论贡献卓著。</p>
+            <div class="timeline-tags">
+              <span class="tag">四诊法</span>
+              <span class="tag">脉诊始祖</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 汉代张仲景 -->
+        <div class="timeline-item" data-animate="left">
+          <div class="timeline-dot">&#9678;</div>
+          <div class="timeline-card">
+            <div class="timeline-era">东汉末年</div>
+            <h3>张仲景 —— 医圣</h3>
+            <p>名机，字仲景，东汉末年著名医学家。著有《伤寒杂病论》，被后世奉为"方书之祖"。创立六经辨证体系，总结了外感热病的诊疗规律；同时论述了内伤杂病的辨证论治原则，收录269首方剂，被誉为"经方之祖"。</p>
+            <div class="timeline-tags">
+              <span class="tag">伤寒杂病论</span>
+              <span class="tag">六经辨证</span>
+              <span class="tag">经方之祖</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 华佗 -->
+        <div class="timeline-item" data-animate="right">
+          <div class="timeline-dot">&#9678;</div>
+          <div class="timeline-card">
+            <div class="timeline-era">东汉末年</div>
+            <h3>华佗 —— 外科鼻祖</h3>
+            <p>字元化，东汉末年著名医学家。精通内、外、妇、儿、针灸各科，尤以外科著称。创制"麻沸散"用于外科手术麻醉，是世界医学史上最早的全身麻醉剂。编创"五禽戏"，模仿虎、鹿、熊、猿、鸟五种动物的动作，为最早的医疗健身体操。</p>
+            <div class="timeline-tags">
+              <span class="tag">麻沸散</span>
+              <span class="tag">五禽戏</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 唐代孙思邈 -->
+        <div class="timeline-item" data-animate="left">
+          <div class="timeline-dot">&#9678;</div>
+          <div class="timeline-card">
+            <div class="timeline-era">唐代</div>
+            <h3>孙思邈 —— 药王</h3>
+            <p>唐代著名医药学家，被后世尊为"药王"。著有《千金要方》和《千金翼方》，各三十卷，合称《千金方》，载方6500余首。首倡"大医精诚"的医德思想，提出"人命至重，有贵千金，一方济之，德逾于此"，成为后世医者遵循的职业道德准则。</p>
+            <div class="timeline-tags">
+              <span class="tag">千金方</span>
+              <span class="tag">大医精诚</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 明代李时珍 -->
+        <div class="timeline-item" data-animate="right">
+          <div class="timeline-dot">&#9678;</div>
+          <div class="timeline-card">
+            <div class="timeline-era">明代</div>
+            <h3>李时珍 —— 药圣</h3>
+            <p>字东璧，明代著名医药学家。历时27年，参考文献800余种，实地考察足迹遍及大半个中国，著成《本草纲目》52卷，收载药物1892种，附方11096首，插图1109幅。该书集明代以前本草学之大成，被誉为"东方药学巨典"，被达尔文称为"中国古代的百科全书"。</p>
+            <div class="timeline-tags">
+              <span class="tag">本草纲目</span>
+              <span class="tag">东方药学巨典</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 四大经典著作表格 -->
+  <section class="classics-section">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;margin-bottom:24px;">四大经典著作</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>著作名称</th>
+              <th>成书年代</th>
+              <th>作者</th>
+              <th>主要内容</th>
+              <th>历史地位</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>《黄帝内经》</strong></td>
+              <td>战国至汉代</td>
+              <td>托名黄帝</td>
+              <td>分为《素问》《灵枢》，论述藏象、经络、病因、病机、诊法、治则等基础理论</td>
+              <td>中医理论体系奠基之作</td>
+            </tr>
+            <tr>
+              <td><strong>《难经》</strong></td>
+              <td>战国时期</td>
+              <td>扁鹊</td>
+              <td>以问答形式阐释《内经》疑难，详论脉诊、经络、脏腑、疾病、腧穴、针法</td>
+              <td>脉学理论奠基之作</td>
+            </tr>
+            <tr>
+              <td><strong>《伤寒杂病论》</strong></td>
+              <td>东汉末年</td>
+              <td>张仲景</td>
+              <td>分为《伤寒论》《金匮要略》，首创六经辨证，载方269首</td>
+              <td>辨证论治开山之作</td>
+            </tr>
+            <tr>
+              <td><strong>《神农本草经》</strong></td>
+              <td>汉代</td>
+              <td>托名神农</td>
+              <td>收载药物365种，分上中下三品，记述性味功效</td>
+              <td>中药学第一部专著</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 名医馆：3D翻牌卡片 -->
+  <section class="doctors-section">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;margin-bottom:32px;">名医馆</h2>
+      <div class="doctor-grid">
+
+        <!-- 名医卡片1 -->
+        <div class="doctor-card">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="doctor-avatar" style="background:linear-gradient(135deg,#8B4513,#A0522D);">&#9879;</div>
+              <h3>张仲景</h3>
+              <p>东汉 · 医圣</p>
+            </div>
+            <div class="card-back">
+              <h4>代表著作</h4>
+              <p>《伤寒杂病论》</p>
+              <h4>核心贡献</h4>
+              <p>六经辨证体系<br>载方269首<br>辨证论治典范</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 名医卡片2 -->
+        <div class="doctor-card">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="doctor-avatar" style="background:linear-gradient(135deg,#6B3A2A,#8B5E3C);">&#9764;</div>
+              <h3>孙思邈</h3>
+              <p>唐代 · 药王</p>
+            </div>
+            <div class="card-back">
+              <h4>代表著作</h4>
+              <p>《千金要方》《千金翼方》</p>
+              <h4>核心贡献</h4>
+              <p>载方6500余首<br>大医精诚医德<br>食疗养生理论</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 名医卡片3 -->
+        <div class="doctor-card">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="doctor-avatar" style="background:linear-gradient(135deg,#5D3A1A,#7B5B3A);">&#10010;</div>
+              <h3>李时珍</h3>
+              <p>明代 · 药圣</p>
+            </div>
+            <div class="card-back">
+              <h4>代表著作</h4>
+              <p>《本草纲目》</p>
+              <h4>核心贡献</h4>
+              <p>收药1892种<br>附方11096首<br>东方药学巨典</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 名医卡片4 -->
+        <div class="doctor-card">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="doctor-avatar" style="background:linear-gradient(135deg,#4A3728,#6B4D3A);">&#9819;</div>
+              <h3>扁鹊</h3>
+              <p>春秋 · 神医</p>
+            </div>
+            <div class="card-back">
+              <h4>代表著作</h4>
+              <p>《难经》</p>
+              <h4>核心贡献</h4>
+              <p>望闻问切四诊<br>脉诊理论奠基<br>分科诊疗先驱</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    <div class="footer-brand">本草寻源</div>
+    <p class="footer-info">中国石油大学（北京）2025—2026春季学期 · Web程序设计大作业</p>
+    <p class="footer-info">传承中医药文化，弘扬中华国粹</p>
+  </footer>
+
+  <!-- 播放器 -->
+  <div id="music-player">
+    <audio id="bgm" src="music/guqin-bg.mp3" loop preload="none"></audio>
+    <div id="jade-icon" class="paused" title="点击播放/暂停背景音乐">&#9835;</div>
+  </div>
+
+  <script src="javascript/nav.js"></script>
+  <script src="javascript/animation.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>养生保健 - 本草寻源</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/wellness.css">
+</head>
+<body>
+
+  <header id="nav-header">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="images/logo.svg" alt="本草寻源">
+        <span>本草寻源</span>
+      </div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">首页</a></li>
+          <li class="has-sub">
+            <a href="#">中医文化 ▾</a>
+            <ul class="submenu">
+              <li><a href="history.html">历史溯源</a></li>
+              <li><a href="meridian.html">经络穴位</a></li>
+            </ul>
+          </li>
+          <li><a href="herbs.html">本草百科</a></li>
+          <li><a href="prescription.html">经典名方</a></li>
+          <li><a href="wellness.html">养生保健</a></li>
+          <li><a href="login.html" class="nav-login">登录</a></li>
+        </ul>
+      </nav>
+      <div class="nav-search">
+        <input type="text" id="search-input" placeholder="搜索草药、穴位、名方...">
+        <button id="search-btn">&#128269;</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 养生理念横幅 -->
+  <section class="banner">
+    <div class="banner-bg" style="background: linear-gradient(160deg, #4a5858, #5a6860, #3e4a42);"></div>
+    <div class="banner-content">
+      <h1>养生保健</h1>
+      <p>"治未病，调未乱" —— 顺应四时，调和阴阳，颐养天年</p>
+    </div>
+  </section>
+
+  <!-- 二十四节气罗盘 -->
+  <section class="compass-section">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;">二十四节气罗盘</h2>
+      <p class="section-desc" style="text-align:center;color:var(--color-dust);margin-bottom:32px;">
+        点击节气名称，罗盘旋转，获取节气养生指南
+      </p>
+
+      <div class="compass-layout">
+        <!-- 罗盘 -->
+        <div class="compass-wrapper">
+          <div class="compass" id="compass">
+            <div class="compass-center">
+              <span>节气</span>
+            </div>
+            <!-- 24节气格子 -->
+            <div class="term-ring" id="term-ring">
+              <!-- JS动态生成 -->
+            </div>
+          </div>
+        </div>
+
+        <!-- 节气内容展示 -->
+        <div class="term-content" id="term-content">
+          <h3 id="term-name">选择一个节气</h3>
+          <div class="term-color-bar" id="term-color-bar"></div>
+          <div class="term-info" id="term-info">
+            <p>点击左侧罗盘中的节气名称，查看详细的节气养生指南。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 四季养生Tab -->
+  <section class="seasonal-section">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;margin-bottom:24px;">四季养生</h2>
+      <div class="season-tabs">
+        <button class="season-tab active" data-season="spring">&#127800; 春</button>
+        <button class="season-tab" data-season="summer">&#9728; 夏</button>
+        <button class="season-tab" data-season="autumn">&#127810; 秋</button>
+        <button class="season-tab" data-season="winter">&#10052; 冬</button>
+      </div>
+      <div class="season-content" id="season-content">
+        <!-- JS动态填充 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 中医体质测试 -->
+  <section class="constitution-section">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;">中医体质测试</h2>
+      <p class="section-desc" style="text-align:center;color:var(--color-dust);margin-bottom:24px;">
+        回答以下5道题，了解您的中医体质类型和专属养生建议
+      </p>
+
+      <div class="quiz-container" id="quiz-container">
+        <div class="quiz-progress" id="quiz-progress">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div class="quiz-content" id="quiz-content">
+          <!-- JS动态渲染 -->
+        </div>
+        <div class="quiz-nav">
+          <button class="btn btn-outline" id="quiz-prev" style="display:none;">上一题</button>
+          <button class="btn btn-primary" id="quiz-next">开始测试</button>
+        </div>
+      </div>
+
+      <!-- 结果展示 -->
+      <div class="quiz-result" id="quiz-result" style="display:none;">
+        <!-- JS动态填充 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 饮食宜忌对比表 -->
+  <section class="diet-section">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;margin-bottom:24px;">四季饮食宜忌</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr><th>季节</th><th>宜食</th><th>忌食</th><th>推荐茶饮</th><th>养生重点</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>春</strong></td><td>韭菜、香椿、菠菜、豆芽</td><td>油腻、辛辣、酸涩</td><td>菊花茶、玫瑰花茶</td><td>养肝护肝，升发阳气</td></tr>
+            <tr><td><strong>夏</strong></td><td>西瓜、绿豆、苦瓜、冬瓜</td><td>燥热、烧烤、油炸</td><td>酸梅汤、薄荷茶</td><td>清心祛暑，健脾化湿</td></tr>
+            <tr><td><strong>秋</strong></td><td>梨、百合、银耳、莲藕</td><td>辛辣、煎炸、干燥</td><td>枸杞菊花茶、蜂蜜水</td><td>润肺养阴，收敛神气</td></tr>
+            <tr><td><strong>冬</strong></td><td>羊肉、核桃、山药、黑豆</td><td>生冷、寒凉、冰镇</td><td>姜枣茶、桂圆红枣茶</td><td>温补肾阳，藏精纳气</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-brand">本草寻源</div>
+    <p class="footer-info">中国石油大学（北京）2025—2026春季学期 · Web程序设计大作业</p>
+    <p class="footer-info">传承中医药文化，弘扬中华国粹</p>
+  </footer>
+
+  <div id="music-player">
+    <audio id="bgm" src="music/guqin-bg.mp3" loop preload="none"></audio>
+    <div id="jade-icon" class="paused" title="点击播放/暂停背景音乐">&#9835;</div>
+  </div>
+
+  <script src="javascript/nav.js"></script>
+  <script src="javascript/wellness.js"></script>
+</body>
+</html>

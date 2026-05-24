@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>经典名方 - 本草寻源</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/prescription.css">
+</head>
+<body>
+
+  <header id="nav-header">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="images/logo.svg" alt="本草寻源">
+        <span>本草寻源</span>
+      </div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">首页</a></li>
+          <li class="has-sub">
+            <a href="#">中医文化 ▾</a>
+            <ul class="submenu">
+              <li><a href="history.html">历史溯源</a></li>
+              <li><a href="meridian.html">经络穴位</a></li>
+            </ul>
+          </li>
+          <li><a href="herbs.html">本草百科</a></li>
+          <li><a href="prescription.html">经典名方</a></li>
+          <li><a href="wellness.html">养生保健</a></li>
+          <li><a href="login.html" class="nav-login">登录</a></li>
+        </ul>
+      </nav>
+      <div class="nav-search">
+        <input type="text" id="search-input" placeholder="搜索草药、穴位、名方...">
+        <button id="search-btn">&#128269;</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 页面标题 -->
+  <section class="banner">
+    <div class="banner-bg" style="background: linear-gradient(160deg, #5a4a3c, #6a5848, #483a2e);"></div>
+    <div class="banner-content">
+      <h1>经典名方</h1>
+      <p>君臣佐使，配伍精妙 —— 百草化方，体验中药配伍的智慧</p>
+    </div>
+  </section>
+
+  <!-- 仿竹简目录锚点导航 -->
+  <section class="prescription-nav">
+    <div class="container">
+      <div class="bamboo-nav" id="bamboo-nav">
+        <button class="bamboo-item active" data-recipe="0">四君子汤</button>
+        <button class="bamboo-item" data-recipe="1">酸梅汤</button>
+        <button class="bamboo-item" data-recipe="2">枸杞菊花茶</button>
+        <button class="bamboo-item" data-recipe="3">六味地黄丸</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 百草化方互动区 -->
+  <section class="alchemy-section">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;">百草化方</h2>
+      <p class="section-desc" style="text-align:center;color:var(--color-dust);margin-bottom:32px;">
+        依次点击药材，将其投入药壶中煎煮，集齐所有药材后将揭晓药方成品
+      </p>
+
+      <div class="alchemy-area">
+        <!-- 药材卡片区 -->
+        <div class="herbs-pool" id="herbs-pool">
+          <!-- JS动态渲染 -->
+        </div>
+
+        <!-- 药壶区域 -->
+        <div class="cauldron-area">
+          <div class="cauldron" id="cauldron">
+            <span class="cauldron-icon">&#9737;</span>
+            <div class="steam" id="steam"></div>
+          </div>
+          <p class="cauldron-hint" id="cauldron-hint">点击草药投入药壶</p>
+        </div>
+
+        <!-- 揭晓结果区 -->
+        <div class="result-area" id="result-area" style="display:none;">
+          <div class="result-card" id="result-card">
+            <h3 id="result-name"></h3>
+            <p class="result-type" id="result-type"></p>
+            <div class="result-divider"></div>
+            <p class="result-effect" id="result-effect"></p>
+            <p class="result-modern" id="result-modern"></p>
+            <button class="btn btn-primary" onclick="resetAlchemy()">&#8635; 重新配药</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 配伍君臣佐使表 -->
+  <section class="formula-detail-section">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;margin-bottom:24px;">当前方剂配伍分析</h2>
+      <div class="table-wrapper">
+        <table id="formula-table">
+          <thead>
+            <tr><th>药材</th><th>角色</th><th>性味</th><th>在方中作用</th></tr>
+          </thead>
+          <tbody id="formula-table-body">
+            <!-- JS动态填充 -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-brand">本草寻源</div>
+    <p class="footer-info">中国石油大学（北京）2025—2026春季学期 · Web程序设计大作业</p>
+    <p class="footer-info">传承中医药文化，弘扬中华国粹</p>
+  </footer>
+
+  <div id="music-player">
+    <audio id="bgm" src="music/guqin-bg.mp3" loop preload="none"></audio>
+    <div id="jade-icon" class="paused" title="点击播放/暂停背景音乐">&#9835;</div>
+  </div>
+
+  <script src="javascript/nav.js"></script>
+  <script src="javascript/prescription.js"></script>
+</body>
+</html>

@@ -1,0 +1,262 @@
+/* ============================================================
+ * prescription.css - 经典名方页样式（降饱和版）
+ * ============================================================ */
+
+.prescription-nav {
+  padding: 18px 0;
+  background: rgba(222,200,196,0.1);
+  border-bottom: 1px solid var(--color-bud);
+}
+
+.bamboo-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  flex-wrap: wrap;
+}
+
+.bamboo-item {
+  padding: 11px 22px;
+  background: linear-gradient(180deg, #f5efe8, #e8dfd4);
+  border: 1px solid #c9bca8;
+  border-radius: 2px;
+  font-family: var(--font-title);
+  font-size: 0.93em;
+  color: #5d3a1a;
+  cursor: pointer;
+  transition: all 0.3s;
+  letter-spacing: 0.06em;
+  position: relative;
+}
+
+.bamboo-item::before {
+  content: "";
+  position: absolute;
+  top: 5px; bottom: 5px; left: 7px;
+  width: 2px;
+  background: rgba(120,90,60,0.18);
+  border-radius: 1px;
+}
+
+.bamboo-item:hover {
+  background: linear-gradient(180deg, #f0e8dc, #e0d4c4);
+  transform: translateY(-2px);
+}
+
+.bamboo-item.active {
+  background: linear-gradient(180deg, var(--color-rose), #b0787f);
+  color: #fff;
+  border-color: var(--color-rose);
+}
+
+/* === 百草化方互动区 === */
+.alchemy-section {
+  padding: 60px 0;
+}
+
+.alchemy-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.herbs-pool {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.herb-ingredient {
+  width: 115px;
+  padding: 16px;
+  background: #fff;
+  border: 2px solid var(--color-bud);
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.herb-ingredient:hover:not(.used) {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  border-color: var(--color-rose);
+}
+
+.herb-ingredient.used {
+  opacity: 0.45;
+  pointer-events: none;
+  border-style: dashed;
+}
+
+.herb-ingredient .herb-icon {
+  font-size: 2.2em;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.herb-ingredient .herb-name {
+  font-family: var(--font-title);
+  color: var(--color-deep);
+  font-size: 0.93em;
+  letter-spacing: 0.05em;
+}
+
+.herb-ingredient .herb-role {
+  display: inline-block;
+  background: rgba(222,200,196,0.5);
+  color: var(--color-deep);
+  font-size: 0.72em;
+  padding: 2px 8px;
+  border-radius: 8px;
+  margin-top: 4px;
+}
+
+/* 药壶区 */
+.cauldron-area {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.cauldron {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 12px;
+  background: linear-gradient(180deg, #8a7268, #5a4a40);
+  border-radius: 50% 50% 45% 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.2);
+  border: 4px solid #4a3a32;
+  transition: all 0.5s;
+}
+
+.cauldron-icon {
+  font-size: 2.6em;
+  color: #a09080;
+}
+
+.cauldron-hint {
+  color: var(--color-dusk);
+  font-size: 0.9em;
+}
+
+/* 蒸汽 */
+.steam {
+  position: absolute;
+  top: -30px; left: 50%;
+  transform: translateX(-50%);
+  width: 50px; height: 35px;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.steam.active { opacity: 1; }
+
+.steam.active::before,
+.steam.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 16px; height: 28px;
+  background: rgba(255,255,255,0.45);
+  border-radius: 50%;
+  animation: steamRise 1.5s ease-out infinite;
+}
+
+.steam.active::before { left: 6px; animation-delay: 0s; }
+.steam.active::after  { left: 26px; animation-delay: 0.55s; }
+
+@keyframes steamRise {
+  0%   { transform: translateY(0) scale(1); opacity: 0.5; }
+  100% { transform: translateY(-36px) scale(2); opacity: 0; }
+}
+
+/* 结果揭晓 */
+.result-area {
+  width: 100%;
+  max-width: 500px;
+}
+
+.result-card {
+  background: #fff;
+  border: 2px solid var(--color-bud);
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+  animation: resultReveal 0.7s ease;
+}
+
+@keyframes resultReveal {
+  from { opacity: 0; transform: scale(0.85) translateY(20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.result-card h3 {
+  font-family: var(--font-title);
+  font-size: 1.7em;
+  color: var(--color-deep);
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.result-type {
+  display: inline-block;
+  background: var(--color-rose);
+  color: #fff;
+  padding: 3px 14px;
+  border-radius: 12px;
+  font-size: 0.82em;
+  letter-spacing: 0.04em;
+}
+
+.result-divider {
+  width: 50px; height: 2px;
+  background: var(--color-bud);
+  margin: 16px auto;
+}
+
+.result-effect {
+  color: var(--color-deep);
+  line-height: 1.8;
+  margin-bottom: 10px;
+  font-size: 0.93em;
+}
+
+.result-modern {
+  color: var(--color-dusk);
+  font-size: 0.88em;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  padding: 8px 14px;
+  background: rgba(222,200,196,0.18);
+  border-radius: 8px;
+}
+
+/* === 配伍分析表 === */
+.formula-detail-section {
+  padding: 60px 0;
+  background: rgba(222,200,196,0.08);
+}
+
+/* === 飞行克隆 === */
+.fly-clone {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* === 响应式 === */
+@media (max-width: 768px) {
+  .herb-ingredient { width: 90px; padding: 12px; }
+  .herb-ingredient .herb-icon { font-size: 1.7em; }
+  .cauldron { width: 120px; height: 120px; }
+  .cauldron-icon { font-size: 2em; }
+}

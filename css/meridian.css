@@ -1,0 +1,313 @@
+/* ============================================================
+ * meridian.css - 经络穴位页样式（降饱和版）
+ * ============================================================ */
+
+.intro-section {
+  padding: 60px 0;
+}
+
+.intro-content {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.intro-img {
+  flex-shrink: 0;
+  width: 200px;
+}
+
+.meridian-diagram {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.diagram-circle {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 2.5px solid var(--color-dusk);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: rgba(196,164,148,0.06);
+}
+
+.diagram-circle::before {
+  content: "";
+  position: absolute;
+  inset: 15px;
+  border-radius: 50%;
+  border: 1px dashed rgba(222,200,196,0.7);
+  animation: rotateSlow 20s linear infinite;
+}
+
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.diagram-circle span {
+  font-family: var(--font-title);
+  font-size: 1.3em;
+  color: var(--color-rose);
+  letter-spacing: 0.1em;
+}
+
+.intro-text {
+  flex: 1;
+}
+
+.intro-text p {
+  color: #7a7068;
+  line-height: var(--line-height);
+  margin-bottom: 12px;
+  text-indent: 2em;
+  font-size: 0.95em;
+}
+
+/* === 穴位互动区 === */
+.acupoint-section {
+  padding: 60px 0;
+  background: rgba(222,200,196,0.08);
+}
+
+.view-toggle {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.toggle-btn {
+  padding: 10px 26px;
+  border: 2px solid var(--color-bud);
+  background: #fff;
+  color: var(--color-dust);
+  font-family: var(--font-title);
+  font-size: 0.93em;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin: 0 6px;
+  border-radius: 24px;
+  letter-spacing: 0.04em;
+}
+
+.toggle-btn.active {
+  background: var(--color-rose);
+  color: #fff;
+  border-color: var(--color-rose);
+}
+
+.toggle-btn:hover:not(.active) {
+  border-color: var(--color-rose);
+  color: var(--color-rose);
+}
+
+.acupoint-layout {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* CSS绘制人体轮廓 */
+.body-map {
+  position: relative;
+  width: 260px;
+  height: 620px;
+  flex-shrink: 0;
+}
+
+.body-silhouette {
+  position: absolute;
+  inset: 0;
+}
+
+.body-head {
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 58px; height: 66px;
+  border-radius: 50% 50% 40% 40%;
+  border: 2px solid rgba(196,164,148,0.5);
+  background: rgba(196,164,148,0.06);
+}
+
+.body-torso {
+  position: absolute;
+  top: 64px; left: 50%;
+  transform: translateX(-50%);
+  width: 86px; height: 250px;
+  border-radius: 20px 20px 10px 10px;
+  border: 2px solid rgba(196,164,148,0.5);
+  background: rgba(196,164,148,0.04);
+}
+
+.body-arm {
+  position: absolute;
+  top: 76px;
+  width: 26px; height: 210px;
+  border-radius: 13px;
+  border: 2px solid rgba(196,164,148,0.5);
+  background: rgba(196,164,148,0.04);
+}
+.body-arm.left  { left: 40px; }
+.body-arm.right { right: 40px; }
+
+.body-leg {
+  position: absolute;
+  top: 306px;
+  width: 30px; height: 250px;
+  border-radius: 10px 10px 15px 15px;
+  border: 2px solid rgba(196,164,148,0.5);
+  background: rgba(196,164,148,0.04);
+}
+.body-leg.left  { left: 72px; }
+.body-leg.right { right: 72px; }
+
+/* 穴位热点 */
+.acupoint {
+  position: absolute;
+  width: 13px; height: 13px;
+  border-radius: 50%;
+  background: var(--color-rose);
+  cursor: pointer;
+  z-index: 5;
+  transform: translate(-50%, -50%);
+  animation: pulse 2s infinite;
+  transition: transform 0.2s;
+}
+
+.acupoint:hover {
+  transform: translate(-50%, -50%) scale(1.7);
+  z-index: 10;
+}
+
+.acupoint.active-point {
+  background: #c97060;
+  box-shadow: 0 0 14px rgba(201,112,96,0.5);
+  animation: none;
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(201,136,143,0.6); }
+  70%  { box-shadow: 0 0 0 10px rgba(201,136,143,0); }
+  100% { box-shadow: 0 0 0 0 rgba(201,136,143,0); }
+}
+
+.acupoint:hover::after {
+  content: attr(data-name);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border: 1px solid var(--color-bud);
+  padding: 4px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-size: 0.8em;
+  color: var(--color-deep);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  z-index: 20;
+}
+
+/* 详情展示区 */
+.acupoint-detail {
+  flex: 1;
+  min-width: 280px;
+  max-width: 420px;
+  background: #fff;
+  border: 1px solid var(--color-bud);
+  border-radius: 12px;
+  padding: 24px;
+  min-height: 300px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+}
+
+.detail-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  color: var(--color-dust);
+  font-size: 1em;
+}
+
+.detail-content h3 {
+  font-family: var(--font-title);
+  font-size: 1.4em;
+  color: var(--color-deep);
+  margin-bottom: 14px;
+  letter-spacing: 0.08em;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--color-bud);
+}
+
+.detail-row {
+  margin-bottom: 10px;
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.detail-label {
+  color: var(--color-rose);
+  font-weight: 600;
+  white-space: nowrap;
+  min-width: 85px;
+  font-size: 0.9em;
+}
+
+.detail-row span:last-child {
+  color: #7a7068;
+  line-height: 1.6;
+  font-size: 0.9em;
+}
+
+/* === 表格区 === */
+.table-section { padding: 60px 0; }
+
+/* === 视频区 === */
+.video-section {
+  padding: 60px 0;
+  background: rgba(222,200,196,0.08);
+}
+
+.video-wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.video-placeholder {
+  width: 100%;
+  height: 280px;
+  background: rgba(222,200,196,0.1);
+  border: 2px dashed var(--color-bud);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-deep);
+  font-size: 1.05em;
+}
+
+/* === 响应式 === */
+@media (max-width: 768px) {
+  .intro-content { flex-direction: column; align-items: center; text-align: center; }
+  .acupoint-layout { flex-direction: column; align-items: center; }
+  .body-map { width: 200px; height: 500px; }
+  .body-head { width: 46px; height: 54px; }
+  .body-torso { width: 68px; height: 200px; top: 52px; }
+  .body-arm { width: 21px; height: 160px; top: 62px; }
+  .body-arm.left { left: 28px; } .body-arm.right { right: 28px; }
+  .body-leg { width: 24px; height: 190px; top: 244px; }
+  .body-leg.left { left: 54px; } .body-leg.right { right: 54px; }
+  .acupoint { width: 11px; height: 11px; }
+}

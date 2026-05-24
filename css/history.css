@@ -1,0 +1,223 @@
+/* ============================================================
+ * history.css - 中医历史页样式（降饱和版）
+ * ============================================================ */
+
+.timeline-section {
+  padding: 60px 0;
+}
+
+/* 竖线主轴 */
+.timeline {
+  position: relative;
+  padding-left: 60px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 28px;
+  top: 0;
+  bottom: 0;
+  width: 2.5px;
+  background: var(--color-dusk);
+  border-radius: 2px;
+  opacity: 0.6;
+}
+
+/* 时间轴节点 */
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  opacity: 0;
+  transition: all 0.6s ease;
+}
+
+.timeline-item[data-animate="left"]  { transform: translateX(40px); }
+.timeline-item[data-animate="right"] { transform: translateX(-40px); }
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 铜钱圆点 */
+.timeline-dot {
+  position: absolute;
+  left: -47px;
+  top: 20px;
+  font-size: 20px;
+  color: var(--color-rose);
+  z-index: 2;
+  background: var(--color-jade);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 时间轴卡片 */
+.timeline-card {
+  background: #fff;
+  border: 1px solid var(--color-bud);
+  border-radius: 8px;
+  padding: 24px;
+  border-left: 3px solid var(--color-dusk);
+  transition: all 0.3s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+}
+
+.timeline-card:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+
+.timeline-era {
+  display: inline-block;
+  background: rgba(196,164,148,0.25);
+  color: var(--color-deep);
+  padding: 3px 14px;
+  border-radius: 10px;
+  font-size: 0.85em;
+  margin-bottom: 8px;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+
+.timeline-card h3 {
+  font-family: var(--font-title);
+  color: var(--color-deep);
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.timeline-card p {
+  color: #7a7068;
+  line-height: var(--line-height);
+  margin-bottom: 12px;
+  font-size: 0.93em;
+}
+
+.timeline-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* === 四大经典著作表格 === */
+.classics-section {
+  padding: 60px 0;
+  background: rgba(222,200,196,0.08);
+}
+
+/* === 名医馆：3D翻牌卡片 === */
+.doctors-section {
+  padding: 60px 0;
+}
+
+.doctor-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.doctor-card {
+  perspective: 1000px;
+  height: 270px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.doctor-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  border: 1.5px solid var(--color-bud);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.card-front {
+  background: #fff;
+  text-align: center;
+}
+
+.doctor-avatar {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2em;
+  color: #fff;
+  margin-bottom: 14px;
+  border: 3px solid var(--color-bud);
+}
+
+.card-front h3 {
+  font-family: var(--font-title);
+  color: var(--color-deep);
+  font-size: 1.2em;
+  letter-spacing: 0.08em;
+}
+
+.card-front p {
+  color: var(--color-dusk);
+  font-size: 0.88em;
+  margin-top: 4px;
+}
+
+/* 背面 */
+.card-back {
+  background: linear-gradient(135deg, rgba(222,200,196,0.15), rgba(201,136,143,0.1));
+  transform: rotateY(180deg);
+  text-align: center;
+  overflow-y: auto;
+}
+
+.card-back h4 {
+  font-family: var(--font-title);
+  color: var(--color-rose);
+  font-size: 0.92em;
+  margin: 6px 0 4px;
+}
+
+.card-back p {
+  color: var(--color-deep);
+  font-size: 0.88em;
+  line-height: 1.6;
+}
+
+/* === 响应式 === */
+@media (max-width: 768px) {
+  .timeline { padding-left: 40px; }
+  .timeline::before { left: 18px; }
+  .timeline-dot { left: -33px; font-size: 17px; width: 24px; height: 24px; }
+  .doctor-grid { grid-template-columns: repeat(2, 1fr); }
+  .doctor-card { height: 230px; }
+}
+
+@media (max-width: 480px) {
+  .doctor-grid { grid-template-columns: 1fr; }
+}

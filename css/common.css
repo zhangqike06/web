@@ -1,0 +1,661 @@
+/* ============================================================
+ * common.css - 《本草寻源》全站公共样式表
+ * 技术栈：HTML5 + CSS3 + JavaScript（纯前端）
+ * 设计系统：莫兰迪宣纸系 - 低饱和·高级感·温柔
+ * ============================================================ */
+
+/* === CSS全局变量：莫兰迪色板（降饱和版） === */
+:root {
+  --color-rose:    #C9888F;   /* 玫瑰（降饱和）：主按钮、导航底色 */
+  --color-dusk:    #C4A494;   /* 暮光（降饱和）：装饰线、hover背景 */
+  --color-bud:     #DEC8C4;   /* 花苞（降饱和）：浅色标签、表格浅行 */
+  --color-dust:    #9B8E84;   /* 尘埃（加深）：正文色、分割线，保证可读性 */
+  --color-jade:    #F2EFEB;   /* 玉白（更暖）：页面底色 */
+  --color-deep:    #4A3A32;   /* 深棕（柔化）：标题加粗文字 */
+
+  /* 动态主题变量 */
+  --accent-color:  #C9888F;
+
+  /* 字体 - 使用全平台通用安全字体 */
+  --font-title: Georgia, "Times New Roman", "KaiTi", "楷体", "STKaiti", serif;
+  --font-body:  -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+
+  /* 行高与间距 */
+  --line-height: 1.8;
+  --spacing-section: 60px;
+  --spacing-card: 20px;
+}
+
+/* === 全局重置 === */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === 宣纸磨砂纸质背景 === */
+body {
+  background-color: var(--color-jade);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: var(--line-height);
+  color: var(--color-dust);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* === 字体规范 === */
+h1, h2, h3, h4, .section-title {
+  font-family: var(--font-title);
+  letter-spacing: 0.06em;
+  color: var(--color-deep);
+}
+
+p, li, td, th, span, div {
+  font-family: var(--font-body);
+  line-height: var(--line-height);
+  color: var(--color-dust);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* === 页面标题通用 === */
+.page-header {
+  text-align: center;
+  padding: 80px 20px 40px;
+  position: relative;
+}
+
+.page-header h1 {
+  font-size: 2.5em;
+  margin-bottom: 12px;
+  position: relative;
+  display: inline-block;
+}
+
+.page-header h1::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 1em;
+  background: var(--color-rose);
+  margin-right: 12px;
+  vertical-align: middle;
+  border-radius: 2px;
+}
+
+.page-header .subtitle {
+  font-size: 1.1em;
+  color: var(--color-dust);
+  margin-top: 8px;
+}
+
+.section-divider {
+  border: none;
+  border-bottom: 1px solid var(--color-bud);
+  margin: var(--spacing-section) 0;
+}
+
+/* === 容器 === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ============================================================
+ * 固定顶部导航栏（毛玻璃效果）
+ * ============================================================ */
+#nav-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
+  padding: 0;
+}
+
+/* 默认：半透明毛玻璃 */
+#nav-header {
+  background: rgba(60, 40, 35, 0.45);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* 滚动后：更实的毛玻璃 */
+#nav-header.scrolled {
+  background: rgba(55, 35, 30, 0.82);
+  backdrop-filter: blur(18px) saturate(1.1);
+  -webkit-backdrop-filter: blur(18px) saturate(1.1);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.12);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.nav-logo img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+
+.nav-logo span {
+  font-family: var(--font-title);
+  font-size: 1.25em;
+  color: #fff;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+/* 主菜单 */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  list-style: none;
+}
+
+.nav-menu > li {
+  position: relative;
+}
+
+.nav-menu > li > a {
+  display: block;
+  padding: 9px 14px;
+  color: rgba(255,255,255,0.92);
+  font-size: 0.92em;
+  border-radius: 6px;
+  transition: background 0.25s, color 0.25s;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.nav-menu > li > a:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.nav-menu > li > a.nav-login {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  margin-left: 6px;
+}
+
+.nav-menu > li > a.nav-login:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* JS二级下拉菜单 */
+.has-sub > .submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(55, 35, 30, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 0 0 8px 8px;
+  min-width: 140px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.has-sub:hover > .submenu,
+.has-sub.active > .submenu {
+  display: block;
+}
+
+.submenu li a {
+  display: block;
+  padding: 10px 20px;
+  color: rgba(255,255,255,0.9);
+  font-size: 0.9em;
+  transition: background 0.2s;
+}
+
+.submenu li a:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* 全站搜索框 */
+.nav-search {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.nav-search input {
+  width: 180px;
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px 0 0 20px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 0.88em;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.nav-search input::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.nav-search input:focus {
+  width: 220px;
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255,255,255,0.5);
+}
+
+.nav-search button {
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-left: none;
+  border-radius: 0 20px 20px 0;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background 0.3s;
+}
+
+.nav-search button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* 搜索结果下拉 */
+.search-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 20px;
+  width: 320px;
+  max-height: 300px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid var(--color-bud);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  z-index: 1001;
+}
+
+.search-dropdown.show {
+  display: block;
+}
+
+.search-dropdown .result-item {
+  display: block;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(222,200,196,0.3);
+  color: var(--color-deep);
+  transition: background 0.2s;
+}
+
+.search-dropdown .result-item:hover {
+  background: rgba(222,200,196,0.2);
+}
+
+.search-dropdown .result-item .result-desc {
+  font-size: 0.85em;
+  color: var(--color-dust);
+  margin-top: 2px;
+}
+
+.search-dropdown .no-result {
+  padding: 16px;
+  text-align: center;
+  color: var(--color-dust);
+}
+
+/* ============================================================
+ * 悬浮古乐播放器（右下角固定）
+ * ============================================================ */
+#music-player {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+#jade-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(201, 136, 143, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3em;
+  color: #fff;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+#jade-icon:hover {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+  background: rgba(201, 136, 143, 0.9);
+}
+
+#jade-icon.playing {
+  animation: jadeSpin 3s linear infinite;
+}
+
+#jade-icon.paused {
+  animation: none;
+}
+
+@keyframes jadeSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ============================================================
+ * 公共页脚
+ * ============================================================ */
+.site-footer {
+  background: rgba(222, 200, 196, 0.15);
+  border-top: 1px solid var(--color-bud);
+  padding: 32px 20px;
+  text-align: center;
+  margin-top: var(--spacing-section);
+}
+
+.site-footer .footer-brand {
+  font-family: var(--font-title);
+  font-size: 1.15em;
+  color: var(--color-deep);
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
+}
+
+.site-footer .footer-info {
+  font-size: 0.88em;
+  color: var(--color-dust);
+  margin: 4px 0;
+}
+
+/* ============================================================
+ * 通用按钮
+ * ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 28px;
+  border: none;
+  border-radius: 24px;
+  font-family: var(--font-body);
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.03em;
+}
+
+.btn-primary {
+  background: var(--color-rose);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #b0787f;
+  box-shadow: 0 4px 16px rgba(201,136,143,0.35);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-rose);
+  border: 1.5px solid var(--color-rose);
+}
+
+.btn-outline:hover {
+  background: var(--color-rose);
+  color: #fff;
+}
+
+/* ============================================================
+ * 卡片通用
+ * ============================================================ */
+.card {
+  background: #fff;
+  border: 1px solid var(--color-bud);
+  border-radius: 8px;
+  padding: var(--spacing-card);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+/* ============================================================
+ * 表格通用
+ * ============================================================ */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+}
+
+table th, table td {
+  padding: 12px 16px;
+  border: 1px solid rgba(222,200,196,0.5);
+  text-align: left;
+  font-size: 0.93em;
+}
+
+table th {
+  background: rgba(201,136,143,0.1);
+  font-family: var(--font-title);
+  color: var(--color-deep);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+table tr:nth-child(even) td {
+  background: rgba(222,200,196,0.1);
+}
+
+table tr:hover td {
+  background: rgba(196,164,148,0.12);
+}
+
+/* ============================================================
+ * 标签徽章（对齐修正）
+ * ============================================================ */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  background: rgba(222,200,196,0.45);
+  color: var(--color-deep);
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.82em;
+  margin: 2px 3px;
+  line-height: 1.4;
+}
+
+/* ============================================================
+ * Modal弹窗通用
+ * ============================================================ */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 12px;
+  border: 2px solid var(--color-bud);
+  padding: 32px;
+  max-width: 700px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modalFadeIn 0.4s ease;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 1.6em;
+  cursor: pointer;
+  color: var(--color-dust);
+  transition: color 0.2s;
+  background: none;
+  border: none;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  color: var(--color-rose);
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: scale(0.92) translateY(-20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ============================================================
+ * 横幅Banner通用
+ * ============================================================ */
+.banner {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.18);
+  z-index: 1;
+}
+
+.banner-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.banner-content h1 {
+  font-size: 2.6em;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  letter-spacing: 0.08em;
+}
+
+.banner-content p {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.05em;
+  margin-top: 8px;
+}
+
+/* ============================================================
+ * 响应式
+ * ============================================================ */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .nav-menu > li > a {
+    padding: 7px 9px;
+    font-size: 0.82em;
+  }
+
+  .nav-search input {
+    width: 120px;
+  }
+
+  .nav-search input:focus {
+    width: 150px;
+  }
+
+  .page-header h1 {
+    font-size: 1.8em;
+  }
+
+  .banner-content h1 {
+    font-size: 2em;
+  }
+
+  .banner {
+    height: 200px;
+  }
+
+  #jade-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1em;
+  }
+
+  body {
+    font-size: 15px;
+  }
+}

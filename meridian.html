@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>经络穴位 - 本草寻源</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/meridian.css">
+</head>
+<body>
+
+  <header id="nav-header">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="images/logo.svg" alt="本草寻源">
+        <span>本草寻源</span>
+      </div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">首页</a></li>
+          <li class="has-sub">
+            <a href="#">中医文化 ▾</a>
+            <ul class="submenu">
+              <li><a href="history.html">历史溯源</a></li>
+              <li><a href="meridian.html">经络穴位</a></li>
+            </ul>
+          </li>
+          <li><a href="herbs.html">本草百科</a></li>
+          <li><a href="prescription.html">经典名方</a></li>
+          <li><a href="wellness.html">养生保健</a></li>
+          <li><a href="login.html" class="nav-login">登录</a></li>
+        </ul>
+      </nav>
+      <div class="nav-search">
+        <input type="text" id="search-input" placeholder="搜索草药、穴位、名方...">
+        <button id="search-btn">&#128269;</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 页面标题横幅 -->
+  <section class="banner">
+    <div class="banner-bg" style="background: linear-gradient(160deg, #3d3644, #4a4252, #322c38);"></div>
+    <div class="banner-content">
+      <h1>经络穴位</h1>
+      <p>十二正经，奇经八脉 —— 人体气血运行的奥秘通道</p>
+    </div>
+  </section>
+
+  <!-- 十二经络概述（图文混排 float） -->
+  <section class="intro-section">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;margin-bottom:24px;">经络系统概述</h2>
+      <div class="intro-content">
+        <div class="intro-img">
+          <div class="meridian-diagram">
+            <div class="diagram-circle">
+              <span>经络</span>
+            </div>
+          </div>
+        </div>
+        <div class="intro-text">
+          <p>经络是运行全身气血、联络脏腑形体官窍、沟通上下内外、感应传导信息的通路系统，是人体结构的重要组成部分。</p>
+          <p>经络系统由十二经脉、奇经八脉和络脉等组成。十二经脉是经络系统的主体，包括手三阴经（手太阴肺经、手厥阴心包经、手少阴心经）、手三阳经（手阳明大肠经、手少阳三焦经、手太阳小肠经）、足三阴经（足太阴脾经、足厥阴肝经、足少阴肾经）、足三阳经（足阳明胃经、足少阳胆经、足太阳膀胱经）。</p>
+          <p>经络学说贯穿于中医学的生理、病理、诊断和治疗各个方面，与脏腑学说共同构成了中医学的理论核心。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 穴位互动区 -->
+  <section class="acupoint-section">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;margin-bottom:32px;">穴位图解互动</h2>
+
+      <!-- 正/背面切换 -->
+      <div class="view-toggle">
+        <button class="toggle-btn active" id="btn-front" onclick="switchView('front')">正面穴位</button>
+        <button class="toggle-btn" id="btn-back" onclick="switchView('back')">背面穴位</button>
+      </div>
+
+      <div class="acupoint-layout">
+        <!-- 人体穴位图（相对定位容器） -->
+        <div class="body-map" id="body-map">
+          <!-- 正面人体图（CSS绘制简化图） -->
+          <div class="body-silhouette front-view" id="body-front">
+            <div class="body-head"></div>
+            <div class="body-torso"></div>
+            <div class="body-arm left"></div>
+            <div class="body-arm right"></div>
+            <div class="body-leg left"></div>
+            <div class="body-leg right"></div>
+
+            <!-- 正面穴位热点 -->
+            <div class="acupoint" style="top:2%; left:48%;"
+                 data-name="百会" data-pos="头顶正中，前发际正中直上5寸"
+                 data-meridian="督脉" data-effect="升阳举陷，益气固脱，醒脑开窍，宁心安神"
+                 data-method="正坐或仰卧，两耳尖连线与正中线交点"
+                 data-note="不可用力按压，宜轻柔按摩"></div>
+            <div class="acupoint" style="top:16%; left:48%;"
+                 data-name="印堂" data-pos="额部，两眉头连线中点"
+                 data-meridian="经外奇穴" data-effect="清头明目，通鼻开窍，安神定志"
+                 data-method="取两眉头连线的中点"
+                 data-note="头痛、眩晕、鼻塞常用穴"></div>
+            <div class="acupoint" style="top:26%; left:52%;"
+                 data-name="膻中" data-pos="胸部，前正中线，两乳头连线中点"
+                 data-meridian="任脉" data-effect="宽胸理气，化痰通络，宁心安神"
+                 data-method="仰卧或正坐，两乳头连线与前正中线交点"
+                 data-note="气会膻中，为八会穴之气会"></div>
+            <div class="acupoint" style="top:38%; left:53%;"
+                 data-name="中脘" data-pos="上腹部，前正中线上，脐中上4寸"
+                 data-meridian="任脉" data-effect="健脾和胃，消食导滞，降逆利水"
+                 data-method="脐中与胸剑联合连线的中点"
+                 data-note="胃之募穴，腑会中脘"></div>
+            <div class="acupoint" style="top:50%; left:50%;"
+                 data-name="气海" data-pos="下腹部，前正中线上，脐中下1.5寸"
+                 data-meridian="任脉" data-effect="培补元气，益肾固精，补益回阳"
+                 data-method="脐中直下1.5寸（约两横指）"
+                 data-note="为生气之海，养生保健要穴"></div>
+            <div class="acupoint" style="top:56%; left:50%;"
+                 data-name="关元" data-pos="下腹部，前正中线上，脐中下3寸"
+                 data-meridian="任脉" data-effect="培补元气，导赤通淋，调经止带"
+                 data-method="脐中直下3寸（约四横指）"
+                 data-note="小肠募穴，为人体强壮要穴"></div>
+            <div class="acupoint" style="top:25%; left:24%;"
+                 data-name="合谷" data-pos="手背第1、2掌骨间，第2掌骨桡侧中点"
+                 data-meridian="手阳明大肠经" data-effect="镇静止痛，清热解表，疏经通络"
+                 data-method="拇食指并拢，肌肉隆起最高处"
+                 data-note="面口合谷收，头面五官疾痛要穴"></div>
+            <div class="acupoint" style="top:28%; left:74%;"
+                 data-name="内关" data-pos="前臂掌侧，腕横纹上2寸，两筋之间"
+                 data-meridian="手厥阴心包经" data-effect="宁心安神，和胃降逆，宽胸理气"
+                 data-method="腕横纹上2寸（三横指），掌长肌腱与桡侧腕屈肌腱之间"
+                 data-note="心胸内关谋，为心包经络穴"></div>
+          </div>
+
+          <!-- 背面人体图 -->
+          <div class="body-silhouette back-view" id="body-back" style="display:none;">
+            <div class="body-head"></div>
+            <div class="body-torso"></div>
+            <div class="body-arm left"></div>
+            <div class="body-arm right"></div>
+            <div class="body-leg left"></div>
+            <div class="body-leg right"></div>
+
+            <!-- 背面穴位热点 -->
+            <div class="acupoint" style="top:3%; left:48%;"
+                 data-name="风池" data-pos="项部，枕骨之下，胸锁乳突肌与斜方肌上端之间凹陷处"
+                 data-meridian="足少阳胆经" data-effect="平肝息风，醒脑开窍，清热解表"
+                 data-method="后发际正中上1寸旁开，两肌肉之间凹陷处"
+                 data-note="祛风要穴，感冒头痛常用穴"></div>
+            <div class="acupoint" style="top:30%; left:48%;"
+                 data-name="大椎" data-pos="后正中线上，第7颈椎棘突下凹陷中"
+                 data-meridian="督脉" data-effect="清热解表，截疟止痛，镇静安神"
+                 data-method="低头时颈后最突出的骨头下方凹陷处"
+                 data-note="诸阳之会，退热要穴"></div>
+            <div class="acupoint" style="top:42%; left:35%;"
+                 data-name="肺俞" data-pos="背部，第3胸椎棘突下旁开1.5寸"
+                 data-meridian="足太阳膀胱经" data-effect="宣肺理气，止咳平喘，疏风散热"
+                 data-method="大椎下3个椎体，旁开1.5寸（两横指）"
+                 data-note="肺之背俞穴"></div>
+            <div class="acupoint" style="top:48%; left:35%;"
+                 data-name="心俞" data-pos="背部，第5胸椎棘突下旁开1.5寸"
+                 data-meridian="足太阳膀胱经" data-effect="宁心安神，理气调血，宽胸通络"
+                 data-method="大椎下5个椎体，旁开1.5寸"
+                 data-note="心之背俞穴"></div>
+            <div class="acupoint" style="top:66%; left:35%;"
+                 data-name="肾俞" data-pos="腰部，第2腰椎棘突下旁开1.5寸"
+                 data-meridian="足太阳膀胱经" data-effect="补肾益气，强腰利水，益精填髓"
+                 data-method="肚脐正对后方脊柱旁开1.5寸"
+                 data-note="肾之背俞穴，腰膝酸痛常用穴"></div>
+          </div>
+        </div>
+
+        <!-- 穴位详情展示区 -->
+        <div class="acupoint-detail" id="acupoint-detail">
+          <div class="detail-placeholder">
+            <p>&#128065; 点击图中穴位热点查看详细信息</p>
+          </div>
+          <div class="detail-content" id="detail-content" style="display:none;">
+            <h3 id="detail-name"></h3>
+            <div class="detail-row"><span class="detail-label">所属经络：</span><span id="detail-meridian"></span></div>
+            <div class="detail-row"><span class="detail-label">定位：</span><span id="detail-pos"></span></div>
+            <div class="detail-row"><span class="detail-label">功效：</span><span id="detail-effect"></span></div>
+            <div class="detail-row"><span class="detail-label">取穴方法：</span><span id="detail-method"></span></div>
+            <div class="detail-row"><span class="detail-label">注意事项：</span><span id="detail-note"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 常用穴位主治对照表 -->
+  <section class="table-section">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;margin-bottom:24px;">常用穴位主治对照表</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr><th>穴位</th><th>所属经络</th><th>定位</th><th>主治</th><th>保健应用</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>百会</td><td>督脉</td><td>头顶正中</td><td>头痛眩晕、失眠健忘</td><td>用手指轻叩或按摩</td></tr>
+            <tr><td>合谷</td><td>手阳明大肠经</td><td>手背第1、2掌骨间</td><td>头痛、牙痛、感冒</td><td>面口诸疾首选穴</td></tr>
+            <tr><td>足三里</td><td>足阳明胃经</td><td>小腿外侧，犊鼻下3寸</td><td>胃痛、腹胀、免疫力低</td><td>强壮保健要穴</td></tr>
+            <tr><td>三阴交</td><td>足太阴脾经</td><td>内踝尖上3寸</td><td>月经不调、失眠</td><td>妇科调理常用穴</td></tr>
+            <tr><td>太冲</td><td>足厥阴肝经</td><td>足背第1、2跖骨间</td><td>头痛眩晕、高血压</td><td>疏肝理气要穴</td></tr>
+            <tr><td>涌泉</td><td>足少阴肾经</td><td>足底前1/3凹陷处</td><td>失眠、眩晕、高血压</td><td>每晚泡脚后按摩</td></tr>
+            <tr><td>关元</td><td>任脉</td><td>脐下3寸</td><td>遗尿、月经不调</td><td>温灸保健大穴</td></tr>
+            <tr><td>肾俞</td><td>足太阳膀胱经</td><td>第2腰椎旁开1.5寸</td><td>腰痛、肾虚耳鸣</td><td>双手搓热后按摩</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 视频嵌入区域 -->
+  <section class="video-section">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;margin-bottom:24px;">经络教学视频</h2>
+      <div class="video-wrapper">
+        <div class="video-placeholder">
+          <p>&#127910; 经络穴位科普动画</p>
+          <p style="font-size:0.85em;color:var(--color-dust);">（可嵌入B站iframe或本地视频）</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-brand">本草寻源</div>
+    <p class="footer-info">中国石油大学（北京）2025—2026春季学期 · Web程序设计大作业</p>
+    <p class="footer-info">传承中医药文化，弘扬中华国粹</p>
+  </footer>
+
+  <div id="music-player">
+    <audio id="bgm" src="music/guqin-bg.mp3" loop preload="none"></audio>
+    <div id="jade-icon" class="paused" title="点击播放/暂停背景音乐">&#9835;</div>
+  </div>
+
+  <script src="javascript/nav.js"></script>
+  <script>
+    /* 内联穴位交互脚本 */
+    (function() {
+      'use strict';
+
+      /* 正/背面切换 */
+      window.switchView = function(view) {
+        var frontBtn = document.getElementById('btn-front');
+        var backBtn  = document.getElementById('btn-back');
+        var frontBody = document.getElementById('body-front');
+        var backBody  = document.getElementById('body-back');
+
+        if (view === 'front') {
+          frontBody.style.display = 'block';
+          backBody.style.display = 'none';
+          frontBtn.classList.add('active');
+          backBtn.classList.remove('active');
+        } else {
+          frontBody.style.display = 'none';
+          backBody.style.display = 'block';
+          frontBtn.classList.remove('active');
+          backBtn.classList.add('active');
+        }
+      };
+
+      /* 穴位热点点击事件 */
+      var acupoints = document.querySelectorAll('.acupoint');
+      var placeholder = document.querySelector('.detail-placeholder');
+      var detailContent = document.getElementById('detail-content');
+
+      acupoints.forEach(function(point) {
+        point.addEventListener('click', function(e) {
+          e.stopPropagation();
+
+          /* 读取data属性 */
+          var name     = this.getAttribute('data-name');
+          var meridian = this.getAttribute('data-meridian');
+          var pos      = this.getAttribute('data-pos');
+          var effect   = this.getAttribute('data-effect');
+          var method   = this.getAttribute('data-method');
+          var note     = this.getAttribute('data-note');
+
+          /* 更新详情区 */
+          document.getElementById('detail-name').textContent = name;
+          document.getElementById('detail-meridian').textContent = meridian;
+          document.getElementById('detail-pos').textContent = pos;
+          document.getElementById('detail-effect').textContent = effect;
+          document.getElementById('detail-method').textContent = method;
+          document.getElementById('detail-note').textContent = note;
+
+          /* 显示详情 */
+          if (placeholder) placeholder.style.display = 'none';
+          if (detailContent) detailContent.style.display = 'block';
+
+          /* 高亮当前穴位 */
+          acupoints.forEach(function(p) { p.classList.remove('active-point'); });
+          this.classList.add('active-point');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

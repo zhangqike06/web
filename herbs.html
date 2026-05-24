@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中草药百科 - 本草寻源</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/herbs.css">
+</head>
+<body>
+
+  <!-- 固定导航栏 -->
+  <header id="nav-header">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="images/logo.svg" alt="本草寻源">
+        <span>本草寻源</span>
+      </div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">首页</a></li>
+          <li class="has-sub">
+            <a href="#">中医文化 ▾</a>
+            <ul class="submenu">
+              <li><a href="history.html">历史溯源</a></li>
+              <li><a href="meridian.html">经络穴位</a></li>
+            </ul>
+          </li>
+          <li><a href="herbs.html">本草百科</a></li>
+          <li><a href="prescription.html">经典名方</a></li>
+          <li><a href="wellness.html">养生保健</a></li>
+          <li><a href="login.html" class="nav-login">登录</a></li>
+        </ul>
+      </nav>
+      <div class="nav-search">
+        <input type="text" id="search-input" placeholder="搜索草药、穴位、名方...">
+        <button id="search-btn">&#128269;</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 页面标题 -->
+  <section class="banner">
+    <div class="banner-bg" style="background: linear-gradient(160deg, #4a5448, #5a6456, #3e463a);"></div>
+    <div class="banner-content">
+      <h1>本草百科</h1>
+      <p>百草精华，性味归经 —— 探索中草药的奇妙世界</p>
+    </div>
+  </section>
+
+  <!-- 分类筛选条 -->
+  <section class="filter-bar">
+    <div class="container">
+      <div class="filter-row">
+        <label class="filter-label">功效分类：</label>
+        <div class="filter-options" id="category-filters">
+          <button class="filter-btn active" data-filter="all">全部</button>
+          <button class="filter-btn" data-filter="补虚">补虚</button>
+          <button class="filter-btn" data-filter="清热">清热</button>
+          <button class="filter-btn" data-filter="解表">解表</button>
+          <button class="filter-btn" data-filter="理气">理气</button>
+          <button class="filter-btn" data-filter="活血">活血</button>
+          <button class="filter-btn" data-filter="利水">利水</button>
+          <button class="filter-btn" data-filter="化痰">化痰</button>
+          <button class="filter-btn" data-filter="收涩">收涩</button>
+        </div>
+      </div>
+      <div class="filter-row">
+        <label class="filter-label">性味筛选：</label>
+        <div class="filter-options" id="property-filters">
+          <button class="filter-btn active" data-filter="all">全部</button>
+          <button class="filter-btn" data-filter="温">温性</button>
+          <button class="filter-btn" data-filter="寒">寒性</button>
+          <button class="filter-btn" data-filter="平">平性</button>
+          <button class="filter-btn" data-filter="凉">凉性</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 草药卡片网格 -->
+  <section class="herbs-grid-section">
+    <div class="container">
+      <div class="herbs-grid" id="herbs-grid">
+        <!-- JS动态渲染 -->
+      </div>
+      <div class="no-results" id="no-results" style="display:none;">
+        <p>未找到匹配的草药，请调整筛选条件</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 画轴弹窗 Modal -->
+  <div class="modal-overlay" id="herb-modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <div class="modal-body" id="modal-body">
+        <!-- JS动态填充 -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    <div class="footer-brand">本草寻源</div>
+    <p class="footer-info">中国石油大学（北京）2025—2026春季学期 · Web程序设计大作业</p>
+    <p class="footer-info">传承中医药文化，弘扬中华国粹</p>
+  </footer>
+
+  <!-- 播放器 -->
+  <div id="music-player">
+    <audio id="bgm" src="music/guqin-bg.mp3" loop preload="none"></audio>
+    <div id="jade-icon" class="paused" title="点击播放/暂停背景音乐">&#9835;</div>
+  </div>
+
+  <script src="javascript/nav.js"></script>
+  <script src="javascript/herbs.js"></script>
+</body>
+</html>

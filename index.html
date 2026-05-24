@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>本草寻源 - 探寻千年中医药智慧</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+  <!-- ============================================================
+  固定顶部导航栏（全站公共组件）
+  ============================================================ -->
+  <header id="nav-header">
+    <div class="nav-container">
+      <!-- Logo -->
+      <div class="nav-logo">
+        <img src="images/logo.svg" alt="本草寻源">
+        <span>本草寻源</span>
+      </div>
+
+      <!-- 主菜单（JS二级下拉） -->
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">首页</a></li>
+          <li class="has-sub">
+            <a href="#">中医文化 ▾</a>
+            <ul class="submenu">
+              <li><a href="history.html">历史溯源</a></li>
+              <li><a href="meridian.html">经络穴位</a></li>
+            </ul>
+          </li>
+          <li><a href="herbs.html">本草百科</a></li>
+          <li><a href="prescription.html">经典名方</a></li>
+          <li><a href="wellness.html">养生保健</a></li>
+          <li><a href="login.html" class="nav-login">登录</a></li>
+        </ul>
+      </nav>
+
+      <!-- 全站搜索框 -->
+      <div class="nav-search">
+        <input type="text" id="search-input" placeholder="搜索草药、穴位、名方...">
+        <button id="search-btn">&#128269;</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+  Hero区：CSS水墨动画背景（替代视频）
+  ============================================================ -->
+  <section class="hero-section">
+    <div class="hero-ink-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">本草寻源</h1>
+      <p class="hero-subtitle">探寻千年中医药智慧</p>
+      <div class="date-info">
+        <span id="lunar-date">加载中...</span>
+        <span class="date-sep">|</span>
+        <span id="solar-term">加载中...</span>
+        <span class="date-sep">|</span>
+        <span id="term-tip"></span>
+      </div>
+      <a href="#categories" class="hero-scroll-hint">&#8964; 开始探索</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+  每日一签：摇签互动区
+  ============================================================ -->
+  <section class="daily-fortune" id="daily-fortune">
+    <div class="container">
+      <h2 class="section-title">每日一签</h2>
+      <p class="section-desc">摇一摇，获取今日中医养生箴言</p>
+      <div class="fortune-box">
+        <div class="fortune-display" id="fortune-display">
+          <span id="fortune-text">点击签筒摇签</span>
+        </div>
+        <button class="fortune-btn" id="fortune-btn" title="摇签">
+          <span class="fortune-stick">&#9775;</span>
+          <span>摇 签</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+  五大栏目入口
+  ============================================================ -->
+  <section class="categories" id="categories">
+    <div class="container">
+      <h2 class="section-title">探索本草世界</h2>
+      <div class="category-grid">
+        <a href="history.html" class="category-card">
+          <span class="category-icon">&#128214;</span>
+          <h3>历史文化</h3>
+          <p>千年医脉，杏林春秋</p>
+        </a>
+        <a href="herbs.html" class="category-card">
+          <span class="category-icon">&#127807;</span>
+          <h3>草药百科</h3>
+          <p>百草精华，性味归经</p>
+        </a>
+        <a href="meridian.html" class="category-card">
+          <span class="category-icon">&#127753;</span>
+          <h3>经络穴位</h3>
+          <p>十二正经，奇经八脉</p>
+        </a>
+        <a href="prescription.html" class="category-card">
+          <span class="category-icon">&#9737;</span>
+          <h3>经典名方</h3>
+          <p>君臣佐使，配伍精妙</p>
+        </a>
+        <a href="wellness.html" class="category-card">
+          <span class="category-icon">&#127795;</span>
+          <h3>养生保健</h3>
+          <p>治未病，调未乱</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+  今日推荐中药（图文混排 float）
+  ============================================================ -->
+  <section class="featured-herb" id="featured">
+    <div class="container">
+      <h2 class="section-title">今日推荐中药</h2>
+      <div class="featured-card">
+        <div class="featured-img">
+          <!-- CSS绘制药材示意 -->
+          <div class="herb-illustration" id="featured-herb-img"></div>
+        </div>
+        <div class="featured-content">
+          <h3 id="featured-name">人参</h3>
+          <p class="featured-property" id="featured-property">性味：甘、微苦、微温 | 归经：脾、肺、心</p>
+          <p class="featured-effect" id="featured-effect">大补元气，复脉固脱，补脾益肺，生津养血，安神益智</p>
+          <p class="featured-desc" id="featured-desc">
+            人参被誉为"百草之王"，是驰名中外的名贵药材。其根部肉质肥大，形如人形，故名人参。
+            在中国应用已有数千年的历史，《神农本草经》将其列为上品。现代药理研究表明，
+            人参含有多种人参皂苷，具有抗疲劳、增强免疫力、改善心血管功能等多重功效。
+          </p>
+          <a href="herbs.html?search=人参" class="btn btn-outline">了解更多 &#10132;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+  医道名言：跑马灯横向无缝滚动
+  ============================================================ -->
+  <section class="quotes-marquee">
+    <div class="container">
+      <h2 class="section-title">医道名言</h2>
+    </div>
+    <div class="marquee-track">
+      <div class="marquee-content" id="marquee-content">
+        <span>"上工治未病，不治已病。" —— 《黄帝内经》</span>
+        <span class="marquee-sep">&#9670;</span>
+        <span>"人命至重，有贵千金。" —— 孙思邈</span>
+        <span class="marquee-sep">&#9670;</span>
+        <span>"不为良相，便为良医。" —— 范仲淹</span>
+        <span class="marquee-sep">&#9670;</span>
+        <span>"正气存内，邪不可干。" —— 《黄帝内经》</span>
+        <span class="marquee-sep">&#9670;</span>
+        <span>"药食同源，寓医于食。" —— 《千金要方》</span>
+        <span class="marquee-sep">&#9670;</span>
+        <span>"春夏养阳，秋冬养阴。" —— 《黄帝内经》</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+  公共页脚
+  ============================================================ -->
+  <footer class="site-footer">
+    <div class="footer-brand">本草寻源</div>
+    <p class="footer-info">中国石油大学（北京）2025—2026春季学期 · Web程序设计大作业</p>
+    <p class="footer-info">传承中医药文化，弘扬中华国粹</p>
+  </footer>
+
+  <!-- ============================================================
+  悬浮古乐播放器（右下角固定）
+  ============================================================ -->
+  <div id="music-player">
+    <audio id="bgm" src="music/guqin-bg.mp3" loop preload="none"></audio>
+    <div id="jade-icon" class="paused" title="点击播放/暂停背景音乐">&#9835;</div>
+  </div>
+
+  <script src="javascript/nav.js"></script>
+  <script src="javascript/index.js"></script>
+</body>
+</html>
