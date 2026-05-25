@@ -285,5 +285,31 @@
 
   <script src="javascript/nav.js"></script>
   <script src="javascript/animation.js"></script>
+  <script>
+    (function() {
+      'use strict';
+
+      var params = new URLSearchParams(window.location.search);
+      var searchTerm = params.get('search');
+
+      if (!searchTerm) return;
+
+      var candidates = document.querySelectorAll('.timeline-card h3, .doctor-card h3');
+      for (var i = 0; i < candidates.length; i++) {
+        var text = candidates[i].textContent || '';
+        if (text.indexOf(searchTerm) !== -1 || searchTerm.indexOf(text.replace(/\s+/g, '')) !== -1) {
+          setTimeout(function(target) {
+            return function() {
+              var card = target.closest('.timeline-item, .doctor-card');
+              if (card) {
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              }
+            };
+          }(candidates[i]), 300);
+          break;
+        }
+      }
+    })();
+  </script>
 </body>
 </html>

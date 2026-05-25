@@ -366,6 +366,47 @@
     }, 300);
   }
 
+  (function checkSearchParam() {
+    var params = new URLSearchParams(window.location.search);
+    var searchTerm = params.get('search');
+    var seasonAliasMap = {
+      '春': 'spring',
+      '春季': 'spring',
+      '夏': 'summer',
+      '夏季': 'summer',
+      '秋': 'autumn',
+      '秋季': 'autumn',
+      '冬': 'winter',
+      '冬季': 'winter'
+    };
+
+    if (!searchTerm) return;
+
+    if (termList.indexOf(searchTerm) !== -1) {
+      setTimeout(function() {
+        onTermClick(searchTerm);
+        var termContentEl = document.getElementById('term-content');
+        if (termContentEl) {
+          termContentEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 250);
+      return;
+    }
+
+    if (seasonAliasMap[searchTerm]) {
+      var seasonKey = seasonAliasMap[searchTerm];
+      seasonTabs.forEach(function(tab) {
+        tab.classList.toggle('active', tab.getAttribute('data-season') === seasonKey);
+      });
+      renderSeasonContent(seasonKey);
+      setTimeout(function() {
+        if (seasonContent) {
+          seasonContent.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 250);
+    }
+  })();
+
   highlightCurrentTerm();
 
 })();

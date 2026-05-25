@@ -258,4 +258,35 @@
    * ============================================================ */
   loadRecipe(0);
 
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var searchTerm = params.get('search');
+    var matchedIndex = -1;
+
+    if (!searchTerm) return;
+
+    for (var i = 0; i < recipes.length; i++) {
+      if (recipes[i].name.indexOf(searchTerm) !== -1 ||
+          searchTerm.indexOf(recipes[i].name) !== -1) {
+        matchedIndex = i;
+        break;
+      }
+    }
+
+    if (matchedIndex === -1) return;
+
+    loadRecipe(matchedIndex);
+    resetAlchemy();
+
+    setTimeout(function() {
+      var activeTab = document.querySelector('.bamboo-item.active');
+      if (activeTab) {
+        activeTab.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+      }
+      if (herbsPool) {
+        herbsPool.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 250);
+  })();
+
 })();

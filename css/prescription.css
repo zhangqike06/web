@@ -255,8 +255,20 @@
 
 /* === 响应式 === */
 @media (max-width: 768px) {
+  .alchemy-section,
+  .formula-detail-section { padding: 44px 0; }
+  .prescription-nav { padding: 14px 0; }
+  .bamboo-nav { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 6px; }
+  .bamboo-item { flex: 0 0 auto; }
   .herb-ingredient { width: 90px; padding: 12px; }
   .herb-ingredient .herb-icon { font-size: 1.7em; }
   .cauldron { width: 120px; height: 120px; }
   .cauldron-icon { font-size: 2em; }
+  .result-card { padding: 24px 18px; }
+}
+
+@media (max-width: 480px) {
+  .herbs-pool { gap: 10px; }
+  .herb-ingredient { width: calc(50% - 8px); }
+  .result-card h3 { font-size: 1.35em; }
 }

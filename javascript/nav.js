@@ -136,7 +136,10 @@
   var searchDropdown = document.createElement('div');
   searchDropdown.className = 'search-dropdown';
   searchDropdown.id = 'search-dropdown';
-  document.getElementById('nav-header').appendChild(searchDropdown);
+  var navSearch = document.querySelector('.nav-search');
+  if (navSearch) {
+    navSearch.appendChild(searchDropdown);
+  }
 
   /* 获取搜索相关DOM元素 */
   var searchInput  = document.getElementById('search-input');
@@ -169,7 +172,7 @@
 
     /* 点击外部关闭下拉 */
     document.addEventListener('click', function(e) {
-      if (!searchDropdown.contains(e.target) && e.target !== searchInput) {
+      if (!searchDropdown.contains(e.target) && e.target !== searchInput && e.target !== searchBtn) {
         hideDropdown();
       }
     });
@@ -205,7 +208,7 @@
     } else {
       var html = '';
       results.slice(0, 8).forEach(function(item) {
-        html += '<a href="' + item.url + '" class="result-item">';
+        html += '<a href="' + item.url + '?search=' + encodeURIComponent(item.keyword) + '" class="result-item">';
         html += '<div>' + item.keyword + '</div>';
         html += '<div class="result-desc">' + item.desc + '</div>';
         html += '</a>';

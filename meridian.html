@@ -298,6 +298,26 @@
           this.classList.add('active-point');
         });
       });
+
+      (function() {
+        var params = new URLSearchParams(window.location.search);
+        var searchTerm = params.get('search');
+
+        if (!searchTerm) return;
+
+        for (var i = 0; i < acupoints.length; i++) {
+          var pointName = acupoints[i].getAttribute('data-name') || '';
+          if (pointName.indexOf(searchTerm) !== -1 || searchTerm.indexOf(pointName) !== -1) {
+            setTimeout(function(targetPoint) {
+              return function() {
+                targetPoint.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+                targetPoint.click();
+              };
+            }(acupoints[i]), 300);
+            break;
+          }
+        }
+      })();
     })();
   </script>
 </body>

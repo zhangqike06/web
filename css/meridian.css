@@ -300,7 +300,14 @@
 
 /* === 响应式 === */
 @media (max-width: 768px) {
+  .intro-section,
+  .acupoint-section,
+  .table-section,
+  .video-section { padding: 44px 0; }
   .intro-content { flex-direction: column; align-items: center; text-align: center; }
+  .intro-img { width: 150px; }
+  .meridian-diagram { width: 140px; height: 140px; }
+  .diagram-circle { width: 130px; height: 130px; }
   .acupoint-layout { flex-direction: column; align-items: center; }
   .body-map { width: 200px; height: 500px; }
   .body-head { width: 46px; height: 54px; }
@@ -310,4 +317,23 @@
   .body-leg { width: 24px; height: 190px; top: 244px; }
   .body-leg.left { left: 54px; } .body-leg.right { right: 54px; }
   .acupoint { width: 11px; height: 11px; }
+  .acupoint-detail { width: 100%; min-width: 0; max-width: 100%; padding: 18px; }
+  .video-placeholder { height: 210px; font-size: 0.95em; }
+}
+
+@media (max-width: 480px) {
+  .toggle-btn {
+    width: calc(50% - 8px);
+    margin: 4px;
+    padding: 10px 12px;
+  }
+
+  .detail-row {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .detail-label {
+    min-width: 0;
+  }
 }

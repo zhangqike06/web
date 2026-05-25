@@ -279,6 +279,7 @@ ul, ol {
 }
 
 .nav-search {
+  position: relative;
   display: flex;
   align-items: center;
   flex-shrink: 0;
@@ -327,8 +328,9 @@ ul, ol {
 .search-dropdown {
   display: none;
   position: absolute;
-  top: calc(100% + 12px);
-  right: 20px;
+  top: calc(100% + 10px);
+  left: 0;
+  right: auto;
   width: 340px;
   max-height: 340px;
   overflow-y: auto;
@@ -650,7 +652,36 @@ table tr:hover td {
 @media (max-width: 768px) {
   .nav-container {
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px 16px 14px;
+  }
+
+  .nav-logo {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-logo img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .nav-logo span {
+    font-size: 1.08em;
+    letter-spacing: 0.1em;
+  }
+
+  .nav-container nav {
+    width: 100%;
+    order: 2;
+  }
+
+  .nav-menu {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
   }
 
   .nav-menu > li > a {
@@ -658,12 +689,24 @@ table tr:hover td {
     font-size: 0.82em;
   }
 
+  .nav-search {
+    width: 100%;
+    order: 3;
+    justify-content: center;
+  }
+
   .nav-search input {
-    width: 120px;
+    width: calc(100% - 52px);
+    min-width: 0;
   }
 
   .nav-search input:focus {
-    width: 150px;
+    width: calc(100% - 52px);
+  }
+
+  .search-dropdown {
+    width: min(340px, calc(100vw - 36px));
+    left: 0;
   }
 
   .page-header h1 {
@@ -690,5 +733,43 @@ table tr:hover td {
 
   .container {
     padding: 0 18px;
+  }
+
+  .modal-content {
+    width: calc(100% - 24px);
+    padding: 26px 18px;
+    border-radius: 18px;
+  }
+
+  .site-footer {
+    padding: 32px 16px 38px;
+  }
+
+  #music-player {
+    bottom: 18px;
+    right: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner {
+    height: 220px;
+  }
+
+  .banner-content h1 {
+    font-size: 1.7rem;
+    letter-spacing: 0.08em;
+  }
+
+  .banner-content p {
+    font-size: 0.9rem;
+  }
+
+  .page-header {
+    padding: 110px 16px 42px;
+  }
+
+  .nav-menu > li > a.nav-login {
+    margin-left: 0;
   }
 }

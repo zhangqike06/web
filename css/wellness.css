@@ -343,7 +343,32 @@
 
 /* === 响应式 === */
 @media (max-width: 768px) {
+  .compass-section,
+  .seasonal-section,
+  .constitution-section,
+  .diet-section { padding: 44px 0; }
   .compass { width: 270px; height: 270px; }
   .term-item { width: 30px; height: 30px; margin: -15px; font-size: 0.68em; }
+  .term-content,
+  .season-content,
+  .quiz-container,
+  .quiz-result { padding: 20px 18px; }
   .season-grid { grid-template-columns: 1fr; }
+  .season-tab { padding: 10px 18px; font-size: 0.92em; }
+}
+
+@media (max-width: 480px) {
+  .compass { width: 228px; height: 228px; }
+  .compass-center { width: 60px; height: 60px; font-size: 1em; }
+  .term-item { width: 26px; height: 26px; margin: -13px; font-size: 0.6em; }
+  .term-info .info-item {
+    flex-direction: column;
+    gap: 2px;
+  }
+  .quiz-nav {
+    flex-direction: column;
+  }
+  .quiz-nav .btn {
+    width: 100%;
+  }
 }

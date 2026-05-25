@@ -211,13 +211,24 @@
 
 /* === 响应式 === */
 @media (max-width: 768px) {
+  .timeline-section,
+  .classics-section,
+  .doctors-section { padding: 44px 0; }
   .timeline { padding-left: 40px; }
   .timeline::before { left: 18px; }
   .timeline-dot { left: -33px; font-size: 17px; width: 24px; height: 24px; }
-  .doctor-grid { grid-template-columns: repeat(2, 1fr); }
+  .timeline-card { padding: 18px; }
+  .doctor-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
   .doctor-card { height: 230px; }
 }
 
 @media (max-width: 480px) {
+  .timeline { padding-left: 30px; }
+  .timeline::before { left: 12px; }
+  .timeline-dot { left: -24px; top: 16px; }
+  .timeline-card h3 { font-size: 1.02em; }
+  .timeline-card p { font-size: 0.88em; }
   .doctor-grid { grid-template-columns: 1fr; }
+  .card-front,
+  .card-back { padding: 18px; }
 }
