@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>民族医药 - 本草寻源</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/ethnic.css">
+</head>
+<body>
+
+  <header id="nav-header">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="images/logo.svg" alt="本草寻源">
+        <span>本草寻源</span>
+      </div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">首页</a></li>
+          <li class="has-sub">
+            <a href="#">中医文化 ▾</a>
+            <ul class="submenu">
+              <li><a href="history.html">历史溯源</a></li>
+              <li><a href="meridian.html">经络穴位</a></li>
+              <li><a href="ethnic.html">民族医药</a></li>
+            </ul>
+          </li>
+          <li><a href="herbs.html">本草百科</a></li>
+          <li><a href="prescription.html">经典名方</a></li>
+          <li><a href="wellness.html">养生保健</a></li>
+          <li><a href="login.html" class="nav-login">登录</a></li>
+        </ul>
+      </nav>
+      <div class="nav-search">
+        <input type="text" id="search-input" placeholder="搜索草药、穴位、名方...">
+        <button id="search-btn">&#128269;</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 横幅 -->
+  <section class="banner ethnic-banner">
+    <div class="banner-bg" style="background: linear-gradient(160deg, #3a2a3e, #5a3a4e, #4a3048);"></div>
+    <div class="banner-content">
+      <h1>民族医药</h1>
+      <p>中华民族医药是祖国医学宝库的重要组成部分，是各民族人民在长期生产生活实践中积累的宝贵遗产</p>
+    </div>
+  </section>
+
+  <!-- 概览介绍 -->
+  <section class="container" style="padding-top:48px;text-align:center;">
+    <p style="max-width:760px;margin:0 auto;color:var(--color-dust);line-height:2;">
+      我国55个少数民族中，有30多个民族拥有本民族的医药传统。本页介绍其中八个具有完整理论体系和丰富临床实践的代表性民族医药：藏医学、壮医学、苗医学、彝医学、傣医学、哈萨克族医学、土家族医学及畲族医学。
+    </p>
+  </section>
+
+  <!-- 侧栏 + 内容布局 -->
+  <div class="ethnic-layout">
+
+    <!-- 左侧导航 -->
+    <aside class="ethnic-sidebar">
+      <h3>民族医药</h3>
+      <ul class="ethnic-nav-list" id="ethnic-nav">
+        <li><button class="ethnic-nav-btn active" data-ethnic="zang"><span class="ethnic-nav-icon">&#9733;</span>藏医学</button></li>
+        <li><button class="ethnic-nav-btn" data-ethnic="zhuang"><span class="ethnic-nav-icon">&#10022;</span>壮医学</button></li>
+        <li><button class="ethnic-nav-btn" data-ethnic="miao"><span class="ethnic-nav-icon">&#10018;</span>苗医学</button></li>
+        <li><button class="ethnic-nav-btn" data-ethnic="yi"><span class="ethnic-nav-icon">&#10020;</span>彝医学</button></li>
+        <li><button class="ethnic-nav-btn" data-ethnic="dai"><span class="ethnic-nav-icon">&#9783;</span>傣医学</button></li>
+        <li><button class="ethnic-nav-btn" data-ethnic="hasake"><span class="ethnic-nav-icon">&#9790;</span>哈萨克族医</button></li>
+        <li><button class="ethnic-nav-btn" data-ethnic="tujia"><span class="ethnic-nav-icon">&#10031;</span>土家族医</button></li>
+        <li><button class="ethnic-nav-btn" data-ethnic="she"><span class="ethnic-nav-icon">&#10017;</span>畲族医</button></li>
+      </ul>
+    </aside>
+
+    <!-- 右侧内容 -->
+    <main class="ethnic-content">
+
+      <!-- ==================== 藏医学 ==================== -->
+      <article class="ethnic-panel active" id="panel-zang">
+        <div class="ethnic-panel-header">
+          <h2>藏医学 —— 雪域高原的明珠</h2>
+          <p class="subtitle">藏语称为"索瓦日巴"，是藏民族在青藏高原独特自然与人文环境中创造出的完整医学体系</p>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>理论基础</h3>
+          <p>藏医学运用土、水、火、风、空五种物质之间的关系来解释人体的形成、疾病的发生、药物的性能。藏医学认为，隆、赤巴和培根这三种因素是构成人体的物质，同时又是进行生命活动不可缺少的能量和基础。在正常情况下，三者之间平衡协调；若出现偏盛或偏衰，身体就处于病理状态。藏医运用望、问、切等诊断方法来判断隆、赤巴、培根的失衡情况，治疗方法主要有饮食、起居、药物、外治四种，其中调整饮食和起居为首选方法。</p>
+          <p>对于药物的认识，藏药经典著作《晶珠本草》（18世纪）中记载藏药2294种，分为13类，去除重复后有近1200味药物。</p>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>历史沿革</h3>
+          <p>2018年《Science》刊文证实，古人类在距今4万至3万年前已活动在青藏高原海拔4600米左右的地区。随着人类生活和生产实践的开展，对生命和疾病的认识逐渐积累。藏医古籍中有"最早的疾病是消化不良，最初的药是开水"的记载。7世纪初，松赞干布建立吐蕃王朝，多个不同医学学派在吐蕃争鸣。公元8世纪末，藏族著名医家宇妥宁玛·云丹贡布集藏医之大成，编著了《四部医典》，并由其第十三世孙于12世纪将其补充完善最后定稿。</p>
+          <blockquote class="ethnic-quote">《四部医典》藏文译名为《据悉》，全书分为四部分：第一部《根本医典》（6章）总纲；第二部《论说医典》（31章）基础理论；第三部《秘诀医典》（92章）临床各科；第四部《后续医典》（27章）诊断与疗法。该书已被译成英、德、蒙古、日、俄等多种文字。</blockquote>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>发展现状</h3>
+          <p>在西藏、青海、四川、甘肃、云南等主要藏族聚居地区都设有藏医医院。西藏自治区藏医院是国家中医药管理局指定的民族医临床研究基地；西藏藏医药大学和青海大学藏医学院设有全国藏医博士学位授予点。1995年卫生部公布了《药品标准·藏药》。</p>
+          <p>2018年5月，《四部医典》进入《世界记忆亚太地区名录》；2018年11月，"藏医药浴法"被列入联合国教科文组织人类非物质文化遗产代表作名录。</p>
+        </div>
+      </article>
+
+      <!-- ==================== 壮医学 ==================== -->
+      <article class="ethnic-panel" id="panel-zhuang">
+        <div class="ethnic-panel-header">
+          <h2>壮医学 —— 重"三道两路"理论</h2>
+          <p class="subtitle">壮医以阴阳为本，三气同步为核心理论，特别强调阳气的主导作用</p>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>特色医理</h3>
+          <ul class="theory-list">
+            <li><strong>阴阳为本，三气同步：</strong>壮医特别强调阳气的主导作用，重阳、调阳、壮阳成为壮医防治疾病的重要理念。人体内的天地人三部之气必须同步运行，制约化生，才能维持健康状态。</li>
+            <li><strong>三道两路理论：</strong>"三道"即谷道、水道、气道，是与大自然直接相通的物质交换通道；"两路"为龙路（血液、体液循环通路，枢纽在心脏）、火路（信息传感通路，相当于神经系统）。"三道两路"的核心在于"通"。</li>
+            <li><strong>巧坞主神理论：</strong>壮医认为"巧坞"（大脑）是维持阴阳动态平衡的调控中枢，位高权重，是人体总指导部。</li>
+            <li><strong>毒虚致病论：</strong>调气解毒补虚不仅是治疗原则，同时也是预防疾病和养生保健的基本理念。</li>
+          </ul>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>特色方药</h3>
+          <p>广西独特的地理环境盛产中草药，肉桂、田七、苡仁、罗汉果、山银花、山豆根、铁冬青、牛大力等都是沿用已久的壮药。著名靖西壮乡药市已有上千年历史。壮医将药物分为公药、母药两大类——公药多为温热滋补调气之药，母药多属寒凉清热解毒利导之药。壮医善用鲜药和单方，亦善用毒药和解毒药。</p>
+          <div class="tag-list">
+            <span class="tag-item">肉桂</span><span class="tag-item">田七</span><span class="tag-item">罗汉果</span><span class="tag-item">山银花</span><span class="tag-item">铁冬青</span><span class="tag-item">牛大力</span><span class="tag-item">罗裙带</span><span class="tag-item">雷公根</span>
+          </div>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>特色技术</h3>
+          <div class="tech-grid">
+            <div class="tech-card">
+              <h4>壮医针刺疗法</h4>
+              <p>有体针、耳针、掌针、跖针、火针、针挑、刺血、金针、陶针等多种技法，形成"黄氏壮医针灸流派"。</p>
+            </div>
+            <div class="tech-card">
+              <h4>壮医药线点灸疗法</h4>
+              <p>2011年列入国家级非物质文化遗产，具有通痹止痛、止痒祛风、活血化瘀、消肿散结等作用。</p>
+            </div>
+            <div class="tech-card">
+              <h4>药物竹筒拔罐疗法</h4>
+              <p>用多种壮药煮沸加热特制竹罐，乘热吸拔于体表，发挥拔毒行气、散寒止痛、祛风除湿之功。</p>
+            </div>
+            <div class="tech-card">
+              <h4>壮医推拿按摩疗法</h4>
+              <p>以"查灶诊病"和"消灶解结治病"为特色，对各种痛症疗效显著。</p>
+            </div>
+            <div class="tech-card">
+              <h4>熏蒸洗浴佩垫疗法</h4>
+              <p>采用不同壮药水煎后熏蒸肌肤，对小儿病及慢性病效果较好。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>优势病种</h3>
+          <p>壮医优势病种为南方地区常见病，如风湿、痧瘴蛊毒类疾病。具体包括：痧病、发旺（痹病）、墨病（哮喘）、胴尹（胃痛）、肉扭（淋证）、笨浮（水肿）、麻邦（中风）、血压嗓（高血压病）、邦印（痛证）、屙尿甜（糖尿病）、夺扼（骨折）、核嘎尹（腰椎间盘突出症）、活邀尹（颈椎病）、旁巴尹（肩周炎）、卟佷裆（不孕症）等。</p>
+          <div class="tag-list">
+            <span class="tag-item">风湿病</span><span class="tag-item">痧瘴蛊毒</span><span class="tag-item">痹病</span><span class="tag-item">中风</span><span class="tag-item">骨折</span><span class="tag-item">腰椎间盘突出</span>
+          </div>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>发展现状</h3>
+          <p>广西壮族自治区先后出台了一系列促进壮医药发展的政策文件，颁布了《广西壮族自治区发展中医药壮医药条例》。2002年广西中医学院成立壮医系，2011年开始正式招收壮医本科生。广西民族医药研究所已承担和完成了300多项壮医药相关科研课题。收载壮药375种的《广西壮族自治区壮药质量标准》已公布施行。</p>
+        </div>
+      </article>
+
+      <!-- ==================== 苗医学 ==================== -->
+      <article class="ethnic-panel" id="panel-miao">
+        <div class="ethnic-panel-header">
+          <h2>苗医学 —— 大山深处的瑰宝</h2>
+          <p class="subtitle">苗族医药以天然绿色、方法奇特、简练实用和疗效确切而著称，被誉为"大山深处的瑰宝"</p>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>历史沿革</h3>
+          <p>西汉刘向《说苑辨物》记载："吾闻古之医者曰苗父，苗父之为医者也，行医于乡里。"《神农本草经》记载的药物有100多种与苗药同名同义。明代李时珍《本草纲目》记载了42种苗族药物。长征时期，贺龙曾指示"要动员苗医随军前进"。中华人民共和国成立后，苗医药得到长足发展。上世纪80年代后，苗医药发展以贵州省最为突出，开发部颁苗药制剂154个，形成了以苗药为代表的贵州民族药产业。</p>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>特色医理</h3>
+          <p>苗族医药是拥有自身理论指导的医学体系，包含了"两纲两病理论""苗医生成哲学""五基成物学说""三界九架理论""交环理论""四大筋脉理论""苗药质征理论"等。苗医认为气、血、水是构成人体的基本物质，生病外为水毒、气毒、火毒所犯，内有情感、信念所动，亦因劳累损伤所致。将疾病分为症和疾，辨证分类上有两纲（冷病、热病），五经（冷、热、半边、快、慢），病分三十六症、七十二疾，合称一百单八症。</p>
+          <p>苗医诊断以望、脉二诊为主，望可知其表，脉可知其里，表里结合。苗医治法以"冷病热治""热病冷治"为两大治法，采用内治法和外治法，其中外治法特别丰富。</p>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>苗药资源</h3>
+          <p>贵州现有药用资源4802种，其中植物药3436种（隶属于275科，1384属），动物药289种，矿物药77种。在全国统一普查的363种重点药材品种中，贵州有资源的达326种，占89.6%。据调查，贵州苗药资源在4000种左右。常见苗药约2000种，最常用的约400种。</p>
+          <div class="tag-list">
+            <span class="tag-item">观音草</span><span class="tag-item">米槁</span><span class="tag-item">艾纳香</span><span class="tag-item">八爪金龙</span><span class="tag-item">仙桃草</span><span class="tag-item">旱莲草</span><span class="tag-item">重楼</span>
+          </div>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>特色疗法</h3>
+          <div class="tech-grid">
+            <div class="tech-card">
+              <h4>爆灯火疗法</h4>
+              <p>用灯心草蘸香油燃着灸灼病处或穴位，具有温筋通脉、祛湿止痛功效。</p>
+            </div>
+            <div class="tech-card">
+              <h4>骨刮疗法</h4>
+              <p>用动物骨骼制成的刮板，蘸药液在患者体表进行刮治，对各种痛症和痧症疗效显著。</p>
+            </div>
+            <div class="tech-card">
+              <h4>滚蛋疗法</h4>
+              <p>用煮熟的温热鸡蛋在患者体表滚动按摩，适用于小儿惊风、风寒感冒等病症。</p>
+            </div>
+            <div class="tech-card">
+              <h4>熏蒸疗法</h4>
+              <p>采用苗药水煎后熏蒸全身或局部，用于风湿痹痛、皮肤病及产后调理。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>发展概况</h3>
+          <p>2002年国家对贵州地方标准苗药品种进行审评，154个贵州苗药上升为国家标准。目前贵州苗药产业持续发展，已涌现出贵州神奇、百灵、益佰、信邦、同济堂等知名制药企业。贵阳中医学院已成为国内公认的苗医药重要研究基地，苗医药学科是其特色学科。</p>
+        </div>
+      </article>
+
+      <!-- ==================== 彝医学 ==================== -->
+      <article class="ethnic-panel" id="panel-yi">
+        <div class="ethnic-panel-header">
+          <h2>彝医学 —— 清浊二气的古老智慧</h2>
+          <p class="subtitle">彝族医药历史可追溯至5000年以上，是彝族人民长期与疾病斗争的经验总结和智慧结晶</p>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>历史沿革</h3>
+          <p>据彝文《帝王纪》和《西南彝志》记载，彝族的医疗实践活动产生于哎哺原始时期，可追溯到5000年以上。古彝文记录最早的药物疗法是"毒蛇咬伤的，麝香拿来敷；蜂子蜇伤的，尔吾拿来敷"。明清时期彝族医药已初具规模，在楚雄州境内发现的《齐苏书》（成书于明嘉靖四十五年，公元1566年）记载常见病59种，彝族药物231种，彝医单方、验方226个。1902年彝医曲焕章创制出云南白药，是彝药的精品和代表。</p>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>特色医理</h3>
+          <ul class="theory-list">
+            <li><strong>三气理论：</strong>元气为人体之主宰，清气和浊气乃元气所化生。彝医有"元气充盈，毒邪难犯，毒邪内犯，元气必虚"的理论。</li>
+            <li><strong>五行学说：</strong>天的五行是金木水火土，人的五行是心肝脾肺肾，肺属金、肝属木、肾属水、心属火、胃肠脾胰属土。</li>
+            <li><strong>二气六路学说：</strong>人体清浊二气各有三条循环通路，以气海为交汇。二气六路理论是我国古代彝医的首创理论，独具特色。</li>
+            <li><strong>毒邪理论：</strong>彝医认为"万病生于毒"。毒邪发病有内外两种途径，是各种疾病发生的重要病因理论。</li>
+          </ul>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>用药特色</h3>
+          <p>彝族药大约有1198种，纳入彝族药材法定标准的有165种。彝药有奇、灵、简、便的特点——"奇"指配伍奇特精妙；"灵"指疗效好、灵验；"简"指用法简单；"便"指采药方便。彝药方剂有三个显著特点：大方、小方和单方并用；醇酒入方，善用药酒；鲜药入方。</p>
+          <div class="tag-list">
+            <span class="tag-item">滇重楼</span><span class="tag-item">桑寄生</span><span class="tag-item">松寄生</span><span class="tag-item">植物寄生类</span><span class="tag-item">动物药</span>
+          </div>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>特色技术</h3>
+          <div class="tech-grid">
+            <div class="tech-card">
+              <h4>彝医水膏药疗法</h4>
+              <p>彝医的代表性医疗技术，将药物敷贴到皮肤、孔窍、腧穴等部位，以冰雪水、井中凉水、温水、烟筒水、草药液调拌成膏糊状外敷，药膏近干时再加水浸润。已申请国家非物质文化遗产。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>优势病种</h3>
+          <p>彝医对肿瘤病有独到的理解和疗法，形成了对消化系统肿瘤肝癌、食道癌、胃癌和结肠癌的治疗优势。彝医在骨伤病和风湿病方面积累了丰富的经验。另外对糖尿病、冠心病、心绞痛、心悸、肝胆系疾病、胃痛、急腹症、支气管炎、肺炎、脑卒中、膀胱炎、肾结石、肾衰、女性月经病、男性不育、女性不孕、胰腺炎、胰腺癌等均有独到的治疗特色和优势。</p>
+        </div>
+      </article>
+
+      <!-- ==================== 傣医学 ==================== -->
+      <article class="ethnic-panel" id="panel-dai">
+        <div class="ethnic-panel-header">
+          <h2>傣医学 —— 四塔五蕴理论体系</h2>
+          <p class="subtitle">以傣族贝叶文化为背景，以四塔五蕴为理论核心，以聚居区天然药物为资源，自成体系的传统医学</p>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>特色医理</h3>
+          <ul class="theory-list">
+            <li><strong>四塔理论：</strong>"四塔"（风、火、水、土）是傣医的理论核心，傣医借用"四塔"来解释人体生理现象、病理变化，指导临床辨病、立法、选方、用药。四塔功能保持动态平衡是人体健康的保证。</li>
+            <li><strong>五蕴理论：</strong>"五蕴"（色、识、受、想、行）指人体内的五种精神性存在，包括形体容颜、识别能力、刺激反应、思维欲望、生命过程。四塔主内，五蕴管外。</li>
+            <li><strong>风病论：</strong>傣医把许多复杂多变的病归属于"风证"，凡具有"动"的性质的疾病均可以从"风"论治。</li>
+            <li><strong>三盘学说：</strong>将人体分上、中、下"三盘"，提倡治病应先疏通"三盘"，通利"水"道，使毒邪从三盘而解。</li>
+          </ul>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>历史沿革</h3>
+          <p>傣族先民早在4000多年前就在云南居住。远古时期（"滇腊萨哈"又称"橄榄时期"或"绿叶时期"）是傣族医药知识的原始产生和积累阶段。约在公元166年创造傣泐文，为傣医药学知识的传播与普及提供了良好载体。傣族早期文献写在贝叶上，称为贝叶经，《桑格龙》即为其中一部现存不多的贝叶经书。傣医被国家确定为我国四大民族医药之一。</p>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>用药特色</h3>
+          <p>傣医在治病用药上强调以调平"四塔"为主。傣医根据风、火、水、土的变化情况分别组配了治疗四塔病的总方，称为"雅补塔都档细"。著名傣医传统经方包括"雅解"（通用解毒药，相传两千多年历史）和"雅叫哈顿"（五宝药散，1977年被收载入《中国药典》）。</p>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>特色技术</h3>
+          <div class="tech-grid">
+            <div class="tech-card">
+              <h4>暖雅（睡药疗法）</h4>
+              <p>通过平卧方式将傣药热药覆盖患者全身进行治疗，已被列入国家第三批非物质文化遗产名录。主要用于中风偏瘫后遗症、寒性风湿性关节炎、月子病等。</p>
+            </div>
+            <div class="tech-card">
+              <h4>咱雅（拖擦药物疗法）</h4>
+              <p>将药物碾细粉装入布袋蒸热，蘸热药水或药油顺着人体经筋循行路线拖擦周身，用于风湿性关节炎、中风偏瘫后遗症、面瘫等。</p>
+            </div>
+            <div class="tech-card">
+              <h4>阿雅（洗药疗法）</h4>
+              <p>配备相应的单方或复方傣药煎煮取药水浸泡全身或局部，用以治疗皮肤病、风湿病、月子病、感冒、中风偏瘫后遗症等。</p>
+            </div>
+            <div class="tech-card">
+              <h4>烘雅（熏蒸疗法）</h4>
+              <p>将傣药置入熏蒸器内煮沸产生热气，让患者接受药物蒸气进行全身或局部熏蒸。适用于月子病、风寒感冒、风寒湿痹证、肥胖病等。</p>
+            </div>
+            <div class="tech-card">
+              <h4>沙雅（刺药疗法）</h4>
+              <p>用棉签蘸药酒边涂搽边用消毒梅花针轻刺患处至皮肤微发红，主要用于寒性风湿性关节炎及中风病、硬皮病等。</p>
+            </div>
+            <div class="tech-card">
+              <h4>果雅（包药疗法）</h4>
+              <p>取冷药或热药包敷于患处，用于骨折、跌打损伤、风湿病、痛风、疔疮脓肿、虫蛇咬伤等，疗效显著。</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ==================== 哈萨克族医 ==================== -->
+      <article class="ethnic-panel" id="panel-hasake">
+        <div class="ethnic-panel-header">
+          <h2>哈萨克族医药 —— 六元学说与草原医学</h2>
+          <p class="subtitle">哈萨克族医药是哈萨克人民悠久而宝贵的遗产，也是祖国医学宝库的重要组成部分</p>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>历史沿革</h3>
+          <p>据史料记载，公元前1500年至1240年间，哈萨克民族创造了六项重要的医学研究：波肯于公元前1500年首次提出"人体之基础是腺体"；格勒斯于公元前1480年提出"母体之基础是脐"；加尔哈克于公元前1360年提出"能量的基础是食物"；达纳于公元前1330年提出"塔特木（味）之鼻祖是盐"；阿纳克于公元前1300年提出"亲睦之前提是血"；波旦于公元前1270年提出六元学说的雏形——"莫斯"（稳固的基石）理论。</p>
+          <p>距今600年前的哈萨克医圣乌太波依达克在其巨著《奇帕格尔巴彦》中系统记载了这些学说。</p>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>特色医理</h3>
+          <ul class="theory-list">
+            <li><strong>阿勒特突固尔（六元）学说：</strong>哈萨克医学将万物及人类赖以生存的基本本源归属于六元——肯斯特克（天）、突热阿合（地）、加热合（明）、哈热昂合（暗）、苏俄合（寒）、俄斯特合（热），以此解释人体的生理现象和病理变化。</li>
+            <li><strong>理论体系包含：</strong>六元学说、阴阳学说、气候学说、循环学说、体液学说、气能量学说、病因学说、脏器学说、脉络空间学说、体质学说等十大理论。</li>
+            <li><strong>药物学（达日木扎尔瓦特）：</strong>具有独特的味分六类、寒热属性、炮制方法、药物剂量等方面的属性及分类。</li>
+            <li><strong>诊疗人员分类：</strong>波勒加合什（预测者）分为9种类别；达日木道什（诊治者）以其技术高低分为圣医、高级医、中级医、骨科医、伤科医、妇科医等15种类别。</li>
+          </ul>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>用药特色</h3>
+          <p>中国哈萨克民族主要聚居在新疆维吾尔自治区北部，阿勒泰地区保持着原始生态环境。阿勒泰别克生、金莲花、红景天、黑槌虫草、新疆赤芍、阿尔泰瑞香、大芸、多种阿魏、阿里红、骆驼蓬、一枝蒿、鹿草等都是哈萨克民间医生喜用的常用药材。哈医制剂室始建于1996年，是自治区唯一配置哈萨克药的制剂室，有近200种哈萨克药古方、单味方和80余种哈萨克药在临床使用。</p>
+          <div class="tag-list">
+            <span class="tag-item">阿勒泰别克生</span><span class="tag-item">金莲花</span><span class="tag-item">红景天</span><span class="tag-item">黑槌虫草</span><span class="tag-item">新疆赤芍</span><span class="tag-item">骆驼蓬</span><span class="tag-item">一枝蒿</span><span class="tag-item">鹿草</span>
+          </div>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>特色技术</h3>
+          <div class="tech-grid">
+            <div class="tech-card">
+              <h4>传统正骨技术（握塔什勒克）</h4>
+              <p>以六元学说等为理论基础，以骨伤六诊八法为辨病手段，选用灭尔特克正骨复位法，对陈旧性骨折畸形愈合及关节脱位的正骨治疗有突破性成果。</p>
+            </div>
+            <div class="tech-card">
+              <h4>合孜得热麻疗法</h4>
+              <p>将哈医传统外敷贴贴在病变部位上，治疗腰腿痛、腰椎及关节退行性变、坐骨神经痛及各关节疼痛。不用内服、只需外敷，无毒副作用。</p>
+            </div>
+            <div class="tech-card">
+              <h4>针刺放血技术（汗达勒玛）</h4>
+              <p>始于伊本塞那时代，用特制放血工具借助火罐在特定部位叩刺，放血后用哈医配方加羊肉汤进行补养。适用于高血压病患者。</p>
+            </div>
+            <div class="tech-card">
+              <h4>沐什帖克（足浴）技术</h4>
+              <p>应用合叶子、侧柏叶等草药煎煮后盛于没膝的高桶中，先以蒸气熏足底，待温度适宜时浸泡双足，起到降压解毒改善微循环的作用。</p>
+            </div>
+            <div class="tech-card">
+              <h4>库木布拉吾技术</h4>
+              <p>治疗盆腔炎可增加盆腔组织的血液循环，起到活血化瘀、软坚散结、散寒止痛的作用。外敷药方以阿魏根、连翘、防风等本地草药为主。</p>
+            </div>
+            <div class="tech-card">
+              <h4>新生儿马依斯拉吾护理技术</h4>
+              <p>盐水沐浴及精炼绵羊油抚触新生儿，自古被哈萨克族人应用于健康新生儿护理中。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>发展概况</h3>
+          <p>2014年哈萨克医药被列入国家非物质文化遗产保护目录。在古籍整理方面，先后编写出版了《哈萨克医学概论》《哈萨克医学基础理论》《哈萨克医诊断学》等专著。《哈萨克医药学选粹》获2014年中国民族医药学会学术著作奖二等奖。哈萨克医医师资格考试、资格认定、执业认定等已通过教育部、国家中医药管理局的审核和验收。</p>
+        </div>
+      </article>
+
+      <!-- ==================== 土家族医 ==================== -->
+      <article class="ethnic-panel" id="panel-tujia">
+        <div class="ethnic-panel-header">
+          <h2>土家医 —— 武陵天下秀，活力土家医</h2>
+          <p class="subtitle">土家族医药历史悠久，药物资源丰富，具有"奇药、奇方、奇术、奇效"之特点</p>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>特色医理</h3>
+          <ul class="theory-list">
+            <li><strong>三元学说：</strong>人体结构由上元（脑、心、肺）、中元（肝、脾、肠）、下元（腰子、养心肠、精腰）组成。人体生命物质由气、血、精三种元素组成。</li>
+            <li><strong>致病三因：</strong>邪气（外毒与内生毒气）、情志、伤损三因引起。病理变化由气血失调、冷热失衡、气血精逆乱引起。</li>
+            <li><strong>五诊法：</strong>看诊、问诊、听诊、脉诊、摸诊为基础的诊断方法。</li>
+            <li><strong>八大用药原则：</strong>寒则热之、热则寒之、亏则补之、实则泻之、阻则通之、肿则消之、惊则镇之、湿则祛之。</li>
+            <li><strong>七大治法：</strong>汗法、泻法、赶法、止法、补法、温法、清法。</li>
+            <li><strong>五术一体外治法：</strong>刀法、针法、火法、水法、药法融为一体的传统外治法。</li>
+          </ul>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>特色技术与疗法</h3>
+          <div class="tech-grid">
+            <div class="tech-card">
+              <h4>雷火神针疗法</h4>
+              <p>在中医"雷火神针"基础上改进创新，综合针疗、热疗、药疗三种功能。银质针具，土家医认为有祛邪散寒、验毒、防腐功效。</p>
+            </div>
+            <div class="tech-card">
+              <h4>小儿提风疗法</h4>
+              <p>将药物敷贴于肚脐上，通过药物熨脐以温"中元"之脏器，祛除中元风气之邪。用于小儿走胎、惊风、停食、腹泻、腹痛等。</p>
+            </div>
+            <div class="tech-card">
+              <h4>烧灯火疗法</h4>
+              <p>用灯心草蘸香油燃着灸灼病处或穴位，分直接和间接两种。适用于小儿走胎、惊风、腮腺炎、荨麻疹、湿疹、月经不调等。</p>
+            </div>
+            <div class="tech-card">
+              <h4>酒火疗法</h4>
+              <p>用药酒燃烧之火苗在患者病处治疗，土家族民间称为"打酒火疗法"，适用于慢性腰痛、腿痛、风寒湿痹、肩周炎等慢性疾病。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>丰富资源</h3>
+          <p>土家族聚居的武陵山区是我国重要的"动植物基因库"，被誉为"华中天然药库"。区域内有野生动植物7000多种，作为药用的多达2500多种，动物药150多种，矿物药30多种。</p>
+          <div class="herb-mini-grid">
+            <span class="herb-mini-item">七叶一枝花</span>
+            <span class="herb-mini-item">江边一碗水</span>
+            <span class="herb-mini-item">头项一颗珠</span>
+            <span class="herb-mini-item">文王一支笔</span>
+            <span class="herb-mini-item">川连</span>
+            <span class="herb-mini-item">天麻</span>
+            <span class="herb-mini-item">杜仲</span>
+            <span class="herb-mini-item">竹节人参</span>
+            <span class="herb-mini-item">百味莲</span>
+            <span class="herb-mini-item">血三七</span>
+          </div>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>用药特色</h3>
+          <p>土家药有三大性能（冷性药、热性药、平性药），八大性味（酸、甜、苦、辣、咸、涩、麻、淡）。用药方法有煎服法、炖服法、酒泡法、外敷法、煨制法、外洗法、药灸法等20多种。方剂组方原则为主药、配药、引药。炮制方法有切制法、磨捣法、煨制法、泡制法、炒制法、炙法、煅法、蒸法、煮法、水飞法等20多种。</p>
+        </div>
+      </article>
+
+      <!-- ==================== 畲族医 ==================== -->
+      <article class="ethnic-panel" id="panel-she">
+        <div class="ethnic-panel-header">
+          <h2>畲族医药 —— 东南山区的民族医药瑰宝</h2>
+          <p class="subtitle">畲医药是畲民为求生存与繁衍，在特定历史条件、特殊地理环境中长期与疾病斗争积累的经验总结</p>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>特色医理</h3>
+          <ul class="theory-list">
+            <li><strong>疳积理论：</strong>狭义之疳积指小儿因饮食不当、天赋不足等致面黄肌瘦、小腹膨隆。广义之疳积泛指风、寒、痧、食等因素引起的诸多杂病的总称。畲医认为人体许多疾病都是由疳积而成。临床中冠心病、脑梗塞、三高症、糖尿病、脂肪肝、肿瘤等疾病都根据这一机理进行辨证施治。</li>
+            <li><strong>六神学说：</strong>由心神、肝神、肺神、脾神、肾神、胆神组成。气、血、精是组成人体并完成机体各项活动的基本物质基础。若六脏腑神魂失守，气、血、精化生不足或运行失常，机体各项功能就会发生病理变化。</li>
+            <li><strong>痧症理论：</strong>畲医认为痧症发病原因广泛而复杂，病因主要为"痧气"，形成了"痧气"致病学说。一年四季均可发生，病种涵盖了内、外、妇、儿、五官、皮肤、骨伤等科。</li>
+          </ul>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>特色疗法</h3>
+          <div class="tech-grid">
+            <div class="tech-card">
+              <h4>痧症疗法（发痧疗法）</h4>
+              <p>2008年被国务院颁布为国家第二批非物质文化遗产保护名录，是畲医药最具代表性的疗法。</p>
+            </div>
+            <div class="tech-card">
+              <h4>六神经络骨通药制作工艺</h4>
+              <p>2008年列入国家非物质文化遗产，用于骨伤科疾病的治疗。</p>
+            </div>
+            <div class="tech-card">
+              <h4>正骨疗法</h4>
+              <p>已列入丽水市和景宁畲族自治县非物质文化遗产名录。畲医在医治跌打损伤方面经验丰富。</p>
+            </div>
+          </div>
+          <p style="margin-top:16px;">畲族民间有20多种特色外治疗法，至今广为应用的有8种：刮法、挑法、捏抓法、抓筋法、熏法、吹法、搓法、熨法。这些方法具有操作方便、不良反应少及价廉和功效明显等优点。</p>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>特色药材</h3>
+          <p>截至目前，共收集到畲族民间用药1600个品种和处方1016个，其中畲族常用药用植物520种，分属于144科、312属、494种。有国家一级保护野生植物（药用）5种、国家二级保护野生植物（药用）15种，畲族特有药用植物11种。畲药使用的独特性有：以植物药为主；习惯使用鲜品；单味药常用；以原生物为主；喜用药引和敷料；注重以脏补脏。</p>
+        </div>
+
+        <div class="ethnic-section">
+          <h3>优势病种</h3>
+          <p>畲医把疾病分为风、寒、气、血和杂症5大类，每类又分若干种，如风症分为72种。畲医在医治跌打损伤、痧症、小儿疳积、蛇伤、风湿病、黄疸、妇科疾病等方面均积累了大量经验。较独特的畲医病名有热蛇、阴蛇、飞丝落肚、风寒入肚、吊气、头养风火、风动头晕、风火烧、铁板症中风、吊眉风、鸡爪疯等。</p>
+          <div class="tag-list">
+            <span class="tag-item">跌打损伤</span><span class="tag-item">痧症</span><span class="tag-item">小儿疳积</span><span class="tag-item">蛇伤</span><span class="tag-item">风湿病</span><span class="tag-item">黄疸</span><span class="tag-item">妇科疾病</span>
+          </div>
+        </div>
+      </article>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-brand">本草寻源</div>
+    <p class="footer-info">中国石油大学（北京）2025—2026春季学期 · Web程序设计大作业</p>
+    <p class="footer-info">传承中医药文化，弘扬中华国粹</p>
+  </footer>
+
+  <div id="music-player">
+    <audio id="bgm" src="music/guqin-bg.mp3" loop preload="none"></audio>
+    <div id="jade-icon" class="paused" title="点击播放/暂停背景音乐">&#9835;</div>
+  </div>
+
+  <script src="javascript/nav.js"></script>
+  <script src="javascript/ethnic.js"></script>
+</body>
+</html>

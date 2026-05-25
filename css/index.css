@@ -273,7 +273,7 @@
 
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
   margin-top: 34px;
 }
@@ -394,6 +394,7 @@
   height: 188px;
   border-radius: 18px;
   margin: 0 auto;
+  overflow: hidden;
   box-shadow: inset 0 0 22px rgba(255, 255, 255, 0.18), 0 18px 34px rgba(74, 58, 50, 0.1);
 }
 

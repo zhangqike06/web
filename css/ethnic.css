@@ -1,0 +1,350 @@
+/* ============================================================
+ * ethnic.css - 民族医药页样式
+ * ============================================================ */
+
+/* ---- 横幅 ---- */
+.ethnic-banner {
+  position: relative;
+  overflow: hidden;
+}
+
+.ethnic-banner .banner-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.ethnic-banner .banner-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 72px 24px 56px;
+  color: #fff;
+}
+
+.ethnic-banner .banner-content h1 {
+  font-size: 2.6rem;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.ethnic-banner .banner-content p {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.78);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ---- 整体布局：侧栏 + 内容 ---- */
+.ethnic-layout {
+  display: flex;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+  align-items: flex-start;
+}
+
+/* ---- 左侧导航 ---- */
+.ethnic-sidebar {
+  position: sticky;
+  top: 100px;
+  flex: 0 0 200px;
+  background: var(--color-paper);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.ethnic-sidebar h3 {
+  font-size: 1rem;
+  text-align: center;
+  padding: 18px 12px 14px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-deep);
+  background: rgba(201, 136, 143, 0.06);
+}
+
+.ethnic-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ethnic-nav-list li {
+  border-bottom: 1px solid rgba(161, 132, 118, 0.08);
+}
+
+.ethnic-nav-list li:last-child {
+  border-bottom: none;
+}
+
+.ethnic-nav-btn {
+  display: block;
+  width: 100%;
+  padding: 14px 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: var(--color-dust);
+  text-align: left;
+  transition: all 0.25s ease;
+  position: relative;
+  font-family: var(--font-body);
+  letter-spacing: 0.04em;
+}
+
+.ethnic-nav-btn:hover {
+  background: rgba(201, 136, 143, 0.07);
+  color: var(--color-deep);
+}
+
+.ethnic-nav-btn.active {
+  background: rgba(201, 136, 143, 0.12);
+  color: var(--color-rose);
+  font-weight: 600;
+}
+
+.ethnic-nav-btn.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  background: var(--color-rose);
+  border-radius: 0 2px 2px 0;
+}
+
+/* 导航图标 */
+.ethnic-nav-icon {
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 0.85rem;
+}
+
+/* ---- 右侧内容区 ---- */
+.ethnic-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.ethnic-panel {
+  display: none;
+  animation: ethnicFadeIn 0.4s ease;
+}
+
+.ethnic-panel.active {
+  display: block;
+}
+
+@keyframes ethnicFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.ethnic-panel-header {
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.ethnic-panel-header h2 {
+  font-size: 1.8rem;
+  color: var(--color-deep);
+  margin-bottom: 6px;
+}
+
+.ethnic-panel-header .subtitle {
+  font-size: 0.9rem;
+  color: var(--color-dust);
+  opacity: 0.7;
+}
+
+/* ---- 信息小节 ---- */
+.ethnic-section {
+  margin-bottom: 36px;
+}
+
+.ethnic-section h3 {
+  font-size: 1.2rem;
+  color: var(--color-rose);
+  margin-bottom: 14px;
+  padding-left: 16px;
+  border-left: 3px solid var(--color-rose);
+}
+
+.ethnic-section h4 {
+  font-size: 1rem;
+  color: var(--color-deep);
+  margin: 16px 0 8px;
+}
+
+.ethnic-section p {
+  color: var(--color-dust);
+  line-height: var(--line-height);
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+/* ---- 特色技术卡片 ---- */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.tech-card {
+  background: var(--color-paper);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  box-shadow: 0 4px 16px var(--color-shadow);
+  transition: all 0.3s ease;
+}
+
+.tech-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-float);
+  border-color: rgba(201, 136, 143, 0.25);
+}
+
+.tech-card h4 {
+  font-size: 1rem;
+  color: var(--color-deep);
+  margin: 0 0 8px;
+}
+
+.tech-card p {
+  font-size: 0.92rem;
+  color: var(--color-dust);
+  margin: 0;
+  line-height: 1.75;
+}
+
+/* ---- 方药 / 病种 标签 ---- */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.tag-item {
+  display: inline-block;
+  padding: 4px 14px;
+  background: rgba(201, 136, 143, 0.08);
+  border: 1px solid rgba(201, 136, 143, 0.2);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--color-rose);
+  white-space: nowrap;
+}
+
+/* ---- 理论要点列表 ---- */
+.theory-list {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+
+.theory-list li {
+  padding: 8px 0;
+  padding-left: 22px;
+  position: relative;
+  color: var(--color-dust);
+  line-height: 1.75;
+}
+
+.theory-list li::before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  font-size: 0.5rem;
+  color: var(--color-rose);
+  opacity: 0.7;
+}
+
+/* ---- 引用块 ---- */
+.ethnic-quote {
+  background: rgba(201, 136, 143, 0.05);
+  border-left: 3px solid var(--color-dusk);
+  padding: 16px 20px;
+  margin: 16px 0;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-style: italic;
+  color: var(--color-deep);
+}
+
+/* ---- 药材小图网格 ---- */
+.herb-mini-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.herb-mini-item {
+  padding: 6px 16px;
+  background: rgba(196, 164, 148, 0.1);
+  border: 1px solid rgba(196, 164, 148, 0.25);
+  border-radius: 18px;
+  font-size: 0.88rem;
+  color: var(--color-dust);
+}
+
+/* ---- 响应式 ---- */
+@media (max-width: 860px) {
+  .ethnic-layout {
+    flex-direction: column;
+    padding: 32px 16px 60px;
+  }
+
+  .ethnic-sidebar {
+    position: static;
+    flex: none;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: var(--radius-sm);
+    padding: 8px;
+  }
+
+  .ethnic-sidebar h3 {
+    display: none;
+  }
+
+  .ethnic-nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    width: 100%;
+  }
+
+  .ethnic-nav-list li {
+    border-bottom: none;
+  }
+
+  .ethnic-nav-btn {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    border-radius: 20px;
+    background: rgba(201, 136, 143, 0.05);
+  }
+
+  .ethnic-nav-btn.active {
+    background: rgba(201, 136, 143, 0.16);
+  }
+
+  .ethnic-nav-btn.active::before {
+    display: none;
+  }
+
+  .tech-grid {
+    grid-template-columns: 1fr;
+  }
+}

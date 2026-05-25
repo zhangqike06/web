@@ -53,8 +53,9 @@
     linear-gradient(140deg, #1f140f, #2b1d14);
   border: 2px solid #130c08;
   box-shadow:
-    inset 0 10px 18px rgba(0, 0, 0, 0.42),
+    inset 0 8px 14px rgba(0, 0, 0, 0.34),
     inset 0 -1px 0 rgba(255, 222, 178, 0.08);
+  contain: layout paint;
 }
 
 .cabinet-drawer::before {
@@ -64,7 +65,7 @@
   z-index: 0;
   border-radius: 6px;
   border: 1px solid rgba(224, 180, 128, 0.18);
-  box-shadow: inset 0 0 22px rgba(0, 0, 0, 0.58);
+  box-shadow: inset 0 0 14px rgba(0, 0, 0, 0.48);
   pointer-events: none;
 }
 
@@ -89,7 +90,9 @@
   opacity: 0;
   transform: translateY(42px) rotateX(18deg) scaleY(0.72);
   transform-origin: center bottom;
-  transition: transform 520ms cubic-bezier(0.22, 0.72, 0.18, 1), opacity 300ms ease, box-shadow 360ms ease;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transition: transform 380ms cubic-bezier(0.22, 0.72, 0.18, 1), opacity 220ms ease;
 }
 
 .drawer-inner::before {
@@ -113,7 +116,14 @@
   align-items: center;
   justify-content: center;
   font-size: 2em;
-  box-shadow: inset 0 0 18px rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.drawer-herb-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .drawer-inner p {
@@ -143,11 +153,13 @@
   border-bottom: 4px solid #3f2517;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.26);
   transform-origin: center center;
-  transition: transform 540ms cubic-bezier(0.22, 0.72, 0.18, 1), box-shadow 320ms ease, filter 280ms ease;
+  will-change: transform;
+  backface-visibility: hidden;
+  transition: transform 380ms cubic-bezier(0.22, 0.72, 0.18, 1), box-shadow 220ms ease;
 }
 
 .drawer-face:hover {
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 3px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.32), 0 3px 8px rgba(0, 0, 0, 0.24);
 }
 
 .cabinet-name {
@@ -165,7 +177,7 @@
     0 1px 2px rgba(0, 0, 0, 0.18);
   letter-spacing: 0.14em;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
-  transition: transform 540ms cubic-bezier(0.22, 0.72, 0.18, 1);
+  transition: transform 380ms cubic-bezier(0.22, 0.72, 0.18, 1);
 }
 
 .cabinet-name::before {
@@ -194,15 +206,14 @@
   border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, #f8dfa1 0%, #b47a29 55%, #7e551d 100%);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  transition: transform 540ms cubic-bezier(0.22, 0.72, 0.18, 1);
+  transition: transform 380ms cubic-bezier(0.22, 0.72, 0.18, 1);
 }
 
 .cabinet-drawer.is-open .drawer-face {
   transform: translateY(118px) rotateX(-9deg) scaleY(0.58);
-  filter: brightness(0.95);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.16),
-    0 20px 24px rgba(0, 0, 0, 0.42),
+    0 12px 16px rgba(0, 0, 0, 0.32),
     0 0 0 1px rgba(34, 20, 13, 0.4);
 }
 
@@ -214,10 +225,7 @@
 .cabinet-drawer.is-open .drawer-inner {
   opacity: 1;
   transform: translateY(8px) rotateX(0deg) scaleY(1);
-  box-shadow:
-    0 14px 22px rgba(0, 0, 0, 0.3),
-    inset 0 0 0 1px rgba(225, 190, 147, 0.3),
-    inset 0 -14px 24px rgba(0, 0, 0, 0.24);
+  box-shadow: inset 0 0 0 1px rgba(225, 190, 147, 0.24);
 }
 
 .cabinet-drawer.is-open .drawer-inner::before {
@@ -325,6 +333,12 @@
   overflow: hidden;
 }
 
+.herb-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .herb-card h3 {
   font-family: var(--font-title);
   color: var(--color-deep);
@@ -409,6 +423,13 @@
   font-size: 4em;
   flex-shrink: 0;
   border: 2px solid var(--color-bud);
+  overflow: hidden;
+}
+
+.modal-herb-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .modal-herb-info {
@@ -489,4 +510,13 @@
   .herbs-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
   .herb-card { padding: 12px; }
   .herb-img { height: 110px; font-size: 2.2em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drawer-face,
+  .drawer-inner,
+  .cabinet-name,
+  .cabinet-handle {
+    transition-duration: 1ms;
+  }
 }

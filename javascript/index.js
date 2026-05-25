@@ -78,29 +78,33 @@
       name: '人参',
       property: '性味：甘、微苦、微温 | 归经：脾、肺、心',
       effect: '大补元气，补脾益肺，生津养血，安神益智。',
-      desc: '人参素有“百草之王”之称，是传统名贵中药材。常用于气虚乏力、津伤口渴、脾肺不足等调养场景，兼具补益与扶正之意。',
-      cssClass: 'type-ginseng'
+      desc: '人参素有”百草之王”之称，是传统名贵中药材。常用于气虚乏力、津伤口渴、脾肺不足等调养场景，兼具补益与扶正之意。',
+      cssClass: 'type-ginseng',
+      img: 'images/herbs/renshen.jpg'
     },
     {
       name: '枸杞',
       property: '性味：甘、平 | 归经：肝、肾',
       effect: '滋补肝肾，益精明目，润肺。',
       desc: '枸杞是常见的养生食材和中药材，适合日常温和调养。传统认为其有养肝明目、补肾益精之功，常用于茶饮、粥羹与药膳。',
-      cssClass: 'type-berry'
+      cssClass: 'type-berry',
+      img: 'images/herbs/gouqi.jpg'
     },
     {
       name: '黄芪',
       property: '性味：甘、微温 | 归经：脾、肺',
       effect: '补气固表，利尿托毒，生肌。',
       desc: '黄芪是补气常用药，常见于体虚、自汗、乏力等调理思路中。其气味甘温，偏于补益正气，也是药膳里很常见的食养药材。',
-      cssClass: 'type-root'
+      cssClass: 'type-root',
+      img: 'images/herbs/huangqi.jpg'
     },
     {
       name: '菊花',
       property: '性味：辛、甘、苦、微寒 | 归经：肺、肝',
       effect: '疏风清热，平肝明目，清热解毒。',
       desc: '菊花既可入药也可作茶饮，适合秋季清润之需。传统上常用于风热头目不清、目涩眼疲等场景，气味清雅，适合日常养护。',
-      cssClass: 'type-flower'
+      cssClass: 'type-flower',
+      img: 'images/herbs/juhua.jpg'
     },
     {
       name: '薄荷',
@@ -239,7 +243,13 @@
     }
 
     if (featuredImg) {
-      featuredImg.className = 'herb-illustration ' + todayHerb.cssClass;
+      if (todayHerb.img) {
+        featuredImg.innerHTML = '<img src="' + todayHerb.img + '" alt="' + todayHerb.name + '" style="width:100%;height:100%;object-fit:cover;">';
+        featuredImg.className = 'herb-illustration';
+      } else {
+        featuredImg.innerHTML = '';
+        featuredImg.className = 'herb-illustration ' + todayHerb.cssClass;
+      }
     }
   }
 
