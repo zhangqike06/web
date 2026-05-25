@@ -127,7 +127,8 @@
 
         /* 保存登录状态到localStorage */
         localStorage.setItem('tcm_user', JSON.stringify({
-          name: 'admin',
+          name: username,
+          displayName: username,
           loginTime: Date.now()
         }));
 
@@ -135,6 +136,8 @@
         document.querySelector('.login-card').style.display = 'none';
         document.querySelector('.site-footer').style.display = 'none';
         document.getElementById('user-zone').style.display = 'block';
+        var zoneUsername = document.getElementById('zone-username');
+        if (zoneUsername) zoneUsername.textContent = username;
 
         loadUserZone();
       } else {
@@ -175,13 +178,24 @@
   /* 页面加载时检查登录状态 */
   function checkLoginState() {
     var userData = localStorage.getItem('tcm_user');
+    var parsedUser = null;
     if (userData) {
+      try {
+        parsedUser = JSON.parse(userData);
+      } catch (err) {
+        parsedUser = null;
+      }
+
       /* 已登录，直接显示专区 */
       var loginCardEl = document.querySelector('.login-card');
       var footerEl = document.querySelector('.site-footer');
       var zoneEl = document.getElementById('user-zone');
+      var zoneUsernameEl = document.getElementById('zone-username');
       if (loginCardEl) loginCardEl.style.display = 'none';
       if (footerEl) footerEl.style.display = 'none';
+      if (zoneUsernameEl && parsedUser && parsedUser.name) {
+        zoneUsernameEl.textContent = parsedUser.displayName || parsedUser.name;
+      }
       if (zoneEl) {
         zoneEl.style.display = 'block';
         loadUserZone();

@@ -244,6 +244,32 @@ ul, ol {
   background: rgba(255, 255, 255, 0.3);
 }
 
+.nav-menu > li > a.nav-user {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.26);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.nav-user-name {
+  max-width: 96px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .has-sub > .submenu {
   display: none;
   position: absolute;
@@ -679,9 +705,22 @@ table tr:hover td {
 
   .nav-menu {
     width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
     gap: 6px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .nav-menu::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-menu > li {
+    flex: 0 0 auto;
   }
 
   .nav-menu > li > a {
@@ -771,5 +810,13 @@ table tr:hover td {
 
   .nav-menu > li > a.nav-login {
     margin-left: 0;
+  }
+
+  .nav-menu > li > a.nav-user {
+    gap: 6px;
+  }
+
+  .nav-user-name {
+    max-width: 72px;
   }
 }

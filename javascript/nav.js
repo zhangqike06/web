@@ -25,6 +25,34 @@
     });
   }
 
+  /* 登录态导航展示 */
+  (function syncNavUserState() {
+    var loginLink = document.querySelector('.nav-menu a.nav-login');
+    var userRaw = localStorage.getItem('tcm_user');
+    var userData;
+    var displayName;
+    var avatarText;
+
+    if (!loginLink || !userRaw) return;
+
+    try {
+      userData = JSON.parse(userRaw);
+    } catch (err) {
+      return;
+    }
+
+    if (!userData || !userData.name) return;
+
+    displayName = userData.displayName || userData.name;
+    avatarText = displayName.charAt(0).toUpperCase();
+
+    loginLink.classList.add('nav-user');
+    loginLink.innerHTML =
+      '<span class="nav-avatar">' + avatarText + '</span>' +
+      '<span class="nav-user-name">' + displayName + '</span>';
+    loginLink.title = '已登录：' + displayName;
+  })();
+
   /* 跨页面导航当前项高亮 */
   var currentPath = window.location.pathname.split('/').pop() || 'index.html';
   var navLinks = document.querySelectorAll('.nav-menu a[href]');
