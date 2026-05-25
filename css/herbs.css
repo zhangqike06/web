@@ -25,7 +25,7 @@
 }
 
 .cabinet-frame {
-  padding: 16px;
+  padding: 18px 16px 42px;
   border-radius: 14px;
   border: 1px solid rgba(74, 58, 50, 0.22);
   box-shadow: 0 12px 30px rgba(74, 58, 50, 0.12);
@@ -37,45 +37,87 @@
 .herb-cabinet {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
+  column-gap: 12px;
+  row-gap: 34px;
 }
 
 .cabinet-drawer {
   position: relative;
   height: 170px;
-  overflow: hidden;
+  overflow: visible;
   border-radius: 8px;
-  background: linear-gradient(140deg, #1f140f, #2b1d14);
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.08) 34%, transparent),
+    linear-gradient(140deg, #1f140f, #2b1d14);
   border: 2px solid #130c08;
+  box-shadow:
+    inset 0 10px 18px rgba(0, 0, 0, 0.42),
+    inset 0 -1px 0 rgba(255, 222, 178, 0.08);
+}
+
+.cabinet-drawer::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  z-index: 0;
+  border-radius: 6px;
+  border: 1px solid rgba(224, 180, 128, 0.18);
+  box-shadow: inset 0 0 22px rgba(0, 0, 0, 0.58);
+  pointer-events: none;
 }
 
 .drawer-inner {
   position: absolute;
-  inset: 8px;
-  z-index: 1;
+  left: 12px;
+  right: 12px;
+  top: 12px;
+  height: 106px;
+  z-index: 2;
   border-radius: 6px;
-  background: linear-gradient(150deg, #2d1d13, #17100c);
-  border: 1px solid rgba(201, 136, 143, 0.25);
+  background:
+    linear-gradient(90deg, rgba(62, 37, 22, 0.95), rgba(103, 66, 41, 0.9) 10%, rgba(65, 40, 25, 0.96) 90%, rgba(26, 16, 10, 0.96)),
+    url("../images/wood-texture.png") center / 420px repeat;
+  border: 1px solid rgba(219, 172, 119, 0.34);
   padding: 7px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 7px;
+  opacity: 0;
+  transform: translateY(42px) rotateX(18deg) scaleY(0.72);
+  transform-origin: center bottom;
+  transition: transform 520ms cubic-bezier(0.22, 0.72, 0.18, 1), opacity 300ms ease, box-shadow 360ms ease;
+}
+
+.drawer-inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.28), transparent 20%, transparent 80%, rgba(0, 0, 0, 0.22)),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.3), transparent 38%);
+  opacity: 0.45;
+  transition: opacity 360ms ease;
 }
 
 .drawer-herb-visual {
   width: 100%;
-  height: 100px;
+  height: 62px;
   border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.2em;
+  font-size: 2em;
+  box-shadow: inset 0 0 18px rgba(255, 255, 255, 0.12);
 }
 
 .drawer-inner p {
-  font-size: 0.8em;
+  font-size: 0.76em;
   color: rgba(255, 243, 228, 0.94);
   text-align: center;
   line-height: 1.5;
@@ -87,18 +129,21 @@
   z-index: 2;
   border: 0;
   cursor: pointer;
-  display: grid;
-  place-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 10px;
   background:
-    linear-gradient(165deg, rgba(164, 112, 72, 0.86), rgba(116, 74, 45, 0.9)),
-    url("../images/wood-texture.png") center / 460px repeat;
+    linear-gradient(165deg, rgba(164, 112, 72, 0.72), rgba(116, 74, 45, 0.76)),
+    url("../images/wood-texture.png") center / cover no-repeat;
   border-top: 2px solid rgba(255, 228, 194, 0.33);
   border-left: 2px solid rgba(255, 228, 194, 0.2);
   border-right: 2px solid #442a1a;
   border-bottom: 4px solid #3f2517;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.26);
-  transition: transform 420ms cubic-bezier(0.22, 0.62, 0.2, 1), box-shadow 280ms ease;
+  transform-origin: center center;
+  transition: transform 540ms cubic-bezier(0.22, 0.72, 0.18, 1), box-shadow 320ms ease, filter 280ms ease;
 }
 
 .drawer-face:hover {
@@ -106,15 +151,41 @@
 }
 
 .cabinet-name {
+  position: relative;
   display: inline-block;
-  padding: 4px 10px;
+  padding: 5px 14px;
   font-family: var(--font-title);
-  font-size: 0.95em;
-  color: #3a2a1d;
-  background: rgba(244, 226, 190, 0.86);
-  border-radius: 3px;
-  border: 1px solid rgba(91, 64, 44, 0.35);
-  letter-spacing: 0.09em;
+  font-size: 0.98em;
+  color: #2d2016;
+  background: linear-gradient(180deg, rgba(251, 243, 220, 0.95), rgba(235, 218, 182, 0.93));
+  border-radius: 2px;
+  border: 1px solid rgba(95, 66, 43, 0.45);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 250, 236, 0.55),
+    0 1px 2px rgba(0, 0, 0, 0.18);
+  letter-spacing: 0.14em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+  transition: transform 540ms cubic-bezier(0.22, 0.72, 0.18, 1);
+}
+
+.cabinet-name::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  top: 2px;
+  border-top: 1px solid rgba(113, 81, 54, 0.22);
+}
+
+.cabinet-name::after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  right: 5px;
+  bottom: 4px;
+  border-radius: 50%;
+  background: rgba(151, 37, 37, 0.45);
 }
 
 .cabinet-handle {
@@ -123,10 +194,34 @@
   border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, #f8dfa1 0%, #b47a29 55%, #7e551d 100%);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  transition: transform 540ms cubic-bezier(0.22, 0.72, 0.18, 1);
 }
 
 .cabinet-drawer.is-open .drawer-face {
-  transform: translateY(112px);
+  transform: translateY(118px) rotateX(-9deg) scaleY(0.58);
+  filter: brightness(0.95);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 20px 24px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(34, 20, 13, 0.4);
+}
+
+.cabinet-drawer.is-open .drawer-face .cabinet-name,
+.cabinet-drawer.is-open .drawer-face .cabinet-handle {
+  transform: scaleY(1.72);
+}
+
+.cabinet-drawer.is-open .drawer-inner {
+  opacity: 1;
+  transform: translateY(8px) rotateX(0deg) scaleY(1);
+  box-shadow:
+    0 14px 22px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(225, 190, 147, 0.3),
+    inset 0 -14px 24px rgba(0, 0, 0, 0.24);
+}
+
+.cabinet-drawer.is-open .drawer-inner::before {
+  opacity: 0.2;
 }
 
 .filter-bar {
@@ -379,10 +474,18 @@
 }
 @media (max-width: 480px) {
   .cabinet-section { padding-top: 24px; }
-  .cabinet-frame { padding: 10px; }
+  .cabinet-frame { padding: 10px 10px 34px; }
+  .herb-cabinet { row-gap: 28px; }
   .cabinet-drawer { height: 154px; }
-  .drawer-herb-visual { height: 84px; }
-  .cabinet-drawer.is-open .drawer-face { transform: translateY(96px); }
+  .drawer-inner {
+    left: 9px;
+    right: 9px;
+    top: 10px;
+    height: 94px;
+  }
+  .drawer-herb-visual { height: 54px; font-size: 1.75em; }
+  .drawer-inner p { font-size: 0.7em; }
+  .cabinet-drawer.is-open .drawer-face { transform: translateY(104px) rotateX(-8deg) scaleY(0.58); }
   .herbs-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
   .herb-card { padding: 12px; }
   .herb-img { height: 110px; font-size: 2.2em; }
