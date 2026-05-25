@@ -3,6 +3,132 @@
  * ============================================================ */
 
 /* === 筛选条 === */
+/* === 百眼柜 === */
+.cabinet-section {
+  padding: 36px 0 24px;
+}
+
+.cabinet-head {
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.cabinet-head h2 {
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  color: var(--color-deep);
+  margin-bottom: 6px;
+}
+
+.cabinet-head p {
+  font-size: 0.92em;
+  color: var(--color-dust);
+}
+
+.cabinet-frame {
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(74, 58, 50, 0.22);
+  box-shadow: 0 12px 30px rgba(74, 58, 50, 0.12);
+  background:
+    linear-gradient(165deg, rgba(56, 38, 28, 0.92), rgba(36, 24, 18, 0.95)),
+    url("../images/wood-texture.png") center / 560px repeat;
+}
+
+.herb-cabinet {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.cabinet-drawer {
+  position: relative;
+  height: 170px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: linear-gradient(140deg, #1f140f, #2b1d14);
+  border: 2px solid #130c08;
+}
+
+.drawer-inner {
+  position: absolute;
+  inset: 8px;
+  z-index: 1;
+  border-radius: 6px;
+  background: linear-gradient(150deg, #2d1d13, #17100c);
+  border: 1px solid rgba(201, 136, 143, 0.25);
+  padding: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.drawer-herb-visual {
+  width: 100%;
+  height: 100px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2em;
+}
+
+.drawer-inner p {
+  font-size: 0.8em;
+  color: rgba(255, 243, 228, 0.94);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.drawer-face {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border: 0;
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  gap: 10px;
+  background:
+    linear-gradient(165deg, rgba(164, 112, 72, 0.86), rgba(116, 74, 45, 0.9)),
+    url("../images/wood-texture.png") center / 460px repeat;
+  border-top: 2px solid rgba(255, 228, 194, 0.33);
+  border-left: 2px solid rgba(255, 228, 194, 0.2);
+  border-right: 2px solid #442a1a;
+  border-bottom: 4px solid #3f2517;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.26);
+  transition: transform 420ms cubic-bezier(0.22, 0.62, 0.2, 1), box-shadow 280ms ease;
+}
+
+.drawer-face:hover {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 3px 12px rgba(0, 0, 0, 0.3);
+}
+
+.cabinet-name {
+  display: inline-block;
+  padding: 4px 10px;
+  font-family: var(--font-title);
+  font-size: 0.95em;
+  color: #3a2a1d;
+  background: rgba(244, 226, 190, 0.86);
+  border-radius: 3px;
+  border: 1px solid rgba(91, 64, 44, 0.35);
+  letter-spacing: 0.09em;
+}
+
+.cabinet-handle {
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #f8dfa1 0%, #b47a29 55%, #7e551d 100%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.cabinet-drawer.is-open .drawer-face {
+  transform: translateY(112px);
+}
+
 .filter-bar {
   padding: 20px 0;
   background: rgba(222,200,196,0.08);
@@ -240,14 +366,23 @@
 }
 
 /* === 响应式 === */
-@media (max-width: 992px) { .herbs-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 992px) {
+  .herb-cabinet { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .herbs-grid { grid-template-columns: repeat(3, 1fr); }
+}
 @media (max-width: 768px) {
+  .herb-cabinet { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .herbs-grid { grid-template-columns: repeat(2, 1fr); }
   .filter-bar { position: relative; top: auto; }
   .filter-row { flex-direction: column; align-items: flex-start; }
   .modal-body { flex-direction: column; align-items: center; text-align: center; }
 }
 @media (max-width: 480px) {
+  .cabinet-section { padding-top: 24px; }
+  .cabinet-frame { padding: 10px; }
+  .cabinet-drawer { height: 154px; }
+  .drawer-herb-visual { height: 84px; }
+  .cabinet-drawer.is-open .drawer-face { transform: translateY(96px); }
   .herbs-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
   .herb-card { padding: 12px; }
   .herb-img { height: 110px; font-size: 2.2em; }

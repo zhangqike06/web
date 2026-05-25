@@ -36,6 +36,7 @@
   var currentCategoryFilter = 'all';
   var currentPropertyFilter = 'all';
   var herbsGrid = document.getElementById('herbs-grid');
+  var herbCabinet = document.getElementById('herb-cabinet');
   var noResults = document.getElementById('no-results');
   var modalOverlay = document.getElementById('herb-modal');
   var modalBody = document.getElementById('modal-body');
@@ -88,6 +89,67 @@
       card.addEventListener('click', function() {
         openHerbModal(Number(card.getAttribute('data-id')));
       });
+    });
+  }
+
+  function renderHerbCabinet() {
+    var cabinetList;
+    var html = '';
+
+    if (!herbCabinet) return;
+
+    cabinetList = herbsData.slice(0, 12);
+
+    cabinetList.forEach(function(herb) {
+      html += '<article class="cabinet-drawer" data-id="' + herb.id + '">';
+      html += '  <button class="drawer-face" type="button" aria-expanded="false">';
+      html += '    <span class="cabinet-name">' + herb.name + '</span>';
+      html += '    <span class="cabinet-handle" aria-hidden="true"></span>';
+      html += '  </button>';
+      html += '  <div class="drawer-inner" role="button" tabindex="0" data-open-detail="' + herb.id + '">';
+      html += '    <div class="drawer-herb-visual" style="background:' + herb.bgColor + ';">' + herb.icon + '</div>';
+      html += '    <p>' + herb.effect + '</p>';
+      html += '  </div>';
+      html += '</article>';
+    });
+
+    herbCabinet.innerHTML = html;
+
+    herbCabinet.querySelectorAll('.cabinet-drawer').forEach(function(drawer) {
+      var face = drawer.querySelector('.drawer-face');
+      var inner = drawer.querySelector('.drawer-inner');
+
+      if (face) {
+        face.addEventListener('click', function() {
+          var isOpen = drawer.classList.contains('is-open');
+
+          herbCabinet.querySelectorAll('.cabinet-drawer').forEach(function(item) {
+            item.classList.remove('is-open');
+            var btn = item.querySelector('.drawer-face');
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+          });
+
+          if (!isOpen) {
+            drawer.classList.add('is-open');
+            face.setAttribute('aria-expanded', 'true');
+          }
+        });
+      }
+
+      if (inner) {
+        inner.addEventListener('click', function() {
+          var herbId = Number(inner.getAttribute('data-open-detail'));
+          openHerbModal(herbId);
+        });
+
+        inner.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            var herbId = Number(inner.getAttribute('data-open-detail'));
+            openHerbModal(herbId);
+          }
+        });
+      }
     });
   }
 
@@ -195,6 +257,7 @@
 
   bindFilterEvents('category-filters', 'category');
   bindFilterEvents('property-filters', 'property');
+  renderHerbCabinet();
   renderHerbs();
   checkSearchParam();
 })();
