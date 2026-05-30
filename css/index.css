@@ -251,16 +251,125 @@
   display: inline-block;
 }
 
-.fortune-btn.shaking {
-  animation: btnShake 0.55s ease;
+.divining-cup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 72px;
+  position: relative;
 }
 
-@keyframes btnShake {
-  0%, 100% { transform: rotate(0deg); }
-  15% { transform: rotate(-10deg); }
-  35% { transform: rotate(10deg); }
-  55% { transform: rotate(-7deg); }
-  75% { transform: rotate(7deg); }
+.cup-top {
+  width: 68px;
+  height: 12px;
+  background: linear-gradient(180deg, #8B6F47 0%, #6B5437 100%);
+  border-radius: 50% 50% 0 0;
+  position: relative;
+  z-index: 3;
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.2),
+    0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.cup-body {
+  width: 58px;
+  height: 44px;
+  background: linear-gradient(135deg, #A68767 0%, #8B7355 50%, #7A6349 100%);
+  border-radius: 0 0 12px 12px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    inset -2px 0 6px rgba(0, 0, 0, 0.15),
+    inset 2px 0 6px rgba(255, 255, 255, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.cup-pattern {
+  width: 100%;
+  height: 100%;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 3px,
+      rgba(0, 0, 0, 0.08) 3px,
+      rgba(0, 0, 0, 0.08) 4px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 6px,
+      rgba(255, 255, 255, 0.05) 6px,
+      rgba(255, 255, 255, 0.05) 7px
+    );
+  opacity: 0.6;
+}
+
+.cup-bottom {
+  width: 52px;
+  height: 8px;
+  background: linear-gradient(180deg, #6B5437 0%, #5A4A2F 100%);
+  border-radius: 0 0 6px 6px;
+  position: relative;
+  z-index: 1;
+  box-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.25),
+    inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.cup-rim {
+  width: 66px;
+  height: 6px;
+  background: linear-gradient(180deg, #9B8B77 0%, #8B7B67 100%);
+  border-radius: 50%;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  box-shadow:
+    inset 0 1px 3px rgba(255, 255, 255, 0.2),
+    0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.cup-label {
+  font-size: 0.85em;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.fortune-btn.shaking {
+  animation: cupSway 0.55s ease;
+}
+
+.fortune-btn.shaking .divining-cup {
+  animation: cupWobble 0.55s ease;
+}
+
+@keyframes cupSway {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  15% { transform: rotate(-8deg) scale(1.02); }
+  35% { transform: rotate(8deg) scale(1.02); }
+  55% { transform: rotate(-5deg) scale(1.01); }
+  75% { transform: rotate(5deg) scale(1.01); }
+}
+
+@keyframes cupWobble {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  10% { transform: translateY(-3px) rotate(-2deg); }
+  25% { transform: translateY(2px) rotate(2deg); }
+  40% { transform: translateY(-2px) rotate(-1deg); }
+  60% { transform: translateY(1px) rotate(1deg); }
+  80% { transform: translateY(-1px) rotate(0deg); }
 }
 
 .categories {
@@ -572,5 +681,40 @@
     min-width: 0;
     width: 100%;
     padding: 24px 20px;
+  }
+
+  .divining-cup {
+    width: 56px;
+    height: 64px;
+    transform: scale(0.9);
+  }
+
+  .cup-top {
+    width: 60px;
+    height: 10px;
+  }
+
+  .cup-body {
+    width: 52px;
+    height: 40px;
+  }
+
+  .cup-bottom {
+    width: 46px;
+    height: 7px;
+  }
+
+  .cup-rim {
+    width: 58px;
+  }
+
+  .cup-label {
+    font-size: 0.75em;
+    margin-top: 2px;
+  }
+
+  .fortune-btn {
+    padding: 10px 24px;
+    font-size: 0.95em;
   }
 }
