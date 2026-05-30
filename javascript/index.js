@@ -289,13 +289,20 @@
 
   function initMarquee() {
     var marqueeContent = document.getElementById('marquee-content');
+    var marqueeTrack = document.querySelector('.marquee-track');
 
-    if (!marqueeContent || marqueeContent.dataset.cloned === 'true') {
+    if (!marqueeContent || !marqueeTrack) {
       return;
     }
 
-    marqueeContent.dataset.cloned = 'true';
-    marqueeContent.parentNode.appendChild(marqueeContent.cloneNode(true));
+    var contentWidth = marqueeContent.offsetWidth;
+    var trackWidth = marqueeTrack.offsetWidth;
+
+    if (contentWidth < trackWidth) {
+      var clone = marqueeContent.cloneNode(true);
+      clone.removeAttribute('id');
+      marqueeContent.parentNode.appendChild(clone);
+    }
   }
 
   initDateInfo();

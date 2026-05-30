@@ -394,6 +394,9 @@
   gap: 12px;
   padding: 30px 20px 26px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 252, 249, 0.88));
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   border: 1px solid rgba(201, 136, 143, 0.12);
   border-radius: 22px;
   transition: all 0.35s ease;
@@ -405,12 +408,34 @@
 .category-card::before {
   content: "";
   position: absolute;
-  inset: 0 0 auto;
-  height: 4px;
-  background: linear-gradient(90deg, var(--color-rose), rgba(201, 136, 143, 0.15));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.35s;
+  inset: 0;
+  filter: blur(20px) brightness(0.3) saturate(0.4);
+  z-index: 0;
+  border-radius: 22px;
+}
+
+.card-history::before {
+  background: linear-gradient(135deg, rgba(212, 175, 155, 0.8), rgba(139, 111, 71, 0.8));
+}
+
+.card-herbs::before {
+  background: linear-gradient(135deg, rgba(178, 190, 126, 0.8), rgba(107, 134, 61, 0.8));
+}
+
+.card-meridian::before {
+  background: linear-gradient(135deg, rgba(200, 170, 140, 0.8), rgba(140, 110, 80, 0.8));
+}
+
+.card-prescription::before {
+  background: linear-gradient(135deg, rgba(210, 180, 160, 0.8), rgba(150, 120, 90, 0.8));
+}
+
+.card-wellness::before {
+  background: linear-gradient(135deg, rgba(220, 200, 180, 0.8), rgba(180, 150, 120, 0.8));
+}
+
+.card-ethnic::before {
+  background: linear-gradient(135deg, rgba(194, 174, 154, 0.8), rgba(144, 114, 84, 0.8));
 }
 
 .category-card::after {
@@ -423,10 +448,7 @@
   background: radial-gradient(circle, rgba(201, 136, 143, 0.12), transparent 68%);
   opacity: 0;
   transition: opacity 0.35s ease;
-}
-
-.category-card:hover::before {
-  transform: scaleX(1);
+  z-index: 2;
 }
 
 .category-card:hover::after {
@@ -441,6 +463,8 @@
 .category-icon {
   font-size: 2.4em;
   filter: drop-shadow(0 6px 16px rgba(74, 58, 50, 0.12));
+  position: relative;
+  z-index: 3;
 }
 
 .category-card h3 {
@@ -448,11 +472,15 @@
   font-size: 1.1em;
   color: var(--color-deep);
   letter-spacing: 0.06em;
+  position: relative;
+  z-index: 3;
 }
 
 .category-card p {
   font-size: 0.86em;
   color: #877971;
+  position: relative;
+  z-index: 3;
 }
 
 .featured-herb {
@@ -587,8 +615,13 @@
 .marquee-content {
   display: inline-block;
   white-space: nowrap;
-  animation: marqueeScroll 35s linear infinite;
+  animation: marqueeScroll 60s linear infinite;
   padding: 8px 0;
+}
+
+.marquee-content + .marquee-content {
+  animation: marqueeScroll 60s linear infinite;
+  animation-delay: 60s;
 }
 
 .marquee-content span {
@@ -607,7 +640,7 @@
 
 @keyframes marqueeScroll {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(-100%); }
 }
 
 .marquee-track:hover .marquee-content {
