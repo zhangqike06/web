@@ -163,6 +163,9 @@
   opacity: 0.7;
 }
 
+/* ---- 民族医药横幅图 ---- */
+.ethnic-hero-img { width: 100%; max-height: 280px; object-fit: cover; border-radius: 14px; margin-bottom: 24px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+
 /* ---- 信息小节 ---- */
 .ethnic-section {
   margin-bottom: 36px;

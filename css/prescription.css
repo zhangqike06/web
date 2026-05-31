@@ -93,9 +93,28 @@
 }
 
 .herb-ingredient .herb-icon {
-  font-size: 2.2em;
-  margin-bottom: 8px;
   display: block;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 8px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.herb-ingredient .herb-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.herb-icon-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-title);
+  font-size: 1.4em;
+  color: #fff;
 }
 
 .herb-ingredient .herb-name {
@@ -137,8 +156,36 @@
 }
 
 .cauldron-icon {
-  font-size: 2.6em;
-  color: #a09080;
+  display: block;
+  width: 60px;
+  height: 50px;
+  margin: 0 auto;
+  border: 3px solid #a09080;
+  border-radius: 14px 14px 50% 50%;
+  position: relative;
+  background: linear-gradient(180deg, rgba(160,144,128,0.1), rgba(160,144,128,0.25));
+}
+.cauldron-icon::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 4px;
+  right: 4px;
+  height: 8px;
+  border: 3px solid #a09080;
+  border-radius: 14px 14px 0 0;
+  border-bottom: none;
+}
+.cauldron-icon::after {
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 6px;
+  background: #a09080;
+  border-radius: 3px;
 }
 
 .cauldron-hint {
@@ -245,6 +292,80 @@
   background: rgba(222,200,196,0.08);
 }
 
+/* === 煎煮指南 === */
+.brewing-section { padding: 60px 0; background: rgba(222,200,196,0.06); }
+.brewing-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 20px; }
+.brewing-step { background: #fff; border-radius: 14px; padding: 22px 18px; border: 1px solid rgba(201,136,143,0.1); position: relative; }
+.brew-num { width: 32px; height: 32px; border-radius: 50%; background: var(--color-rose); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9em; margin-bottom: 10px; }
+.brewing-step h3 { font-family: var(--font-title); color: var(--color-deep); font-size: 1em; margin-bottom: 6px; }
+.brewing-step p { font-size: 0.84em; color: #7a7068; line-height: 1.7; }
+
+/* === 全部方剂卡片列表 === */
+.all-recipes-section {
+  padding: 60px 0;
+}
+
+/* === 全部方剂卡片列表（分类） === */
+.recipe-cat-section { margin-bottom: 36px; }
+.recipe-cat-title { font-family: var(--font-title); font-size: 1.2em; color: var(--color-deep); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--color-bud); letter-spacing: 0.06em; display: flex; align-items: center; gap: 10px; }
+.cat-count { font-size: 0.7em; background: var(--color-rose); color: #fff; padding: 2px 10px; border-radius: 12px; font-weight: 400; }
+
+.recipe-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.recipe-cat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.recipe-card-mini {
+  background: #fff;
+  border: 1px solid rgba(201, 136, 143, 0.12);
+  border-radius: 14px;
+  padding: 20px 16px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(74, 58, 50, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-card-mini:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(74, 58, 50, 0.1);
+  border-color: var(--color-rose);
+}
+
+.recipe-card-mini h4 {
+  font-family: var(--font-title);
+  font-size: 1.05em;
+  color: var(--color-deep);
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+}
+
+.recipe-card-mini .recipe-type-tag {
+  display: inline-block;
+  font-size: 0.7em;
+  padding: 2px 10px;
+  border-radius: 10px;
+  background: rgba(222,200,196,0.35);
+  color: var(--color-dust);
+  align-self: flex-start;
+}
+
+.recipe-card-mini .recipe-herbs-mini {
+  font-size: 0.82em;
+  color: #877971;
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: 8px;
+}
+
 /* === 飞行克隆 === */
 .fly-clone {
   position: fixed;
@@ -254,14 +375,25 @@
 }
 
 /* === 响应式 === */
+@media (max-width: 992px) {
+  .recipe-card-grid, .recipe-cat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .brewing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 480px) {
+  .recipe-card-grid, .recipe-cat-grid { grid-template-columns: 1fr; }
+  .brewing-grid { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 768px) {
   .alchemy-section,
-  .formula-detail-section { padding: 44px 0; }
+  .formula-detail-section,
+  .all-recipes-section { padding: 44px 0; }
   .prescription-nav { padding: 14px 0; }
   .bamboo-nav { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 6px; }
   .bamboo-item { flex: 0 0 auto; }
   .herb-ingredient { width: 90px; padding: 12px; }
-  .herb-ingredient .herb-icon { font-size: 1.7em; }
+  .herb-ingredient .herb-icon { width: 44px; height: 44px; font-size: 1.3em; }
   .cauldron { width: 120px; height: 120px; }
   .cauldron-icon { font-size: 2em; }
   .result-card { padding: 24px 18px; }

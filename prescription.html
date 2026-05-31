@@ -65,6 +65,13 @@
         <button class="bamboo-item" data-recipe="10">麻黄汤</button>
         <button class="bamboo-item" data-recipe="11">归脾汤</button>
         <button class="bamboo-item" data-recipe="12">八珍汤</button>
+        <button class="bamboo-item" data-recipe="13">白虎汤</button>
+        <button class="bamboo-item" data-recipe="14">四逆散</button>
+        <button class="bamboo-item" data-recipe="15">血府逐瘀汤</button>
+        <button class="bamboo-item" data-recipe="16">独活寄生汤</button>
+        <button class="bamboo-item" data-recipe="17">平胃散</button>
+        <button class="bamboo-item" data-recipe="18">百合固金汤</button>
+        <button class="bamboo-item" data-recipe="19">酸枣仁汤</button>
       </div>
     </div>
   </section>
@@ -86,7 +93,7 @@
         <!-- 药壶区域 -->
         <div class="cauldron-area">
           <div class="cauldron" id="cauldron">
-            <span class="cauldron-icon">&#9737;</span>
+            <span class="cauldron-icon"></span>
             <div class="steam" id="steam"></div>
           </div>
           <p class="cauldron-hint" id="cauldron-hint">点击草药投入药壶</p>
@@ -120,6 +127,31 @@
             <!-- JS动态填充 -->
           </tbody>
         </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 全部方剂列表卡片 -->
+  <section class="all-recipes-section">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;margin-bottom:28px;">经典名方一览</h2>
+      <div class="recipe-card-grid" id="all-recipes-grid">
+        <!-- JS动态渲染 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 中药煎煮指南 -->
+  <section class="brewing-section">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;margin-bottom:28px;">中药煎煮指南</h2>
+      <div class="brewing-grid">
+        <div class="brewing-step"><div class="brew-num">1</div><h3>选锅</h3><p>首选砂锅、瓦罐，其次不锈钢锅、搪瓷锅。忌用铁锅、铝锅、铜锅，金属离子易与药中成分反应，影响药效。</p></div>
+        <div class="brewing-step"><div class="brew-num">2</div><h3>浸泡</h3><p>冷水浸泡30-60分钟，水量没过药面2-3厘米。花叶草类浸泡20-30分钟，根茎果实类浸泡60分钟。</p></div>
+        <div class="brewing-step"><div class="brew-num">3</div><h3>火候</h3><p>先用武火（大火）煮沸，水开后改用文火（小火）慢煎。一般解表药武火快煎，滋补药文火慢煎。</p></div>
+        <div class="brewing-step"><div class="brew-num">4</div><h3>时间</h3><p>头煎：煮沸后20-30分钟。二煎：煮沸后15-20分钟。解表药10-15分钟，滋补药40-60分钟。</p></div>
+        <div class="brewing-step"><div class="brew-num">5</div><h3>特殊煎法</h3><p><strong>先煎：</strong>矿石贝壳类（石膏、龙骨）先煮20分钟。<strong>后下：</strong>芳香类（薄荷、砂仁）煎好前5分钟放入。<strong>包煎：</strong>绒毛类（旋覆花）用纱布包好。</p></div>
+        <div class="brewing-step"><div class="brew-num">6</div><h3>服用</h3><p>头煎与二煎药液混合后分2-3次温服。一般饭后1小时服用，滋补药可空腹服，安神药睡前服。</p></div>
       </div>
     </div>
   </section>

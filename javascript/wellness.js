@@ -63,7 +63,7 @@
   var compass  = document.getElementById('compass');
 
   if (termRing) {
-    var compassRadius = 180; /* 罗盘半径的一半 */
+    var compassRadius = 170; /* 罗盘半径的一半（匹配CSS 340px/2） */
     var itemRadius = 130;     /* 节气项距中心距离 */
 
     termList.forEach(function(name, index) {
@@ -333,7 +333,7 @@
       '<h3>您的体质：' + resultType + '</h3>' +
       '<span class="result-type">测试得分：' + totalScore + ' / ' + (questions.length * 3) + '</span>' +
       '<div class="result-advice">' +
-      '<h4>&#128218; 个性化养生建议</h4>' +
+      '<h4>个性化养生建议</h4>' +
       '<p>' + resultAdvice + '</p>' +
       '</div>' +
       '<button class="btn btn-primary" style="margin-top:20px;" onclick="location.reload();">&#8635; 重新测试</button>';

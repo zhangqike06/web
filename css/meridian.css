@@ -127,47 +127,13 @@
   inset: 0;
 }
 
-.body-head {
+.body-svg {
   position: absolute;
-  top: 0; left: 50%;
-  transform: translateX(-50%);
-  width: 58px; height: 66px;
-  border-radius: 50% 50% 40% 40%;
-  border: 2px solid rgba(196,164,148,0.5);
-  background: rgba(196,164,148,0.06);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
-
-.body-torso {
-  position: absolute;
-  top: 64px; left: 50%;
-  transform: translateX(-50%);
-  width: 86px; height: 250px;
-  border-radius: 20px 20px 10px 10px;
-  border: 2px solid rgba(196,164,148,0.5);
-  background: rgba(196,164,148,0.04);
-}
-
-.body-arm {
-  position: absolute;
-  top: 76px;
-  width: 26px; height: 210px;
-  border-radius: 13px;
-  border: 2px solid rgba(196,164,148,0.5);
-  background: rgba(196,164,148,0.04);
-}
-.body-arm.left  { left: 40px; }
-.body-arm.right { right: 40px; }
-
-.body-leg {
-  position: absolute;
-  top: 306px;
-  width: 30px; height: 250px;
-  border-radius: 10px 10px 15px 15px;
-  border: 2px solid rgba(196,164,148,0.5);
-  background: rgba(196,164,148,0.04);
-}
-.body-leg.left  { left: 72px; }
-.body-leg.right { right: 72px; }
 
 /* 穴位热点 */
 .acupoint {
@@ -298,7 +264,18 @@
   font-size: 1.05em;
 }
 
+/* === 十二正经详解 === */
+.meridian-cards-section { padding: 60px 0; }
+.meridian-card-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 20px; }
+.meridian-card { background: #fff; border-radius: 14px; padding: 20px 16px; border: 1px solid rgba(201,136,143,0.1); border-left: 4px solid var(--color-rose); transition: all 0.3s; }
+.meridian-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.06); }
+.meridian-card h3 { font-family: var(--font-title); font-size: 1em; color: var(--color-deep); margin-bottom: 8px; }
+.meridian-card p { font-size: 0.8em; color: #7a7068; line-height: 1.6; margin-bottom: 4px; }
+.meridian-tag { display: inline-block; margin-top: 6px; font-size: 0.7em; padding: 2px 8px; border-radius: 8px; background: rgba(222,200,196,0.3); color: var(--color-dust); }
+
 /* === 响应式 === */
+@media (max-width: 992px) { .meridian-card-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) {
 @media (max-width: 768px) {
   .intro-section,
   .acupoint-section,

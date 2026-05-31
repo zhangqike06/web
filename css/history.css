@@ -163,16 +163,19 @@
 }
 
 .doctor-avatar {
-  width: 85px;
-  height: 85px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2.2em;
   color: #fff;
-  margin-bottom: 14px;
+  margin: 0 auto 14px;
   border: 3px solid var(--color-bud);
+  background-size: cover;
+  background-position: center top;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
 }
 
 .card-front h3 {
@@ -209,7 +212,25 @@
   line-height: 1.6;
 }
 
+/* === 中药炮制发展史（竖向时间轴） === */
+.processing-section { padding: 60px 0; background: rgba(222,200,196,0.06); }
+.processing-timeline { position: relative; max-width: 860px; margin: 0 auto; padding: 20px 0; }
+.processing-timeline::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, transparent, var(--color-bud) 8%, var(--color-bud) 92%, transparent); transform: translateX(-50%); }
+.proc-item { position: relative; display: flex; align-items: flex-start; margin-bottom: 36px; }
+.proc-item:last-child { margin-bottom: 0; }
+.proc-left { flex-direction: row; padding-right: calc(50% + 30px); text-align: right; }
+.proc-right { flex-direction: row-reverse; padding-left: calc(50% + 30px); text-align: left; }
+.proc-dot { position: absolute; left: 50%; top: 18px; transform: translateX(-50%); width: 14px; height: 14px; border-radius: 50%; background: var(--color-rose); border: 3px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.15); z-index: 2; }
+.proc-card { background: #fff; border-radius: 12px; padding: 20px 22px; border: 1px solid rgba(201,136,143,0.1); flex: 1; position: relative; }
+.proc-era { font-family: var(--font-title); font-size: 0.95em; color: var(--color-rose); margin-bottom: 6px; letter-spacing: 0.04em; }
+.proc-card h3 { font-family: var(--font-title); font-size: 1.05em; color: var(--color-deep); margin-bottom: 8px; }
+.proc-card p { font-size: 0.86em; color: #7a7068; line-height: 1.75; }
+
 /* === 响应式 === */
+@media (max-width: 768px) {
+  .processing-timeline::before { left: 20px; }
+  .proc-left, .proc-right { flex-direction: row; padding-left: 52px; padding-right: 0; text-align: left; }
+  .proc-dot { left: 20px; }
 @media (max-width: 768px) {
   .timeline-section,
   .classics-section,

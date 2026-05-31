@@ -139,6 +139,9 @@
 }
 
 .season-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 11px 30px;
   border: 2px solid var(--color-bud);
   border-radius: 28px;
@@ -151,6 +154,19 @@
   letter-spacing: 0.06em;
 }
 
+.season-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.season-dot.spring { background: #f48fb1; }
+.season-dot.summer { background: #ff8a65; }
+.season-dot.autumn { background: #ffcc80; }
+.season-dot.winter { background: #81d4fa; }
+
 .season-tab:hover {
   border-color: var(--color-dusk);
   color: var(--color-dusk);
@@ -160,6 +176,10 @@
   background: var(--color-dusk);
   color: #fff;
   border-color: var(--color-dusk);
+}
+
+.season-tab.active .season-dot {
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.5);
 }
 
 .season-content {
@@ -341,7 +361,19 @@
   background: rgba(222,200,196,0.08);
 }
 
+/* === 养生药茶 === */
+.tea-recipes-section { padding: 60px 0; background: rgba(222,200,196,0.06); }
+.tea-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 20px; }
+.tea-card { background: #fff; border-radius: 14px; padding: 22px 18px; border: 1px solid rgba(201,136,143,0.1); transition: all 0.3s; }
+.tea-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.06); }
+.tea-card h3 { font-family: var(--font-title); color: var(--color-deep); font-size: 1.05em; margin-bottom: 6px; }
+.tea-ingredients { font-size: 0.82em; color: var(--color-rose); margin-bottom: 8px; font-weight: 500; }
+.tea-card p { font-size: 0.84em; color: #7a7068; line-height: 1.6; margin-bottom: 8px; }
+.tea-season { display: inline-block; font-size: 0.72em; padding: 2px 10px; border-radius: 10px; background: rgba(222,200,196,0.3); color: var(--color-dust); }
+
 /* === 响应式 === */
+@media (max-width: 768px) {
+  .tea-grid { grid-template-columns: repeat(2, 1fr); }
 @media (max-width: 768px) {
   .compass-section,
   .seasonal-section,

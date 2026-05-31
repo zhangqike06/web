@@ -83,128 +83,61 @@
       <div class="acupoint-layout">
         <!-- 人体穴位图（相对定位容器） -->
         <div class="body-map" id="body-map">
-          <!-- 正面人体图（CSS绘制简化图） -->
+          <!-- 正面人体图 -->
           <div class="body-silhouette front-view" id="body-front">
-            <div class="body-head"></div>
-            <div class="body-torso"></div>
-            <div class="body-arm left"></div>
-            <div class="body-arm right"></div>
-            <div class="body-leg left"></div>
-            <div class="body-leg right"></div>
-
-            <!-- 正面穴位热点 -->
-            <div class="acupoint" style="top:2%; left:48%;"
-                 data-name="百会" data-pos="头顶正中，前发际正中直上5寸"
-                 data-meridian="督脉" data-effect="升阳举陷，益气固脱，醒脑开窍，宁心安神"
-                 data-method="正坐或仰卧，两耳尖连线与正中线交点"
-                 data-note="不可用力按压，宜轻柔按摩"></div>
-            <div class="acupoint" style="top:16%; left:48%;"
-                 data-name="印堂" data-pos="额部，两眉头连线中点"
-                 data-meridian="经外奇穴" data-effect="清头明目，通鼻开窍，安神定志"
-                 data-method="取两眉头连线的中点"
-                 data-note="头痛、眩晕、鼻塞常用穴"></div>
-            <div class="acupoint" style="top:26%; left:52%;"
-                 data-name="膻中" data-pos="胸部，前正中线，两乳头连线中点"
-                 data-meridian="任脉" data-effect="宽胸理气，化痰通络，宁心安神"
-                 data-method="仰卧或正坐，两乳头连线与前正中线交点"
-                 data-note="气会膻中，为八会穴之气会"></div>
-            <div class="acupoint" style="top:38%; left:53%;"
-                 data-name="中脘" data-pos="上腹部，前正中线上，脐中上4寸"
-                 data-meridian="任脉" data-effect="健脾和胃，消食导滞，降逆利水"
-                 data-method="脐中与胸剑联合连线的中点"
-                 data-note="胃之募穴，腑会中脘"></div>
-            <div class="acupoint" style="top:50%; left:50%;"
-                 data-name="气海" data-pos="下腹部，前正中线上，脐中下1.5寸"
-                 data-meridian="任脉" data-effect="培补元气，益肾固精，补益回阳"
-                 data-method="脐中直下1.5寸（约两横指）"
-                 data-note="为生气之海，养生保健要穴"></div>
-            <div class="acupoint" style="top:56%; left:50%;"
-                 data-name="关元" data-pos="下腹部，前正中线上，脐中下3寸"
-                 data-meridian="任脉" data-effect="培补元气，导赤通淋，调经止带"
-                 data-method="脐中直下3寸（约四横指）"
-                 data-note="小肠募穴，为人体强壮要穴"></div>
-            <div class="acupoint" style="top:25%; left:24%;"
-                 data-name="合谷" data-pos="手背第1、2掌骨间，第2掌骨桡侧中点"
-                 data-meridian="手阳明大肠经" data-effect="镇静止痛，清热解表，疏经通络"
-                 data-method="拇食指并拢，肌肉隆起最高处"
-                 data-note="面口合谷收，头面五官疾痛要穴"></div>
-            <div class="acupoint" style="top:28%; left:74%;"
-                 data-name="内关" data-pos="前臂掌侧，腕横纹上2寸，两筋之间"
-                 data-meridian="手厥阴心包经" data-effect="宁心安神，和胃降逆，宽胸理气"
-                 data-method="腕横纹上2寸（三横指），掌长肌腱与桡侧腕屈肌腱之间"
-                 data-note="心胸内关谋，为心包经络穴"></div>
-            <div class="acupoint" style="top:74%; left:28%;"
-                 data-name="足三里" data-pos="小腿外侧，犊鼻下3寸，距胫骨前缘一横指"
-                 data-meridian="足阳明胃经" data-effect="健脾和胃，扶正培元，通经活络"
-                 data-method="外膝眼下3寸（四横指），胫骨前缘旁开一横指"
-                 data-note="肚腹三里留，为全身强壮保健第一要穴"></div>
-            <div class="acupoint" style="top:80%; left:70%;"
-                 data-name="三阴交" data-pos="小腿内侧，内踝尖上3寸，胫骨内侧缘后方"
-                 data-meridian="足太阴脾经" data-effect="健脾益血，调经止带，调补肝肾"
-                 data-method="内踝尖直上3寸（四横指），胫骨后缘"
-                 data-note="妇科调理第一要穴，肝脾肾三经交会"></div>
-            <div class="acupoint" style="top:28%; left:28%;"
-                 data-name="神门" data-pos="腕部，腕掌侧横纹尺侧端，尺侧腕屈肌腱桡侧凹陷处"
-                 data-meridian="手少阴心经" data-effect="宁心安神，通经活络，清心调气"
-                 data-method="腕横纹尺侧端，尺侧腕屈肌腱桡侧"
-                 data-note="失眠、心悸、健忘要穴"></div>
-            <div class="acupoint" style="top:44%; left:64%;"
-                 data-name="天枢" data-pos="腹部，脐中旁开2寸，左右各一"
-                 data-meridian="足阳明胃经" data-effect="理气健脾，和胃调中，通调大肠腑气"
-                 data-method="肚脐正中旁开2寸（约三横指）"
-                 data-note="大肠募穴，双向调节便秘与腹泻"></div>
-            <div class="acupoint" style="top:90%; left:30%;"
-                 data-name="太冲" data-pos="足背，第1、2跖骨结合部之前凹陷中"
-                 data-meridian="足厥阴肝经" data-effect="平肝息风，疏肝解郁，清肝明目"
-                 data-method="足背第1、2趾间缝纹端向后推至凹陷处"
-                 data-note="肝经原穴，疏肝理气第一要穴"></div>
+            <svg viewBox="0 0 200 560" class="body-svg" preserveAspectRatio="xMidYMid meet">
+              <ellipse cx="100" cy="28" rx="28" ry="32" fill="none" stroke="rgba(196,164,148,0.45)" stroke-width="1.8"/>
+              <rect x="62" y="58" width="76" height="190" rx="24" fill="none" stroke="rgba(196,164,148,0.4)" stroke-width="1.8"/>
+              <path d="M64 78 L64 240 L40 250 L40 320 L42 320 L54 280 L64 280" fill="none" stroke="rgba(196,164,148,0.4)" stroke-width="1.8"/>
+              <path d="M136 78 L136 240 L160 250 L160 320 L158 320 L146 280 L136 280" fill="none" stroke="rgba(196,164,148,0.4)" stroke-width="1.8"/>
+              <rect x="68" y="248" width="28" height="220" rx="14" fill="none" stroke="rgba(196,164,148,0.4)" stroke-width="1.8"/>
+              <rect x="104" y="248" width="28" height="220" rx="14" fill="none" stroke="rgba(196,164,148,0.4)" stroke-width="1.8"/>
+            </svg>
+            <div class="acupoint" style="top:2%; left:50%;" data-name="百会" data-pos="头顶正中" data-meridian="督脉" data-effect="升阳举陷，醒脑开窍" data-method="两耳尖连线中点" data-note="诸阳之会，宜轻按"></div>
+            <div class="acupoint" style="top:12%; left:50%;" data-name="印堂" data-pos="两眉头连线中点" data-meridian="经外奇穴" data-effect="清头明目，通鼻开窍" data-method="两眉头连线中点" data-note="头痛眩晕常用"></div>
+            <div class="acupoint" style="top:17%; left:22%;" data-name="太阳" data-pos="眉梢与目外眦之间，向后约一横指" data-meridian="经外奇穴" data-effect="清肝明目，通络止痛" data-method="眉梢与外眼角中间向后一横指" data-note="偏头痛特效穴"></div>
+            <div class="acupoint" style="top:17%; left:78%;" data-name="太阳" data-pos="眉梢与目外眦之间，向后约一横指（右）" data-meridian="经外奇穴" data-effect="清肝明目，通络止痛" data-method="眉梢与外眼角中间向后一横指" data-note="双侧对称"></div>
+            <div class="acupoint" style="top:22%; left:55%;" data-name="膻中" data-pos="两乳头连线中点" data-meridian="任脉" data-effect="宽胸理气，宁心安神" data-method="两乳头连线与前正中线交点" data-note="气会膻中"></div>
+            <div class="acupoint" style="top:20%; left:28%;" data-name="合谷" data-pos="手背第1、2掌骨间" data-meridian="手阳明大肠经" data-effect="镇静止痛，清热解表" data-method="拇食指并拢，肌肉隆起最高处" data-note="面口合谷收"></div>
+            <div class="acupoint" style="top:20%; left:72%;" data-name="内关" data-pos="腕横纹上2寸，两筋间" data-meridian="手厥阴心包经" data-effect="宁心安神，和胃降逆" data-method="腕横纹上2寸，两肌腱之间" data-note="心胸内关谋"></div>
+            <div class="acupoint" style="top:28%; left:55%;" data-name="中脘" data-pos="脐中上4寸" data-meridian="任脉" data-effect="健脾和胃，消食导滞" data-method="脐与胸剑联合连线中点" data-note="腑会中脘"></div>
+            <div class="acupoint" style="top:30%; left:70%;" data-name="天枢" data-pos="脐中旁开2寸" data-meridian="足阳明胃经" data-effect="调中理气，通调大肠" data-method="肚脐旁开2寸" data-note="大肠募穴"></div>
+            <div class="acupoint" style="top:35%; left:30%;" data-name="曲池" data-pos="肘横纹外侧端，屈肘90°" data-meridian="手阳明大肠经" data-effect="清热解表，疏经通络" data-method="屈肘，肘横纹外侧端" data-note="退热降压要穴"></div>
+            <div class="acupoint" style="top:38%; left:52%;" data-name="气海" data-pos="脐中下1.5寸" data-meridian="任脉" data-effect="培补元气，益肾固精" data-method="脐中直下1.5寸" data-note="生气之海"></div>
+            <div class="acupoint" style="top:42%; left:52%;" data-name="关元" data-pos="脐中下3寸" data-meridian="任脉" data-effect="培元固本，调经止带" data-method="脐中直下3寸" data-note="人体强壮要穴"></div>
+            <div class="acupoint" style="top:60%; left:30%;" data-name="足三里" data-pos="犊鼻下3寸，胫骨前缘外一横指" data-meridian="足阳明胃经" data-effect="健脾和胃，扶正培元" data-method="外膝眼下3寸，胫骨前缘旁开一横指" data-note="强壮保健第一要穴"></div>
+            <div class="acupoint" style="top:72%; left:68%;" data-name="三阴交" data-pos="内踝尖上3寸" data-meridian="足太阴脾经" data-effect="健脾调经，调补肝肾" data-method="内踝尖直上3寸" data-note="妇科第一要穴"></div>
+            <div class="acupoint" style="top:85%; left:32%;" data-name="太冲" data-pos="足背第1、2跖骨间" data-meridian="足厥阴肝经" data-effect="平肝息风，疏肝解郁" data-method="第1、2趾间缝纹端向后推至凹陷" data-note="疏肝理气要穴"></div>
+            <div class="acupoint" style="top:85%; left:68%;" data-name="涌泉" data-pos="足底前1/3凹陷处" data-meridian="足少阴肾经" data-effect="补肾固元，开窍醒神" data-method="足趾蜷曲时足底前部凹陷处" data-note="肾经井穴，引火归元"></div>
+            <div class="acupoint" style="top:25%; left:45%;" data-name="神门" data-pos="腕横纹尺侧端" data-meridian="手少阴心经" data-effect="宁心安神" data-method="腕横纹尺侧端凹陷处" data-note="失眠要穴"></div>
           </div>
 
           <!-- 背面人体图 -->
           <div class="body-silhouette back-view" id="body-back" style="display:none;">
-            <div class="body-head"></div>
-            <div class="body-torso"></div>
-            <div class="body-arm left"></div>
-            <div class="body-arm right"></div>
-            <div class="body-leg left"></div>
-            <div class="body-leg right"></div>
-
-            <!-- 背面穴位热点 -->
-            <div class="acupoint" style="top:3%; left:48%;"
-                 data-name="风池" data-pos="项部，枕骨之下，胸锁乳突肌与斜方肌上端之间凹陷处"
-                 data-meridian="足少阳胆经" data-effect="平肝息风，醒脑开窍，清热解表"
-                 data-method="后发际正中上1寸旁开，两肌肉之间凹陷处"
-                 data-note="祛风要穴，感冒头痛常用穴"></div>
-            <div class="acupoint" style="top:30%; left:48%;"
-                 data-name="大椎" data-pos="后正中线上，第7颈椎棘突下凹陷中"
-                 data-meridian="督脉" data-effect="清热解表，截疟止痛，镇静安神"
-                 data-method="低头时颈后最突出的骨头下方凹陷处"
-                 data-note="诸阳之会，退热要穴"></div>
-            <div class="acupoint" style="top:42%; left:35%;"
-                 data-name="肺俞" data-pos="背部，第3胸椎棘突下旁开1.5寸"
-                 data-meridian="足太阳膀胱经" data-effect="宣肺理气，止咳平喘，疏风散热"
-                 data-method="大椎下3个椎体，旁开1.5寸（两横指）"
-                 data-note="肺之背俞穴"></div>
-            <div class="acupoint" style="top:48%; left:35%;"
-                 data-name="心俞" data-pos="背部，第5胸椎棘突下旁开1.5寸"
-                 data-meridian="足太阳膀胱经" data-effect="宁心安神，理气调血，宽胸通络"
-                 data-method="大椎下5个椎体，旁开1.5寸"
-                 data-note="心之背俞穴"></div>
-            <div class="acupoint" style="top:66%; left:35%;"
-                 data-name="肾俞" data-pos="腰部，第2腰椎棘突下旁开1.5寸"
-                 data-meridian="足太阳膀胱经" data-effect="补肾益气，强腰利水，益精填髓"
-                 data-method="肚脐正对后方脊柱旁开1.5寸"
-                 data-note="肾之背俞穴，腰膝酸痛常用穴"></div>
-            <div class="acupoint" style="top:56%; left:48%;"
-                 data-name="命门" data-pos="腰部，后正中线上，第2腰椎棘突下凹陷中"
-                 data-meridian="督脉" data-effect="培元固本，强健腰膝，温补肾阳"
-                 data-method="肚脐正对后方脊柱，第2腰椎棘突下"
-                 data-note="生命之门，为补肾要穴，灸之尤佳"></div>
-            <div class="acupoint" style="top:36%; left:48%;"
-                 data-name="至阳" data-pos="背部，后正中线上，第7胸椎棘突下凹陷中"
-                 data-meridian="督脉" data-effect="宽胸利气，健脾调中，解痉止痛"
-                 data-method="两肩胛骨下角连线与后正中线的交点"
-                 data-note="宽胸理气要穴，心绞痛、胸闷常用"></div>
+            <svg viewBox="0 0 200 560" class="body-svg" preserveAspectRatio="xMidYMid meet">
+              <ellipse cx="100" cy="28" rx="28" ry="32" fill="none" stroke="rgba(196,164,148,0.45)" stroke-width="1.8"/>
+              <rect x="62" y="58" width="76" height="220" rx="24" fill="none" stroke="rgba(196,164,148,0.4)" stroke-width="1.8"/>
+              <path d="M64 78 L64 250 L40 260 L40 330 L42 330 L54 290 L64 290" fill="none" stroke="rgba(196,164,148,0.4)" stroke-width="1.8"/>
+              <path d="M136 78 L136 250 L160 260 L160 330 L158 330 L146 290 L136 290" fill="none" stroke="rgba(196,164,148,0.4)" stroke-width="1.8"/>
+              <rect x="68" y="270" width="28" height="205" rx="14" fill="none" stroke="rgba(196,164,148,0.4)" stroke-width="1.8"/>
+              <rect x="104" y="270" width="28" height="205" rx="14" fill="none" stroke="rgba(196,164,148,0.4)" stroke-width="1.8"/>
+              <line x1="80" y1="108" x2="120" y2="108" stroke="rgba(196,164,148,0.25)" stroke-width="0.8" stroke-dasharray="3,3"/>
+            </svg>
+            <div class="acupoint" style="top:3%; left:50%;" data-name="风池" data-pos="枕骨下，胸锁乳突肌与斜方肌之间" data-meridian="足少阳胆经" data-effect="平肝息风，清热解表" data-method="后发际正中上1寸旁开" data-note="祛风要穴"></div>
+            <div class="acupoint" style="top:25%; left:50%;" data-name="大椎" data-pos="第7颈椎棘突下" data-meridian="督脉" data-effect="清热解表，镇静安神" data-method="低头颈后最突出骨头下方" data-note="诸阳之会"></div>
+            <div class="acupoint" style="top:33%; left:50%;" data-name="至阳" data-pos="第7胸椎棘突下" data-meridian="督脉" data-effect="宽胸利气，健脾调中" data-method="两肩胛骨下角连线中点" data-note="心绞痛常用"></div>
+            <div class="acupoint" style="top:38%; left:34%;" data-name="肺俞" data-pos="第3胸椎旁开1.5寸" data-meridian="足太阳膀胱经" data-effect="宣肺理气，止咳平喘" data-method="大椎下3椎旁开1.5寸" data-note="肺之背俞穴"></div>
+            <div class="acupoint" style="top:43%; left:66%;" data-name="膈俞" data-pos="第7胸椎旁开1.5寸" data-meridian="足太阳膀胱经" data-effect="活血化瘀，宽胸利膈" data-method="至阳旁开1.5寸" data-note="血会膈俞"></div>
+            <div class="acupoint" style="top:43%; left:34%;" data-name="心俞" data-pos="第5胸椎旁开1.5寸" data-meridian="足太阳膀胱经" data-effect="宁心安神，宽胸通络" data-method="大椎下5椎旁开1.5寸" data-note="心之背俞穴"></div>
+            <div class="acupoint" style="top:49%; left:34%;" data-name="肝俞" data-pos="第9胸椎旁开1.5寸" data-meridian="足太阳膀胱经" data-effect="疏肝利胆，明目潜阳" data-method="至阳下2椎旁开1.5寸" data-note="肝之背俞穴"></div>
+            <div class="acupoint" style="top:52%; left:50%;" data-name="命门" data-pos="第2腰椎棘突下" data-meridian="督脉" data-effect="培元固本，温补肾阳" data-method="肚脐正对后方脊柱" data-note="生命之门"></div>
+            <div class="acupoint" style="top:57%; left:34%;" data-name="肾俞" data-pos="第2腰椎旁开1.5寸" data-meridian="足太阳膀胱经" data-effect="补肾益气，强腰利水" data-method="命门旁开1.5寸" data-note="肾之背俞穴"></div>
+            <div class="acupoint" style="top:62%; left:66%;" data-name="大肠俞" data-pos="第4腰椎旁开1.5寸" data-meridian="足太阳膀胱经" data-effect="理气止痛，通调肠腑" data-method="髂嵴最高点平第4腰椎，旁开1.5寸" data-note="腰痛常用"></div>
+            <div class="acupoint" style="top:68%; left:50%;" data-name="腰阳关" data-pos="第4腰椎棘突下" data-meridian="督脉" data-effect="温经散寒，通络止痛" data-method="髂嵴最高点连线中点" data-note="腰腿痛要穴"></div>
+            <div class="acupoint" style="top:80%; left:28%;" data-name="委中" data-pos="腘横纹中点" data-meridian="足太阳膀胱经" data-effect="凉血泻热，舒筋活络" data-method="膝盖后方腘窝横纹中点" data-note="腰背委中求"></div>
+            <div class="acupoint" style="top:90%; left:50%;" data-name="承山" data-pos="小腿后面正中，腓肠肌两肌腹间" data-meridian="足太阳膀胱经" data-effect="舒筋通络，理气止痛" data-method="小腿用力伸直时人字纹凹陷顶端" data-note="腿抽筋常用穴"></div>
+            <div class="acupoint" style="top:28%; left:68%;" data-name="肩井" data-pos="肩上，大椎与肩峰连线中点" data-meridian="足少阳胆经" data-effect="祛风清热，通经活络" data-method="大椎与肩峰连线中点" data-note="肩颈酸痛要穴"></div>
+            <div class="acupoint" style="top:50%; left:66%;" data-name="脾俞" data-pos="第11胸椎旁开1.5寸" data-meridian="足太阳膀胱经" data-effect="健脾利湿，升清止泻" data-method="命门上3椎旁开1.5寸" data-note="脾之背俞穴"></div>
           </div>
         </div>
 
@@ -272,6 +205,27 @@
                   style="position:absolute;top:0;left:0;width:100%;height:100%;"
                   title="经络穴位全脑速记动画"></iframe>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 十二正经详解卡片 -->
+  <section class="meridian-cards-section">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;margin-bottom:28px;">十二正经详解</h2>
+      <div class="meridian-card-grid">
+        <div class="meridian-card meridian-lung"><h3>手太阴肺经</h3><p><strong>循行：</strong>起于中焦，下络大肠，沿臂内侧前缘至拇指桡侧端</p><p><strong>主病：</strong>咳嗽、气喘、胸闷、咽喉肿痛、肩背痛</p><p><strong>时辰：</strong>寅时（3:00-5:00）</p><span class="meridian-tag">手三阴</span></div>
+        <div class="meridian-card meridian-heart"><h3>手少阴心经</h3><p><strong>循行：</strong>起于心中，沿臂内侧后缘至小指桡侧端</p><p><strong>主病：</strong>心痛、心悸、失眠、健忘、手心热</p><p><strong>时辰：</strong>午时（11:00-13:00）</p><span class="meridian-tag">手三阴</span></div>
+        <div class="meridian-card meridian-pc"><h3>手厥阴心包经</h3><p><strong>循行：</strong>起于胸中，沿臂内侧中间至中指端</p><p><strong>主病：</strong>心痛、胸闷、心悸、癫狂、腋下肿</p><p><strong>时辰：</strong>戌时（19:00-21:00）</p><span class="meridian-tag">手三阴</span></div>
+        <div class="meridian-card meridian-li"><h3>手阳明大肠经</h3><p><strong>循行：</strong>起于食指桡侧端，沿臂外侧前缘上行至鼻旁</p><p><strong>主病：</strong>齿痛、鼻衄、咽喉肿痛、便秘、腹泻</p><p><strong>时辰：</strong>卯时（5:00-7:00）</p><span class="meridian-tag">手三阳</span></div>
+        <div class="meridian-card meridian-si"><h3>手太阳小肠经</h3><p><strong>循行：</strong>起于小指尺侧端，沿臂外侧后缘上行至耳前</p><p><strong>主病：</strong>耳聋、目黄、咽喉痛、肩臂外侧痛</p><p><strong>时辰：</strong>未时（13:00-15:00）</p><span class="meridian-tag">手三阳</span></div>
+        <div class="meridian-card meridian-sj"><h3>手少阳三焦经</h3><p><strong>循行：</strong>起于无名指尺侧端，沿臂外侧中间上行至眉梢</p><p><strong>主病：</strong>偏头痛、耳鸣、目外眦痛、肩臂外侧痛</p><p><strong>时辰：</strong>亥时（21:00-23:00）</p><span class="meridian-tag">手三阳</span></div>
+        <div class="meridian-card meridian-st"><h3>足阳明胃经</h3><p><strong>循行：</strong>起于鼻旁，经面额下行至足第二趾外侧端</p><p><strong>主病：</strong>胃痛、腹胀、面瘫、前额头痛、下肢前缘痛</p><p><strong>时辰：</strong>辰时（7:00-9:00）</p><span class="meridian-tag">足三阳</span></div>
+        <div class="meridian-card meridian-bl"><h3>足太阳膀胱经</h3><p><strong>循行：</strong>起于目内眦，经头项背腰下行至足小趾外侧</p><p><strong>主病：</strong>头痛项强、腰背痛、小便不利、遗尿</p><p><strong>时辰：</strong>申时（15:00-17:00）</p><span class="meridian-tag">足三阳</span></div>
+        <div class="meridian-card meridian-gb"><h3>足少阳胆经</h3><p><strong>循行：</strong>起于目外眦，经头侧胸胁至足第四趾外侧</p><p><strong>主病：</strong>偏头痛、口苦、胁痛、下肢外侧痛</p><p><strong>时辰：</strong>子时（23:00-1:00）</p><span class="meridian-tag">足三阳</span></div>
+        <div class="meridian-card meridian-sp"><h3>足太阴脾经</h3><p><strong>循行：</strong>起于足大趾内侧端，沿小腿内侧上行至舌下</p><p><strong>主病：</strong>腹胀、腹泻、食欲不振、水肿、月经不调</p><p><strong>时辰：</strong>巳时（9:00-11:00）</p><span class="meridian-tag">足三阴</span></div>
+        <div class="meridian-card meridian-kd"><h3>足少阴肾经</h3><p><strong>循行：</strong>起于足小趾之下，沿下肢内侧后缘上行至舌根</p><p><strong>主病：</strong>腰膝酸软、耳鸣、遗精、水肿、气喘</p><p><strong>时辰：</strong>酉时（17:00-19:00）</p><span class="meridian-tag">足三阴</span></div>
+        <div class="meridian-card meridian-lr"><h3>足厥阴肝经</h3><p><strong>循行：</strong>起于足大趾外侧端，沿小腿内侧上行至头顶</p><p><strong>主病：</strong>胸胁胀痛、头痛眩晕、月经不调、疝气</p><p><strong>时辰：</strong>丑时（1:00-3:00）</p><span class="meridian-tag">足三阴</span></div>
       </div>
     </div>
   </section>

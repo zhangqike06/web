@@ -234,10 +234,11 @@
   border-radius: 999px;
   font-size: 1.02em;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: background 0.3s, box-shadow 0.3s;
   letter-spacing: 0.08em;
   font-weight: 500;
   box-shadow: 0 16px 30px rgba(201, 136, 143, 0.24);
+  will-change: transform;
 }
 
 .fortune-btn:hover {
@@ -259,6 +260,9 @@
   width: 64px;
   height: 72px;
   position: relative;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .cup-top {
@@ -348,28 +352,29 @@
 }
 
 .fortune-btn.shaking {
-  animation: cupSway 0.55s ease;
+  animation: cupSway 0.55s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+  pointer-events: none;
 }
 
 .fortune-btn.shaking .divining-cup {
-  animation: cupWobble 0.55s ease;
+  animation: cupWobble 0.55s cubic-bezier(0.36, 0.07, 0.19, 0.97);
 }
 
 @keyframes cupSway {
-  0%, 100% { transform: rotate(0deg) scale(1); }
-  15% { transform: rotate(-8deg) scale(1.02); }
-  35% { transform: rotate(8deg) scale(1.02); }
-  55% { transform: rotate(-5deg) scale(1.01); }
-  75% { transform: rotate(5deg) scale(1.01); }
+  0%, 100% { transform: rotate(0deg) scale(1) translateZ(0); }
+  15% { transform: rotate(-8deg) scale(1.02) translateZ(0); }
+  35% { transform: rotate(8deg) scale(1.02) translateZ(0); }
+  55% { transform: rotate(-5deg) scale(1.01) translateZ(0); }
+  75% { transform: rotate(5deg) scale(1.01) translateZ(0); }
 }
 
 @keyframes cupWobble {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  10% { transform: translateY(-3px) rotate(-2deg); }
-  25% { transform: translateY(2px) rotate(2deg); }
-  40% { transform: translateY(-2px) rotate(-1deg); }
-  60% { transform: translateY(1px) rotate(1deg); }
-  80% { transform: translateY(-1px) rotate(0deg); }
+  0%, 100% { transform: translateY(0) rotate(0deg) translateZ(0); }
+  10% { transform: translateY(-3px) rotate(-2deg) translateZ(0); }
+  25% { transform: translateY(2px) rotate(2deg) translateZ(0); }
+  40% { transform: translateY(-2px) rotate(-1deg) translateZ(0); }
+  60% { transform: translateY(1px) rotate(1deg) translateZ(0); }
+  80% { transform: translateY(-1px) rotate(0deg) translateZ(0); }
 }
 
 .categories {
@@ -391,96 +396,97 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 12px;
-  padding: 30px 20px 26px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 252, 249, 0.88));
+  padding: 48px 20px;
+  min-height: 200px;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
-  border: 1px solid rgba(201, 136, 143, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 22px;
   transition: all 0.35s ease;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 14px 32px rgba(74, 58, 50, 0.05);
+  box-shadow: 0 14px 32px rgba(74, 58, 50, 0.08);
+  text-decoration: none;
 }
 
+/* 各卡片真实背景图片 */
+.card-history {
+  background-image: url("https://images.unsplash.com/photo-1648769170333-fd01106d8873?w=800&auto=format&fit=crop");
+}
+
+.card-herbs {
+  background-image: url("https://images.unsplash.com/photo-1492778297155-7be4c83960c7?w=800&auto=format&fit=crop");
+}
+
+.card-meridian {
+  background-image: url("https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=800&auto=format&fit=crop");
+}
+
+.card-prescription {
+  background-image: url("https://images.unsplash.com/photo-1586768835949-e593c97c8967?w=800&auto=format&fit=crop");
+}
+
+.card-wellness {
+  background-image: url("https://images.unsplash.com/photo-1511406850240-0ffe42effea8?w=800&auto=format&fit=crop");
+}
+
+.card-ethnic {
+  background-image: url("https://images.unsplash.com/photo-1513781050488-6dd358209a1b?w=800&auto=format&fit=crop");
+}
+
+/* 黑色半透明蒙板，突出文字 */
 .category-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  filter: blur(20px) brightness(0.3) saturate(0.4);
-  z-index: 0;
+  background: rgba(30, 15, 10, 0.52);
+  z-index: 1;
   border-radius: 22px;
+  transition: background 0.35s ease;
 }
 
-.card-history::before {
-  background: linear-gradient(135deg, rgba(212, 175, 155, 0.8), rgba(139, 111, 71, 0.8));
-}
-
-.card-herbs::before {
-  background: linear-gradient(135deg, rgba(178, 190, 126, 0.8), rgba(107, 134, 61, 0.8));
-}
-
-.card-meridian::before {
-  background: linear-gradient(135deg, rgba(200, 170, 140, 0.8), rgba(140, 110, 80, 0.8));
-}
-
-.card-prescription::before {
-  background: linear-gradient(135deg, rgba(210, 180, 160, 0.8), rgba(150, 120, 90, 0.8));
-}
-
-.card-wellness::before {
-  background: linear-gradient(135deg, rgba(220, 200, 180, 0.8), rgba(180, 150, 120, 0.8));
-}
-
-.card-ethnic::before {
-  background: linear-gradient(135deg, rgba(194, 174, 154, 0.8), rgba(144, 114, 84, 0.8));
+.category-card:hover::before {
+  background: rgba(20, 10, 5, 0.45);
 }
 
 .category-card::after {
   content: "";
   position: absolute;
-  inset: auto -30% -55% auto;
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(201, 136, 143, 0.12), transparent 68%);
-  opacity: 0;
-  transition: opacity 0.35s ease;
+  inset: 0;
+  border-radius: 22px;
+  border: 2px solid rgba(255, 255, 255, 0);
+  transition: border-color 0.35s ease;
   z-index: 2;
+  pointer-events: none;
 }
 
 .category-card:hover::after {
-  opacity: 1;
+  border-color: rgba(255, 255, 255, 0.35);
 }
 
 .category-card:hover {
   transform: translateY(-8px);
-  box-shadow: var(--shadow-soft);
-}
-
-.category-icon {
-  font-size: 2.4em;
-  filter: drop-shadow(0 6px 16px rgba(74, 58, 50, 0.12));
-  position: relative;
-  z-index: 3;
+  box-shadow: 0 24px 48px rgba(30, 15, 10, 0.22);
 }
 
 .category-card h3 {
   font-family: var(--font-title);
-  font-size: 1.1em;
-  color: var(--color-deep);
-  letter-spacing: 0.06em;
+  font-size: 1.25em;
+  color: #fff;
+  letter-spacing: 0.08em;
   position: relative;
   z-index: 3;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .category-card p {
-  font-size: 0.86em;
-  color: #877971;
+  font-size: 0.9em;
+  color: rgba(255, 255, 255, 0.85);
   position: relative;
   z-index: 3;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .featured-herb {
@@ -647,10 +653,73 @@
   animation-play-state: paused;
 }
 
+/* === 五行学说 === */
+.wuxing-section {
+  padding: 74px 0;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(255,255,255,0), rgba(222,200,196,0.12));
+}
+
+.wuxing-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.wuxing-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px 14px;
+  border: 1px solid rgba(201,136,143,0.1);
+  transition: all 0.3s;
+}
+
+.wuxing-card:hover { transform: translateY(-6px); box-shadow: 0 14px 28px rgba(0,0,0,0.08); }
+
+.wuxing-icon {
+  width: 64px; height: 64px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 12px;
+  font-family: var(--font-title); font-size: 1.5em; color: #fff;
+}
+
+.wuxing-mu .wuxing-icon { background: linear-gradient(135deg, #81C784, #4CAF50); }
+.wuxing-huo .wuxing-icon { background: linear-gradient(135deg, #E57373, #F44336); }
+.wuxing-tu .wuxing-icon { background: linear-gradient(135deg, #FFB74D, #FF9800); }
+.wuxing-jin .wuxing-icon { background: linear-gradient(135deg, #E0E0E0, #9E9E9E); color: #555; }
+.wuxing-shui .wuxing-icon { background: linear-gradient(135deg, #64B5F6, #1E88E5); }
+
+.wuxing-card h3 { font-family: var(--font-title); color: var(--color-deep); margin: 6px 0; }
+.wuxing-card p { font-size: 0.82em; color: #877971; }
+.wuxing-detail { margin-top: 8px; line-height: 1.6; font-size: 0.78em !important; }
+
+.wuxing-relation {
+  margin-top: 28px; padding: 20px 32px;
+  background: rgba(255,255,255,0.6); border-radius: 12px;
+  display: inline-block; text-align: left;
+  color: #7a7068; font-size: 0.92em; line-height: 1.8;
+}
+
+/* === 中医四诊 === */
+.sizhen-section { padding: 70px 0; text-align: center; }
+.sizhen-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 28px; }
+.sizhen-card { background: #fff; border-radius: 16px; padding: 28px 18px; border: 1px solid rgba(201,136,143,0.1); transition: all 0.3s; }
+.sizhen-card:hover { transform: translateY(-6px); box-shadow: 0 14px 28px rgba(0,0,0,0.08); }
+.sizhen-icon { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-family: var(--font-title); font-size: 1.4em; color: #fff; }
+.sizhen-wang { background: linear-gradient(135deg, #7986CB, #5C6BC0); }
+.sizhen-wen { background: linear-gradient(135deg, #4DB6AC, #00897B); }
+.sizhen-wen2 { background: linear-gradient(135deg, #FFB74D, #F57C00); }
+.sizhen-qie { background: linear-gradient(135deg, #E57373, #C62828); }
+.sizhen-card h3 { font-family: var(--font-title); color: var(--color-deep); margin-bottom: 8px; }
+.sizhen-card p { font-size: 0.84em; color: #7a7068; line-height: 1.7; }
+
 @media (max-width: 1100px) {
   .category-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+  .wuxing-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .sizhen-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 768px) {
@@ -681,7 +750,8 @@
   }
 
   .category-card {
-    padding: 22px 16px;
+    padding: 36px 16px;
+    min-height: 180px;
   }
 
   .featured-card {

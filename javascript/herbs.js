@@ -46,7 +46,27 @@
     { id: 37, name: '红花', category: '活血', property: '辛、温', meridian: '心、肝', effect: '活血通经，散瘀止痛。', desc: '红花辛散温通，善通利血脉，为血瘀诸证的常用药，尤其适用于妇科血瘀经闭。', recipe: '常见于桃红四物汤、血府逐瘀汤。', icon: '&#127800;', bgColor: 'linear-gradient(135deg, #fce4ec, #e91e63)' },
     { id: 38, name: '桂枝', category: '解表', property: '辛、甘、温', meridian: '心、肺、膀胱', effect: '发汗解肌，温通经脉，助阳化气。', desc: '桂枝辛甘温煦，外可发散风寒，内可温通经脉，为伤寒第一要药。', recipe: '常见于桂枝汤、麻黄汤、苓桂术甘汤。', icon: '&#127795;', bgColor: 'linear-gradient(135deg, #e8d5b7, #c4a265)' },
     { id: 39, name: '酸枣仁', category: '安神', property: '甘、酸、平', meridian: '心、肝', effect: '养心安神，敛汗生津。', desc: '酸枣仁为治疗虚烦不眠之要药，善养心阴、益肝血而安神，兼能敛汗。', recipe: '常见于酸枣仁汤、天王补心丹。', icon: '&#127826;', bgColor: 'linear-gradient(135deg, #d7ccc8, #a1887f)' },
-    { id: 40, name: '薏苡仁', category: '利水', property: '甘、淡、微寒', meridian: '脾、胃、肺', effect: '利水渗湿，健脾止泻，清热排脓。', desc: '薏苡仁药食两用，利水而不伤正，补脾而不滋腻，是中医食疗养生的常用之品。', recipe: '常见于三仁汤、薏苡仁粥、薏苡附子败酱散。', icon: '&#127793;', bgColor: 'linear-gradient(135deg, #fffde7, #fff9c4)' }
+    { id: 40, name: '薏苡仁', category: '利水', property: '甘、淡、微寒', meridian: '脾、胃、肺', effect: '利水渗湿，健脾止泻，清热排脓。', desc: '薏苡仁药食两用，利水而不伤正，补脾而不滋腻，是中医食疗养生的常用之品。', recipe: '常见于三仁汤、薏苡仁粥、薏苡附子败酱散。', icon: '&#127793;', bgColor: 'linear-gradient(135deg, #fffde7, #fff9c4)' },
+    { id: 41, name: '知母', category: '清热', property: '苦、甘、寒', meridian: '肺、胃、肾', effect: '清热泻火，滋阴润燥。', desc: '知母上清肺热，中泻胃火，下滋肾阴，是清热滋阴并重的要药。', recipe: '常见于白虎汤、知柏地黄丸。', icon: '&#127795;', bgColor: 'linear-gradient(135deg, #fffde7, #fff9c4)' },
+    { id: 42, name: '栀子', category: '清热', property: '苦、寒', meridian: '心、肺、三焦', effect: '泻火除烦，清热利湿，凉血解毒。', desc: '栀子善清三焦之火，尤长于清心除烦，是热病心烦、湿热黄疸的常用药。', recipe: '常见于栀子豉汤、茵陈蒿汤。', icon: '&#127800;', bgColor: 'linear-gradient(135deg, #fff9c4, #ffcc02)' },
+    { id: 43, name: '桑叶', category: '解表', property: '甘、苦、寒', meridian: '肺、肝', effect: '疏散风热，清肺润燥，平肝明目。', desc: '桑叶轻清发散，善疏风热而清肺，兼能凉血明目，是风热感冒常用药。', recipe: '常见于桑菊饮、桑杏汤。', icon: '&#127810;', bgColor: 'linear-gradient(135deg, #e8f5e9, #a5d6a7)' },
+    { id: 44, name: '荆芥', category: '解表', property: '辛、微温', meridian: '肺、肝', effect: '祛风解表，透疹消疮，止血。', desc: '荆芥性平和，无论风寒风热皆可应用，炒炭后又能止血，用途广泛。', recipe: '常见于荆防败毒散、银翘散。', icon: '&#127807;', bgColor: 'linear-gradient(135deg, #c8e6c9, #81c784)' },
+    { id: 45, name: '木香', category: '理气', property: '辛、苦、温', meridian: '脾、胃、大肠、胆', effect: '行气止痛，健脾消食。', desc: '木香善行胃肠气滞，是脘腹胀痛、泻痢后重的要药，生用行气，煨用止泻。', recipe: '常见于香砂六君子汤、木香槟榔丸。', icon: '&#127795;', bgColor: 'linear-gradient(135deg, #efebe9, #a1887f)' },
+    { id: 46, name: '枳壳', category: '理气', property: '苦、辛、酸、微寒', meridian: '脾、胃', effect: '理气宽中，行滞消胀。', desc: '枳壳行气力缓而不峻烈，善宽胸利膈，是胸胁胀满、食积不化的常用药。', recipe: '常见于枳术丸、四逆散。', icon: '&#127818;', bgColor: 'linear-gradient(135deg, #ffe0b2, #ff9800)' },
+    { id: 47, name: '桃仁', category: '活血', property: '苦、甘、平', meridian: '心、肝、大肠', effect: '活血祛瘀，润肠通便，止咳平喘。', desc: '桃仁破血行瘀力较强，又能润燥滑肠，是瘀血阻滞兼肠燥便秘的优选。', recipe: '常见于桃红四物汤、桃核承气汤。', icon: '&#127826;', bgColor: 'linear-gradient(135deg, #fce4ec, #f48fb1)' },
+    { id: 48, name: '牛膝', category: '活血', property: '苦、甘、酸、平', meridian: '肝、肾', effect: '逐瘀通经，补肝肾，强筋骨，引血下行。', desc: '牛膝善下行，能引血引火下行，是腰膝酸痛、经产瘀阻及上部血热证的常用药。', recipe: '常见于独活寄生汤、血府逐瘀汤。', icon: '&#127795;', bgColor: 'linear-gradient(135deg, #e8d5b7, #c4a265)' },
+    { id: 49, name: '何首乌', category: '补虚', property: '苦、甘、涩、微温', meridian: '肝、心、肾', effect: '制用补肝肾，益精血，乌须发；生用解毒通便。', desc: '何首乌制熟后为滋补良药，善补肝肾精血，是须发早白、血虚萎黄的代表药。', recipe: '常见于七宝美髯丹、首乌延寿丹。', icon: '&#127795;', bgColor: 'linear-gradient(135deg, #3e2723, #5d4037)' },
+    { id: 50, name: '百合', category: '补虚', property: '甘、微寒', meridian: '心、肺', effect: '养阴润肺，清心安神。', desc: '百合药食两用，润肺止咳之余又能宁心安神，是阴虚燥咳与虚烦不眠的调养佳品。', recipe: '常见于百合固金汤、百合地黄汤。', icon: '&#127800;', bgColor: 'linear-gradient(135deg, #fffde7, #fff9c4)' },
+    { id: 51, name: '玉竹', category: '补虚', property: '甘、微寒', meridian: '肺、胃', effect: '养阴润燥，生津止渴。', desc: '玉竹甘润不腻，养阴而不恋邪，是阴虚外感及燥伤肺胃的平和滋养药。', recipe: '常见于加减葳蕤汤、沙参麦冬汤。', icon: '&#127807;', bgColor: 'linear-gradient(135deg, #e8f5e9, #a5d6a7)' },
+    { id: 52, name: '莲子', category: '收涩', property: '甘、涩、平', meridian: '脾、肾、心', effect: '补脾止泻，益肾固精，养心安神。', desc: '莲子药食同源，补涩兼施，对脾虚久泻、肾虚遗精及心神不宁均有裨益。', recipe: '常见于参苓白术散、莲子清心饮。', icon: '&#127826;', bgColor: 'linear-gradient(135deg, #efeae6, #d4c5b9)' },
+    { id: 53, name: '芡实', category: '收涩', property: '甘、涩、平', meridian: '脾、肾', effect: '益肾固精，补脾止泻，除湿止带。', desc: '芡实与莲子相似而偏于固涩，是脾肾两虚所致遗精滑泄、带下白浊的常用食疗药材。', recipe: '常见于金锁固精丸、水陆二仙丹。', icon: '&#127812;', bgColor: 'linear-gradient(135deg, #efeae6, #d4c5b9)' },
+    { id: 54, name: '桑寄生', category: '祛风湿', property: '苦、甘、平', meridian: '肝、肾', effect: '祛风湿，补肝肾，强筋骨，安胎。', desc: '桑寄生既能祛风除湿，又能补肝肾强腰膝，是风湿痹痛兼肝肾不足的优选药材。', recipe: '常见于独活寄生汤、寿胎丸。', icon: '&#127795;', bgColor: 'linear-gradient(135deg, #d7ccc8, #8d6e63)' },
+    { id: 55, name: '独活', category: '祛风湿', property: '辛、苦、微温', meridian: '肾、膀胱', effect: '祛风除湿，通痹止痛。', desc: '独活善治下部痹痛，尤以腰膝腿足关节疼痛属寒湿者为宜，是风湿痹痛的常用药。', recipe: '常见于独活寄生汤、羌活胜湿汤。', icon: '&#127795;', bgColor: 'linear-gradient(135deg, #d7ccc8, #a1887f)' },
+    { id: 56, name: '苍术', category: '化湿', property: '辛、苦、温', meridian: '脾、胃、肝', effect: '燥湿健脾，祛风散寒，明目。', desc: '苍术温燥之力较强，善除中焦湿浊，是湿困脾胃与风寒湿痹的要药。', recipe: '常见于平胃散、二妙散。', icon: '&#127795;', bgColor: 'linear-gradient(135deg, #efebe9, #bcaaa4)' },
+    { id: 57, name: '厚朴', category: '化湿', property: '苦、辛、温', meridian: '脾、胃、肺、大肠', effect: '燥湿消痰，下气除满。', desc: '厚朴为消胀除满要药，善行胃肠气滞而除胀满，兼能降肺气而平喘咳。', recipe: '常见于半夏厚朴汤、大承气汤。', icon: '&#127795;', bgColor: 'linear-gradient(135deg, #8d6e63, #5d4037)' },
+    { id: 58, name: '石斛', category: '补虚', property: '甘、微寒', meridian: '胃、肾', effect: '益胃生津，滋阴清热。', desc: '石斛为养胃阴之要药，善滋胃肾之阴而退虚热，是热病伤津及阴虚火旺的滋补佳品。', recipe: '常见于石斛夜光丸、石斛清胃汤。', icon: '&#127807;', bgColor: 'linear-gradient(135deg, #c8e6c9, #81c784)' },
+    { id: 59, name: '益母草', category: '活血', property: '苦、辛、微寒', meridian: '肝、心包、膀胱', effect: '活血调经，利尿消肿，清热解毒。', desc: '益母草为妇科经产要药，善活血调经，对月经不调、产后瘀阻及水肿有良效。', recipe: '常见于益母草膏、益母草颗粒。', icon: '&#127807;', bgColor: 'linear-gradient(135deg, #e8f5e9, #a5d6a7)' },
+    { id: 60, name: '肉苁蓉', category: '补虚', property: '甘、咸、温', meridian: '肾、大肠', effect: '补肾阳，益精血，润肠通便。', desc: '肉苁蓉温而不燥，补而不峻，是肾阳虚兼精血不足及肠燥便秘的平和补益药。', recipe: '常见于肉苁蓉丸、苁蓉润肠丸。', icon: '&#127795;', bgColor: 'linear-gradient(135deg, #d7ccc8, #8d6e63)' }
   ];
 
   var currentCategoryFilter = 'all';
@@ -86,7 +106,7 @@
       if (herb.img) {
         html += '  <div class="herb-img"><img src="' + herb.img + '" alt="' + herb.name + '" loading="lazy"></div>';
       } else {
-        html += '  <div class="herb-img" style="background:' + herb.bgColor + ';">' + herb.icon + '</div>';
+        html += '  <div class="herb-img" style="background:' + herb.bgColor + ';"><span class="herb-img-text">' + herb.name.charAt(0) + '</span></div>';
       }
       html += '  <h3>' + herb.name + '</h3>';
       html += '  <div class="herb-property">' + herb.property + ' | ' + herb.meridian + '</div>';
@@ -130,7 +150,7 @@
       if (herb.img) {
         html += '    <div class="drawer-herb-visual"><img src="' + herb.img + '" alt="' + herb.name + '" loading="lazy"></div>';
       } else {
-        html += '    <div class="drawer-herb-visual" style="background:' + herb.bgColor + ';">' + herb.icon + '</div>';
+        html += '    <div class="drawer-herb-visual" style="background:' + herb.bgColor + ';"><span class="herb-img-text">' + herb.name.charAt(0) + '</span></div>';
       }
       html += '    <p>' + herb.effect + '</p>';
       html += '  </div>';
@@ -209,7 +229,7 @@
 
     var herbImgHtml = herb.img
       ? '<div class="modal-herb-img"><img src="' + herb.img + '" alt="' + herb.name + '"></div>'
-      : '<div class="modal-herb-img" style="background:' + herb.bgColor + ';">' + herb.icon + '</div>';
+      : '<div class="modal-herb-img" style="background:' + herb.bgColor + ';"><span class="herb-img-text">' + herb.name.charAt(0) + '</span></div>';
 
     modalBody.innerHTML =
       herbImgHtml +
@@ -220,7 +240,7 @@
       '  <div class="info-row"><span class="info-label">归经：</span><span class="info-value">' + herb.meridian + '</span></div>' +
       '  <div class="info-row"><span class="info-label">功效：</span><span class="info-value" style="color:var(--color-rose);font-weight:bold;">' + herb.effect + '</span></div>' +
       '  <div class="herb-description">' + herb.desc + '</div>' +
-      '  <div class="herb-recipe">&#128218; ' + herb.recipe + '</div>' +
+      '  <div class="herb-recipe">' + herb.recipe + '</div>' +
       '</div>';
 
     modalOverlay.classList.add('open');
