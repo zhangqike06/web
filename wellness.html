@@ -34,14 +34,14 @@
       </nav>
       <div class="nav-search">
         <input type="text" id="search-input" placeholder="搜索草药、穴位、名方...">
-        <button id="search-btn">&#128269;</button>
+        <button id="search-btn" aria-label="搜索"></button>
       </div>
     </div>
   </header>
 
   <!-- 养生理念横幅 -->
-  <section class="banner">
-    <div class="banner-bg" style="background: linear-gradient(160deg, #4a5858, #5a6860, #3e4a42);"></div>
+  <section class="banner banner-wellness">
+    <div class="banner-bg"></div>
     <div class="banner-content">
       <h1>养生保健</h1>
       <p>"治未病，调未乱" —— 顺应四时，调和阴阳，颐养天年</p>
@@ -87,10 +87,10 @@
     <div class="container">
       <h2 class="section-title" style="text-align:center;margin-bottom:24px;">四季养生</h2>
       <div class="season-tabs">
-        <button class="season-tab active" data-season="spring"><span class="season-dot spring"></span>春</button>
-        <button class="season-tab" data-season="summer"><span class="season-dot summer"></span>夏</button>
-        <button class="season-tab" data-season="autumn"><span class="season-dot autumn"></span>秋</button>
-        <button class="season-tab" data-season="winter"><span class="season-dot winter"></span>冬</button>
+        <button class="season-tab active" data-season="spring">春</button>
+        <button class="season-tab" data-season="summer">夏</button>
+        <button class="season-tab" data-season="autumn">秋</button>
+        <button class="season-tab" data-season="winter">冬</button>
       </div>
       <div class="season-content" id="season-content">
         <!-- JS动态填充 -->
@@ -103,7 +103,7 @@
     <div class="container">
       <h2 class="section-title" style="text-align:center;">中医体质测试</h2>
       <p class="section-desc" style="text-align:center;color:var(--color-dust);margin-bottom:24px;">
-        回答以下5道题，了解您的中医体质类型和专属养生建议
+        回答以下9道题，了解您的中医体质类型和专属养生建议
       </p>
 
       <div class="quiz-container" id="quiz-container">
@@ -193,12 +193,11 @@
 
   <footer class="site-footer">
     <div class="footer-brand">本草寻源</div>
-    <p class="footer-info">中国石油大学（北京）2025—2026春季学期 · Web程序设计大作业</p>
     <p class="footer-info">传承中医药文化，弘扬中华国粹</p>
   </footer>
 
   <div id="music-player">
-    <audio id="bgm" src="music/guqin-bg.mp3" loop preload="none"></audio>
+    <audio id="bgm" loop preload="none"></audio>
     <div id="jade-icon" class="paused" title="点击播放/暂停背景音乐">&#9835;</div>
   </div>
 

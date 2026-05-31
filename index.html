@@ -42,7 +42,7 @@
       <!-- 全站搜索框 -->
       <div class="nav-search">
         <input type="text" id="search-input" placeholder="搜索草药、穴位、名方...">
-        <button id="search-btn">&#128269;</button>
+        <button id="search-btn" aria-label="搜索"></button>
       </div>
     </div>
   </header>
@@ -82,6 +82,13 @@
         <button class="fortune-btn" id="fortune-btn" title="摇签">
           <!-- 签筒外观 -->
           <div class="divining-cup">
+            <div class="fortune-stick-group" aria-hidden="true">
+              <span class="fortune-stick stick-1"></span>
+              <span class="fortune-stick stick-2"></span>
+              <span class="fortune-stick stick-3"></span>
+              <span class="fortune-stick stick-4"></span>
+              <span class="fortune-stick stick-5"></span>
+            </div>
             <!-- 签筒顶部 -->
             <div class="cup-top"></div>
             <!-- 签筒主体 -->
@@ -154,7 +161,7 @@
             在中国应用已有数千年的历史，《神农本草经》将其列为上品。现代药理研究表明，
             人参含有多种人参皂苷，具有抗疲劳、增强免疫力、改善心血管功能等多重功效。
           </p>
-          <a href="herbs.html?search=人参" class="btn btn-outline">了解更多 &#10132;</a>
+          <a href="herbs.html?search=人参" class="btn btn-outline" id="featured-link">了解更多 &#10132;</a>
         </div>
       </div>
     </div>
@@ -193,31 +200,26 @@
       <p class="section-desc">木火土金水，相生相克，构成中医理论的基础框架</p>
       <div class="wuxing-grid">
         <div class="wuxing-card wuxing-mu">
-          <div class="wuxing-icon">木</div>
           <h3>木</h3>
           <p>肝 · 胆 · 目 · 筋 · 怒</p>
           <p class="wuxing-detail">主升发条达，对应春季、东方、青色、酸味。肝主疏泄，藏血，开窍于目。</p>
         </div>
         <div class="wuxing-card wuxing-huo">
-          <div class="wuxing-icon">火</div>
           <h3>火</h3>
           <p>心 · 小肠 · 舌 · 脉 · 喜</p>
           <p class="wuxing-detail">主温热向上，对应夏季、南方、赤色、苦味。心主血脉，藏神，开窍于舌。</p>
         </div>
         <div class="wuxing-card wuxing-tu">
-          <div class="wuxing-icon">土</div>
           <h3>土</h3>
           <p>脾 · 胃 · 口 · 肉 · 思</p>
           <p class="wuxing-detail">主生化承载，对应长夏、中央、黄色、甘味。脾主运化，统血，开窍于口。</p>
         </div>
         <div class="wuxing-card wuxing-jin">
-          <div class="wuxing-icon">金</div>
           <h3>金</h3>
           <p>肺 · 大肠 · 鼻 · 皮 · 悲</p>
           <p class="wuxing-detail">主肃降收敛，对应秋季、西方、白色、辛味。肺主气，司呼吸，开窍于鼻。</p>
         </div>
         <div class="wuxing-card wuxing-shui">
-          <div class="wuxing-icon">水</div>
           <h3>水</h3>
           <p>肾 · 膀胱 · 耳 · 骨 · 恐</p>
           <p class="wuxing-detail">主滋润下行，对应冬季、北方、黑色、咸味。肾主水，藏精，开窍于耳。</p>
@@ -238,23 +240,19 @@
       <h2 class="section-title">中医四诊</h2>
       <p class="section-desc">望闻问切，四诊合参，辨证论治之根基</p>
       <div class="sizhen-grid">
-        <div class="sizhen-card">
-          <div class="sizhen-icon sizhen-wang">望</div>
+        <div class="sizhen-card sizhen-card-wang">
           <h3>望诊</h3>
           <p>观其形体、面色、舌象、神态。望而知之谓之神。通过观察患者全身和局部的神、色、形、态，以及舌质舌苔的变化，了解脏腑气血的盛衰。</p>
         </div>
-        <div class="sizhen-card">
-          <div class="sizhen-icon sizhen-wen">闻</div>
+        <div class="sizhen-card sizhen-card-wen">
           <h3>闻诊</h3>
           <p>听声息、嗅气味。闻而知之谓之圣。通过听患者语音、呼吸、咳嗽等声音，以及嗅其体气、口鼻之气、排泄物之气来判断病情。</p>
         </div>
-        <div class="sizhen-card">
-          <div class="sizhen-icon sizhen-wen2">问</div>
+        <div class="sizhen-card sizhen-card-wen2">
           <h3>问诊</h3>
           <p>询病史、问寒热、查饮食、辨二便。问而知之谓之工。"十问歌"：一问寒热二问汗，三问头身四问便，五问饮食六问胸，七聋八渴俱当辨。</p>
         </div>
-        <div class="sizhen-card">
-          <div class="sizhen-icon sizhen-qie">切</div>
+        <div class="sizhen-card sizhen-card-qie">
           <h3>切诊</h3>
           <p>按脉搏、触肌肤。切而知之谓之巧。以寸口脉诊为主，通过浮中沉三种指力体察脉象，常见脉象有浮沉迟数虚实滑涩弦细等28种。</p>
         </div>
@@ -267,7 +265,6 @@
   ============================================================ -->
   <footer class="site-footer">
     <div class="footer-brand">本草寻源</div>
-    <p class="footer-info">中国石油大学（北京）2025—2026春季学期 · Web程序设计大作业</p>
     <p class="footer-info">传承中医药文化，弘扬中华国粹</p>
   </footer>
 
@@ -275,7 +272,7 @@
   悬浮古乐播放器（右下角固定）
   ============================================================ -->
   <div id="music-player">
-    <audio id="bgm" src="music/guqin-bg.mp3" loop preload="none"></audio>
+    <audio id="bgm" loop preload="none"></audio>
     <div id="jade-icon" class="paused" title="点击播放/暂停背景音乐">&#9835;</div>
   </div>
 

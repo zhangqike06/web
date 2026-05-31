@@ -372,8 +372,32 @@
     '生地黄':   'images/herbs/shengdihuang.jpg'
   };
 
+  var availableHerbImages = {
+    'images/herbs/renshen.jpg': true,
+    'images/herbs/baizhu.jpg': true,
+    'images/herbs/fuling.jpg': true,
+    'images/herbs/gancao.jpg': true,
+    'images/herbs/danggui.jpg': true,
+    'images/herbs/shudi.jpg': true,
+    'images/herbs/baishao.jpg': true,
+    'images/herbs/chuanxiong.jpg': true,
+    'images/herbs/chaihu.jpg': true,
+    'images/herbs/huangqin.jpg': true,
+    'images/herbs/huangqi.jpg': true,
+    'images/herbs/chenpi.jpg': true,
+    'images/herbs/shanzha.jpg': true,
+    'images/herbs/gouqi.jpg': true,
+    'images/herbs/juhua.jpg': true,
+    'images/herbs/jinyinhua.jpg': true,
+    'images/herbs/gegen.jpg': true,
+    'images/herbs/lianqiao.jpg': true,
+    'images/herbs/suanzaoren.jpg': true,
+    'images/herbs/sanqi.jpg': true
+  };
+
   function getHerbImg(name) {
-    return herbImageMap[name] || '';
+    var imgPath = herbImageMap[name] || '';
+    return availableHerbImages[imgPath] ? imgPath : '';
   }
 
   function getHerbColor(name) {

@@ -266,13 +266,14 @@
   }
 
   function initFeaturedHerb() {
-    var todayIndex = new Date().getDate() % featuredHerbs.length;
+    var todayIndex = (new Date().getDate() - 1) % featuredHerbs.length;
     var todayHerb = featuredHerbs[todayIndex];
     var featuredName = document.getElementById('featured-name');
     var featuredProperty = document.getElementById('featured-property');
     var featuredEffect = document.getElementById('featured-effect');
     var featuredDesc = document.getElementById('featured-desc');
     var featuredImg = document.getElementById('featured-herb-img');
+    var featuredLink = document.getElementById('featured-link');
 
     if (!featuredName) {
       return;
@@ -292,6 +293,11 @@
       featuredDesc.textContent = todayHerb.desc;
     }
 
+    if (featuredLink) {
+      featuredLink.href = 'herbs.html?search=' + encodeURIComponent(todayHerb.name);
+      featuredLink.setAttribute('aria-label', '了解更多：' + todayHerb.name);
+    }
+
     if (featuredImg) {
       if (todayHerb.img) {
         featuredImg.innerHTML = '<img src="' + todayHerb.img + '" alt="' + todayHerb.name + '" style="width:100%;height:100%;object-fit:cover;">';
@@ -306,17 +312,18 @@
   function initMarquee() {
     var marqueeContent = document.getElementById('marquee-content');
     var marqueeTrack = document.querySelector('.marquee-track');
+    var existingContents;
 
     if (!marqueeContent || !marqueeTrack) {
       return;
     }
 
-    var contentWidth = marqueeContent.offsetWidth;
-    var trackWidth = marqueeTrack.offsetWidth;
+    existingContents = marqueeTrack.querySelectorAll('.marquee-content');
 
-    if (contentWidth < trackWidth) {
+    if (existingContents.length < 2) {
       var clone = marqueeContent.cloneNode(true);
       clone.removeAttribute('id');
+      clone.setAttribute('aria-hidden', 'true');
       marqueeContent.parentNode.appendChild(clone);
     }
   }

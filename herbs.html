@@ -35,14 +35,14 @@
       </nav>
       <div class="nav-search">
         <input type="text" id="search-input" placeholder="搜索草药、穴位、名方...">
-        <button id="search-btn">&#128269;</button>
+        <button id="search-btn" aria-label="搜索"></button>
       </div>
     </div>
   </header>
 
   <!-- 页面标题 -->
-  <section class="banner">
-    <div class="banner-bg" style="background: linear-gradient(160deg, #4a5448, #5a6456, #3e463a);"></div>
+  <section class="banner banner-herbs">
+    <div class="banner-bg"></div>
     <div class="banner-content">
       <h1>本草百科</h1>
       <p>百草精华，性味归经 —— 探索中草药的奇妙世界</p>
@@ -76,8 +76,13 @@
           <button class="filter-btn" data-filter="理气">理气</button>
           <button class="filter-btn" data-filter="活血">活血</button>
           <button class="filter-btn" data-filter="利水">利水</button>
+          <button class="filter-btn" data-filter="消食">消食</button>
           <button class="filter-btn" data-filter="化痰">化痰</button>
+          <button class="filter-btn" data-filter="平肝">平肝</button>
+          <button class="filter-btn" data-filter="安神">安神</button>
           <button class="filter-btn" data-filter="收涩">收涩</button>
+          <button class="filter-btn" data-filter="祛风湿">祛风湿</button>
+          <button class="filter-btn" data-filter="化湿">化湿</button>
         </div>
       </div>
       <div class="filter-row">
@@ -142,13 +147,12 @@
   <!-- 页脚 -->
   <footer class="site-footer">
     <div class="footer-brand">本草寻源</div>
-    <p class="footer-info">中国石油大学（北京）2025—2026春季学期 · Web程序设计大作业</p>
     <p class="footer-info">传承中医药文化，弘扬中华国粹</p>
   </footer>
 
   <!-- 播放器 -->
   <div id="music-player">
-    <audio id="bgm" src="music/guqin-bg.mp3" loop preload="none"></audio>
+    <audio id="bgm" loop preload="none"></audio>
     <div id="jade-icon" class="paused" title="点击播放/暂停背景音乐">&#9835;</div>
   </div>
 

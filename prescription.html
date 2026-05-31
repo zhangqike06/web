@@ -34,14 +34,14 @@
       </nav>
       <div class="nav-search">
         <input type="text" id="search-input" placeholder="搜索草药、穴位、名方...">
-        <button id="search-btn">&#128269;</button>
+        <button id="search-btn" aria-label="搜索"></button>
       </div>
     </div>
   </header>
 
   <!-- 页面标题 -->
-  <section class="banner">
-    <div class="banner-bg" style="background: linear-gradient(160deg, #5a4a3c, #6a5848, #483a2e);"></div>
+  <section class="banner banner-prescription">
+    <div class="banner-bg"></div>
     <div class="banner-content">
       <h1>经典名方</h1>
       <p>君臣佐使，配伍精妙 —— 百草化方，体验中药配伍的智慧</p>
@@ -146,24 +146,23 @@
     <div class="container">
       <h2 class="section-title" style="text-align:center;margin-bottom:28px;">中药煎煮指南</h2>
       <div class="brewing-grid">
-        <div class="brewing-step"><div class="brew-num">1</div><h3>选锅</h3><p>首选砂锅、瓦罐，其次不锈钢锅、搪瓷锅。忌用铁锅、铝锅、铜锅，金属离子易与药中成分反应，影响药效。</p></div>
-        <div class="brewing-step"><div class="brew-num">2</div><h3>浸泡</h3><p>冷水浸泡30-60分钟，水量没过药面2-3厘米。花叶草类浸泡20-30分钟，根茎果实类浸泡60分钟。</p></div>
-        <div class="brewing-step"><div class="brew-num">3</div><h3>火候</h3><p>先用武火（大火）煮沸，水开后改用文火（小火）慢煎。一般解表药武火快煎，滋补药文火慢煎。</p></div>
-        <div class="brewing-step"><div class="brew-num">4</div><h3>时间</h3><p>头煎：煮沸后20-30分钟。二煎：煮沸后15-20分钟。解表药10-15分钟，滋补药40-60分钟。</p></div>
-        <div class="brewing-step"><div class="brew-num">5</div><h3>特殊煎法</h3><p><strong>先煎：</strong>矿石贝壳类（石膏、龙骨）先煮20分钟。<strong>后下：</strong>芳香类（薄荷、砂仁）煎好前5分钟放入。<strong>包煎：</strong>绒毛类（旋覆花）用纱布包好。</p></div>
-        <div class="brewing-step"><div class="brew-num">6</div><h3>服用</h3><p>头煎与二煎药液混合后分2-3次温服。一般饭后1小时服用，滋补药可空腹服，安神药睡前服。</p></div>
+        <div class="brewing-step"><h3>1. 选锅</h3><p>首选砂锅、瓦罐，其次不锈钢锅、搪瓷锅。忌用铁锅、铝锅、铜锅，金属离子易与药中成分反应，影响药效。</p></div>
+        <div class="brewing-step"><h3>2. 浸泡</h3><p>冷水浸泡30-60分钟，水量没过药面2-3厘米。花叶草类浸泡20-30分钟，根茎果实类浸泡60分钟。</p></div>
+        <div class="brewing-step"><h3>3. 火候</h3><p>先用武火（大火）煮沸，水开后改用文火（小火）慢煎。一般解表药武火快煎，滋补药文火慢煎。</p></div>
+        <div class="brewing-step"><h3>4. 时间</h3><p>头煎：煮沸后20-30分钟。二煎：煮沸后15-20分钟。解表药10-15分钟，滋补药40-60分钟。</p></div>
+        <div class="brewing-step"><h3>5. 特殊煎法</h3><p><strong>先煎：</strong>矿石贝壳类（石膏、龙骨）先煮20分钟。<strong>后下：</strong>芳香类（薄荷、砂仁）煎好前5分钟放入。<strong>包煎：</strong>绒毛类（旋覆花）用纱布包好。</p></div>
+        <div class="brewing-step"><h3>6. 服用</h3><p>头煎与二煎药液混合后分2-3次温服。一般饭后1小时服用，滋补药可空腹服，安神药睡前服。</p></div>
       </div>
     </div>
   </section>
 
   <footer class="site-footer">
     <div class="footer-brand">本草寻源</div>
-    <p class="footer-info">中国石油大学（北京）2025—2026春季学期 · Web程序设计大作业</p>
     <p class="footer-info">传承中医药文化，弘扬中华国粹</p>
   </footer>
 
   <div id="music-player">
-    <audio id="bgm" src="music/guqin-bg.mp3" loop preload="none"></audio>
+    <audio id="bgm" loop preload="none"></audio>
     <div id="jade-icon" class="paused" title="点击播放/暂停背景音乐">&#9835;</div>
   </div>
 

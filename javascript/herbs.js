@@ -78,6 +78,78 @@
   var modalBody = document.getElementById('modal-body');
   var modalClose = document.getElementById('modal-close');
 
+  function getStoredList(key) {
+    try {
+      var raw = localStorage.getItem(key);
+      var parsed = raw ? JSON.parse(raw) : [];
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (err) {
+      return [];
+    }
+  }
+
+  function getCurrentUser() {
+    try {
+      var raw = localStorage.getItem('tcm_user');
+      return raw ? JSON.parse(raw) : null;
+    } catch (err) {
+      return null;
+    }
+  }
+
+  function getFavorites() {
+    return getStoredList('tcm_favorites');
+  }
+
+  function saveFavorites(favorites) {
+    localStorage.setItem('tcm_favorites', JSON.stringify(favorites));
+  }
+
+  function isFavorited(name) {
+    return getFavorites().indexOf(name) !== -1;
+  }
+
+  function updateFavoriteUI(name) {
+    var favoriteBtn = document.getElementById('favorite-btn');
+    var favoriteStatus = document.getElementById('favorite-status');
+    var favorited = isFavorited(name);
+
+    if (favoriteBtn) {
+      favoriteBtn.textContent = favorited ? '取消收藏' : '收藏药材';
+      favoriteBtn.classList.toggle('btn-primary', favorited);
+      favoriteBtn.classList.toggle('btn-outline', !favorited);
+    }
+
+    if (favoriteStatus) {
+      favoriteStatus.textContent = favorited ? '已加入我的草药收藏' : '登录后可将常用药材加入个人收藏';
+    }
+  }
+
+  function toggleFavorite(name) {
+    var user = getCurrentUser();
+    var favorites;
+    var nextFavorites;
+
+    if (!user || !user.name) {
+      alert('请先前往登录页登录，再收藏药材。');
+      return;
+    }
+
+    favorites = getFavorites();
+
+    if (favorites.indexOf(name) !== -1) {
+      nextFavorites = favorites.filter(function(item) {
+        return item !== name;
+      });
+      saveFavorites(nextFavorites);
+    } else {
+      favorites.push(name);
+      saveFavorites(favorites);
+    }
+
+    updateFavoriteUI(name);
+  }
+
   function getFilteredHerbs() {
     return herbsData.filter(function(herb) {
       var categoryMatch = currentCategoryFilter === 'all' || herb.category === currentCategoryFilter;
@@ -241,7 +313,20 @@
       '  <div class="info-row"><span class="info-label">功效：</span><span class="info-value" style="color:var(--color-rose);font-weight:bold;">' + herb.effect + '</span></div>' +
       '  <div class="herb-description">' + herb.desc + '</div>' +
       '  <div class="herb-recipe">' + herb.recipe + '</div>' +
+      '  <div class="modal-actions">' +
+      '    <button type="button" class="btn ' + (isFavorited(herb.name) ? 'btn-primary' : 'btn-outline') + '" id="favorite-btn">' + (isFavorited(herb.name) ? '取消收藏' : '收藏药材') + '</button>' +
+      '    <span class="favorite-status" id="favorite-status"></span>' +
+      '  </div>' +
       '</div>';
+
+    updateFavoriteUI(herb.name);
+
+    var favoriteBtn = document.getElementById('favorite-btn');
+    if (favoriteBtn) {
+      favoriteBtn.addEventListener('click', function() {
+        toggleFavorite(herb.name);
+      });
+    }
 
     modalOverlay.classList.add('open');
     document.body.style.overflow = 'hidden';

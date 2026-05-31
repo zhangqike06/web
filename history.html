@@ -35,14 +35,14 @@
       </nav>
       <div class="nav-search">
         <input type="text" id="search-input" placeholder="搜索草药、穴位、名方...">
-        <button id="search-btn">&#128269;</button>
+        <button id="search-btn" aria-label="搜索"></button>
       </div>
     </div>
   </header>
 
   <!-- 水墨横幅 -->
-  <section class="banner">
-    <div class="banner-bg" style="background: linear-gradient(160deg, #4a403a, #5a4e46, #3e3630);"></div>
+  <section class="banner banner-history">
+    <div class="banner-bg"></div>
     <div class="banner-content">
       <h1>杏林春秋</h1>
       <p>千年医脉，薪火相传 —— 探寻中医药发展的壮阔历史</p>
@@ -487,13 +487,12 @@
   <!-- 页脚 -->
   <footer class="site-footer">
     <div class="footer-brand">本草寻源</div>
-    <p class="footer-info">中国石油大学（北京）2025—2026春季学期 · Web程序设计大作业</p>
     <p class="footer-info">传承中医药文化，弘扬中华国粹</p>
   </footer>
 
   <!-- 播放器 -->
   <div id="music-player">
-    <audio id="bgm" src="music/guqin-bg.mp3" loop preload="none"></audio>
+    <audio id="bgm" loop preload="none"></audio>
     <div id="jade-icon" class="paused" title="点击播放/暂停背景音乐">&#9835;</div>
   </div>
 

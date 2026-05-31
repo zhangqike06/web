@@ -210,7 +210,7 @@
   }
 
   /* ============================================================
-   * 中医体质测试（5道选择题 → 9种体质判断）
+   * 中医体质测试（9道选择题 → 4类体质倾向）
    * ============================================================ */
   var questions = [
     { q: "您是否容易感到疲乏，精力不如同龄人？", options: ["从不","偶尔","经常","总是"], scores: [0,1,2,3] },
@@ -226,7 +226,7 @@
 
   var currentQuestion = -1;
   var totalScore = 0;
-  var scores = [0, 0, 0, 0, 0, 0, 0, 0, 0]; /* 每题得分 */
+  var scores = Array(questions.length).fill(null); /* 每题得分 */
 
   var quizContent  = document.getElementById('quiz-content');
   var quizNext     = document.getElementById('quiz-next');
@@ -268,7 +268,7 @@
 
   function startQuiz() {
     currentQuestion = 0;
-    scores = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    scores = Array(questions.length).fill(null);
     totalScore = 0;
     quizResult.style.display = 'none';
     renderQuestion();
@@ -285,7 +285,7 @@
     html += '<p style="margin-bottom:16px;color:var(--color-deep);">' + q.q + '</p>';
     html += '<div class="quiz-options">';
     q.options.forEach(function(opt, i) {
-      var selectedAttr = (scores[currentQuestion] === q.scores[i]) ? ' selected' : '';
+      var selectedAttr = (scores[currentQuestion] !== null && scores[currentQuestion] === q.scores[i]) ? ' selected' : '';
       html += '<button class="quiz-option' + selectedAttr + '" data-score="' + q.scores[i] + '">' + opt + '</button>';
     });
     html += '</div>';
@@ -302,7 +302,9 @@
     });
 
     /* 更新进度 */
-    progressBar.style.width = ((currentQuestion) / questions.length * 100) + '%';
+    if (progressBar) {
+      progressBar.style.width = (((currentQuestion + 1) / questions.length) * 100) + '%';
+    }
 
     /* 更新按钮状态 */
     quizPrev.style.display = currentQuestion > 0 ? 'inline-block' : 'none';
@@ -326,6 +328,8 @@
       resultType = "气郁质 / 血瘀质倾向";
       resultAdvice = "您有气郁或血瘀倾向。建议：保持心情舒畅，多进行户外活动和大自然接触。饮食上适当食用疏肝理气、活血化瘀食物，如山楂、玫瑰花茶、陈皮茶、黑木耳。培养兴趣爱好转移注意力，练习瑜伽、太极等舒展运动放松身心。多与亲友交流，避免独自闷坐。睡前热水泡脚按摩涌泉穴促进血液循环。如持续不适，建议咨询中医师辨证调理。";
     }
+
+    localStorage.setItem('tcm_constitution', resultType);
 
     quizContainer.style.display = 'none';
     quizResult.style.display = 'block';

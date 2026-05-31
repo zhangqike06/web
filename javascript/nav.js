@@ -304,12 +304,32 @@
    * ============================================================ */
   var bgm = document.getElementById('bgm');
   var jadeIcon = document.getElementById('jade-icon');
+  var musicPlayer = document.getElementById('music-player');
+
+  function disableMusicPlayer(reason) {
+    if (musicPlayer) {
+      musicPlayer.classList.add('is-disabled');
+    }
+    if (jadeIcon) {
+      jadeIcon.classList.add('is-disabled');
+      jadeIcon.title = reason;
+    }
+  }
 
   if (bgm && jadeIcon) {
+    if (!bgm.getAttribute('src')) {
+      disableMusicPlayer('背景音乐资源暂未提供');
+      return;
+    }
+
     var isPlaying = false;
 
     /* 初始化状态（暂停时无旋转） */
     jadeIcon.classList.add('paused');
+
+    bgm.addEventListener('error', function() {
+      disableMusicPlayer('背景音乐加载失败');
+    });
 
     /* 点击玉佩切换播放/暂停 */
     jadeIcon.addEventListener('click', function() {
@@ -325,7 +345,7 @@
           jadeIcon.classList.remove('paused');
           isPlaying = true;
         }).catch(function() {
-          /* 自动播放被阻止，静默处理 */
+          jadeIcon.title = '浏览器阻止了播放，请稍后重试';
         });
       }
     });

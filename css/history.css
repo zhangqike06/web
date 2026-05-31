@@ -231,6 +231,8 @@
   .processing-timeline::before { left: 20px; }
   .proc-left, .proc-right { flex-direction: row; padding-left: 52px; padding-right: 0; text-align: left; }
   .proc-dot { left: 20px; }
+}
+
 @media (max-width: 768px) {
   .timeline-section,
   .classics-section,

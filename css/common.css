@@ -335,14 +335,19 @@ ul, ol {
 }
 
 .nav-search button {
-  padding: 9px 15px;
+  width: 44px;
+  height: 40px;
+  padding: 0;
   border: 1px solid rgba(255, 255, 255, 0.28);
   border-left: none;
   border-radius: 0 999px 999px 0;
   background: rgba(255, 255, 255, 0.18);
-  color: #fff;
   cursor: pointer;
-  font-size: 0.9em;
+  font-size: 0;
+  background-image: url("../images/icons/search.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 17px 17px;
   transition: background 0.3s, transform 0.3s;
 }
 
@@ -410,6 +415,10 @@ ul, ol {
   cursor: pointer;
 }
 
+#music-player.is-disabled {
+  display: none;
+}
+
 #jade-icon {
   width: 54px;
   height: 54px;
@@ -440,6 +449,12 @@ ul, ol {
   animation: none;
 }
 
+#jade-icon.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  transform: none;
+}
+
 @keyframes jadeSpin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -450,7 +465,7 @@ ul, ol {
     linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.08)),
     rgba(222, 200, 196, 0.15);
   border-top: 1px solid rgba(196, 164, 148, 0.26);
-  padding: 40px 20px 46px;
+  padding: 32px 20px 36px;
   text-align: center;
   margin-top: var(--spacing-section);
 }
@@ -460,7 +475,7 @@ ul, ol {
   font-size: 1.2em;
   color: var(--color-deep);
   letter-spacing: 0.18em;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 .site-footer .footer-info {
@@ -649,6 +664,34 @@ table tr:hover td {
   background-size: cover;
   background-position: center;
   transform: scale(1.03);
+}
+
+.banner-history .banner-bg {
+  background-image: url("../images/banner/history-banner.jpg");
+}
+
+.banner-herbs .banner-bg {
+  background-image: url("../images/banner/herbs-banner.jpg");
+}
+
+.banner-meridian .banner-bg {
+  background-image: url("../images/banner/meridian-banner.jpg");
+}
+
+.banner-prescription .banner-bg {
+  background-image: url("../images/banner/prescription-banner.jpg");
+}
+
+.banner-wellness .banner-bg {
+  background-image: url("../images/banner/wellness-banner.jpg");
+}
+
+.banner-ethnic .banner-bg {
+  background-image: url("../images/banner/ethnic-banner.jpg");
+}
+
+.banner-about .banner-bg {
+  background-image: url("../images/banner/home-hero.jpg");
 }
 
 .banner-content {

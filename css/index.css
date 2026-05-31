@@ -17,11 +17,12 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 20% 22%, rgba(214, 189, 180, 0.14), transparent 30%),
-    radial-gradient(circle at 76% 28%, rgba(201, 136, 143, 0.12), transparent 28%),
-    radial-gradient(circle at 55% 70%, rgba(255, 255, 255, 0.06), transparent 35%),
-    linear-gradient(160deg, #312a27 0%, #3c332f 22%, #433732 50%, #2d2522 100%);
+    linear-gradient(125deg, rgba(34, 22, 18, 0.3), rgba(34, 22, 18, 0.68)),
+    radial-gradient(circle at 18% 18%, rgba(214, 189, 180, 0.18), transparent 28%),
+    radial-gradient(circle at 78% 28%, rgba(201, 136, 143, 0.14), transparent 30%),
+    url("../images/banner/home-hero.jpg") center 35% / cover no-repeat;
   z-index: 0;
+  transform: scale(1.04);
 }
 
 .hero-ink-bg::before {
@@ -248,8 +249,50 @@
 }
 
 .fortune-stick {
-  font-size: 1.3em;
-  display: inline-block;
+  position: absolute;
+  bottom: 44px;
+  width: 8px;
+  border-radius: 8px 8px 2px 2px;
+  background:
+    linear-gradient(180deg, #f7dca6 0%, #eac47d 12%, #be7d42 12%, #be7d42 100%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+  transform-origin: bottom center;
+  transition: transform 0.28s ease;
+  z-index: 1;
+}
+
+.fortune-stick-group {
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  width: 56px;
+  height: 44px;
+  transform: translateX(-50%);
+}
+
+.stick-1 { left: 4px; height: 42px; transform: rotate(-18deg); }
+.stick-2 { left: 14px; height: 48px; transform: rotate(-9deg); }
+.stick-3 { left: 24px; height: 52px; transform: rotate(0deg); }
+.stick-4 { left: 34px; height: 47px; transform: rotate(10deg); }
+.stick-5 { left: 44px; height: 41px; transform: rotate(18deg); }
+
+.fortune-btn:hover .stick-1,
+.fortune-btn.shaking .stick-1 { transform: rotate(-24deg) translateY(-4px); }
+
+.fortune-btn:hover .stick-2,
+.fortune-btn.shaking .stick-2 { transform: rotate(-13deg) translateY(-7px); }
+
+.fortune-btn:hover .stick-3,
+.fortune-btn.shaking .stick-3 { transform: rotate(-2deg) translateY(-9px); }
+
+.fortune-btn:hover .stick-4,
+.fortune-btn.shaking .stick-4 { transform: rotate(14deg) translateY(-6px); }
+
+.fortune-btn:hover .stick-5,
+.fortune-btn.shaking .stick-5 { transform: rotate(22deg) translateY(-3px); }
+
+.fortune-btn.shaking .fortune-stick {
+  animation: stickRattle 0.18s linear infinite alternate;
 }
 
 .divining-cup {
@@ -260,6 +303,7 @@
   width: 64px;
   height: 72px;
   position: relative;
+  padding-top: 10px;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -413,27 +457,27 @@
 
 /* 各卡片真实背景图片 */
 .card-history {
-  background-image: url("https://images.unsplash.com/photo-1648769170333-fd01106d8873?w=800&auto=format&fit=crop");
+  background-image: url("../images/banner/history-banner.jpg");
 }
 
 .card-herbs {
-  background-image: url("https://images.unsplash.com/photo-1492778297155-7be4c83960c7?w=800&auto=format&fit=crop");
+  background-image: url("../images/banner/herbs-banner.jpg");
 }
 
 .card-meridian {
-  background-image: url("https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=800&auto=format&fit=crop");
+  background-image: url("../images/banner/meridian-banner.jpg");
 }
 
 .card-prescription {
-  background-image: url("https://images.unsplash.com/photo-1586768835949-e593c97c8967?w=800&auto=format&fit=crop");
+  background-image: url("../images/banner/prescription-banner.jpg");
 }
 
 .card-wellness {
-  background-image: url("https://images.unsplash.com/photo-1511406850240-0ffe42effea8?w=800&auto=format&fit=crop");
+  background-image: url("../images/banner/wellness-banner.jpg");
 }
 
 .card-ethnic {
-  background-image: url("https://images.unsplash.com/photo-1513781050488-6dd358209a1b?w=800&auto=format&fit=crop");
+  background-image: url("../images/banner/ethnic-banner.jpg");
 }
 
 /* 黑色半透明蒙板，突出文字 */
@@ -607,7 +651,10 @@
 }
 
 .marquee-track {
-  width: 100%;
+  display: flex;
+  align-items: center;
+  width: max-content;
+  min-width: 100%;
   overflow: hidden;
   padding: 20px 0;
   margin-top: 18px;
@@ -619,15 +666,16 @@
 }
 
 .marquee-content {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
   white-space: nowrap;
-  animation: marqueeScroll 60s linear infinite;
+  animation: marqueeScroll 34s linear infinite;
   padding: 8px 0;
 }
 
 .marquee-content + .marquee-content {
-  animation: marqueeScroll 60s linear infinite;
-  animation-delay: 60s;
+  margin-left: 12px;
 }
 
 .marquee-content span {
@@ -668,29 +716,33 @@
 }
 
 .wuxing-card {
-  background: #fff;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 243, 239, 0.92));
   border-radius: 16px;
-  padding: 24px 14px;
+  padding: 28px 18px 24px;
   border: 1px solid rgba(201,136,143,0.1);
   transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
 }
 
 .wuxing-card:hover { transform: translateY(-6px); box-shadow: 0 14px 28px rgba(0,0,0,0.08); }
 
-.wuxing-icon {
-  width: 64px; height: 64px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 12px;
-  font-family: var(--font-title); font-size: 1.5em; color: #fff;
+.wuxing-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 5px;
 }
 
-.wuxing-mu .wuxing-icon { background: linear-gradient(135deg, #81C784, #4CAF50); }
-.wuxing-huo .wuxing-icon { background: linear-gradient(135deg, #E57373, #F44336); }
-.wuxing-tu .wuxing-icon { background: linear-gradient(135deg, #FFB74D, #FF9800); }
-.wuxing-jin .wuxing-icon { background: linear-gradient(135deg, #E0E0E0, #9E9E9E); color: #555; }
-.wuxing-shui .wuxing-icon { background: linear-gradient(135deg, #64B5F6, #1E88E5); }
+.wuxing-mu::before { background: linear-gradient(90deg, #89b56e, #4d8451); }
+.wuxing-huo::before { background: linear-gradient(90deg, #d7857c, #bc5d46); }
+.wuxing-tu::before { background: linear-gradient(90deg, #d1ad63, #b78239); }
+.wuxing-jin::before { background: linear-gradient(90deg, #bbb8af, #8b8477); }
+.wuxing-shui::before { background: linear-gradient(90deg, #7f96b8, #4a678f); }
 
-.wuxing-card h3 { font-family: var(--font-title); color: var(--color-deep); margin: 6px 0; }
+.wuxing-card h3 { font-family: var(--font-title); color: var(--color-deep); margin: 6px 0 10px; font-size: 1.35em; }
 .wuxing-card p { font-size: 0.82em; color: #877971; }
 .wuxing-detail { margin-top: 8px; line-height: 1.6; font-size: 0.78em !important; }
 
@@ -704,15 +756,59 @@
 /* === 中医四诊 === */
 .sizhen-section { padding: 70px 0; text-align: center; }
 .sizhen-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 28px; }
-.sizhen-card { background: #fff; border-radius: 16px; padding: 28px 18px; border: 1px solid rgba(201,136,143,0.1); transition: all 0.3s; }
+.sizhen-card {
+  background: #fff;
+  border-radius: 18px;
+  min-height: 280px;
+  padding: 22px;
+  border: 1px solid rgba(201,136,143,0.1);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-size: cover;
+  background-position: center;
+}
 .sizhen-card:hover { transform: translateY(-6px); box-shadow: 0 14px 28px rgba(0,0,0,0.08); }
-.sizhen-icon { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-family: var(--font-title); font-size: 1.4em; color: #fff; }
-.sizhen-wang { background: linear-gradient(135deg, #7986CB, #5C6BC0); }
-.sizhen-wen { background: linear-gradient(135deg, #4DB6AC, #00897B); }
-.sizhen-wen2 { background: linear-gradient(135deg, #FFB74D, #F57C00); }
-.sizhen-qie { background: linear-gradient(135deg, #E57373, #C62828); }
-.sizhen-card h3 { font-family: var(--font-title); color: var(--color-deep); margin-bottom: 8px; }
-.sizhen-card p { font-size: 0.84em; color: #7a7068; line-height: 1.7; }
+.sizhen-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(28, 18, 12, 0.08), rgba(28, 18, 12, 0.78));
+  z-index: 0;
+}
+
+.sizhen-card-wang { background-image: url("../images/homepage/sizhen-wang.jpg"); }
+.sizhen-card-wen { background-image: url("../images/homepage/sizhen-wen.jpg"); }
+.sizhen-card-wen2 { background-image: url("../images/homepage/sizhen-wen2.jpg"); }
+.sizhen-card-qie { background-image: url("../images/homepage/sizhen-qie.jpg"); }
+
+.sizhen-card h3,
+.sizhen-card p {
+  position: relative;
+  z-index: 1;
+}
+
+.sizhen-card h3 {
+  font-family: var(--font-title);
+  color: #fff;
+  margin-bottom: 10px;
+  font-size: 1.28em;
+  letter-spacing: 0.08em;
+}
+
+.sizhen-card p {
+  font-size: 0.86em;
+  color: rgba(255, 255, 255, 0.86);
+  line-height: 1.75;
+}
+
+@keyframes stickRattle {
+  from { margin-bottom: 0; }
+  to { margin-bottom: 2px; }
+}
 
 @media (max-width: 1100px) {
   .category-grid {
@@ -819,5 +915,9 @@
   .fortune-btn {
     padding: 10px 24px;
     font-size: 0.95em;
+  }
+
+  .sizhen-card {
+    min-height: 240px;
   }
 }

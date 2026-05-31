@@ -88,8 +88,8 @@
   justify-content: center;
   gap: 7px;
   opacity: 0;
-  transform: translateY(42px) rotateX(18deg) scaleY(0.72);
-  transform-origin: center bottom;
+  transform: translateY(18px) scale(0.94);
+  transform-origin: center top;
   will-change: transform, opacity;
   backface-visibility: hidden;
   transition: transform 400ms cubic-bezier(0.25, 0.1, 0.25, 1), opacity 260ms ease;
@@ -152,7 +152,7 @@
   border-right: 2px solid #442a1a;
   border-bottom: 4px solid #3f2517;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.26);
-  transform-origin: center center;
+  transform-origin: top center;
   will-change: transform;
   backface-visibility: hidden;
   transition: transform 400ms cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 300ms ease;
@@ -212,21 +212,21 @@
 }
 
 .cabinet-drawer.is-open .drawer-face {
-  transform: translateY(118px) rotateX(-9deg) scaleY(0.58);
+  transform: translateY(78px) scaleY(0.72);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.16),
-    0 12px 16px rgba(0, 0, 0, 0.32),
+    0 16px 18px rgba(0, 0, 0, 0.26),
     0 0 0 1px rgba(34, 20, 13, 0.4);
 }
 
 .cabinet-drawer.is-open .drawer-face .cabinet-name,
 .cabinet-drawer.is-open .drawer-face .cabinet-handle {
-  transform: scaleY(1.72);
+  transform: translateY(8px);
 }
 
 .cabinet-drawer.is-open .drawer-inner {
   opacity: 1;
-  transform: translateY(8px) rotateX(0deg) scaleY(1);
+  transform: translateY(30px) scale(1);
   box-shadow: inset 0 0 0 1px rgba(225, 190, 147, 0.24);
 }
 
@@ -235,11 +235,12 @@
 }
 
 .filter-bar {
-  padding: 16px 0;
+  padding: 18px 0;
+  margin-top: 12px;
   background: rgba(222,200,196,0.08);
   border-bottom: 1px solid var(--color-bud);
   position: sticky;
-  top: 62px;
+  top: 72px;
   z-index: 100;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -490,31 +491,85 @@
   font-size: 0.9em;
 }
 
+.modal-actions {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.favorite-status {
+  font-size: 0.86em;
+  color: var(--color-rose);
+  align-self: center;
+}
+
 /* === 四气五味 === */
-.property-section { padding: 60px 0; background: rgba(222,200,196,0.06); }
-.property-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 20px; }
-.property-block { background: #fff; border-radius: 14px; padding: 24px; border: 1px solid rgba(201,136,143,0.1); }
-.property-block h3 { font-family: var(--font-title); color: var(--color-deep); margin-bottom: 16px; font-size: 1.1em; }
-.property-row { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px; }
-.prop-label { display: inline-block; min-width: 36px; padding: 3px 10px; border-radius: 14px; text-align: center; font-size: 0.82em; font-weight: 600; color: #fff; flex-shrink: 0; }
-.prop-cold { background: #64B5F6; } .prop-hot { background: #E53935; } .prop-warm { background: #FF8A65; }
-.prop-cool { background: #81D4FA; } .prop-spicy { background: #FF8A65; } .prop-sweet { background: #FFB74D; }
-.prop-sour { background: #AED581; } .prop-bitter { background: #A1887F; } .prop-salty { background: #90A4AE; }
-.property-row p { font-size: 0.86em; color: #7a7068; line-height: 1.6; flex: 1; }
+.property-section { padding: 66px 0; background: rgba(222,200,196,0.06); }
+.property-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; margin-top: 24px; }
+.property-block {
+  background: linear-gradient(180deg, rgba(255,255,255,0.97), rgba(249,245,240,0.94));
+  border-radius: 16px;
+  padding: 28px;
+  border: 1px solid rgba(201,136,143,0.1);
+  box-shadow: 0 14px 30px rgba(74,58,50,0.05);
+}
+.property-block h3 {
+  font-family: var(--font-title);
+  color: var(--color-deep);
+  margin-bottom: 18px;
+  font-size: 1.2em;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(196,164,148,0.28);
+}
+.property-row {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 14px;
+  align-items: start;
+  margin-bottom: 16px;
+  padding: 14px 0;
+  border-bottom: 1px dashed rgba(196,164,148,0.24);
+}
+.property-row:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.prop-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 6px 10px;
+  border-radius: 999px;
+  text-align: center;
+  font-size: 0.88em;
+  font-weight: 700;
+  color: var(--color-deep);
+  background: rgba(222,200,196,0.44);
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+.prop-cold, .prop-hot, .prop-warm, .prop-cool,
+.prop-spicy, .prop-sweet, .prop-sour, .prop-bitter, .prop-salty {
+  color: var(--color-deep);
+}
+.property-row p { font-size: 0.9em; color: #6f665e; line-height: 1.75; flex: 1; }
 
 /* === 响应式 === */
-@media (max-width: 768px) { .property-grid { grid-template-columns: 1fr; } }
-@media (max-width: 992px) {
 @media (max-width: 992px) {
   .herb-cabinet { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .herbs-grid { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 768px) {
+  .property-grid { grid-template-columns: 1fr; }
   .herb-cabinet { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .herbs-grid { grid-template-columns: repeat(2, 1fr); }
   .filter-bar { position: relative; top: auto; }
   .filter-row { flex-direction: column; align-items: flex-start; }
   .modal-body { flex-direction: column; align-items: center; text-align: center; }
+  .modal-actions { justify-content: center; }
 }
 @media (max-width: 480px) {
   .cabinet-section { padding-top: 24px; }

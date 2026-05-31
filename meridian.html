@@ -34,14 +34,14 @@
       </nav>
       <div class="nav-search">
         <input type="text" id="search-input" placeholder="搜索草药、穴位、名方...">
-        <button id="search-btn">&#128269;</button>
+        <button id="search-btn" aria-label="搜索"></button>
       </div>
     </div>
   </header>
 
   <!-- 页面标题横幅 -->
-  <section class="banner">
-    <div class="banner-bg" style="background: linear-gradient(160deg, #3d3644, #4a4252, #322c38);"></div>
+  <section class="banner banner-meridian">
+    <div class="banner-bg"></div>
     <div class="banner-content">
       <h1>经络穴位</h1>
       <p>十二正经，奇经八脉 —— 人体气血运行的奥秘通道</p>
@@ -199,7 +199,7 @@
       <h2 class="section-title" style="text-align:center;margin-bottom:24px;">经络教学视频</h2>
       <div class="video-wrapper">
         <div class="video-placeholder" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;background:none;border:none;display:block;border-radius:12px;">
-          <iframe src="//player.bilibili.com/player.html?bvid=BV1vaCqBMEsT&page=1&autoplay=0"
+          <iframe src="https://player.bilibili.com/player.html?bvid=BV1vaCqBMEsT&page=1&autoplay=0"
                   scrolling="no" border="0" frameborder="no" framespacing="0"
                   allowfullscreen="true"
                   style="position:absolute;top:0;left:0;width:100%;height:100%;"
@@ -232,12 +232,11 @@
 
   <footer class="site-footer">
     <div class="footer-brand">本草寻源</div>
-    <p class="footer-info">中国石油大学（北京）2025—2026春季学期 · Web程序设计大作业</p>
     <p class="footer-info">传承中医药文化，弘扬中华国粹</p>
   </footer>
 
   <div id="music-player">
-    <audio id="bgm" src="music/guqin-bg.mp3" loop preload="none"></audio>
+    <audio id="bgm" loop preload="none"></audio>
     <div id="jade-icon" class="paused" title="点击播放/暂停背景音乐">&#9835;</div>
   </div>
 

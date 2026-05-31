@@ -34,14 +34,14 @@
       </nav>
       <div class="nav-search">
         <input type="text" id="search-input" placeholder="搜索草药、穴位、名方...">
-        <button id="search-btn">&#128269;</button>
+        <button id="search-btn" aria-label="搜索"></button>
       </div>
     </div>
   </header>
 
   <!-- 横幅 -->
-  <section class="banner ethnic-banner">
-    <div class="banner-bg" style="background: linear-gradient(160deg, #3a2a3e, #5a3a4e, #4a3048);"></div>
+  <section class="banner banner-ethnic ethnic-banner">
+    <div class="banner-bg"></div>
     <div class="banner-content">
       <h1>民族医药</h1>
       <p>中华民族医药是祖国医学宝库的重要组成部分，是各民族人民在长期生产生活实践中积累的宝贵遗产</p>
@@ -528,12 +528,11 @@
 
   <footer class="site-footer">
     <div class="footer-brand">本草寻源</div>
-    <p class="footer-info">中国石油大学（北京）2025—2026春季学期 · Web程序设计大作业</p>
     <p class="footer-info">传承中医药文化，弘扬中华国粹</p>
   </footer>
 
   <div id="music-player">
-    <audio id="bgm" src="music/guqin-bg.mp3" loop preload="none"></audio>
+    <audio id="bgm" loop preload="none"></audio>
     <div id="jade-icon" class="paused" title="点击播放/暂停背景音乐">&#9835;</div>
   </div>
 
