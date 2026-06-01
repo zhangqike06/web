@@ -119,10 +119,12 @@
 
     var size = compass.clientWidth || 340;
     var center = size / 2;
-    var radius = size * 0.38;
+    var outerRadius = size * 0.40;
+    var innerRadius = size * 0.315;
 
     termList.forEach(function(name, index) {
       var angle = (index * 15 - 90) * (Math.PI / 180);
+      var radius = index % 2 === 0 ? outerRadius : innerRadius;
       var x = center + radius * Math.cos(angle);
       var y = center + radius * Math.sin(angle);
       var item = document.createElement('div');

@@ -99,23 +99,20 @@
 
 .term-item {
   position: absolute;
-  top: 50%; left: 50%;
-  width: 52px;
-  height: 30px;
-  margin: -15px -26px;
-  transform-origin: 0 0;
+  width: 44px;
+  height: 28px;
   transform: translate(-50%, -50%) scale(var(--term-scale, 1));
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   font-family: var(--font-title);
-  font-size: 0.74em;
+  font-size: 0.66em;
   color: var(--color-deep);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.01em;
   transition: transform 0.35s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.35s ease, border-color 0.3s ease;
   border-radius: 999px;
-  background: rgba(255,255,255,0.72);
+  background: rgba(255,255,255,0.84);
   border: 1px solid rgba(201,136,143,0.14);
   box-shadow: 0 4px 10px rgba(74,58,50,0.05);
   z-index: 3;
