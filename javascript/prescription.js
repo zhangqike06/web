@@ -555,10 +555,13 @@
   window.flyToCauldron = function(herbCard) {
     var herbName = herbCard.getAttribute('data-name');
     if (usedHerbNames.indexOf(herbName) !== -1) return; /* 已投入 */
+    if (herbCard.classList.contains('used') || herbCard.classList.contains('is-flying-origin')) return;
 
     /* 获取药材卡片和药壶的绝对坐标 */
     var herbRect = herbCard.getBoundingClientRect();
     var cauldronRect = cauldron.getBoundingClientRect();
+    var iconHtml = herbCard.querySelector('.herb-icon').outerHTML;
+    var nameHtml = herbCard.querySelector('.herb-name').textContent;
 
     /* 计算位移量 */
     var deltaX = cauldronRect.left - herbRect.left + (cauldronRect.width - herbRect.width) / 2;
@@ -567,33 +570,45 @@
     /* 创建飞行克隆元素 */
     var clone = document.createElement('div');
     clone.className = 'fly-clone';
-    clone.innerHTML = herbCard.querySelector('.herb-icon').innerHTML;
+    clone.innerHTML = '<div class="fly-card">' + iconHtml + '<span class="herb-name">' + nameHtml + '</span></div>';
     var lift = Math.min(72, Math.max(42, Math.abs(deltaY) * 0.28));
     var arc = Math.min(112, Math.max(68, Math.abs(deltaX) * 0.16 + Math.abs(deltaY) * 0.18));
     var rotate = deltaX >= 0 ? 460 : -460;
 
-    clone.style.cssText =
-      'position:fixed; left:' + herbRect.left + 'px; top:' + herbRect.top + 'px;' +
-      'width:' + herbRect.width + 'px; text-align:center; font-size:2em;' +
-      'z-index:9999; pointer-events:none;' +
-      '--fly-x:' + deltaX + 'px; --fly-y:' + deltaY + 'px;' +
-      '--fly-lift:' + lift + 'px; --fly-arc:' + arc + 'px; --fly-rotate:' + rotate + 'deg;';
+    clone.style.left = herbRect.left + 'px';
+    clone.style.top = herbRect.top + 'px';
+    clone.style.width = herbRect.width + 'px';
+    clone.style.opacity = '1';
+    clone.style.transform = 'translate3d(0, 0, 0) scale(1) rotate(0deg)';
+    clone.style.transition = 'transform 780ms cubic-bezier(0.22, 0.61, 0.36, 1), opacity 780ms ease';
     document.body.appendChild(clone);
+    herbCard.classList.add('is-flying-origin');
 
     cauldron.classList.add('is-catching');
     setTimeout(function() {
       cauldron.classList.remove('is-catching');
     }, 420);
 
-    /* 动画结束后移除克隆 */
-    clone.addEventListener('animationend', function() {
+    function finalizeFlight() {
+      if (!clone.parentNode) return;
       clone.remove();
-      /* 标记药材为已使用 */
+      herbCard.classList.remove('is-flying-origin');
       herbCard.classList.add('used');
       usedHerbNames.push(herbName);
-      /* 检查是否全部投入 */
       checkAllHerbsAdded();
+    }
+
+    window.requestAnimationFrame(function() {
+      window.requestAnimationFrame(function() {
+        clone.style.transform =
+          'translate3d(' + deltaX + 'px, ' + deltaY + 'px, 0) ' +
+          'translateY(-' + lift + 'px) scale(0.68) rotate(' + rotate + 'deg)';
+        clone.style.opacity = '0.2';
+      });
     });
+
+    clone.addEventListener('transitionend', finalizeFlight, { once: true });
+    setTimeout(finalizeFlight, 820);
   };
 
   /**
