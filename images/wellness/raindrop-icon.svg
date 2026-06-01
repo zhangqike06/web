@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Raindrop icon">
+  <defs>
+    <linearGradient id="dropFill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d8eef8"/>
+      <stop offset="100%" stop-color="#7fb7cf"/>
+    </linearGradient>
+  </defs>
+  <path d="M60 16C49 31 30 50 30 70c0 18.8 13.4 34 30 34s30-15.2 30-34C90 50 71 31 60 16Z" fill="url(#dropFill)"/>
+  <path d="M48 46c-6 8-10 17-10 25 0 9.6 5.6 17.8 13.8 21.6" fill="none" stroke="#f8fdff" stroke-linecap="round" stroke-width="6" opacity="0.72"/>
+</svg>

@@ -6,6 +6,7 @@
 .ethnic-banner {
   position: relative;
   overflow: hidden;
+  min-height: 380px;
 }
 
 .ethnic-banner .banner-bg {
@@ -16,9 +17,9 @@
 
 .ethnic-banner .banner-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   text-align: center;
-  padding: 72px 24px 56px;
+  padding: 98px 24px 68px;
   color: #fff;
 }
 
@@ -33,6 +34,54 @@
   color: rgba(255,255,255,0.78);
   max-width: 640px;
   margin: 0 auto;
+}
+
+.ethnic-banner-gallery {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  padding: 18px;
+  z-index: 0;
+}
+
+.ethnic-banner-gallery::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(31, 20, 17, 0.4), rgba(31, 20, 17, 0.62)),
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.06), transparent 44%);
+}
+
+.ethnic-banner-tile {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
+}
+
+.ethnic-banner-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.05);
+  filter: saturate(0.94) brightness(0.88);
+}
+
+.ethnic-banner-tile span {
+  position: absolute;
+  left: 14px;
+  bottom: 10px;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: var(--font-title);
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.34);
 }
 
 /* ---- 整体布局：侧栏 + 内容 ---- */
@@ -302,6 +351,21 @@
 
 /* ---- 响应式 ---- */
 @media (max-width: 860px) {
+  .ethnic-banner {
+    min-height: 420px;
+  }
+
+  .ethnic-banner-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    padding: 14px;
+    gap: 8px;
+  }
+
+  .ethnic-banner .banner-content {
+    padding: 116px 20px 56px;
+  }
+
   .ethnic-layout {
     flex-direction: column;
     padding: 32px 16px 60px;

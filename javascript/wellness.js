@@ -47,6 +47,33 @@
     '大寒': { diet: '温补固护。', exercise: '不宜大汗。', life: '等待回暖，藏精护体。', mood: '收心静气。' }
   };
 
+  var termArtMap = {
+    '绔嬫槬': 'images/wellness/flower-icon.svg',
+    '闆ㄦ按': 'images/wellness/raindrop-icon.svg',
+    '鎯婅洶': 'images/wellness/flower-icon.svg',
+    '鏄ュ垎': 'images/wellness/flower-icon.svg',
+    '娓呮槑': 'images/wellness/flower-icon.svg',
+    '璋烽洦': 'images/wellness/raindrop-icon.svg',
+    '绔嬪': 'images/wellness/sun-icon.svg',
+    '灏忔弧': 'images/wellness/sun-icon.svg',
+    '鑺掔': 'images/wellness/sun-icon.svg',
+    '澶忚嚦': 'images/wellness/sun-icon.svg',
+    '灏忔殤': 'images/wellness/sun-icon.svg',
+    '澶ф殤': 'images/wellness/sun-icon.svg',
+    '绔嬬': 'images/wellness/leaf-icon.svg',
+    '澶勬殤': 'images/wellness/leaf-icon.svg',
+    '鐧介湶': 'images/wellness/leaf-icon.svg',
+    '绉嬪垎': 'images/wellness/leaf-icon.svg',
+    '瀵掗湶': 'images/wellness/leaf-icon.svg',
+    '闇滈檷': 'images/wellness/leaf-icon.svg',
+    '绔嬪啲': 'images/wellness/snowflake-icon.svg',
+    '灏忛洩': 'images/wellness/snowflake-icon.svg',
+    '澶ч洩': 'images/wellness/snowflake-icon.svg',
+    '鍐嚦': 'images/wellness/snowflake-icon.svg',
+    '灏忓瘨': 'images/wellness/snowflake-icon.svg',
+    '澶у瘨': 'images/wellness/snowflake-icon.svg'
+  };
+
   var seasonData = {
     spring: {
       title: '春季养生 · 养肝护肝',
@@ -109,7 +136,10 @@
   var quizResult = document.getElementById('quiz-result');
   var progressBar = document.getElementById('progress-bar');
   var quizContainer = document.getElementById('quiz-container');
+  var centerArt = document.getElementById('compass-center-art');
+  var centerLabel = document.getElementById('compass-center-label');
   var currentQuestion = -1;
+  var activeTermName = '';
   var scores = Array(questions.length).fill(null);
 
   function buildCompassItems() {
@@ -167,6 +197,9 @@
   function onTermClick(termName) {
     var color = termColors[termName] || '#CE6C7B';
     var items = document.querySelectorAll('.term-item');
+    var artSrc = termArtMap[termName] || 'images/wellness/sun-icon.svg';
+
+    activeTermName = termName;
 
     document.documentElement.style.setProperty('--accent-color', color);
 
@@ -199,6 +232,15 @@
       window.setTimeout(function() {
         termContent.classList.remove('is-refreshing');
       }, 420);
+    }
+
+    if (centerArt) {
+      centerArt.src = artSrc;
+      centerArt.alt = termName + '图标';
+    }
+
+    if (centerLabel) {
+      centerLabel.textContent = termName;
     }
 
     updateTermContent(termName, color);
@@ -393,12 +435,9 @@
   }
 
   window.addEventListener('resize', function() {
-    var activeItem;
     buildCompassItems();
-    activeItem = document.querySelector('.term-item.active-term');
-    if (activeItem && compass) {
-      compass.style.setProperty('--marker-x', activeItem.getAttribute('data-x') + 'px');
-      compass.style.setProperty('--marker-y', activeItem.getAttribute('data-y') + 'px');
+    if (activeTermName) {
+      onTermClick(activeTermName);
     } else {
       highlightCurrentTerm();
     }

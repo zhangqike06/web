@@ -473,7 +473,7 @@ ul, ol {
   border-top: 1px solid rgba(196, 164, 148, 0.26);
   padding: 32px 20px 36px;
   text-align: center;
-  margin-top: var(--spacing-section);
+  margin-top: 42px;
 }
 
 .site-footer .footer-brand {

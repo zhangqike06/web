@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Snowflake icon">
+  <g fill="none" stroke="#b7d6eb" stroke-linecap="round" stroke-width="7">
+    <path d="M60 18v84M24 39l72 42M24 81l72-42"/>
+    <path d="M60 18l-10 10M60 18l10 10M60 102l-10-10M60 102l10-10"/>
+    <path d="M24 39l14 1M24 39l4 13M96 81l-14-1M96 81l-4-13"/>
+    <path d="M24 81l14-1M24 81l4-13M96 39l-14 1M96 39l-4 13"/>
+  </g>
+  <circle cx="60" cy="60" r="8" fill="#edf7fc"/>
+</svg>

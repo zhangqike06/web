@@ -231,6 +231,16 @@
 
     herbCabinet.innerHTML = html;
 
+    function resetDrawerState(drawer) {
+      var btn;
+      if (!drawer) return;
+      window.clearTimeout(drawer._pressTimer);
+      window.clearTimeout(drawer._openTimer);
+      drawer.classList.remove('is-open', 'is-opening', 'is-pressing');
+      btn = drawer.querySelector('.drawer-face');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    }
+
     herbCabinet.querySelectorAll('.cabinet-drawer').forEach(function(drawer) {
       var face = drawer.querySelector('.drawer-face');
       var inner = drawer.querySelector('.drawer-inner');
@@ -238,14 +248,30 @@
         var isOpen = drawer.classList.contains('is-open');
 
         herbCabinet.querySelectorAll('.cabinet-drawer').forEach(function(item) {
-          item.classList.remove('is-open');
-          var btn = item.querySelector('.drawer-face');
-          if (btn) btn.setAttribute('aria-expanded', 'false');
+          if (item !== drawer) resetDrawerState(item);
         });
 
-        if (!isOpen) {
+        if (isOpen) {
+          resetDrawerState(drawer);
+          return;
+        }
+
+        resetDrawerState(drawer);
+        drawer.classList.add('is-pressing');
+
+        drawer._pressTimer = window.setTimeout(function() {
+          drawer.classList.remove('is-pressing');
+          drawer.classList.add('is-opening');
+        }, 130);
+
+        drawer._openTimer = window.setTimeout(function() {
+          drawer.classList.remove('is-opening');
           drawer.classList.add('is-open');
           if (face) face.setAttribute('aria-expanded', 'true');
+        }, 480);
+
+        if (face) {
+          face.setAttribute('aria-expanded', 'true');
         }
       }
 
