@@ -100,6 +100,7 @@
 
   var termRing = document.getElementById('term-ring');
   var compass = document.getElementById('compass');
+  var termContent = document.getElementById('term-content');
   var seasonContent = document.getElementById('season-content');
   var seasonTabs = document.querySelectorAll('.season-tab');
   var quizContent = document.getElementById('quiz-content');
@@ -133,6 +134,8 @@
       item.setAttribute('data-term', name);
       item.setAttribute('data-x', x);
       item.setAttribute('data-y', y);
+      item.setAttribute('data-angle', (index * 15 - 90) + '');
+      item.style.transform = 'translate(-50%, -50%)';
 
       item.addEventListener('click', function() {
         onTermClick(name);
@@ -172,8 +175,29 @@
       if (active && compass) {
         compass.style.setProperty('--marker-x', item.getAttribute('data-x') + 'px');
         compass.style.setProperty('--marker-y', item.getAttribute('data-y') + 'px');
+        compass.style.setProperty('--active-angle', item.getAttribute('data-angle') + 'deg');
       }
     });
+
+    if (compass) {
+      compass.classList.remove('is-animating');
+      window.requestAnimationFrame(function() {
+        compass.classList.add('is-animating');
+      });
+      window.setTimeout(function() {
+        compass.classList.remove('is-animating');
+      }, 520);
+    }
+
+    if (termContent) {
+      termContent.classList.remove('is-refreshing');
+      window.requestAnimationFrame(function() {
+        termContent.classList.add('is-refreshing');
+      });
+      window.setTimeout(function() {
+        termContent.classList.remove('is-refreshing');
+      }, 420);
+    }
 
     updateTermContent(termName, color);
   }

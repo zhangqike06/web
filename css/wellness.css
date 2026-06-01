@@ -22,6 +22,7 @@
   position: relative;
   --marker-x: 170px;
   --marker-y: 40px;
+  --active-angle: -90deg;
   width: 340px;
   height: 340px;
   border-radius: 50%;
@@ -31,6 +32,25 @@
     radial-gradient(circle at center, transparent 0 61%, rgba(201,136,143,0.18) 61% 62%, transparent 62%),
     rgba(222,200,196,0.08);
   box-shadow: inset 0 0 0 10px rgba(255,255,255,0.55), 0 10px 26px rgba(74,58,50,0.08);
+}
+
+.compass::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border-radius: 50%;
+  background:
+    conic-gradient(from var(--active-angle),
+      rgba(201,136,143,0.9) 0deg,
+      rgba(201,136,143,0.28) 20deg,
+      rgba(201,136,143,0.08) 38deg,
+      transparent 56deg,
+      transparent 360deg);
+  -webkit-mask: radial-gradient(circle, transparent 56%, #000 57%, #000 66%, transparent 67%);
+  mask: radial-gradient(circle, transparent 56%, #000 57%, #000 66%, transparent 67%);
+  opacity: 0.95;
+  transition: background 0.45s ease;
+  pointer-events: none;
 }
 
 .compass::after {
@@ -44,7 +64,7 @@
   background: var(--accent-color, var(--color-rose));
   box-shadow: 0 0 0 5px rgba(255,255,255,0.95), 0 0 0 10px rgba(201,136,143,0.18);
   transform: translate(-50%, -50%);
-  transition: top 0.45s ease, left 0.45s ease, background 0.35s ease;
+  transition: top 0.55s cubic-bezier(0.22, 0.61, 0.36, 1), left 0.55s cubic-bezier(0.22, 0.61, 0.36, 1), background 0.35s ease, box-shadow 0.35s ease;
   z-index: 2;
 }
 
@@ -64,6 +84,12 @@
   letter-spacing: 0.1em;
   z-index: 5;
   box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  transition: transform 0.5s ease, background 0.35s ease, box-shadow 0.35s ease;
+}
+
+.compass.is-animating .compass-center {
+  transform: translate(-50%, -50%) scale(1.08);
+  box-shadow: 0 10px 24px rgba(201,136,143,0.24);
 }
 
 .term-ring {
@@ -86,7 +112,7 @@
   font-size: 0.74em;
   color: var(--color-deep);
   letter-spacing: 0.03em;
-  transition: all 0.3s;
+  transition: transform 0.35s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.35s ease, border-color 0.3s ease;
   border-radius: 999px;
   background: rgba(255,255,255,0.72);
   border: 1px solid rgba(201,136,143,0.14);
@@ -105,6 +131,7 @@
   color: #fff;
   border-color: transparent;
   box-shadow: 0 10px 22px rgba(201,136,143,0.28);
+  transform: translate(-50%, -50%) scale(1.14);
 }
 
 /* 节气内容区 */
@@ -117,6 +144,12 @@
   border-radius: 12px;
   padding: 28px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+  transition: transform 0.45s ease, box-shadow 0.45s ease, border-color 0.35s ease;
+}
+
+.term-content.is-refreshing {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(74,58,50,0.08);
 }
 
 .term-content h3 {
@@ -132,7 +165,12 @@
   border-radius: 2px;
   margin-bottom: 16px;
   background: var(--accent-color);
-  transition: background 0.5s;
+  transition: background 0.5s ease, transform 0.5s ease;
+  transform-origin: left center;
+}
+
+.term-content.is-refreshing .term-color-bar {
+  transform: scaleX(1.04);
 }
 
 .term-info { color: #7a7068; line-height: var(--line-height); }
