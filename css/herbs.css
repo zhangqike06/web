@@ -88,11 +88,11 @@
   justify-content: center;
   gap: 7px;
   opacity: 0;
-  transform: translateY(18px) scale(0.94);
+  transform: translate3d(0, 8px, -12px);
   transform-origin: center top;
   will-change: transform, opacity;
   backface-visibility: hidden;
-  transition: transform 400ms cubic-bezier(0.25, 0.1, 0.25, 1), opacity 260ms ease;
+  transition: transform 520ms cubic-bezier(0.22, 0.61, 0.36, 1), opacity 260ms ease;
 }
 
 .drawer-inner::before {
@@ -152,10 +152,10 @@
   border-right: 2px solid #442a1a;
   border-bottom: 4px solid #3f2517;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.26);
-  transform-origin: top center;
+  transform-origin: center 16px;
   will-change: transform;
   backface-visibility: hidden;
-  transition: transform 400ms cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 300ms ease;
+  transition: transform 520ms cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 300ms ease;
 }
 
 .drawer-face:hover {
@@ -178,7 +178,7 @@
   letter-spacing: 0.14em;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
   will-change: transform;
-  transition: transform 400ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: transform 520ms cubic-bezier(0.22, 0.61, 0.36, 1), opacity 220ms ease;
 }
 
 .cabinet-name::before {
@@ -208,25 +208,26 @@
   background: radial-gradient(circle at 30% 30%, #f8dfa1 0%, #b47a29 55%, #7e551d 100%);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   will-change: transform;
-  transition: transform 400ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: transform 520ms cubic-bezier(0.22, 0.61, 0.36, 1), opacity 220ms ease;
 }
 
 .cabinet-drawer.is-open .drawer-face {
-  transform: translateY(78px) scaleY(0.72);
+  transform: translate3d(0, 32px, 28px) rotateX(-72deg);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.16),
-    0 16px 18px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 20px 20px rgba(0, 0, 0, 0.28),
     0 0 0 1px rgba(34, 20, 13, 0.4);
 }
 
 .cabinet-drawer.is-open .drawer-face .cabinet-name,
 .cabinet-drawer.is-open .drawer-face .cabinet-handle {
-  transform: translateY(8px);
+  transform: translateY(12px);
+  opacity: 0.32;
 }
 
 .cabinet-drawer.is-open .drawer-inner {
   opacity: 1;
-  transform: translateY(30px) scale(1);
+  transform: translate3d(0, 30px, 16px);
   box-shadow: inset 0 0 0 1px rgba(225, 190, 147, 0.24);
 }
 
@@ -584,7 +585,7 @@
   }
   .drawer-herb-visual { height: 54px; font-size: 1.75em; }
   .drawer-inner p { font-size: 0.7em; }
-  .cabinet-drawer.is-open .drawer-face { transform: translateY(104px) rotateX(-8deg) scaleY(0.58); }
+  .cabinet-drawer.is-open .drawer-face { transform: translate3d(0, 40px, 20px) rotateX(-74deg); }
   .herbs-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
   .herb-card { padding: 12px; }
   .herb-img { height: 110px; font-size: 2.2em; }

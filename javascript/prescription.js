@@ -518,17 +518,22 @@
     var clone = document.createElement('div');
     clone.className = 'fly-clone';
     clone.innerHTML = herbCard.querySelector('.herb-icon').innerHTML;
+    var lift = Math.min(72, Math.max(42, Math.abs(deltaY) * 0.28));
+    var arc = Math.min(112, Math.max(68, Math.abs(deltaX) * 0.16 + Math.abs(deltaY) * 0.18));
+    var rotate = deltaX >= 0 ? 460 : -460;
+
     clone.style.cssText =
       'position:fixed; left:' + herbRect.left + 'px; top:' + herbRect.top + 'px;' +
       'width:' + herbRect.width + 'px; text-align:center; font-size:2em;' +
       'z-index:9999; pointer-events:none;' +
-      '--fly-x:' + deltaX + 'px; --fly-y:' + deltaY + 'px; --fly-rotate:420deg;';
+      '--fly-x:' + deltaX + 'px; --fly-y:' + deltaY + 'px;' +
+      '--fly-lift:' + lift + 'px; --fly-arc:' + arc + 'px; --fly-rotate:' + rotate + 'deg;';
     document.body.appendChild(clone);
 
     cauldron.classList.add('is-catching');
     setTimeout(function() {
       cauldron.classList.remove('is-catching');
-    }, 280);
+    }, 420);
 
     /* 动画结束后移除克隆 */
     clone.addEventListener('animationend', function() {
