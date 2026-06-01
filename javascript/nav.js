@@ -358,6 +358,9 @@
    * ============================================================ */
   (function initScrollReveal() {
     if (!('IntersectionObserver' in window)) return;
+    if (window.innerWidth < 900) return;
+    if (navigator.connection && navigator.connection.saveData) return;
+    if (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) return;
 
     var revealTargets = document.querySelectorAll([
       '.banner-content',
