@@ -522,19 +522,16 @@
       'position:fixed; left:' + herbRect.left + 'px; top:' + herbRect.top + 'px;' +
       'width:' + herbRect.width + 'px; text-align:center; font-size:2em;' +
       'z-index:9999; pointer-events:none;' +
-      'transition: all 0.9s cubic-bezier(0.25,0.46,0.45,0.94);';
+      '--fly-x:' + deltaX + 'px; --fly-y:' + deltaY + 'px; --fly-rotate:420deg;';
     document.body.appendChild(clone);
 
-    /* 下一帧触发动画 */
-    requestAnimationFrame(function() {
-      requestAnimationFrame(function() {
-        clone.style.transform = 'translate(' + deltaX + 'px, ' + deltaY + 'px) scale(0.3) rotate(360deg)';
-        clone.style.opacity = '0.3';
-      });
-    });
+    cauldron.classList.add('is-catching');
+    setTimeout(function() {
+      cauldron.classList.remove('is-catching');
+    }, 280);
 
     /* 动画结束后移除克隆 */
-    clone.addEventListener('transitionend', function() {
+    clone.addEventListener('animationend', function() {
       clone.remove();
       /* 标记药材为已使用 */
       herbCard.classList.add('used');
@@ -551,6 +548,7 @@
     var recipe = recipes[currentRecipeIndex];
     if (usedHerbNames.length >= recipe.herbs.length) {
       if (cauldronHint) cauldronHint.textContent = '所有药材已入壶，正在煎煮...';
+      if (cauldron) cauldron.classList.add('is-brewing');
       activateSteam();
       setTimeout(revealResult, 2000);
     }
@@ -587,6 +585,10 @@
     usedHerbNames = [];
     resultArea.style.display = 'none';
     if (steam) steam.classList.remove('active');
+    if (cauldron) {
+      cauldron.classList.remove('is-brewing');
+      cauldron.classList.remove('is-catching');
+    }
     if (cauldronHint) cauldronHint.textContent = '点击草药投入药壶';
 
     /* 重置所有药材卡片 */

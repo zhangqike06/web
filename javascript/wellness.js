@@ -98,7 +98,7 @@
     /* 旋转罗盘到对应角度 */
     var index = termList.indexOf(termName);
     if (compass) {
-      compass.style.transform = 'rotate(' + (index * 15) + 'deg)';
+      compass.style.setProperty('--active-angle', (index * 15 - 90) + 'deg');
     }
 
     /* 更新active状态 */

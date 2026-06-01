@@ -117,22 +117,31 @@
 /* CSS绘制人体轮廓 */
 .body-map {
   position: relative;
-  width: 260px;
-  height: 620px;
+  width: 360px;
+  height: 680px;
   flex-shrink: 0;
+  padding: 16px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(247,241,236,0.96));
+  border: 1px solid rgba(201,136,143,0.16);
+  box-shadow: 0 18px 34px rgba(74,58,50,0.08);
 }
 
 .body-silhouette {
   position: absolute;
-  inset: 0;
+  inset: 16px;
 }
 
-.body-svg {
+.body-silhouette img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  object-fit: contain;
+  object-position: center top;
   pointer-events: none;
+  border-radius: 16px;
+  filter: saturate(0.92) contrast(1.02);
 }
 
 /* 穴位热点 */
@@ -285,13 +294,7 @@
   .meridian-diagram { width: 140px; height: 140px; }
   .diagram-circle { width: 130px; height: 130px; }
   .acupoint-layout { flex-direction: column; align-items: center; }
-  .body-map { width: 200px; height: 500px; }
-  .body-head { width: 46px; height: 54px; }
-  .body-torso { width: 68px; height: 200px; top: 52px; }
-  .body-arm { width: 21px; height: 160px; top: 62px; }
-  .body-arm.left { left: 28px; } .body-arm.right { right: 28px; }
-  .body-leg { width: 24px; height: 190px; top: 244px; }
-  .body-leg.left { left: 54px; } .body-leg.right { right: 54px; }
+  .body-map { width: min(100%, 320px); height: 620px; }
   .acupoint { width: 11px; height: 11px; }
   .acupoint-detail { width: 100%; min-width: 0; max-width: 100%; padding: 18px; }
   .video-placeholder { height: 210px; font-size: 0.95em; }
