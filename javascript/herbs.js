@@ -219,6 +219,9 @@
       html += '    <span class="cabinet-handle" aria-hidden="true"></span>';
       html += '  </button>';
       html += '  <div class="drawer-inner" role="button" tabindex="0" data-open-detail="' + herb.id + '">';
+      html += '    <span class="drawer-depth-left" aria-hidden="true"></span>';
+      html += '    <span class="drawer-depth-right" aria-hidden="true"></span>';
+      html += '    <span class="drawer-depth-bottom" aria-hidden="true"></span>';
       if (herb.img) {
         html += '    <div class="drawer-herb-visual"><img src="' + herb.img + '" alt="' + herb.name + '" loading="lazy"></div>';
       } else {
