@@ -135,7 +135,6 @@
       item.setAttribute('data-x', x);
       item.setAttribute('data-y', y);
       item.setAttribute('data-angle', (index * 15 - 90) + '');
-      item.style.transform = 'translate(-50%, -50%)';
 
       item.addEventListener('click', function() {
         onTermClick(name);
