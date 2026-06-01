@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
  * prescription.js - 经典名方页脚本
  * 功能：百草化方飞入动画、蒸汽效果、成品揭晓、竹简导航
  * ============================================================ */
@@ -661,28 +661,15 @@
     var grid = document.getElementById('all-recipes-grid');
     if (!grid) return;
 
-    var categories = [
-      { type: '经典方剂', label: '经典方剂', icon: '📜' },
-      { type: '养生饮品', label: '养生饮品', icon: '🍵' },
-      { type: '养生茶饮', label: '养生茶饮', icon: '🫖' }
-    ];
-
     var html = '';
-    categories.forEach(function(cat) {
-      var catRecipes = recipes.filter(function(r) { return r.type === cat.type; });
-      html += '<div class="recipe-cat-section">';
-      html += '<h3 class="recipe-cat-title">' + cat.label + ' <span class="cat-count">' + catRecipes.length + '方</span></h3>';
-      html += '<div class="recipe-cat-grid">';
-      catRecipes.forEach(function(recipe) {
-        var idx = recipes.indexOf(recipe);
-        var herbNames = recipe.herbs.map(function(h) { return h.name; }).join('、');
-        html += '<div class="recipe-card-mini" data-recipe-idx="' + idx + '">';
-        html += '  <h4>' + recipe.name + '</h4>';
-        html += '  <p class="recipe-herbs-mini">' + herbNames + '</p>';
-        html += '  <span class="recipe-type-tag">' + recipe.type + '</span>';
-        html += '</div>';
-      });
-      html += '</div></div>';
+    recipes.forEach(function(recipe, idx) {
+      var herbNames = recipe.herbs.map(function(h) { return h.name; }).join('、');
+      html += '<div class="recipe-card-mini" data-recipe-idx="' + idx + '">';
+      html += '  <span class="recipe-type-tag">' + recipe.type + '</span>';
+      html += '  <h4>' + recipe.name + '</h4>';
+      html += '  <p class="recipe-herbs-mini">' + herbNames + '</p>';
+      html += '  <span class="recipe-card-link">查看配伍 &#10132;</span>';
+      html += '</div>';
     });
     grid.innerHTML = html;
 

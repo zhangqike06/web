@@ -20,7 +20,8 @@
 
 .compass {
   position: relative;
-  --active-angle: -90deg;
+  --marker-x: 170px;
+  --marker-y: 40px;
   width: 340px;
   height: 340px;
   border-radius: 50%;
@@ -35,17 +36,15 @@
 .compass::after {
   content: "";
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: var(--marker-y);
+  left: var(--marker-x);
   width: 16px;
   height: 16px;
-  margin: -8px;
   border-radius: 50%;
   background: var(--accent-color, var(--color-rose));
   box-shadow: 0 0 0 5px rgba(255,255,255,0.95), 0 0 0 10px rgba(201,136,143,0.18);
-  transform: rotate(var(--active-angle)) translateY(-138px);
-  transform-origin: center center;
-  transition: transform 0.45s ease, background 0.35s ease;
+  transform: translate(-50%, -50%);
+  transition: top 0.45s ease, left 0.45s ease, background 0.35s ease;
   z-index: 2;
 }
 

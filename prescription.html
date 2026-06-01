@@ -135,7 +135,7 @@
   <section class="all-recipes-section">
     <div class="container">
       <h2 class="section-title" style="text-align:center;margin-bottom:28px;">经典名方一览</h2>
-      <div class="recipe-card-grid" id="all-recipes-grid">
+      <div class="recipe-card-grid recipe-card-grid-flat" id="all-recipes-grid">
         <!-- JS动态渲染 -->
       </div>
     </div>
@@ -162,7 +162,9 @@
   </footer>
 
   <div id="music-player">
-    <audio id="bgm" loop preload="none"></audio>
+    <audio id="bgm" loop preload="none">
+      <source src="music/guanqin.ogg" type="audio/ogg">
+    </audio>
     <div id="jade-icon" class="paused" title="点击播放/暂停背景音乐">&#9835;</div>
   </div>
 

@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
  * herbs.js - 本草百科页脚本
  * 功能：药材数据渲染、多维筛选、详情弹窗、搜索跳转定位
  * ============================================================ */
@@ -234,23 +234,32 @@
     herbCabinet.querySelectorAll('.cabinet-drawer').forEach(function(drawer) {
       var face = drawer.querySelector('.drawer-face');
       var inner = drawer.querySelector('.drawer-inner');
+      function toggleDrawerState() {
+        var isOpen = drawer.classList.contains('is-open');
+
+        herbCabinet.querySelectorAll('.cabinet-drawer').forEach(function(item) {
+          item.classList.remove('is-open');
+          var btn = item.querySelector('.drawer-face');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+        });
+
+        if (!isOpen) {
+          drawer.classList.add('is-open');
+          if (face) face.setAttribute('aria-expanded', 'true');
+        }
+      }
 
       if (face) {
         face.addEventListener('click', function() {
-          var isOpen = drawer.classList.contains('is-open');
-
-          herbCabinet.querySelectorAll('.cabinet-drawer').forEach(function(item) {
-            item.classList.remove('is-open');
-            var btn = item.querySelector('.drawer-face');
-            if (btn) btn.setAttribute('aria-expanded', 'false');
-          });
-
-          if (!isOpen) {
-            drawer.classList.add('is-open');
-            face.setAttribute('aria-expanded', 'true');
-          }
+          toggleDrawerState();
         });
       }
+
+      drawer.addEventListener('click', function(e) {
+        if (e.target.closest('.drawer-inner')) return;
+        if (e.target.closest('.drawer-face')) return;
+        toggleDrawerState();
+      });
 
       if (inner) {
         inner.addEventListener('click', function() {

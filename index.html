@@ -9,18 +9,13 @@
 </head>
 <body>
 
-  <!-- ============================================================
-  固定顶部导航栏（全站公共组件）
-  ============================================================ -->
   <header id="nav-header">
     <div class="nav-container">
-      <!-- Logo -->
       <div class="nav-logo">
         <img src="images/logo.svg" alt="本草寻源">
         <span>本草寻源</span>
       </div>
 
-      <!-- 主菜单（JS二级下拉） -->
       <nav>
         <ul class="nav-menu">
           <li><a href="index.html">首页</a></li>
@@ -39,7 +34,6 @@
         </ul>
       </nav>
 
-      <!-- 全站搜索框 -->
       <div class="nav-search">
         <input type="text" id="search-input" placeholder="搜索草药、穴位、名方...">
         <button id="search-btn" aria-label="搜索"></button>
@@ -47,9 +41,6 @@
     </div>
   </header>
 
-  <!-- ============================================================
-  Hero区：CSS水墨动画背景（替代视频）
-  ============================================================ -->
   <section class="hero-section">
     <div class="hero-ink-bg"></div>
     <div class="hero-overlay"></div>
@@ -63,216 +54,248 @@
         <span class="date-sep">|</span>
         <span id="term-tip"></span>
       </div>
-      <a href="#categories" class="hero-scroll-hint">&#8964; 开始探索</a>
+      <a href="#home-main" class="hero-scroll-hint"><span class="hero-scroll-icon" aria-hidden="true"></span> 开始探索</a>
     </div>
   </section>
 
-  <!-- ============================================================
-  每日一签：摇签互动区
-  ============================================================ -->
-  <section class="daily-fortune" id="daily-fortune">
-    <div class="container">
-      <h2 class="section-title">每日一签</h2>
-      <p class="section-desc">摇一摇，获取今日中医养生箴言</p>
-      <div class="fortune-box">
-        <div class="fortune-display" id="fortune-display">
-          <span id="fortune-text">点击签筒摇签</span>
-        </div>
-        <!-- 签筒容器 -->
-        <button class="fortune-btn" id="fortune-btn" title="摇签">
-          <!-- 签筒外观 -->
-          <div class="divining-cup">
-            <div class="fortune-stick-group" aria-hidden="true">
-              <span class="fortune-stick stick-1"></span>
-              <span class="fortune-stick stick-2"></span>
-              <span class="fortune-stick stick-3"></span>
-              <span class="fortune-stick stick-4"></span>
-              <span class="fortune-stick stick-5"></span>
+  <main class="home-main" id="home-main">
+    <section class="daily-fortune" id="daily-fortune">
+      <div class="container">
+        <div class="fortune-layout">
+          <div class="fortune-panel">
+            <h2 class="section-title">每日一签</h2>
+            <p class="section-desc">摇一摇，获取今日中医养生箴言</p>
+            <div class="fortune-box">
+              <div class="fortune-display" id="fortune-display">
+                <span id="fortune-text">点击签筒摇签</span>
+              </div>
+              <button class="fortune-btn" id="fortune-btn" title="摇签">
+                <div class="divining-cup">
+                  <div class="fortune-stick-group" aria-hidden="true">
+                    <span class="fortune-stick stick-1"></span>
+                    <span class="fortune-stick stick-2"></span>
+                    <span class="fortune-stick stick-3"></span>
+                    <span class="fortune-stick stick-4"></span>
+                    <span class="fortune-stick stick-5"></span>
+                  </div>
+                  <div class="cup-top"></div>
+                  <div class="cup-body">
+                    <div class="cup-pattern"></div>
+                  </div>
+                  <div class="cup-bottom"></div>
+                  <div class="cup-rim"></div>
+                </div>
+                <span class="cup-label">摇签</span>
+              </button>
             </div>
-            <!-- 签筒顶部 -->
-            <div class="cup-top"></div>
-            <!-- 签筒主体 -->
-            <div class="cup-body">
-              <div class="cup-pattern"></div>
-            </div>
-            <!-- 签筒底部 -->
-            <div class="cup-bottom"></div>
-            <!-- 签筒口的棕色垫圈 -->
-            <div class="cup-rim"></div>
           </div>
-          <span class="cup-label">摇签</span>
-        </button>
-      </div>
-    </div>
-  </section>
 
-  <!-- ============================================================
-  栏目入口
-  ============================================================ -->
-  <section class="categories" id="categories">
-    <div class="container">
-      <h2 class="section-title">探索本草世界</h2>
-      <div class="category-grid">
-        <a href="history.html" class="category-card card-history">
-          <h3>历史文化</h3>
-          <p>千年医脉，杏林春秋</p>
-        </a>
-        <a href="herbs.html" class="category-card card-herbs">
-          <h3>草药百科</h3>
-          <p>百草精华，性味归经</p>
-        </a>
-        <a href="meridian.html" class="category-card card-meridian">
-          <h3>经络穴位</h3>
-          <p>十二正经，奇经八脉</p>
-        </a>
-        <a href="prescription.html" class="category-card card-prescription">
-          <h3>经典名方</h3>
-          <p>君臣佐使，配伍精妙</p>
-        </a>
-        <a href="wellness.html" class="category-card card-wellness">
-          <h3>养生保健</h3>
-          <p>治未病，调未乱</p>
-        </a>
-        <a href="ethnic.html" class="category-card card-ethnic">
-          <h3>民族医药</h3>
-          <p>多元一体，各具特色</p>
-        </a>
+          <aside class="fortune-sidecard">
+            <div class="fortune-sidecard-head">
+              <h3>五行流转</h3>
+              <p>点击木火土金水，查看对应脏腑、情志与调养提示</p>
+            </div>
+            <div class="element-orb" id="element-orb" data-element="mu">
+              <span class="orb-glow orb-glow-a"></span>
+              <span class="orb-glow orb-glow-b"></span>
+              <div class="orb-core">
+                <strong id="element-name">木</strong>
+                <span id="element-organ">肝</span>
+              </div>
+            </div>
+            <div class="element-actions" id="element-actions">
+              <button class="element-chip active" data-element="mu">木</button>
+              <button class="element-chip" data-element="huo">火</button>
+              <button class="element-chip" data-element="tu">土</button>
+              <button class="element-chip" data-element="jin">金</button>
+              <button class="element-chip" data-element="shui">水</button>
+            </div>
+            <div class="element-copy">
+              <p><strong>情志：</strong><span id="element-emotion">怒</span></p>
+              <p><strong>调养：</strong><span id="element-tip">春宜舒展身心，多做能让气机条达的缓和运动。</span></p>
+            </div>
+          </aside>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================================
-  今日推荐中药（图文混排 float）
-  ============================================================ -->
-  <section class="featured-herb" id="featured">
-    <div class="container">
-      <h2 class="section-title">今日推荐中药</h2>
-      <div class="featured-card">
-        <div class="featured-img">
-          <!-- CSS绘制药材示意 -->
-          <div class="herb-illustration" id="featured-herb-img"></div>
-        </div>
-        <div class="featured-content">
-          <h3 id="featured-name">人参</h3>
-          <p class="featured-property" id="featured-property">性味：甘、微苦、微温 | 归经：脾、肺、心</p>
-          <p class="featured-effect" id="featured-effect">大补元气，复脉固脱，补脾益肺，生津养血，安神益智</p>
-          <p class="featured-desc" id="featured-desc">
-            人参被誉为"百草之王"，是驰名中外的名贵药材。其根部肉质肥大，形如人形，故名人参。
-            在中国应用已有数千年的历史，《神农本草经》将其列为上品。现代药理研究表明，
-            人参含有多种人参皂苷，具有抗疲劳、增强免疫力、改善心血管功能等多重功效。
-          </p>
-          <a href="herbs.html?search=人参" class="btn btn-outline" id="featured-link">了解更多 &#10132;</a>
+    <section class="categories" id="categories">
+      <div class="container">
+        <h2 class="section-title">探索本草世界</h2>
+        <div class="category-grid">
+          <a href="history.html" class="category-card card-history">
+            <h3>历史文化</h3>
+            <p>千年医脉，杏林春秋</p>
+          </a>
+          <a href="herbs.html" class="category-card card-herbs">
+            <h3>草药百科</h3>
+            <p>百草精华，性味归经</p>
+          </a>
+          <a href="meridian.html" class="category-card card-meridian">
+            <h3>经络穴位</h3>
+            <p>十二正经，奇经八脉</p>
+          </a>
+          <a href="prescription.html" class="category-card card-prescription">
+            <h3>经典名方</h3>
+            <p>君臣佐使，配伍精妙</p>
+          </a>
+          <a href="wellness.html" class="category-card card-wellness">
+            <h3>养生保健</h3>
+            <p>治未病，调未乱</p>
+          </a>
+          <a href="ethnic.html" class="category-card card-ethnic">
+            <h3>民族医药</h3>
+            <p>多元一体，各具特色</p>
+          </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================================
-  医道名言：跑马灯横向无缝滚动
-  ============================================================ -->
-  <section class="quotes-marquee">
-    <div class="container">
-      <h2 class="section-title">医道名言</h2>
-    </div>
-    <div class="marquee-track">
-      <div class="marquee-content" id="marquee-content">
-        <span>"上工治未病，不治已病。" —— 《黄帝内经》</span>
-        <span class="marquee-sep">&#9670;</span>
-        <span>"人命至重，有贵千金。" —— 孙思邈</span>
-        <span class="marquee-sep">&#9670;</span>
-        <span>"不为良相，便为良医。" —— 范仲淹</span>
-        <span class="marquee-sep">&#9670;</span>
-        <span>"正气存内，邪不可干。" —— 《黄帝内经》</span>
-        <span class="marquee-sep">&#9670;</span>
-        <span>"药食同源，寓医于食。" —— 《千金要方》</span>
-        <span class="marquee-sep">&#9670;</span>
-        <span>"春夏养阳，秋冬养阴。" —— 《黄帝内经》</span>
+    <section class="featured-herb" id="featured">
+      <div class="container">
+        <h2 class="section-title">今日推荐中药</h2>
+        <div class="featured-card">
+          <div class="featured-img">
+            <div class="herb-illustration" id="featured-herb-img"></div>
+          </div>
+          <div class="featured-content">
+            <h3 id="featured-name">人参</h3>
+            <p class="featured-property" id="featured-property">性味：甘、微苦、微温 | 归经：脾、肺、心</p>
+            <p class="featured-effect" id="featured-effect">大补元气，复脉固脱，补脾益肺，生津养血，安神益智</p>
+            <p class="featured-desc" id="featured-desc">
+              人参被誉为“百草之王”，是驰名中外的名贵药材。其根部肉质肥大，形如人形，故名人参。
+              在中国应用已有数千年的历史，《神农本草经》将其列为上品。现代药理研究表明，
+              人参含有多种人参皂苷，具有抗疲劳、增强免疫力、改善心血管功能等多重功效。
+            </p>
+            <a href="herbs.html?search=人参" class="btn btn-outline" id="featured-link">了解更多 &#10132;</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================================
-  五行学说展示
-  ============================================================ -->
-  <section class="wuxing-section">
-    <div class="container">
-      <h2 class="section-title">五行学说</h2>
-      <p class="section-desc">木火土金水，相生相克，构成中医理论的基础框架</p>
-      <div class="wuxing-grid">
-        <div class="wuxing-card wuxing-mu">
-          <h3>木</h3>
-          <p>肝 · 胆 · 目 · 筋 · 怒</p>
-          <p class="wuxing-detail">主升发条达，对应春季、东方、青色、酸味。肝主疏泄，藏血，开窍于目。</p>
+    <section class="quotes-marquee">
+      <div class="container">
+        <h2 class="section-title">医道名言</h2>
+      </div>
+      <div class="marquee-stack">
+        <div class="marquee-track">
+          <div class="marquee-content" id="marquee-row-1"></div>
         </div>
-        <div class="wuxing-card wuxing-huo">
-          <h3>火</h3>
-          <p>心 · 小肠 · 舌 · 脉 · 喜</p>
-          <p class="wuxing-detail">主温热向上，对应夏季、南方、赤色、苦味。心主血脉，藏神，开窍于舌。</p>
+        <div class="marquee-track reverse">
+          <div class="marquee-content" id="marquee-row-2"></div>
         </div>
-        <div class="wuxing-card wuxing-tu">
-          <h3>土</h3>
-          <p>脾 · 胃 · 口 · 肉 · 思</p>
-          <p class="wuxing-detail">主生化承载，对应长夏、中央、黄色、甘味。脾主运化，统血，开窍于口。</p>
-        </div>
-        <div class="wuxing-card wuxing-jin">
-          <h3>金</h3>
-          <p>肺 · 大肠 · 鼻 · 皮 · 悲</p>
-          <p class="wuxing-detail">主肃降收敛，对应秋季、西方、白色、辛味。肺主气，司呼吸，开窍于鼻。</p>
-        </div>
-        <div class="wuxing-card wuxing-shui">
-          <h3>水</h3>
-          <p>肾 · 膀胱 · 耳 · 骨 · 恐</p>
-          <p class="wuxing-detail">主滋润下行，对应冬季、北方、黑色、咸味。肾主水，藏精，开窍于耳。</p>
+        <div class="marquee-track">
+          <div class="marquee-content" id="marquee-row-3"></div>
         </div>
       </div>
-      <div class="wuxing-relation">
-        <p><strong>相生：</strong>木生火 → 火生土 → 土生金 → 金生水 → 水生木（循环滋养）</p>
-        <p><strong>相克：</strong>木克土 → 土克水 → 水克火 → 火克金 → 金克木（制约平衡）</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================================
-  中医四诊展示
-  ============================================================ -->
-  <section class="sizhen-section">
-    <div class="container">
-      <h2 class="section-title">中医四诊</h2>
-      <p class="section-desc">望闻问切，四诊合参，辨证论治之根基</p>
-      <div class="sizhen-grid">
-        <div class="sizhen-card sizhen-card-wang">
-          <h3>望诊</h3>
-          <p>观其形体、面色、舌象、神态。望而知之谓之神。通过观察患者全身和局部的神、色、形、态，以及舌质舌苔的变化，了解脏腑气血的盛衰。</p>
+    <section class="wuxing-section">
+      <div class="container">
+        <h2 class="section-title">五行学说</h2>
+        <p class="section-desc">木火土金水，相生相克，构成中医理论的基础框架</p>
+        <div class="wuxing-grid">
+          <div class="wuxing-card wuxing-mu">
+            <h3>木</h3>
+            <p>肝 · 胆 · 目 · 筋 · 怒</p>
+            <p class="wuxing-detail">主升发条达，对应春季、东方、青色、酸味。肝主疏泄，藏血，开窍于目。</p>
+          </div>
+          <div class="wuxing-card wuxing-huo">
+            <h3>火</h3>
+            <p>心 · 小肠 · 舌 · 脉 · 喜</p>
+            <p class="wuxing-detail">主温热向上，对应夏季、南方、赤色、苦味。心主血脉，藏神，开窍于舌。</p>
+          </div>
+          <div class="wuxing-card wuxing-tu">
+            <h3>土</h3>
+            <p>脾 · 胃 · 口 · 肉 · 思</p>
+            <p class="wuxing-detail">主生化承载，对应长夏、中央、黄色、甘味。脾主运化，统血，开窍于口。</p>
+          </div>
+          <div class="wuxing-card wuxing-jin">
+            <h3>金</h3>
+            <p>肺 · 大肠 · 鼻 · 皮 · 忧</p>
+            <p class="wuxing-detail">主肃降收敛，对应秋季、西方、白色、辛味。肺主气，司呼吸，开窍于鼻。</p>
+          </div>
+          <div class="wuxing-card wuxing-shui">
+            <h3>水</h3>
+            <p>肾 · 膀胱 · 耳 · 骨 · 恐</p>
+            <p class="wuxing-detail">主滋润下行，对应冬季、北方、黑色、咸味。肾主水，藏精，开窍于耳。</p>
+          </div>
         </div>
-        <div class="sizhen-card sizhen-card-wen">
-          <h3>闻诊</h3>
-          <p>听声息、嗅气味。闻而知之谓之圣。通过听患者语音、呼吸、咳嗽等声音，以及嗅其体气、口鼻之气、排泄物之气来判断病情。</p>
-        </div>
-        <div class="sizhen-card sizhen-card-wen2">
-          <h3>问诊</h3>
-          <p>询病史、问寒热、查饮食、辨二便。问而知之谓之工。"十问歌"：一问寒热二问汗，三问头身四问便，五问饮食六问胸，七聋八渴俱当辨。</p>
-        </div>
-        <div class="sizhen-card sizhen-card-qie">
-          <h3>切诊</h3>
-          <p>按脉搏、触肌肤。切而知之谓之巧。以寸口脉诊为主，通过浮中沉三种指力体察脉象，常见脉象有浮沉迟数虚实滑涩弦细等28种。</p>
+        <div class="wuxing-relation">
+          <p><strong>相生：</strong>木生火 → 火生土 → 土生金 → 金生水 → 水生木（循环滋养）</p>
+          <p><strong>相克：</strong>木克土 → 土克水 → 水克火 → 火克金 → 金克木（制约平衡）</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================================
-  公共页脚
-  ============================================================ -->
+    <section class="sizhen-section">
+      <div class="container">
+        <h2 class="section-title">中医四诊</h2>
+        <p class="section-desc">望闻问切，四诊合参，辨证论治之根基</p>
+        <div class="sizhen-grid">
+          <div class="sizhen-card sizhen-card-wang">
+            <h3>望诊</h3>
+            <p>观其形体、面色、舌象、神态。望而知之谓之神。通过观察患者全身和局部的神、色、形、态，以及舌质舌苔的变化，了解脏腑气血的盛衰。</p>
+          </div>
+          <div class="sizhen-card sizhen-card-wen">
+            <h3>闻诊</h3>
+            <p>听声音、嗅气味。闻而知之谓之圣。通过听患者语音、呼吸、咳嗽等声音，以及嗅其体气、口鼻之气、排泄物之气来判断病情。</p>
+          </div>
+          <div class="sizhen-card sizhen-card-wen2">
+            <h3>问诊</h3>
+            <p>询病史、问寒热、查饮食、辨二便。问而知之谓之工。十问歌：一问寒热二问汗，三问头身四问便，五问饮食六问胸，七聋八渴俱当辨。</p>
+          </div>
+          <div class="sizhen-card sizhen-card-qie">
+            <h3>切诊</h3>
+            <p>按脉搏、触肌肤。切而知之谓之巧。以寸口脉诊为主，通过浮中沉三种指力体察脉象，常见脉象有浮沉迟数虚实滑涩弦细等28种。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-overview">
+      <div class="container">
+        <h2 class="section-title">专题页速览</h2>
+        <p class="section-desc">把其他分栏的核心内容先在首页缩成一层，看完再深入阅读。</p>
+        <div class="overview-grid">
+          <article class="overview-card">
+            <span class="overview-kicker">本草百科</span>
+            <h3>药性背后是完整的归经与功效体系</h3>
+            <p>从四气五味、功效分类到百眼柜草药抽屉，把草木、根茎、花果的作用纳成可读的体系。</p>
+            <a href="herbs.html" class="btn btn-outline">进入本草百科</a>
+          </article>
+          <article class="overview-card">
+            <span class="overview-kicker">经典名方</span>
+            <h3>从君臣佐使读懂方剂的结构</h3>
+            <p>四君子汤、四物汤、逍遥散、六味地黄丸等常见方剂，既看配伍也看煎煮规则。</p>
+            <a href="prescription.html" class="btn btn-outline">进入经典名方</a>
+          </article>
+          <article class="overview-card">
+            <span class="overview-kicker">养生保健</span>
+            <h3>把节气、四季与体质调理系在一起</h3>
+            <p>罗盘看节气，四季看起居，体质测试看倾向，把“顺时调养，因人而养”做成可点的展示。</p>
+            <a href="wellness.html" class="btn btn-outline">进入养生保健</a>
+          </article>
+          <article class="overview-card">
+            <span class="overview-kicker">民族医药</span>
+            <h3>看藏医、壮医、苗医等多元传统</h3>
+            <p>不同民族的诊治思路、常用药材与代表技术，在一个页面里对比看出区别与共通点。</p>
+            <a href="ethnic.html" class="btn btn-outline">进入民族医药</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer class="site-footer">
     <div class="footer-brand">本草寻源</div>
     <p class="footer-info">传承中医药文化，弘扬中华国粹</p>
   </footer>
 
-  <!-- ============================================================
-  悬浮古乐播放器（右下角固定）
-  ============================================================ -->
   <div id="music-player">
-    <audio id="bgm" loop preload="none"></audio>
+    <audio id="bgm" loop preload="none">
+      <source src="music/guanqin.ogg" type="audio/ogg">
+    </audio>
     <div id="jade-icon" class="paused" title="点击播放/暂停背景音乐">&#9835;</div>
   </div>
 

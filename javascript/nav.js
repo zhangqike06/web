@@ -317,7 +317,9 @@
   }
 
   if (bgm && jadeIcon) {
-    if (!bgm.getAttribute('src')) {
+    var sourceNode = bgm.querySelector('source');
+    var audioSrc = bgm.getAttribute('src') || (sourceNode ? sourceNode.getAttribute('src') : '');
+    if (!audioSrc) {
       disableMusicPlayer('背景音乐资源暂未提供');
       return;
     }
@@ -350,5 +352,84 @@
       }
     });
   }
+
+  /* ============================================================
+   * 全站滚动显现动效
+   * ============================================================ */
+  (function initScrollReveal() {
+    if (!('IntersectionObserver' in window)) return;
+
+    var revealTargets = document.querySelectorAll([
+      '.banner-content',
+      '.section-title',
+      '.section-desc',
+      '.fortune-box',
+      '.fortune-panel',
+      '.fortune-sidecard',
+      '.category-card',
+      '.featured-card',
+      '.wuxing-card',
+      '.sizhen-card',
+      '.intro-card',
+      '.member-card',
+      '.tech-card',
+      '.proc-card',
+      '.doctor-card',
+      '.classic-book-card',
+      '.zone-card',
+      '.season-card',
+      '.tea-card',
+      '.overview-card',
+      '.recipe-card-mini',
+      '.recipe-cat-card',
+      '.brewing-step',
+      '.alchemy-panel',
+      '.formula-analysis',
+      '.detail-box',
+      '.body-map',
+      '.acupoint-detail',
+      '.meridian-card',
+      '.table-wrapper',
+      '.site-footer'
+    ].join(','));
+
+    if (!revealTargets.length) return;
+
+    revealTargets.forEach(function(target, index) {
+      var delayIndex = index % 6;
+      var revealType = 'up';
+
+      if (target.classList.contains('category-card') || target.classList.contains('wuxing-card') || target.classList.contains('tea-card')) {
+        revealType = 'zoom';
+      } else if (target.classList.contains('featured-card') || target.classList.contains('acupoint-detail') || target.classList.contains('formula-analysis')) {
+        revealType = 'right';
+      } else if (target.classList.contains('body-map') || target.classList.contains('fortune-box') || target.classList.contains('alchemy-panel')) {
+        revealType = 'left';
+      }
+
+      if (!target.classList.contains('timeline-item')) {
+        target.classList.add('reveal-on-scroll');
+        target.setAttribute('data-reveal', revealType);
+        target.style.setProperty('--reveal-delay', String(delayIndex * 70) + 'ms');
+      }
+    });
+
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      });
+    }, {
+      threshold: 0.16,
+      rootMargin: '0px 0px -60px 0px'
+    });
+
+    revealTargets.forEach(function(target) {
+      if (target.classList.contains('reveal-on-scroll')) {
+        revealObserver.observe(target);
+      }
+    });
+  })();
 
 })();
