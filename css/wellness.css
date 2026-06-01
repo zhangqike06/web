@@ -22,7 +22,7 @@
   position: relative;
   --marker-x: 210px;
   --marker-y: 46px;
-  --active-angle: -90deg;
+  --active-angle: 0deg;
   width: 420px;
   height: 420px;
   border-radius: 50%;

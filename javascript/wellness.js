@@ -174,9 +174,10 @@
       var active = item.getAttribute('data-term') === termName;
       item.classList.toggle('active-term', active);
       if (active && compass) {
+        var accentAngle = Number(item.getAttribute('data-angle')) + 90;
         compass.style.setProperty('--marker-x', item.getAttribute('data-x') + 'px');
         compass.style.setProperty('--marker-y', item.getAttribute('data-y') + 'px');
-        compass.style.setProperty('--active-angle', item.getAttribute('data-angle') + 'deg');
+        compass.style.setProperty('--active-angle', accentAngle + 'deg');
       }
     });
 
