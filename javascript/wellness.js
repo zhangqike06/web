@@ -119,8 +119,8 @@
 
     var size = compass.clientWidth || 340;
     var center = size / 2;
-    var outerRadius = size * 0.40;
-    var innerRadius = size * 0.315;
+    var outerRadius = size * 0.42;
+    var innerRadius = size * 0.335;
 
     termList.forEach(function(name, index) {
       var angle = (index * 15 - 90) * (Math.PI / 180);
