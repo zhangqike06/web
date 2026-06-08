@@ -11,6 +11,50 @@
   'use strict';
 
   var navHeader = document.getElementById('nav-header');
+  var navContainer = document.querySelector('.nav-container');
+  var primaryNav = navContainer ? navContainer.querySelector('nav') : null;
+  var navSearch = navContainer ? navContainer.querySelector('.nav-search') : null;
+  var navToggle;
+
+  function isMobileNav() {
+    return window.innerWidth <= 768;
+  }
+
+  function setNavOpen(open) {
+    if (!navHeader || !navToggle) return;
+    navHeader.classList.toggle('nav-open', open);
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    navToggle.setAttribute('aria-label', open ? '收起导航菜单' : '展开导航菜单');
+  }
+
+  if (navHeader && navContainer && primaryNav) {
+    primaryNav.id = primaryNav.id || 'site-nav';
+    navToggle = document.createElement('button');
+    navToggle.type = 'button';
+    navToggle.className = 'nav-toggle';
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-controls', primaryNav.id);
+    navToggle.setAttribute('aria-label', '展开导航菜单');
+    navToggle.innerHTML = '<span class="nav-toggle-bar" aria-hidden="true"></span>';
+
+    navContainer.insertBefore(navToggle, primaryNav);
+
+    navToggle.addEventListener('click', function() {
+      setNavOpen(!navHeader.classList.contains('nav-open'));
+    });
+
+    document.addEventListener('click', function(event) {
+      if (!isMobileNav() || !navHeader.classList.contains('nav-open')) return;
+      if (navContainer.contains(event.target)) return;
+      setNavOpen(false);
+    });
+
+    window.addEventListener('resize', function() {
+      if (!isMobileNav()) {
+        setNavOpen(false);
+      }
+    });
+  }
 
   if (navHeader) {
     /* 玻璃效果由 common.css 控制，JS只负责滚动时添加/移除 scrolled 类 */
@@ -85,12 +129,37 @@
 
     /* 点击展开/收起子菜单（移动端） */
     link.addEventListener('click', function(e) {
-      if (window.innerWidth <= 768) {
+      if (isMobileNav()) {
         e.preventDefault();
+        hasSubItems.forEach(function(otherItem) {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+          }
+        });
         item.classList.toggle('active');
       }
     });
   });
+
+  if (primaryNav) {
+    primaryNav.addEventListener('click', function(event) {
+      var clickedLink = event.target.closest('a[href]');
+      var parentItem;
+
+      if (!clickedLink || !isMobileNav()) return;
+
+      parentItem = clickedLink.closest('.has-sub');
+      if (parentItem && clickedLink === parentItem.querySelector(':scope > a')) {
+        return;
+      }
+
+      setNavOpen(false);
+      hasSubItems.forEach(function(item) {
+        item.classList.remove('active');
+      });
+    });
+  }
+
 
   /* ============================================================
    * 全站搜索功能
@@ -299,6 +368,7 @@
     searchDropdown.classList.remove('show');
   }
 
+
   /* ============================================================
    * 背景音乐播放器
    * ============================================================ */
@@ -352,6 +422,26 @@
       }
     });
   }
+
+  (function initMusicVisibility() {
+    var hasHero = !!document.querySelector('.hero-section');
+
+    if (!musicPlayer || musicPlayer.classList.contains('is-disabled')) {
+      return;
+    }
+
+    musicPlayer.classList.add('js-controlled');
+
+    function syncMusicVisibility() {
+      var threshold = window.innerWidth <= 768 ? 440 : 240;
+      var visible = !hasHero || window.scrollY > threshold;
+      musicPlayer.classList.toggle('is-visible', visible);
+    }
+
+    syncMusicVisibility();
+    window.addEventListener('scroll', syncMusicVisibility, { passive: true });
+    window.addEventListener('resize', syncMusicVisibility);
+  })();
 
   /* ============================================================
    * 全站滚动显现动效

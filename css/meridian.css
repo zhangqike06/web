@@ -6,10 +6,20 @@
   padding: 60px 0;
 }
 
+.intro-desc,
+.acupoint-desc,
+.table-desc,
+.meridian-cards-desc {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .intro-content {
   display: flex;
   gap: 32px;
   align-items: flex-start;
+  margin-bottom: 24px;
 }
 
 .intro-img {
@@ -66,8 +76,39 @@
   color: #7a7068;
   line-height: var(--line-height);
   margin-bottom: 12px;
-  text-indent: 2em;
+  text-indent: 0;
   font-size: 0.95em;
+}
+
+.intro-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.highlight-card,
+.guide-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(251,247,243,0.95));
+  border-radius: 16px;
+  border: 1px solid rgba(201,136,143,0.1);
+  box-shadow: 0 12px 28px rgba(74,58,50,0.06);
+}
+
+.highlight-card {
+  padding: 22px 20px;
+}
+
+.highlight-card h3 {
+  font-family: var(--font-title);
+  font-size: 1.08em;
+  color: var(--color-deep);
+  margin-bottom: 10px;
+}
+
+.highlight-card p {
+  color: #7a7068;
+  font-size: 0.88em;
+  line-height: 1.8;
 }
 
 /* === 穴位互动区 === */
@@ -107,11 +148,11 @@
 }
 
 .acupoint-layout {
-  display: flex;
-  gap: 32px;
+  display: grid;
+  grid-template-columns: minmax(320px, 420px) minmax(280px, 360px);
+  gap: 28px;
   align-items: flex-start;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
 .body-map {
@@ -122,6 +163,74 @@
   background: #fff;
   border: 1px solid rgba(201,136,143,0.10);
   box-shadow: 0 18px 34px rgba(74,58,50,0.08);
+}
+
+.guide-panel {
+  display: grid;
+  gap: 18px;
+}
+
+.guide-card {
+  padding: 24px 22px;
+}
+
+.guide-card-soft {
+  background: linear-gradient(180deg, rgba(255,251,247,0.98), rgba(247,241,236,0.94));
+}
+
+.guide-kicker {
+  display: inline-flex;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(201,136,143,0.1);
+  color: var(--color-rose);
+  font-size: 0.78em;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.guide-card h3 {
+  font-family: var(--font-title);
+  font-size: 1.14em;
+  color: var(--color-deep);
+  margin-bottom: 12px;
+}
+
+.guide-list {
+  list-style: decimal;
+  padding-left: 1.2rem;
+}
+
+.guide-list li {
+  color: #7a7068;
+  font-size: 0.88em;
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+
+.focus-points {
+  display: grid;
+  gap: 12px;
+}
+
+.focus-point {
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(201,136,143,0.08);
+}
+
+.focus-point strong {
+  display: block;
+  font-family: var(--font-title);
+  color: var(--color-deep);
+  margin-bottom: 6px;
+}
+
+.focus-point p {
+  color: #7a7068;
+  font-size: 0.84em;
+  line-height: 1.75;
 }
 
 .body-silhouette {
@@ -319,11 +428,13 @@
   .table-section,
   .video-section { padding: 44px 0; }
   .intro-content { flex-direction: column; align-items: center; text-align: center; }
+  .intro-highlights { grid-template-columns: 1fr; }
   .intro-img { width: 150px; }
   .meridian-diagram { width: 140px; height: 140px; }
   .diagram-circle { width: 130px; height: 130px; }
-  .acupoint-layout { flex-direction: column; align-items: center; }
+  .acupoint-layout { grid-template-columns: 1fr; }
   .body-map { width: min(100%, 320px); padding: 14px; }
+  .guide-card { padding: 20px 18px; }
   .acupoint { width: 9px; height: 9px; }
   .video-placeholder { height: 210px; font-size: 0.95em; }
 }

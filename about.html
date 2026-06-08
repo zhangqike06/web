@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>关于我们 - 本草寻源</title>
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/common.css?v=20260608">
+  <link rel="stylesheet" href="css/about.css?v=20260609">
 </head>
 <body>
 
@@ -56,10 +56,53 @@
       <p class="section-desc" style="text-align:center;color:var(--color-dust);margin-bottom:28px;">
         传承不泥古，创新不离宗
       </p>
-      <div class="intro-card">
-        <p>《本草寻源》是一个以中医药文化科普为主题的纯前端静态展示网站，也是Web前端开发课程的团队实践项目。网站围绕中医文化、草药百科、经络穴位、经典名方、养生保健五大核心板块展开，通过现代化的网页设计与交互体验，将深厚的中医药知识转化为直观、生动的线上展示。</p>
-        <p>项目的初衷在于"以代码为笔，绘中医药文化长卷"——我们希望通过HTML5、CSS3与JavaScript等前端技术，让更多年轻人以轻松、沉浸的方式了解中医的博大精深。从四气五味到十二经络，从君臣佐使到二十四节气养生，每一页都是对中华传统医学智慧的一次数字化致敬。</p>
-        <p>网站采用莫兰迪低饱和色系与宣纸质感为主视觉基调，融合木纹、水墨等传统元素，打造兼具古典韵味与现代审美的浏览体验。技术上全面运用了语义化标签、CSS3动画与弹性布局、JavaScript DOM操作与事件处理，实现了3D翻牌、节气罗盘、百眼柜抽屉、Canvas验证码等多种交互效果，是对课堂所学的一次系统性综合实践。</p>
+      <div class="intro-layout">
+        <article class="intro-card intro-card-lead">
+          <span class="intro-kicker">Project Overview</span>
+          <h3>把中医药知识整理成更容易进入的数字化展陈</h3>
+          <p class="intro-lead">《本草寻源》是一个以中医药文化科普为主题的纯前端静态展示网站，也是 Web 前端开发课程的团队实践项目。我们试图把“知识点堆叠”转成“可浏览、可停留、可互动”的页面体验。</p>
+          <p>网站围绕中医文化、草药百科、经络穴位、经典名方、养生保健五大核心板块展开，通过现代化网页设计与交互展示，把深厚的中医药知识转化为更直观、生动的线上内容入口。</p>
+        </article>
+
+        <aside class="overview-panel">
+          <div class="overview-stat-grid">
+            <div class="overview-stat">
+              <strong>5</strong>
+              <span>核心专题板块</span>
+            </div>
+            <div class="overview-stat">
+              <strong>6</strong>
+              <span>团队协作成员</span>
+            </div>
+            <div class="overview-stat">
+              <strong>3</strong>
+              <span>前端核心技术栈</span>
+            </div>
+            <div class="overview-stat">
+              <strong>1</strong>
+              <span>完整课程作品</span>
+            </div>
+          </div>
+          <div class="overview-note">
+            <h3>项目目标</h3>
+            <p>用前端页面语言重新组织传统医学知识，让年轻用户不需要先读厚重教材，也能从视觉和交互中建立基本理解。</p>
+          </div>
+        </aside>
+      </div>
+
+      <div class="principles-grid">
+        <article class="principle-card">
+          <h3>内容入口更轻</h3>
+          <p>从四气五味到十二经络，从君臣佐使到二十四节气养生，页面先给用户入口，再引导深入，而不是一次性灌输大段信息。</p>
+        </article>
+        <article class="principle-card">
+          <h3>视觉语言统一</h3>
+          <p>采用莫兰迪低饱和色系、宣纸质感、木纹和水墨元素，建立一个从首页到内页都能连续识别的中式数字展陈气质。</p>
+        </article>
+        <article class="principle-card">
+          <h3>课堂能力落地</h3>
+          <p>通过语义化标签、CSS3 动画与弹性布局、JavaScript DOM 与事件处理，把课程知识真正落到一个可运行、可浏览的作品里。</p>
+        </article>
       </div>
     </div>
   </section>
@@ -82,6 +125,9 @@
   <section class="tech-section">
     <div class="container">
       <h2 class="section-title" style="text-align:center;margin-bottom:24px;">技术栈</h2>
+      <p class="section-desc tech-desc" style="text-align:center;color:var(--color-dust);margin-bottom:30px;">
+        从结构、样式到交互，尽量让每一层都承担明确职责。
+      </p>
       <div class="tech-grid">
         <div class="tech-card">
           <h3>HTML5</h3>
@@ -127,7 +173,7 @@
     <div id="jade-icon" class="paused" title="点击播放/暂停背景音乐">&#9835;</div>
   </div>
 
-  <script src="javascript/nav.js"></script>
+  <script src="javascript/nav.js?v=20260608"></script>
   <script>
     (function() {
       'use strict';

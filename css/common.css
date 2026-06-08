@@ -199,6 +199,66 @@ ul, ol {
   text-shadow: 0 1px 10px rgba(0, 0, 0, 0.24);
 }
 
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+.nav-toggle:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.36);
+  transform: translateY(-1px);
+}
+
+.nav-toggle-bar,
+.nav-toggle-bar::before,
+.nav-toggle-bar::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  content: "";
+}
+
+.nav-toggle-bar {
+  position: relative;
+}
+
+.nav-toggle-bar::before {
+  position: absolute;
+  top: -6px;
+  left: 0;
+}
+
+.nav-toggle-bar::after {
+  position: absolute;
+  top: 6px;
+  left: 0;
+}
+
+#nav-header.nav-open .nav-toggle-bar {
+  background: transparent;
+}
+
+#nav-header.nav-open .nav-toggle-bar::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+#nav-header.nav-open .nav-toggle-bar::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
 .nav-menu {
   display: flex;
   align-items: center;
@@ -421,30 +481,45 @@ ul, ol {
   cursor: pointer;
 }
 
+#music-player.js-controlled {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(18px);
+  transition: opacity 0.32s ease, transform 0.32s ease;
+}
+
+#music-player.js-controlled.is-visible {
+  opacity: 0.8;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
 #music-player.is-disabled {
   display: none;
 }
 
 #jade-icon {
-  width: 54px;
-  height: 54px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(201, 136, 143, 0.88), rgba(164, 111, 120, 0.84));
+  background: linear-gradient(135deg, rgba(201, 136, 143, 0.76), rgba(164, 111, 120, 0.72));
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.16);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.34em;
+  font-size: 1.1em;
   color: #fff;
-  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s, opacity 0.3s;
+  opacity: 0.86;
 }
 
 #jade-icon:hover {
-  box-shadow: 0 20px 34px rgba(0, 0, 0, 0.22);
-  background: linear-gradient(135deg, rgba(201, 136, 143, 0.94), rgba(164, 111, 120, 0.9));
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, rgba(201, 136, 143, 0.88), rgba(164, 111, 120, 0.84));
   transform: translateY(-3px) scale(1.03);
+  opacity: 1;
 }
 
 #jade-icon.playing {
@@ -786,15 +861,16 @@ table tr:hover td {
 
 @media (max-width: 768px) {
   .nav-container {
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    padding: 10px 16px 14px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px 12px;
   }
 
   .nav-logo {
-    width: 100%;
-    justify-content: center;
+    width: auto;
+    justify-content: flex-start;
   }
 
   .nav-logo img {
@@ -807,40 +883,55 @@ table tr:hover td {
     letter-spacing: 0.1em;
   }
 
+  .nav-toggle {
+    display: inline-flex;
+  }
+
   .nav-container nav {
     width: 100%;
-    order: 2;
+    order: 3;
+    grid-column: 1 / -1;
+    display: none;
   }
 
   .nav-menu {
     width: 100%;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    gap: 6px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding-bottom: 4px;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  .nav-menu::-webkit-scrollbar {
-    display: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    padding: 8px;
+    background: rgba(44, 30, 26, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.16);
   }
 
   .nav-menu > li {
-    flex: 0 0 auto;
+    flex: none;
   }
 
   .nav-menu > li > a {
-    padding: 8px 10px;
-    font-size: 0.82em;
+    padding: 10px 12px;
+    font-size: 0.84em;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .nav-menu > li > a.nav-login {
+    margin-left: 0;
   }
 
   .nav-search {
     width: 100%;
-    order: 3;
+    order: 4;
+    grid-column: 1 / -1;
     justify-content: center;
+    display: none;
+  }
+
+  #nav-header.nav-open .nav-container nav,
+  #nav-header.nav-open .nav-search {
+    display: flex;
   }
 
   .nav-search input {
@@ -857,6 +948,21 @@ table tr:hover td {
     left: 0;
   }
 
+  .has-sub > .submenu {
+    position: static;
+    min-width: 0;
+    margin-top: 8px;
+    padding: 6px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .submenu li a {
+    text-align: center;
+  }
+
   .page-header h1 {
     font-size: 1.8em;
   }
@@ -870,9 +976,9 @@ table tr:hover td {
   }
 
   #jade-icon {
-    width: 46px;
-    height: 46px;
-    font-size: 1.1em;
+    width: 42px;
+    height: 42px;
+    font-size: 1em;
   }
 
   body {
@@ -894,8 +1000,8 @@ table tr:hover td {
   }
 
   #music-player {
-    bottom: 18px;
-    right: 18px;
+    bottom: 20px;
+    right: 16px;
   }
 }
 
@@ -917,15 +1023,15 @@ table tr:hover td {
     padding: 110px 16px 42px;
   }
 
-  .nav-menu > li > a.nav-login {
-    margin-left: 0;
-  }
-
   .nav-menu > li > a.nav-user {
     gap: 6px;
   }
 
   .nav-user-name {
     max-width: 72px;
+  }
+
+  .nav-menu {
+    grid-template-columns: 1fr;
   }
 }
