@@ -6,6 +6,13 @@
 (function() {
   'use strict';
 
+  /*
+   * ========== 二十四节气数据 ==========
+   * termList：节气名数组，用于罗盘24格渲染
+   * termColors：每个节气对应的主题色（用于罗盘格子背景）
+   * termInfoMap：每个节气的详细养生说明
+   * termArtMap：每个节气的中心图标
+   */
   var termList = [
     '立春', '雨水', '惊蛰', '春分', '清明', '谷雨',
     '立夏', '小满', '芒种', '夏至', '小暑', '大暑',
@@ -142,6 +149,11 @@
   var activeTermName = '';
   var scores = Array(questions.length).fill(null);
 
+  /*
+   * buildCompassItems - 动态生成24节气罗盘格子
+   * 用三角函数算每个格子在圆环上的位置，角度均分360度
+   * 点击格子后罗盘旋转到该节气并显示养生内容
+   */
   function buildCompassItems() {
     if (!termRing || !compass) return;
 
@@ -153,7 +165,8 @@
     var innerRadius = size * 0.335;
 
     termList.forEach(function(name, index) {
-      var angle = (index * 15 - 90) * (Math.PI / 180);
+      // 每个节气占15度，从-90度开始
+    var angle = (index * 15 - 90) * (Math.PI / 180);
       var radius = index % 2 === 0 ? outerRadius : innerRadius;
       var x = center + radius * Math.cos(angle);
       var y = center + radius * Math.sin(angle);
@@ -176,6 +189,9 @@
     });
   }
 
+  /*
+   * updateTermContent - 切换节气名称、颜色条、养生详情和中心图标
+   */
   function updateTermContent(termName, color) {
     var info = termInfoMap[termName];
     var termNameEl = document.getElementById('term-name');
@@ -246,6 +262,9 @@
     updateTermContent(termName, color);
   }
 
+  /*
+   * renderSeasonContent - 根据选中的季节显示起居/饮食/情志调养建议
+   */
   function renderSeasonContent(season) {
     var data = seasonData[season];
     if (!seasonContent || !data) return;
@@ -265,6 +284,9 @@
     renderQuestion();
   }
 
+  /*
+   * renderQuestion - 渲染当前体质测试题目，控制上/下一题按钮显隐
+   */
   function renderQuestion() {
     if (!quizContent || currentQuestion < 0 || currentQuestion >= questions.length) return;
 
@@ -298,11 +320,15 @@
       quizPrev.style.display = currentQuestion > 0 ? 'inline-block' : 'none';
     }
 
-    if (quizNext) {
+    // 体质测试按钮逻辑
+  if (quizNext) {
       quizNext.textContent = currentQuestion === questions.length - 1 ? '查看结果' : '下一题';
     }
   }
 
+  /*
+   * showResult - 9道题分数汇总，取最高分对应体质，显示特征与养生建议
+   */
   function showResult() {
     var totalScore = scores.reduce(function(sum, score) {
       return sum + (score || 0);
@@ -380,7 +406,8 @@
 
     if (seasonAliasMap[searchTerm]) {
       var seasonKey = seasonAliasMap[searchTerm];
-      seasonTabs.forEach(function(tab) {
+      // 绑定四季Tab点击
+  seasonTabs.forEach(function(tab) {
         tab.classList.toggle('active', tab.getAttribute('data-season') === seasonKey);
       });
       renderSeasonContent(seasonKey);
@@ -392,19 +419,23 @@
 
   buildCompassItems();
   renderSeasonContent('spring');
+  // 高亮最近的节气
   highlightCurrentTerm();
   bindSearchJump();
 
   if (seasonTabs.length) {
-    seasonTabs.forEach(function(tab) {
+    // 绑定四季Tab点击
+  seasonTabs.forEach(function(tab) {
       tab.addEventListener('click', function() {
-        seasonTabs.forEach(function(item) { item.classList.remove('active'); });
+        // 绑定四季Tab点击
+  seasonTabs.forEach(function(item) { item.classList.remove('active'); });
         tab.classList.add('active');
         renderSeasonContent(tab.getAttribute('data-season'));
       });
     });
   }
 
+  // 体质测试按钮逻辑
   if (quizNext) {
     quizNext.addEventListener('click', function() {
       if (currentQuestion === -1) {
@@ -439,7 +470,8 @@
     if (activeTermName) {
       onTermClick(activeTermName);
     } else {
-      highlightCurrentTerm();
+      // 高亮最近的节气
+  highlightCurrentTerm();
     }
   });
 })();

@@ -445,11 +445,17 @@
     'images/herbs/shengdihuang.jpg': true
   };
 
+  /*
+   * getHerbImg - 从herbImageMap查找药材图片路径，没找到返回空字符串走fallback
+   */
   function getHerbImg(name) {
     var imgPath = herbImageMap[name] || '';
     return availableHerbImages[imgPath] ? imgPath : '';
   }
 
+  /*
+   * getHerbColor - 根据药材名返回对应的背景色，用于没有图片时的文字卡片
+   */
   function getHerbColor(name) {
     var colors = {
       '人参': '#d4a574', '白术': '#a1887f', '茯苓': '#bcaaa4', '甘草': '#d4a017',

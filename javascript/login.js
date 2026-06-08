@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
  * login.js - 登录页与用户专区脚本
  * ============================================================ */
 
@@ -55,6 +55,9 @@
     loadUserZone();
   }
 
+  /*
+   * handleLogin - 处理登录表单提交，验证账号密码（admin/admin），写入localStorage
+   */
   function handleLogin() {
     var username = document.getElementById('username');
     var password = document.getElementById('password');

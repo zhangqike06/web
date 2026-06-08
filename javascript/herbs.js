@@ -69,6 +69,11 @@
     { id: 60, name: '肉苁蓉', category: '补虚', property: '甘、咸、温', meridian: '肾、大肠', effect: '补肾阳，益精血，润肠通便。', desc: '肉苁蓉温而不燥，补而不峻，是肾阳虚兼精血不足及肠燥便秘的平和补益药。', recipe: '常见于肉苁蓉丸、苁蓉润肠丸。', icon: '&#127795;', bgColor: 'linear-gradient(135deg, #d7ccc8, #8d6e63)', img: 'images/herbs/roucongrong.jpg' }
   ];
 
+  /*
+   * ========== 筛选状态与DOM引用 ==========
+   * currentCategoryFilter / currentPropertyFilter：当前选中的筛选条件
+   * 下面的变量都是页面上的DOM元素，初始化时一次性获取，避免重复查询
+   */
   var currentCategoryFilter = 'all';
   var currentPropertyFilter = 'all';
   var herbsGrid = document.getElementById('herbs-grid');
@@ -78,6 +83,12 @@
   var modalBody = document.getElementById('modal-body');
   var modalClose = document.getElementById('modal-close');
 
+  /*
+   * ========== localStorage 收藏数据操作 ==========
+   * 用localStorage存储用户收藏的药材名列表
+   * 因为这是纯前端项目没有后端，所以直接在浏览器里存取
+   * key: 'tcm_favorites'，value: JSON数组如 ["人参","枸杞"]
+   */
   function getStoredList(key) {
     try {
       var raw = localStorage.getItem(key);
@@ -109,6 +120,11 @@
     return getFavorites().indexOf(name) !== -1;
   }
 
+  /*
+   * updateFavoriteUI - 更新收藏按钮的文字和样式
+   * 如果已收藏就显示"取消收藏"（实心按钮），未收藏就显示"收藏药材"（空心按钮）
+   * 这个函数每次打开药材弹窗时都会被调用
+   */
   function updateFavoriteUI(name) {
     var favoriteBtn = document.getElementById('favorite-btn');
     var favoriteStatus = document.getElementById('favorite-status');
@@ -125,6 +141,11 @@
     }
   }
 
+  /*
+   * toggleFavorite - 切换收藏状态（添加/取消）
+   * 点击收藏按钮时触发。先检查用户是否登录（localStorage里有tcm_user），
+   * 未登录会弹窗提示去登录页。已登录则在localStorage的收藏列表里增删。
+   */
   function toggleFavorite(name) {
     var user = getCurrentUser();
     var favorites;
@@ -150,6 +171,11 @@
     updateFavoriteUI(name);
   }
 
+  /*
+   * getFilteredHerbs - 根据当前筛选条件过滤药材
+   * 支持两个维度同时筛选：功效分类（补虚/清热等）+ 性味（温/寒/平/凉）
+   * 两个条件是AND关系，即同时满足才算匹配
+   */
   function getFilteredHerbs() {
     return herbsData.filter(function(herb) {
       var categoryMatch = currentCategoryFilter === 'all' || herb.category === currentCategoryFilter;
@@ -158,12 +184,20 @@
     });
   }
 
+  /*
+   * renderHerbs - 渲染药材卡片网格
+   * 根据筛选结果动态生成HTML卡片，每个卡片包含图片、药名、性味归经、功效标签
+   * 如果筛选结果为空则显示"未找到匹配药材"的提示
+   * 每张卡片绑定了click事件，点击打开详情弹窗
+   */
   function renderHerbs() {
+    // 根据当前筛选条件过滤药材数据
     var filtered = getFilteredHerbs();
     var html = '';
 
     if (!herbsGrid) return;
 
+    // 没有匹配结果时显示空状态提示
     if (filtered.length === 0) {
       herbsGrid.innerHTML = '';
       if (noResults) noResults.style.display = 'block';
@@ -172,9 +206,12 @@
 
     if (noResults) noResults.style.display = 'none';
 
+    // 遍历过滤后的药材，逐个生成卡片HTML
     filtered.forEach(function(herb) {
+      // 把性味字符串按顿号拆成数组
       var props = herb.property.replace(/、/g, ',').split(',');
       html += '<div class="herb-card" data-id="' + herb.id + '" data-name="' + herb.name + '" data-category="' + herb.category + '">';
+      // 有真实图片用img，没有则用首字+渐变色作为fallback
       if (herb.img) {
         html += '  <div class="herb-img"><img src="' + herb.img + '" alt="' + herb.name + '" loading="lazy"></div>';
       } else {
@@ -195,8 +232,10 @@
       html += '</div>';
     });
 
+    // 一次性写入所有卡片，避免重复DOM操作
     herbsGrid.innerHTML = html;
 
+    // 给所有卡片绑定点击事件
     herbsGrid.querySelectorAll('.herb-card').forEach(function(card) {
       card.addEventListener('click', function() {
         openHerbModal(Number(card.getAttribute('data-id')));
@@ -204,6 +243,13 @@
     });
   }
 
+  /*
+   * renderHerbCabinet - 渲染百眼柜抽屉
+   * 把60味药材按功效分类（补虚、清热、解表等12类）分组，
+   * 每个分类生成一个木质抽屉，点击抽屉面会以rotateX动画向前倾倒打开，
+   * 打开后露出内部的药材名标签，点击标签在下方展示详细信息面板。
+   * 同一时间只能打开一个抽屉，打开新的会自动关闭旧的。
+   */
   function renderHerbCabinet() {
     var grouped, categories, i, j, category, herbs, drawerHtml;
 
@@ -217,6 +263,7 @@
     });
 
     // 保持合理顺序
+    // 定义分类显示顺序（12类），不在列表里的不渲染
     var catOrder = ['补虚','清热','解表','理气','活血','利水','消食','化痰','平肝','安神','收涩','祛风湿'];
     categories = [];
     catOrder.forEach(function(cat) {
@@ -239,6 +286,7 @@
       drawerHtml += '</article>';
     });
 
+    // 一次性渲染全部抽屉
     herbCabinet.innerHTML = drawerHtml;
 
     // 绑定事件
@@ -248,8 +296,10 @@
     drawers.forEach(function(drawer) {
       var face = drawer.querySelector('.drawer-face');
 
+      // 点击抽屉面板切换开合
       face.addEventListener('click', function(e) {
         e.stopPropagation();
+        // 已开则关，未开则先关其他的再开当前
         if (drawer.classList.contains('is-open')) {
           drawer.classList.remove('is-open');
         } else {
@@ -279,6 +329,11 @@
     });
   }
 
+  /*
+   * showDetail - 在百眼柜下方展示药材详细信息面板
+   * 用户在百眼柜抽屉里点击药材标签时触发，
+   * 不同于openHerbModal（弹窗），这个是内嵌在页面里的详情卡片
+   */
   function showDetail(herb) {
     var panel = document.getElementById('detail-panel');
     if (!panel) return;
@@ -302,6 +357,11 @@
     panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
+  /*
+   * bindFilterEvents - 绑定筛选按钮的点击事件
+   * 功效分类筛选和性味筛选各自独立，点击哪个按钮就把对应筛选条件更新，
+   * 然后重新渲染药材卡片。active样式表示当前选中的筛选项。
+   */
   function bindFilterEvents(filterContainerId, filterType) {
     var container = document.getElementById(filterContainerId);
     if (!container) return;
@@ -320,11 +380,17 @@
           currentPropertyFilter = btn.getAttribute('data-filter');
         }
 
-        renderHerbs();
+        // 渲染药材卡片
+  renderHerbs();
       });
     });
   }
 
+  /*
+   * openHerbModal - 打开药材详情弹窗（画轴风格Modal）
+   * 根据药材ID从herbsData中找到对应数据，生成弹窗HTML（图片+药名+标签+性味归经+功效+描述+方剂），
+   * 同时初始化收藏按钮状态。弹窗打开后禁止页面滚动。
+   */
   function openHerbModal(herbId) {
     var herb = herbsData.find(function(item) {
       return item.id === herbId;
@@ -365,12 +431,21 @@
     document.body.style.overflow = 'hidden';
   }
 
+  /*
+   * closeHerbModal - 关闭药材详情弹窗
+   * 移除overlay上的open类，恢复页面滚动
+   */
   function closeHerbModal() {
     if (!modalOverlay) return;
     modalOverlay.classList.remove('open');
     document.body.style.overflow = '';
   }
 
+  /*
+   * highlightSearchMatch - 从URL参数读取搜索关键词并高亮匹配药材
+   * 用户通过导航栏搜索跳转过来时URL会带?search=xxx参数，
+   * 此处解析参数→找到匹配药材→滚动到对应卡片→自动打开详情弹窗
+   */
   function highlightSearchMatch(searchTerm) {
     var matchedHerb = herbsData.find(function(herb) {
       return herb.name.indexOf(searchTerm) !== -1 || searchTerm.indexOf(herb.name) !== -1;
@@ -401,10 +476,12 @@
     highlightSearchMatch(searchTerm);
   }
 
+  // 绑定弹窗关闭按钮和遮罩点击
   if (modalClose) {
     modalClose.addEventListener('click', closeHerbModal);
   }
 
+  // 点击遮罩层关闭弹窗
   if (modalOverlay) {
     modalOverlay.addEventListener('click', function(e) {
       if (e.target === modalOverlay) {
@@ -423,7 +500,10 @@
 
   bindFilterEvents('category-filters', 'category');
   bindFilterEvents('property-filters', 'property');
+  // 渲染百眼柜
   renderHerbCabinet();
+  // 渲染药材卡片
   renderHerbs();
+  // 处理搜索跳转
   checkSearchParam();
 })();

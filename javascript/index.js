@@ -60,6 +60,11 @@
     '冬至': '阳气始复，宜养肾护阳，饮食温润。'
   };
 
+  /*
+   * ========== 每日一签数据池 ==========
+   * 16条签文，每条包含：text（签文正文）、yi（宜）、ji（忌）、tip（养生贴士）
+   * 用户点击摇签按钮时随机抽取一条显示（避免连续两次抽到同一条）
+   */
   var fortunePool = [
     { text:'春养肝，夏养心，秋养肺，冬养肾，四时顺养最为要。', yi:'舒展筋骨 · 户外踏青', ji:'暴怒伤肝 · 熬夜耗神', tip:'顺应四时之气，保持作息规律，与自然同频共振。' },
     { text:'脾胃为后天之本，饮食有节，百病自轻。', yi:'三餐定时 · 温热饮食', ji:'暴饮暴食 · 生冷油腻', tip:'饭后百步走，揉腹36圈，脾胃自安和。' },
@@ -100,6 +105,12 @@
     '阴平阳秘，精神乃治。  《黄帝内经》'
   ];
 
+  /*
+   * ========== 五行元素互动球 ==========
+   * 把五行数据（木火土金水）存在elementData对象里，
+   * 每个元素对应不同的脏腑、情志、调养提示和颜色。
+   * 用户点击下方的五行标签时，球体切换显示对应元素的信息。
+   */
   var elementData = {
     mu: { name: '木', organ: '肝', emotion: '怒', tip: '春宜舒展身心，多做能让气机条达的缓和运动。', main: '#86b369', dark: '#557d42', soft: 'rgba(134, 179, 105, 0.26)' },
     huo: { name: '火', organ: '心', emotion: '喜', tip: '夏宜清心少躁，作息平稳，午间可稍作休息。', main: '#d68472', dark: '#a95845', soft: 'rgba(214, 132, 114, 0.24)' },
@@ -147,6 +158,11 @@
     return currentTerm;
   }
 
+  /*
+   * initDateInfo - 初始化Hero区的日期信息
+   * 显示模拟的农历日期（天干地支+生肖+农历月日）和当前节气，
+   * 同时展示节气对应的养生提示
+   */
   function initDateInfo() {
     var today = new Date();
     var lunarDateEl = document.getElementById('lunar-date');
@@ -159,6 +175,11 @@
     if (termTipEl) termTipEl.textContent = termTips[currentTerm.name] || '顺应节律，调和阴阳，保持身心平衡。';
   }
 
+  /*
+   * initFortune - 初始化每日一签功能
+   * 绑定摇签按钮的点击事件，点击后触发1.2秒的摇晃动画，
+   * 动画结束后随机抽取签文，更新签框内容（签号+正文+宜忌）和养生贴士
+   */
   function initFortune() {
     var fortuneBtn = document.getElementById('fortune-btn');
     var fortuneText = document.getElementById('fortune-text');
@@ -205,6 +226,11 @@
     });
   }
 
+  /*
+   * initFeaturedHerb - 今日推荐中药
+   * 根据当天日期循环展示一味推荐药材，包含药材图片、性味归经、功效描述
+   * 点击"了解更多"跳转到本草百科页并自动定位到该药材
+   */
   function initFeaturedHerb() {
     var todayIndex = (new Date().getDate() - 1) % featuredHerbs.length;
     var todayHerb = featuredHerbs[todayIndex];
@@ -244,6 +270,10 @@
     }).join('');
   }
 
+  /*
+   * initMarquees - 初始化医道名言跑马灯
+   * 三行名言水平滚动，偶数行设reverse方向，复制内容实现无缝循环
+   */
   function initMarquees() {
     var row1 = document.getElementById('marquee-row-1');
     var row2 = document.getElementById('marquee-row-2');
@@ -261,6 +291,10 @@
     });
   }
 
+  /*
+   * initFiveElementsOrb - 初始化五行元素互动球
+   * 给五个元素标签绑定点击事件，点击时更新球体文字/颜色和下方情志调养提示
+   */
   function initFiveElementsOrb() {
     var actions = document.getElementById('element-actions');
     var orb = document.getElementById('element-orb');
