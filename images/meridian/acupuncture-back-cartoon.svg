@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 328 648" role="img" aria-labelledby="title desc">
+  <title id="title">男性背面卡通穴位底图</title>
+  <desc id="desc">男性、穿T恤与短裤的卡通医学背面示意图，用于穴位热点对齐。</desc>
+  <defs>
+    <linearGradient id="skinBack" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffe4d8"/>
+      <stop offset="100%" stop-color="#ffd2c0"/>
+    </linearGradient>
+    <linearGradient id="shirtBack" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a9b7dd"/>
+      <stop offset="100%" stop-color="#8e9fcd"/>
+    </linearGradient>
+    <linearGradient id="shortsBack" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#98a9d8"/>
+      <stop offset="100%" stop-color="#8095c8"/>
+    </linearGradient>
+    <style>
+      .outline { stroke: #6e78b0; stroke-width: 2.8; stroke-linecap: round; stroke-linejoin: round; }
+      .soft { stroke: #ef9ca2; stroke-width: 1.15; opacity: 0.45; fill: none; stroke-linecap: round; }
+      .dot { fill: #ef7f97; opacity: 0.9; }
+      .mark { fill: #d6796c; fill-opacity: 0.18; stroke: #bb6559; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <rect width="328" height="648" fill="#ffffff"/>
+
+  <g>
+    <path d="M131 79C136 56 150 45 164 45C178 45 192 56 197 79C190 71 183 66 177 62C172 59 168 57 164 57C160 57 156 59 151 62C145 66 138 71 131 79Z" fill="#5968b2"/>
+    <circle cx="164" cy="93" r="34" fill="url(#skinBack)" class="outline"/>
+    <path d="M148 124H180L178 143H150Z" fill="url(#skinBack)" class="outline"/>
+
+    <path d="M126 150C137 141 149 137 164 137C179 137 191 141 202 150L212 171C201 179 188 182 164 182C140 182 127 179 116 171Z" fill="url(#shirtBack)" class="outline"/>
+    <path d="M116 171C107 186 102 211 100 252C98 292 102 336 108 385C112 415 115 456 117 509C118 543 126 577 143 603C149 612 156 617 164 617C172 617 179 612 185 603C202 577 210 543 211 509C213 456 216 415 220 385C226 336 230 292 228 252C226 211 221 186 212 171" fill="url(#skinBack)" class="outline"/>
+
+    <path d="M122 188C136 184 149 182 164 182C179 182 192 184 206 188V262H122Z" fill="url(#shirtBack)" class="outline"/>
+    <path d="M122 262C136 257 150 254 164 254C178 254 192 257 206 262V346H122Z" fill="url(#shortsBack)" class="outline"/>
+    <path d="M147 181C151 186 156 189 164 189C172 189 177 186 181 181" fill="none" class="outline" stroke-width="2.1"/>
+    <path d="M140 219C147 225 154 228 164 228C174 228 181 225 188 219" class="soft"/>
+    <path d="M140 277C147 283 154 286 164 286C174 286 181 283 188 277" class="soft"/>
+
+    <path d="M117 156C103 171 89 204 82 247C75 286 74 325 80 354C82 364 90 368 97 366C104 364 109 357 108 349C104 313 106 274 112 236C116 208 123 184 133 165" fill="url(#skinBack)" class="outline"/>
+    <path d="M211 156C225 171 239 204 246 247C253 286 254 325 248 354C246 364 238 368 231 366C224 364 219 357 220 349C224 313 222 274 216 236C212 208 205 184 195 165" fill="url(#skinBack)" class="outline"/>
+    <path d="M83 348C87 340 95 337 101 339C106 341 108 347 107 354C106 361 99 368 92 368C86 368 82 360 83 348Z" fill="url(#skinBack)" class="outline"/>
+    <path d="M245 348C241 340 233 337 227 339C222 341 220 347 221 354C222 361 229 368 236 368C242 368 246 360 245 348Z" fill="url(#skinBack)" class="outline"/>
+
+    <path d="M130 346C121 378 119 419 122 457C125 492 130 526 134 559C136 577 137 593 137 607C137 620 126 628 116 624C105 620 100 609 101 595C106 543 107 498 108 454C110 410 115 374 130 346Z" fill="url(#skinBack)" class="outline"/>
+    <path d="M198 346C207 378 209 419 206 457C203 492 198 526 194 559C192 577 191 593 191 607C191 620 202 628 212 624C223 620 228 609 227 595C222 543 221 498 220 454C218 410 213 374 198 346Z" fill="url(#skinBack)" class="outline"/>
+    <path d="M137 608C142 620 150 626 164 626C178 626 186 620 191 608" class="soft"/>
+  </g>
+
+  <g>
+    <circle class="dot" cx="164" cy="82" r="3.2"/>
+    <circle class="dot" cx="164" cy="126" r="3.2"/>
+    <circle class="dot" cx="164" cy="224" r="3.2"/>
+    <circle class="dot" cx="135" cy="175" r="3.2"/>
+    <circle class="dot" cx="193" cy="263" r="3.2"/>
+    <circle class="dot" cx="135" cy="217" r="3.2"/>
+    <circle class="dot" cx="135" cy="271" r="3.2"/>
+    <circle class="dot" cx="164" cy="343" r="3.2"/>
+    <circle class="dot" cx="135" cy="357" r="3.2"/>
+    <circle class="dot" cx="193" cy="396" r="3.2"/>
+    <circle class="dot" cx="164" cy="405" r="3.2"/>
+    <circle class="dot" cx="131" cy="507" r="3.2"/>
+    <circle class="dot" cx="164" cy="563" r="3.2"/>
+    <circle class="dot" cx="210" cy="156" r="3.2"/>
+    <circle class="dot" cx="193" cy="294" r="3.2"/>
+  </g>
+
+  <g opacity="0.001">
+    <circle class="mark" cx="164" cy="82" r="5"/>
+    <circle class="mark" cx="164" cy="126" r="5"/>
+    <circle class="mark" cx="164" cy="224" r="5"/>
+    <circle class="mark" cx="135" cy="175" r="5"/>
+    <circle class="mark" cx="193" cy="263" r="5"/>
+    <circle class="mark" cx="135" cy="217" r="5"/>
+    <circle class="mark" cx="135" cy="271" r="5"/>
+    <circle class="mark" cx="164" cy="343" r="5"/>
+    <circle class="mark" cx="135" cy="357" r="5"/>
+    <circle class="mark" cx="193" cy="396" r="5"/>
+    <circle class="mark" cx="164" cy="405" r="5"/>
+    <circle class="mark" cx="131" cy="507" r="5"/>
+    <circle class="mark" cx="164" cy="563" r="5"/>
+    <circle class="mark" cx="210" cy="156" r="5"/>
+    <circle class="mark" cx="193" cy="294" r="5"/>
+  </g>
+</svg>

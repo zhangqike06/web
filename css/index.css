@@ -225,7 +225,7 @@
 .fortune-sidecard {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(255, 252, 249, 0.92));
   border: 1px solid rgba(201, 136, 143, 0.14);
-  border-radius: 28px;
+  border-radius: 14px;
   padding: 30px 28px;
   box-shadow: 0 18px 44px rgba(74, 58, 50, 0.08);
 }
@@ -251,37 +251,33 @@
   background: radial-gradient(circle, rgba(201, 136, 143, 0.12), transparent 68%);
 }
 
-.fortune-sidecard-head {
-  position: relative;
-  z-index: 1;
+.fortune-sidecard-title {
+  margin-bottom: 6px;
 }
 
-.fortune-sidecard h3 {
-  font-family: var(--font-title);
-  font-size: 1.45em;
-  color: var(--color-deep);
-  margin-bottom: 8px;
-}
-
-.fortune-sidecard p {
-  color: #7d6f67;
-  line-height: 1.7;
+.fortune-sidecard-desc {
+  margin-bottom: 18px;
 }
 
 .fortune-box {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 16px;
+  gap: 14px;
+}
+
+.fortune-row-bottom {
+  display: flex;
+  gap: 14px;
+  align-items: stretch;
 }
 
 .fortune-display {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 252, 249, 0.94));
   border: 1px solid rgba(201, 136, 143, 0.16);
-  border-radius: 22px;
-  padding: 28px 32px;
+  border-radius: 12px;
+  padding: 24px 28px;
   width: 100%;
-  min-height: 106px;
+  min-height: 146px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -289,15 +285,68 @@
   transition: all 0.4s ease;
 }
 
-#fortune-text {
+.fortune-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  text-align: center;
+  width: 100%;
+}
+
+.fortune-hint {
   font-family: var(--font-title);
-  font-size: 1.1em;
+  font-size: 1em;
+  color: var(--color-dust);
+  letter-spacing: 0.06em;
+}
+
+.fortune-number {
+  font-size: 0.72em;
+  color: var(--color-rose);
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid rgba(201,136,143,0.2);
+  padding-bottom: 4px;
+}
+
+.fortune-main {
+  font-family: var(--font-title);
+  font-size: 1.05em;
   color: var(--color-deep);
-  letter-spacing: 0.08em;
   line-height: 1.8;
 }
 
-.fortune-display.text-changed #fortune-text {
+.fortune-row {
+  width: 100%;
+  font-size: 0.82em;
+  line-height: 1.6;
+}
+
+.fortune-yi {
+  color: #5a7a4a;
+}
+
+.fortune-ji {
+  color: #a0584a;
+}
+
+.fortune-tip {
+  flex: 1;
+  padding: 16px 18px;
+  background: rgba(201,136,143,0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(201,136,143,0.1);
+  font-size: 0.84em;
+  color: #786c64;
+  line-height: 1.7;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+.fortune-display.text-changed .fortune-content {
   animation: fortuneFadeIn 0.6s ease;
 }
 
@@ -624,7 +673,7 @@
   background-size: cover;
   background-position: center;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 22px;
+  border-radius: 14px;
   transition: all 0.35s ease;
   position: relative;
   overflow: hidden;
@@ -645,7 +694,7 @@
   inset: 0;
   background: rgba(30, 15, 10, 0.52);
   z-index: 1;
-  border-radius: 22px;
+  border-radius: 14px;
   transition: background 0.35s ease;
 }
 
@@ -657,7 +706,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 22px;
+  border-radius: 14px;
   border: 2px solid rgba(255, 255, 255, 0);
   background: linear-gradient(120deg, rgba(255, 255, 255, 0) 24%, rgba(255, 255, 255, 0.18) 48%, rgba(255, 255, 255, 0) 72%);
   background-size: 210% 100%;
@@ -902,7 +951,7 @@
 
 .wuxing-card {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 243, 239, 0.92));
-  border-radius: 16px;
+  border-radius: 14px;
   padding: 26px 18px 24px;
   border: 1px solid rgba(201,136,143,0.1);
   transition: all 0.3s;
@@ -972,7 +1021,7 @@
 
 .sizhen-card {
   background: #fff;
-  border-radius: 18px;
+  border-radius: 14px;
   min-height: 280px;
   padding: 22px;
   border: 1px solid rgba(201,136,143,0.1);
@@ -1043,7 +1092,7 @@
 .overview-card {
   background: linear-gradient(180deg, rgba(255,255,255,0.97), rgba(251,247,243,0.95));
   border: 1px solid rgba(201, 136, 143, 0.12);
-  border-radius: 22px;
+  border-radius: 14px;
   padding: 26px 24px;
   box-shadow: 0 16px 34px rgba(74, 58, 50, 0.06);
 }
@@ -1167,10 +1216,22 @@
     grid-template-columns: 1fr;
   }
 
+  .fortune-row-bottom {
+    flex-direction: column;
+    gap: 10px;
+  }
+
   .fortune-display {
     min-width: 0;
     width: 100%;
     padding: 24px 20px;
+    min-height: 120px;
+  }
+
+  .fortune-tip {
+    flex: auto;
+    min-height: auto;
+    padding: 12px 14px;
   }
 
   .fortune-box {

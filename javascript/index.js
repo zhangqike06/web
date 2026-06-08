@@ -61,22 +61,22 @@
   };
 
   var fortunePool = [
-    '春养肝，夏养心，秋养肺，冬养肾，四时顺养最为要。',
-    '脾胃为后天之本，饮食有节，百病自轻。',
-    '正气存内，邪不可干，心平气和便是良药。',
-    '早睡早起精神足，起居有常胜过进补。',
-    '药食同源，今日宜清淡少腻，多食温润之品。',
-    '心静则气和，气和则血顺，血顺则身安。',
-    '久坐伤肉，久视伤血，今日记得起身舒展。',
-    '上工治未病，小病早调，胜过大病后补。',
-    '怒伤肝，忧伤肺，凡事缓一缓，身心更安稳。',
-    '流水不腐，户枢不蠹，适度活动就是最好的养生。',
-    '药补不如食补，食补不如睡补，顺应自然最养人。',
-    '晨起一杯温水润脏腑，睡前热水泡脚暖全身。',
-    '肝喜条达，常笑多乐胜过逍遥散。',
-    '三分治，七分养，疾病既愈之后更需久久为功。',
-    '胃喜暖恶寒，饮食温热有节，脾胃安和百病不生。',
-    '天地之气，顺之则生，逆之则病，四季养生贵在顺势而行。'
+    { text:'春养肝，夏养心，秋养肺，冬养肾，四时顺养最为要。', yi:'舒展筋骨 · 户外踏青', ji:'暴怒伤肝 · 熬夜耗神', tip:'顺应四时之气，保持作息规律，与自然同频共振。' },
+    { text:'脾胃为后天之本，饮食有节，百病自轻。', yi:'三餐定时 · 温热饮食', ji:'暴饮暴食 · 生冷油腻', tip:'饭后百步走，揉腹36圈，脾胃自安和。' },
+    { text:'正气存内，邪不可干，心平气和便是良药。', yi:'静坐冥想 · 读书听琴', ji:'急躁动怒 · 忧思过度', tip:'每日深呼吸5分钟，让气机顺畅周身。' },
+    { text:'早睡早起精神足，起居有常胜过进补。', yi:'亥时入眠 · 卯时起床', ji:'熬夜伤阴 · 赖床伤阳', tip:'睡前热水泡脚15分钟，助阳气归元。' },
+    { text:'药食同源，今日宜清淡少腻，多食温润之品。', yi:'小米粥 · 山药羹 · 银耳汤', ji:'油炸辛辣 · 生冷冰镇', tip:'食饮有节，每餐七分饱，让脾胃从容运化。' },
+    { text:'心静则气和，气和则血顺，血顺则身安。', yi:'午后小憩 · 八段锦', ji:'情绪压抑 · 过度操劳', tip:'心烦时按揉内关穴与神门穴，可以宁心安神。' },
+    { text:'久坐伤肉，久视伤血，今日记得起身舒展。', yi:'工间起身 · 远眺绿植', ji:'久坐不动 · 低头过久', tip:'每坐1小时站起活动5分钟，做几个扩胸伸展。' },
+    { text:'上工治未病，小病早调，胜过大病后补。', yi:'自查舌苔 · 关注作息', ji:'忽视小恙 · 讳疾忌医', tip:'晨起看舌象，舌淡苔白多属虚寒，宜温养。' },
+    { text:'怒伤肝，忧伤肺，凡事缓一缓，身心更安稳。', yi:'与人畅谈 · 赏花品茗', ji:'憋闷不语 · 压抑情绪', tip:'肝气不舒时按按太冲穴，一按一松，疏肝解郁。' },
+    { text:'流水不腐，户枢不蠹，适度活动就是最好的养生。', yi:'散步太极 · 五禽戏', ji:'过劳透支 · 久卧久坐', tip:'每日步行六千步，微微出汗即可，贵在坚持。' },
+    { text:'药补不如食补，食补不如睡补，顺应自然最养人。', yi:'子午觉 · 饮食应季', ji:'过度进补 · 颠倒作息', tip:'子时（23点前）入睡，午时小憩片刻，顺应阴阳。' },
+    { text:'晨起一杯温水润脏腑，睡前热水泡脚暖全身。', yi:'晨饮温水 · 晚泡双脚', ji:'晨起冷饮 · 睡前久屏', tip:'水中可加少许生姜或艾叶，温经散寒效更佳。' },
+    { text:'肝喜条达，常笑多乐胜过逍遥散。', yi:'听相声笑话 · 唱歌', ji:'满面愁容 · 郁郁寡欢', tip:'笑一笑，十年少，开怀大笑最能疏肝理气。' },
+    { text:'三分治，七分养，疾病既愈之后更需久久为功。', yi:'循序渐进 · 持之以恒', ji:'急于求成 · 半途而废', tip:'调理身体如文火慢炖，急不得，慢火出真功。' },
+    { text:'胃喜暖恶寒，饮食温热有节，脾胃安和百病不生。', yi:'姜枣茶 · 热汤面', ji:'冰镇饮品 · 空腹寒凉', tip:'常灸足三里与中脘，胜吃老母鸡，脾胃健则气血旺。' },
+    { text:'天地之气，顺之则生，逆之则病，四季养生贵在顺势而行。', yi:'观节气 · 应四时 · 调饮食', ji:'逆时而动 · 违背自然', tip:'节气交替时尤需注意，前后三日饮食起居宜平稳过渡。' }
   ];
 
   var quotePool = [
@@ -174,6 +174,7 @@
       fortuneBtn.classList.add('shaking');
 
       function onAnimEnd() {
+        var fortune;
         fortuneBtn.classList.remove('shaking');
 
         do {
@@ -181,8 +182,17 @@
         } while (fortunePool.length > 1 && index === lastFortuneIndex);
 
         lastFortuneIndex = index;
+        fortune = fortunePool[index];
+
         if (fortuneDisplay) fortuneDisplay.classList.remove('text-changed');
-        fortuneText.textContent = fortunePool[index];
+        fortuneText.innerHTML =
+          '<span class="fortune-number">第' + (index + 1) + '签</span>' +
+          '<span class="fortune-main">' + fortune.text + '</span>' +
+          '<span class="fortune-row"><span class="fortune-yi">宜：' + fortune.yi + '</span></span>' +
+          '<span class="fortune-row"><span class="fortune-ji">忌：' + fortune.ji + '</span></span>';
+
+        var tipEl = document.getElementById('fortune-tip');
+        if (tipEl) tipEl.textContent = '养生贴士：' + fortune.tip;
 
         window.requestAnimationFrame(function() {
           window.requestAnimationFrame(function() {

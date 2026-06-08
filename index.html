@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
@@ -30,6 +30,7 @@
           <li><a href="herbs.html">本草百科</a></li>
           <li><a href="prescription.html">经典名方</a></li>
           <li><a href="wellness.html">养生保健</a></li>
+          <li><a href="about.html">关于我们</a></li>
           <li><a href="login.html" class="nav-login">登录</a></li>
         </ul>
       </nav>
@@ -59,66 +60,6 @@
   </section>
 
   <main class="home-main" id="home-main">
-    <section class="daily-fortune" id="daily-fortune">
-      <div class="container">
-        <div class="fortune-layout">
-          <div class="fortune-panel">
-            <h2 class="section-title">每日一签</h2>
-            <p class="section-desc">摇一摇，获取今日中医养生箴言</p>
-            <div class="fortune-box">
-              <div class="fortune-display" id="fortune-display">
-                <span id="fortune-text">点击签筒摇签</span>
-              </div>
-              <button class="fortune-btn" id="fortune-btn" title="摇签">
-                <div class="divining-cup">
-                  <div class="fortune-stick-group" aria-hidden="true">
-                    <span class="fortune-stick stick-1"></span>
-                    <span class="fortune-stick stick-2"></span>
-                    <span class="fortune-stick stick-3"></span>
-                    <span class="fortune-stick stick-4"></span>
-                    <span class="fortune-stick stick-5"></span>
-                  </div>
-                  <div class="cup-top"></div>
-                  <div class="cup-body">
-                    <div class="cup-pattern"></div>
-                  </div>
-                  <div class="cup-bottom"></div>
-                  <div class="cup-rim"></div>
-                </div>
-                <span class="cup-label">摇签</span>
-              </button>
-            </div>
-          </div>
-
-          <aside class="fortune-sidecard">
-            <div class="fortune-sidecard-head">
-              <h3>五行流转</h3>
-              <p>点击木火土金水，查看对应脏腑、情志与调养提示</p>
-            </div>
-            <div class="element-orb" id="element-orb" data-element="mu">
-              <span class="orb-glow orb-glow-a"></span>
-              <span class="orb-glow orb-glow-b"></span>
-              <div class="orb-core">
-                <strong id="element-name">木</strong>
-                <span id="element-organ">肝</span>
-              </div>
-            </div>
-            <div class="element-actions" id="element-actions">
-              <button class="element-chip active" data-element="mu">木</button>
-              <button class="element-chip" data-element="huo">火</button>
-              <button class="element-chip" data-element="tu">土</button>
-              <button class="element-chip" data-element="jin">金</button>
-              <button class="element-chip" data-element="shui">水</button>
-            </div>
-            <div class="element-copy">
-              <p><strong>情志：</strong><span id="element-emotion">怒</span></p>
-              <p><strong>调养：</strong><span id="element-tip">春宜舒展身心，多做能让气机条达的缓和运动。</span></p>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
     <section class="categories" id="categories">
       <div class="container">
         <h2 class="section-title">探索本草世界</h2>
@@ -147,6 +88,69 @@
             <h3>民族医药</h3>
             <p>多元一体，各具特色</p>
           </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="daily-fortune" id="daily-fortune">
+      <div class="container">
+        <div class="fortune-layout">
+          <div class="fortune-panel">
+            <h2 class="section-title">每日一签</h2>
+            <p class="section-desc">摇一摇，获取今日中医养生箴言</p>
+            <div class="fortune-box">
+              <div class="fortune-display" id="fortune-display">
+                <div id="fortune-text" class="fortune-content">
+                  <span class="fortune-hint">点击签筒摇签，获取今日养生箴言</span>
+                </div>
+              </div>
+              <div class="fortune-row-bottom">
+                <button class="fortune-btn" id="fortune-btn" title="摇签">
+                  <div class="divining-cup">
+                    <div class="fortune-stick-group" aria-hidden="true">
+                      <span class="fortune-stick stick-1"></span>
+                      <span class="fortune-stick stick-2"></span>
+                      <span class="fortune-stick stick-3"></span>
+                      <span class="fortune-stick stick-4"></span>
+                      <span class="fortune-stick stick-5"></span>
+                    </div>
+                    <div class="cup-top"></div>
+                    <div class="cup-body">
+                      <div class="cup-pattern"></div>
+                    </div>
+                    <div class="cup-bottom"></div>
+                    <div class="cup-rim"></div>
+                  </div>
+                  <span class="cup-label">摇签</span>
+                </button>
+                <div class="fortune-tip" id="fortune-tip">摇一支签，解锁今日养生指引</div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="fortune-sidecard">
+            <h2 class="section-title fortune-sidecard-title">五行流转</h2>
+            <p class="section-desc fortune-sidecard-desc">点击木火土金水，查看对应脏腑、情志与调养提示</p>
+            <div class="element-orb" id="element-orb" data-element="mu">
+              <span class="orb-glow orb-glow-a"></span>
+              <span class="orb-glow orb-glow-b"></span>
+              <div class="orb-core">
+                <strong id="element-name">木</strong>
+                <span id="element-organ">肝</span>
+              </div>
+            </div>
+            <div class="element-actions" id="element-actions">
+              <button class="element-chip active" data-element="mu">木</button>
+              <button class="element-chip" data-element="huo">火</button>
+              <button class="element-chip" data-element="tu">土</button>
+              <button class="element-chip" data-element="jin">金</button>
+              <button class="element-chip" data-element="shui">水</button>
+            </div>
+            <div class="element-copy">
+              <p><strong>情志：</strong><span id="element-emotion">怒</span></p>
+              <p><strong>调养：</strong><span id="element-tip">春宜舒展身心，多做能让气机条达的缓和运动。</span></p>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -294,7 +298,7 @@
 
   <div id="music-player">
     <audio id="bgm" loop preload="none">
-      <source src="music/guanqin.ogg" type="audio/ogg">
+      <source src="music/bencaogangmu.webm" type="audio/webm">
     </audio>
     <div id="jade-icon" class="paused" title="点击播放/暂停背景音乐">&#9835;</div>
   </div>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
@@ -29,6 +29,7 @@
           <li><a href="herbs.html">本草百科</a></li>
           <li><a href="prescription.html">经典名方</a></li>
           <li><a href="wellness.html">养生保健</a></li>
+          <li><a href="about.html">关于我们</a></li>
           <li><a href="login.html" class="nav-login">登录</a></li>
         </ul>
       </nav>
@@ -76,68 +77,106 @@
 
       <!-- 正/背面切换 -->
       <div class="view-toggle">
-        <button class="toggle-btn active" id="btn-front" onclick="switchView('front')">正面穴位</button>
-        <button class="toggle-btn" id="btn-back" onclick="switchView('back')">背面穴位</button>
+        <button class="toggle-btn active" id="btn-front" onclick="switchView('front')">正面定位图</button>
+        <button class="toggle-btn" id="btn-back" onclick="switchView('back')">背面定位图</button>
       </div>
 
       <div class="acupoint-layout">
-        <!-- 人体穴位图（相对定位容器） -->
         <div class="body-map" id="body-map">
-          <!-- 正面人体图 -->
           <div class="body-silhouette front-view" id="body-front">
-            <img src="images/meridian/acupuncture-front.jpg" alt="人体经络穴位图正面">
-            <div class="acupoint" style="top:2%; left:50%;" data-name="百会" data-pos="头顶正中" data-meridian="督脉" data-effect="升阳举陷，醒脑开窍" data-method="两耳尖连线中点" data-note="诸阳之会，宜轻按"></div>
-            <div class="acupoint" style="top:12%; left:50%;" data-name="印堂" data-pos="两眉头连线中点" data-meridian="经外奇穴" data-effect="清头明目，通鼻开窍" data-method="两眉头连线中点" data-note="头痛眩晕常用"></div>
-            <div class="acupoint" style="top:17%; left:22%;" data-name="太阳" data-pos="眉梢与目外眦之间，向后约一横指" data-meridian="经外奇穴" data-effect="清肝明目，通络止痛" data-method="眉梢与外眼角中间向后一横指" data-note="偏头痛特效穴"></div>
-            <div class="acupoint" style="top:17%; left:78%;" data-name="太阳" data-pos="眉梢与目外眦之间，向后约一横指（右）" data-meridian="经外奇穴" data-effect="清肝明目，通络止痛" data-method="眉梢与外眼角中间向后一横指" data-note="双侧对称"></div>
-            <div class="acupoint" style="top:22%; left:55%;" data-name="膻中" data-pos="两乳头连线中点" data-meridian="任脉" data-effect="宽胸理气，宁心安神" data-method="两乳头连线与前正中线交点" data-note="气会膻中"></div>
-            <div class="acupoint" style="top:20%; left:28%;" data-name="合谷" data-pos="手背第1、2掌骨间" data-meridian="手阳明大肠经" data-effect="镇静止痛，清热解表" data-method="拇食指并拢，肌肉隆起最高处" data-note="面口合谷收"></div>
-            <div class="acupoint" style="top:20%; left:72%;" data-name="内关" data-pos="腕横纹上2寸，两筋间" data-meridian="手厥阴心包经" data-effect="宁心安神，和胃降逆" data-method="腕横纹上2寸，两肌腱之间" data-note="心胸内关谋"></div>
-            <div class="acupoint" style="top:28%; left:55%;" data-name="中脘" data-pos="脐中上4寸" data-meridian="任脉" data-effect="健脾和胃，消食导滞" data-method="脐与胸剑联合连线中点" data-note="腑会中脘"></div>
-            <div class="acupoint" style="top:30%; left:70%;" data-name="天枢" data-pos="脐中旁开2寸" data-meridian="足阳明胃经" data-effect="调中理气，通调大肠" data-method="肚脐旁开2寸" data-note="大肠募穴"></div>
-            <div class="acupoint" style="top:35%; left:30%;" data-name="曲池" data-pos="肘横纹外侧端，屈肘90°" data-meridian="手阳明大肠经" data-effect="清热解表，疏经通络" data-method="屈肘，肘横纹外侧端" data-note="退热降压要穴"></div>
-            <div class="acupoint" style="top:38%; left:52%;" data-name="气海" data-pos="脐中下1.5寸" data-meridian="任脉" data-effect="培补元气，益肾固精" data-method="脐中直下1.5寸" data-note="生气之海"></div>
-            <div class="acupoint" style="top:42%; left:52%;" data-name="关元" data-pos="脐中下3寸" data-meridian="任脉" data-effect="培元固本，调经止带" data-method="脐中直下3寸" data-note="人体强壮要穴"></div>
-            <div class="acupoint" style="top:60%; left:30%;" data-name="足三里" data-pos="犊鼻下3寸，胫骨前缘外一横指" data-meridian="足阳明胃经" data-effect="健脾和胃，扶正培元" data-method="外膝眼下3寸，胫骨前缘旁开一横指" data-note="强壮保健第一要穴"></div>
-            <div class="acupoint" style="top:72%; left:68%;" data-name="三阴交" data-pos="内踝尖上3寸" data-meridian="足太阴脾经" data-effect="健脾调经，调补肝肾" data-method="内踝尖直上3寸" data-note="妇科第一要穴"></div>
-            <div class="acupoint" style="top:85%; left:32%;" data-name="太冲" data-pos="足背第1、2跖骨间" data-meridian="足厥阴肝经" data-effect="平肝息风，疏肝解郁" data-method="第1、2趾间缝纹端向后推至凹陷" data-note="疏肝理气要穴"></div>
-            <div class="acupoint" style="top:85%; left:68%;" data-name="涌泉" data-pos="足底前1/3凹陷处" data-meridian="足少阴肾经" data-effect="补肾固元，开窍醒神" data-method="足趾蜷曲时足底前部凹陷处" data-note="肾经井穴，引火归元"></div>
-            <div class="acupoint" style="top:25%; left:45%;" data-name="神门" data-pos="腕横纹尺侧端" data-meridian="手少阴心经" data-effect="宁心安神" data-method="腕横纹尺侧端凹陷处" data-note="失眠要穴"></div>
+            <div class="acupoint-tooltip" id="tooltip-front"></div>
+            <img src="images/meridian/body-front-reference.png" alt="人体骨骼正面图">
+            <span class="acupoint" style="top: 1.8%; left: 50%;" aria-label="百会" data-name="百会"></span>
+            <span class="acupoint" style="top: 5.1%; left: 44.8%;" aria-label="头维（左）" data-name="头维"></span>
+            <span class="acupoint" style="top: 5.1%; left: 55.2%;" aria-label="头维（右）" data-name="头维"></span>
+            <span class="acupoint" style="top: 6.6%; left: 42.2%;" aria-label="太阳（左）" data-name="太阳"></span>
+            <span class="acupoint" style="top: 6.6%; left: 57.8%;" aria-label="太阳（右）" data-name="太阳"></span>
+            <span class="acupoint" style="top: 9.1%; left: 46.3%;" aria-label="攒竹（左）" data-name="攒竹"></span>
+            <span class="acupoint" style="top: 9.1%; left: 53.7%;" aria-label="攒竹（右）" data-name="攒竹"></span>
+            <span class="acupoint" style="top: 12.7%; left: 46.2%;" aria-label="四白（左）" data-name="四白"></span>
+            <span class="acupoint" style="top: 12.7%; left: 53.8%;" aria-label="四白（右）" data-name="四白"></span>
+            <span class="acupoint" style="top: 13.8%; left: 47.2%;" aria-label="迎香（左）" data-name="迎香"></span>
+            <span class="acupoint" style="top: 13.8%; left: 52.8%;" aria-label="迎香（右）" data-name="迎香"></span>
+            <span class="acupoint" style="top: 14.5%; left: 50%;" aria-label="水沟" data-name="水沟"></span>
+            <span class="acupoint" style="top: 16.9%; left: 50%;" aria-label="天突" data-name="天突"></span>
+            <span class="acupoint" style="top: 20.4%; left: 40.8%;" aria-label="中府（左）" data-name="中府"></span>
+            <span class="acupoint" style="top: 20.4%; left: 59.2%;" aria-label="中府（右）" data-name="中府"></span>
+            <span class="acupoint" style="top: 22.8%; left: 50%;" aria-label="膻中" data-name="膻中"></span>
+            <span class="acupoint" style="top: 28.7%; left: 43.9%;" aria-label="不容（左）" data-name="不容"></span>
+            <span class="acupoint" style="top: 28.7%; left: 56.1%;" aria-label="不容（右）" data-name="不容"></span>
+            <span class="acupoint" style="top: 30.1%; left: 43.4%;" aria-label="期门（左）" data-name="期门"></span>
+            <span class="acupoint" style="top: 30.1%; left: 56.6%;" aria-label="期门（右）" data-name="期门"></span>
+            <span class="acupoint" style="top: 31.3%; left: 50%;" aria-label="中脘" data-name="中脘"></span>
+            <span class="acupoint" style="top: 42.9%; left: 50%;" aria-label="气海" data-name="气海"></span>
+            <span class="acupoint" style="top: 39.2%; left: 50%;" aria-label="神阙" data-name="神阙"></span>
+            <span class="acupoint" style="top: 46.1%; left: 50%;" aria-label="关元" data-name="关元"></span>
+            <span class="acupoint" style="top: 49.3%; left: 50%;" aria-label="中极" data-name="中极"></span>
+            <span class="acupoint" style="top: 38.2%; left: 22.2%;" aria-label="曲池（左）" data-name="曲池"></span>
+            <span class="acupoint" style="top: 38.2%; left: 77.8%;" aria-label="曲池（右）" data-name="曲池"></span>
+            <span class="acupoint" style="top: 44.2%; left: 22.8%;" aria-label="内关（左）" data-name="内关"></span>
+            <span class="acupoint" style="top: 44.2%; left: 77.2%;" aria-label="内关（右）" data-name="内关"></span>
+            <span class="acupoint" style="top: 48.0%; left: 23.1%;" aria-label="神门（左）" data-name="神门"></span>
+            <span class="acupoint" style="top: 48.0%; left: 76.9%;" aria-label="神门（右）" data-name="神门"></span>
+            <span class="acupoint" style="top: 50.5%; left: 19.8%;" aria-label="劳宫（左）" data-name="劳宫"></span>
+            <span class="acupoint" style="top: 50.5%; left: 80.2%;" aria-label="劳宫（右）" data-name="劳宫"></span>
+            <span class="acupoint" style="top: 67.7%; left: 44.8%;" aria-label="血海（左）" data-name="血海"></span>
+            <span class="acupoint" style="top: 67.7%; left: 55.2%;" aria-label="血海（右）" data-name="血海"></span>
+            <span class="acupoint" style="top: 75.2%; left: 39.8%;" aria-label="足三里（左）" data-name="足三里"></span>
+            <span class="acupoint" style="top: 75.2%; left: 60.2%;" aria-label="足三里（右）" data-name="足三里"></span>
+            <span class="acupoint" style="top: 82.5%; left: 40.1%;" aria-label="丰隆（左）" data-name="丰隆"></span>
+            <span class="acupoint" style="top: 82.5%; left: 59.9%;" aria-label="丰隆（右）" data-name="丰隆"></span>
+            <span class="acupoint" style="top: 85.1%; left: 41.9%;" aria-label="三阴交（左）" data-name="三阴交"></span>
+            <span class="acupoint" style="top: 85.1%; left: 58.1%;" aria-label="三阴交（右）" data-name="三阴交"></span>
+            <span class="acupoint" style="top: 93.5%; left: 41.5%;" aria-label="太冲（左）" data-name="太冲"></span>
+            <span class="acupoint" style="top: 93.5%; left: 58.5%;" aria-label="太冲（右）" data-name="太冲"></span>
+            <span class="acupoint" style="top: 95.0%; left: 35.6%;" aria-label="足临泣（左）" data-name="足临泣"></span>
+            <span class="acupoint" style="top: 95.0%; left: 64.4%;" aria-label="足临泣（右）" data-name="足临泣"></span>
           </div>
 
-          <!-- 背面人体图 -->
           <div class="body-silhouette back-view" id="body-back" style="display:none;">
-            <img src="images/meridian/acupuncture-posterior.jpg" alt="人体经络穴位图背面">
-            <div class="acupoint" style="top:3%; left:50%;" data-name="风池" data-pos="枕骨下，胸锁乳突肌与斜方肌之间" data-meridian="足少阳胆经" data-effect="平肝息风，清热解表" data-method="后发际正中上1寸旁开" data-note="祛风要穴"></div>
-            <div class="acupoint" style="top:25%; left:50%;" data-name="大椎" data-pos="第7颈椎棘突下" data-meridian="督脉" data-effect="清热解表，镇静安神" data-method="低头颈后最突出骨头下方" data-note="诸阳之会"></div>
-            <div class="acupoint" style="top:33%; left:50%;" data-name="至阳" data-pos="第7胸椎棘突下" data-meridian="督脉" data-effect="宽胸利气，健脾调中" data-method="两肩胛骨下角连线中点" data-note="心绞痛常用"></div>
-            <div class="acupoint" style="top:38%; left:34%;" data-name="肺俞" data-pos="第3胸椎旁开1.5寸" data-meridian="足太阳膀胱经" data-effect="宣肺理气，止咳平喘" data-method="大椎下3椎旁开1.5寸" data-note="肺之背俞穴"></div>
-            <div class="acupoint" style="top:43%; left:66%;" data-name="膈俞" data-pos="第7胸椎旁开1.5寸" data-meridian="足太阳膀胱经" data-effect="活血化瘀，宽胸利膈" data-method="至阳旁开1.5寸" data-note="血会膈俞"></div>
-            <div class="acupoint" style="top:43%; left:34%;" data-name="心俞" data-pos="第5胸椎旁开1.5寸" data-meridian="足太阳膀胱经" data-effect="宁心安神，宽胸通络" data-method="大椎下5椎旁开1.5寸" data-note="心之背俞穴"></div>
-            <div class="acupoint" style="top:49%; left:34%;" data-name="肝俞" data-pos="第9胸椎旁开1.5寸" data-meridian="足太阳膀胱经" data-effect="疏肝利胆，明目潜阳" data-method="至阳下2椎旁开1.5寸" data-note="肝之背俞穴"></div>
-            <div class="acupoint" style="top:52%; left:50%;" data-name="命门" data-pos="第2腰椎棘突下" data-meridian="督脉" data-effect="培元固本，温补肾阳" data-method="肚脐正对后方脊柱" data-note="生命之门"></div>
-            <div class="acupoint" style="top:57%; left:34%;" data-name="肾俞" data-pos="第2腰椎旁开1.5寸" data-meridian="足太阳膀胱经" data-effect="补肾益气，强腰利水" data-method="命门旁开1.5寸" data-note="肾之背俞穴"></div>
-            <div class="acupoint" style="top:62%; left:66%;" data-name="大肠俞" data-pos="第4腰椎旁开1.5寸" data-meridian="足太阳膀胱经" data-effect="理气止痛，通调肠腑" data-method="髂嵴最高点平第4腰椎，旁开1.5寸" data-note="腰痛常用"></div>
-            <div class="acupoint" style="top:68%; left:50%;" data-name="腰阳关" data-pos="第4腰椎棘突下" data-meridian="督脉" data-effect="温经散寒，通络止痛" data-method="髂嵴最高点连线中点" data-note="腰腿痛要穴"></div>
-            <div class="acupoint" style="top:80%; left:28%;" data-name="委中" data-pos="腘横纹中点" data-meridian="足太阳膀胱经" data-effect="凉血泻热，舒筋活络" data-method="膝盖后方腘窝横纹中点" data-note="腰背委中求"></div>
-            <div class="acupoint" style="top:90%; left:50%;" data-name="承山" data-pos="小腿后面正中，腓肠肌两肌腹间" data-meridian="足太阳膀胱经" data-effect="舒筋通络，理气止痛" data-method="小腿用力伸直时人字纹凹陷顶端" data-note="腿抽筋常用穴"></div>
-            <div class="acupoint" style="top:28%; left:68%;" data-name="肩井" data-pos="肩上，大椎与肩峰连线中点" data-meridian="足少阳胆经" data-effect="祛风清热，通经活络" data-method="大椎与肩峰连线中点" data-note="肩颈酸痛要穴"></div>
-            <div class="acupoint" style="top:50%; left:66%;" data-name="脾俞" data-pos="第11胸椎旁开1.5寸" data-meridian="足太阳膀胱经" data-effect="健脾利湿，升清止泻" data-method="命门上3椎旁开1.5寸" data-note="脾之背俞穴"></div>
-          </div>
-        </div>
-
-        <!-- 穴位详情展示区 -->
-        <div class="acupoint-detail" id="acupoint-detail">
-          <div class="detail-placeholder">
-            <p>&#128065; 点击图中穴位热点查看详细信息</p>
-          </div>
-          <div class="detail-content" id="detail-content" style="display:none;">
-            <h3 id="detail-name"></h3>
-            <div class="detail-row"><span class="detail-label">所属经络：</span><span id="detail-meridian"></span></div>
-            <div class="detail-row"><span class="detail-label">定位：</span><span id="detail-pos"></span></div>
-            <div class="detail-row"><span class="detail-label">功效：</span><span id="detail-effect"></span></div>
-            <div class="detail-row"><span class="detail-label">取穴方法：</span><span id="detail-method"></span></div>
-            <div class="detail-row"><span class="detail-label">注意事项：</span><span id="detail-note"></span></div>
+            <div class="acupoint-tooltip" id="tooltip-back"></div>
+            <img src="images/meridian/body-back-reference.png" alt="人体骨骼背面图">
+            <span class="acupoint" style="top: 1.8%; left: 50%;" aria-label="百会" data-name="百会"></span>
+            <span class="acupoint" style="top: 8.6%; left: 45.2%;" aria-label="风池（左）" data-name="风池"></span>
+            <span class="acupoint" style="top: 8.6%; left: 54.8%;" aria-label="风池（右）" data-name="风池"></span>
+            <span class="acupoint" style="top: 10.4%; left: 47.4%;" aria-label="天柱（左）" data-name="天柱"></span>
+            <span class="acupoint" style="top: 10.4%; left: 52.6%;" aria-label="天柱（右）" data-name="天柱"></span>
+            <span class="acupoint" style="top: 13.9%; left: 50%;" aria-label="大椎" data-name="大椎"></span>
+            <span class="acupoint" style="top: 18.0%; left: 34.6%;" aria-label="肩井（左）" data-name="肩井"></span>
+            <span class="acupoint" style="top: 18.0%; left: 65.4%;" aria-label="肩井（右）" data-name="肩井"></span>
+            <span class="acupoint" style="top: 19.6%; left: 43.4%;" aria-label="风门（左）" data-name="风门"></span>
+            <span class="acupoint" style="top: 19.6%; left: 56.6%;" aria-label="风门（右）" data-name="风门"></span>
+            <span class="acupoint" style="top: 22.2%; left: 44.6%;" aria-label="肺俞（左）" data-name="肺俞"></span>
+            <span class="acupoint" style="top: 22.2%; left: 55.4%;" aria-label="肺俞（右）" data-name="肺俞"></span>
+            <span class="acupoint" style="top: 25.1%; left: 50%;" aria-label="身柱" data-name="身柱"></span>
+            <span class="acupoint" style="top: 25.9%; left: 45.0%;" aria-label="心俞（左）" data-name="心俞"></span>
+            <span class="acupoint" style="top: 25.9%; left: 55.0%;" aria-label="心俞（右）" data-name="心俞"></span>
+            <span class="acupoint" style="top: 31.2%; left: 45.0%;" aria-label="膈俞（左）" data-name="膈俞"></span>
+            <span class="acupoint" style="top: 31.2%; left: 55.0%;" aria-label="膈俞（右）" data-name="膈俞"></span>
+            <span class="acupoint" style="top: 34.4%; left: 45.1%;" aria-label="肝俞（左）" data-name="肝俞"></span>
+            <span class="acupoint" style="top: 34.4%; left: 54.9%;" aria-label="肝俞（右）" data-name="肝俞"></span>
+            <span class="acupoint" style="top: 37.2%; left: 44.7%;" aria-label="胆俞（左）" data-name="胆俞"></span>
+            <span class="acupoint" style="top: 37.2%; left: 55.3%;" aria-label="胆俞（右）" data-name="胆俞"></span>
+            <span class="acupoint" style="top: 40.0%; left: 45.0%;" aria-label="脾俞（左）" data-name="脾俞"></span>
+            <span class="acupoint" style="top: 40.0%; left: 55.0%;" aria-label="脾俞（右）" data-name="脾俞"></span>
+            <span class="acupoint" style="top: 43.3%; left: 45.2%;" aria-label="肾俞（左）" data-name="肾俞"></span>
+            <span class="acupoint" style="top: 43.3%; left: 54.8%;" aria-label="肾俞（右）" data-name="肾俞"></span>
+            <span class="acupoint" style="top: 37.2%; left: 21.9%;" aria-label="手三里（左）" data-name="手三里"></span>
+            <span class="acupoint" style="top: 37.2%; left: 78.1%;" aria-label="手三里（右）" data-name="手三里"></span>
+            <span class="acupoint" style="top: 52.5%; left: 16.0%;" aria-label="合谷（左）" data-name="合谷"></span>
+            <span class="acupoint" style="top: 52.5%; left: 84.0%;" aria-label="合谷（右）" data-name="合谷"></span>
+            <span class="acupoint" style="top: 55.0%; left: 18.0%;" aria-label="中渚（左）" data-name="中渚"></span>
+            <span class="acupoint" style="top: 55.0%; left: 82.0%;" aria-label="中渚（右）" data-name="中渚"></span>
+            <span class="acupoint" style="top: 49.8%; left: 37.8%;" aria-label="环跳（左）" data-name="环跳"></span>
+            <span class="acupoint" style="top: 49.8%; left: 62.2%;" aria-label="环跳（右）" data-name="环跳"></span>
+            <span class="acupoint" style="top: 73.8%; left: 42.4%;" aria-label="委中（左）" data-name="委中"></span>
+            <span class="acupoint" style="top: 73.8%; left: 57.6%;" aria-label="委中（右）" data-name="委中"></span>
+            <span class="acupoint" style="top: 85.9%; left: 43.5%;" aria-label="三阴交（左）" data-name="三阴交"></span>
+            <span class="acupoint" style="top: 85.9%; left: 56.5%;" aria-label="三阴交（右）" data-name="三阴交"></span>
+            <span class="acupoint" style="top: 93.0%; left: 41.0%;" aria-label="太溪（左）" data-name="太溪"></span>
+            <span class="acupoint" style="top: 93.0%; left: 59.0%;" aria-label="太溪（右）" data-name="太溪"></span>
+            <span class="acupoint" style="top: 95.0%; left: 42.0%;" aria-label="照海（左）" data-name="照海"></span>
+            <span class="acupoint" style="top: 95.0%; left: 58.0%;" aria-label="照海（右）" data-name="照海"></span>
           </div>
         </div>
       </div>
@@ -183,12 +222,13 @@
     <div class="container">
       <h2 class="section-title" style="text-align:center;margin-bottom:24px;">经络教学视频</h2>
       <div class="video-wrapper">
-        <div class="video-placeholder" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;background:none;border:none;display:block;border-radius:12px;">
-          <iframe src="https://player.bilibili.com/player.html?bvid=BV1vaCqBMEsT&page=1&autoplay=0"
-                  scrolling="no" border="0" frameborder="no" framespacing="0"
-                  allowfullscreen="true"
-                  style="position:absolute;top:0;left:0;width:100%;height:100%;"
-                  title="经络穴位全脑速记动画"></iframe>
+        <div class="video-wrapper-inner" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;border-radius:12px;">
+          <video src="video/针灸科普动画-什么是针灸.mp4"
+                 controls
+                 style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:12px;"
+                 title="针灸科普动画：什么是针灸？">
+            您的浏览器不支持 video 标签，请升级浏览器。
+          </video>
         </div>
       </div>
     </div>
@@ -222,18 +262,16 @@
 
   <div id="music-player">
     <audio id="bgm" loop preload="none">
-      <source src="music/guanqin.ogg" type="audio/ogg">
+      <source src="music/bencaogangmu.webm" type="audio/webm">
     </audio>
     <div id="jade-icon" class="paused" title="点击播放/暂停背景音乐">&#9835;</div>
   </div>
 
   <script src="javascript/nav.js"></script>
   <script>
-    /* 内联穴位交互脚本 */
     (function() {
       'use strict';
 
-      /* 正/背面切换 */
       window.switchView = function(view) {
         var frontBtn = document.getElementById('btn-front');
         var backBtn  = document.getElementById('btn-back');
@@ -251,62 +289,178 @@
           frontBtn.classList.remove('active');
           backBtn.classList.add('active');
         }
+
+        // 切换时清除选中状态
+        clearSelection();
       };
 
-      /* 穴位热点点击事件 */
-      var acupoints = document.querySelectorAll('.acupoint');
-      var placeholder = document.querySelector('.detail-placeholder');
-      var detailContent = document.getElementById('detail-content');
+      // ========== 穴位数据 ==========
+      var acupointData = {
+        '百会':   { meridian:'督脉', loc:'头顶正中，两耳尖连线中点', indication:'头痛眩晕、失眠健忘、脱肛', tip:'用手指轻叩或按摩，升阳举陷' },
+        '头维':   { meridian:'足阳明胃经', loc:'额角发际上0.5寸', indication:'头痛、目眩、迎风流泪', tip:'双手拇指同时按揉' },
+        '攒竹':   { meridian:'足太阳膀胱经', loc:'眉头凹陷中', indication:'头痛、眉棱骨痛、目赤肿痛', tip:'用拇指指腹按揉，可缓解眼疲劳' },
+        '太阳':   { meridian:'经外奇穴', loc:'眉梢与目外眦之间，向后约一横指凹陷处', indication:'头痛、目赤肿痛、面瘫', tip:'双手食指同时按揉，缓解偏头痛' },
+        '四白':   { meridian:'足阳明胃经', loc:'目正视，瞳孔直下，眶下孔凹陷处', indication:'目赤痛痒、口眼歪斜、面肌痉挛', tip:'轻按可缓解眼袋和面部疲劳' },
+        '水沟':   { meridian:'督脉', loc:'人中沟上1/3与下2/3交点', indication:'昏迷、晕厥、中风、面瘫', tip:'急救要穴，掐按可醒神开窍' },
+        '扶突':   { meridian:'手阳明大肠经', loc:'喉结旁开3寸', indication:'咽喉肿痛、声音嘶哑、咳嗽', tip:'轻按可缓解咽喉不适' },
+        '天突':   { meridian:'任脉', loc:'胸骨上窝正中', indication:'咳嗽、气喘、咽喉肿痛、呃逆', tip:'用指腹轻按，不可用力深压' },
+        '中府':   { meridian:'手太阴肺经', loc:'胸前壁外上方，第一肋间隙', indication:'咳嗽、气喘、胸痛、肩背痛', tip:'肺之募穴，常按可宣肺理气' },
+        '膻中':   { meridian:'任脉', loc:'两乳头连线中点', indication:'胸闷气短、心悸、产后乳少', tip:'气会膻中，宽胸理气，轻揉即可' },
+        '鸠尾':   { meridian:'任脉', loc:'胸剑结合部下1寸', indication:'胸痛、心悸、呕吐、癫狂', tip:'轻按可宁心安神' },
+        '期门':   { meridian:'足厥阴肝经', loc:'乳头直下，第6肋间隙', indication:'胸胁胀痛、腹胀、呕吐、月经不调', tip:'肝之募穴，疏肝理气要穴' },
+        '不容':   { meridian:'足阳明胃经', loc:'脐上6寸，旁开2寸', indication:'胃痛、腹胀、呕吐、食欲不振', tip:'饭后轻揉助消化' },
+        '中脘':   { meridian:'任脉', loc:'脐上4寸', indication:'胃痛、腹胀、消化不良、反酸', tip:'胃之募穴，顺时针轻揉健脾胃' },
+        '天枢':   { meridian:'足阳明胃经', loc:'脐旁开2寸', indication:'腹痛便秘、腹泻、月经不调', tip:'大肠募穴，按揉调节肠胃功能' },
+        '神阙':   { meridian:'任脉', loc:'肚脐正中', indication:'腹痛、腹泻、脱肛、水肿', tip:'宜灸不宜针，隔姜灸温补元阳' },
+        '气海':   { meridian:'任脉', loc:'脐下1.5寸', indication:'气虚乏力、腹胀、遗尿、月经不调', tip:'常灸保健大穴，培补元气' },
+        '关元':   { meridian:'任脉', loc:'脐下3寸', indication:'遗尿、月经不调、阳痿、遗精', tip:'温灸保健大穴，培元固本' },
+        '中极':   { meridian:'任脉', loc:'脐下4寸', indication:'小便不利、遗尿、月经不调', tip:'膀胱募穴，调理下焦' },
+        '曲池':   { meridian:'手阳明大肠经', loc:'屈肘，肘横纹外侧端', indication:'发热、咽喉肿痛、高血压、皮肤瘙痒', tip:'按揉可清热解表，降血压' },
+        '内关':   { meridian:'手厥阴心包经', loc:'腕横纹上2寸，两筋之间', indication:'心悸胸闷、恶心呕吐、失眠', tip:'晕车时按压，宁心安神止呕' },
+        '劳宫':   { meridian:'手厥阴心包经', loc:'握拳时中指尖所指处', indication:'口疮、口臭、心痛、中风昏迷', tip:'心包经荥穴，搓热双手可清心火' },
+        '血海':   { meridian:'足太阴脾经', loc:'髌骨内上缘上2寸', indication:'月经不调、皮肤瘙痒、湿疹', tip:'血证要穴，按揉可活血调经' },
+        '阴陵泉': { meridian:'足太阴脾经', loc:'胫骨内侧髁后下方凹陷处', indication:'水肿、腹泻、小便不利、膝痛', tip:'脾经合穴，祛湿要穴' },
+        '足三里': { meridian:'足阳明胃经', loc:'小腿外侧，犊鼻下3寸', indication:'胃痛腹胀、免疫力低、虚劳', tip:'强壮保健要穴，常灸可延年益寿' },
+        '丰隆':   { meridian:'足阳明胃经', loc:'外踝尖上8寸，距胫骨前缘两横指', indication:'咳嗽痰多、头痛眩晕、下肢痿痹', tip:'化痰要穴，按揉可祛痰湿' },
+        '三阴交': { meridian:'足太阴脾经', loc:'内踝尖上3寸', indication:'月经不调、失眠、腹胀、遗尿', tip:'妇科调理常用穴，孕妇禁针' },
+        '太冲':   { meridian:'足厥阴肝经', loc:'足背第1、2跖骨间凹陷处', indication:'头痛眩晕、高血压、易怒、月经不调', tip:'疏肝理气要穴，睡前按揉可降压安神' },
+        '足临泣': { meridian:'足少阳胆经', loc:'足背第4、5跖骨间', indication:'偏头痛、目赤肿痛、胁痛、月经不调', tip:'按揉可通调少阳经气' },
+        // 背面
+        '天柱':   { meridian:'足太阳膀胱经', loc:'后发际正中旁开1.3寸', indication:'头痛项强、眩晕、鼻塞、肩背痛', tip:'拇指按揉可缓解颈椎疲劳' },
+        '风池':   { meridian:'足少阳胆经', loc:'胸锁乳突肌与斜方肌上端之间凹陷处', indication:'头痛眩晕、感冒、颈项强痛、目赤', tip:'双手拇指同时按揉，祛风要穴' },
+        '大椎':   { meridian:'督脉', loc:'第7颈椎棘突下', indication:'发热感冒、项强、咳嗽、疟疾', tip:'诸阳之会，感冒初起刮痧或按揉' },
+        '肩井':   { meridian:'足少阳胆经', loc:'大椎与肩峰连线中点', indication:'肩背痛、颈项强痛、乳痈、难产', tip:'拿捏可缓解肩颈疲劳，孕妇禁用' },
+        '风门':   { meridian:'足太阳膀胱经', loc:'第2胸椎棘突下旁开1.5寸', indication:'感冒、咳嗽、发热、项背痛', tip:'风邪入侵之门，艾灸可祛风散寒' },
+        '肺俞':   { meridian:'足太阳膀胱经', loc:'第3胸椎棘突下旁开1.5寸', indication:'咳嗽、气喘、盗汗、皮肤瘙痒', tip:'肺之背俞穴，秋冬艾灸补肺气' },
+        '身柱':   { meridian:'督脉', loc:'第3胸椎棘突下', indication:'咳嗽气喘、腰脊强痛、小儿惊风', tip:'小儿保健要穴，常灸可促进发育' },
+        '心俞':   { meridian:'足太阳膀胱经', loc:'第5胸椎棘突下旁开1.5寸', indication:'心痛心悸、失眠健忘、咳嗽', tip:'心之背俞穴，按压可宁心安神' },
+        '膈俞':   { meridian:'足太阳膀胱经', loc:'第7胸椎棘突下旁开1.5寸', indication:'呃逆、呕吐、贫血、皮肤瘙痒', tip:'血会膈俞，血证要穴' },
+        '肝俞':   { meridian:'足太阳膀胱经', loc:'第9胸椎棘突下旁开1.5寸', indication:'胁痛、目赤、眩晕、月经不调', tip:'肝之背俞穴，疏肝利胆' },
+        '胆俞':   { meridian:'足太阳膀胱经', loc:'第10胸椎棘突下旁开1.5寸', indication:'胁痛、口苦、黄疸、潮热', tip:'胆之背俞穴，利胆和胃' },
+        '脾俞':   { meridian:'足太阳膀胱经', loc:'第11胸椎棘突下旁开1.5寸', indication:'腹胀、腹泻、消化不良、水肿', tip:'脾之背俞穴，健脾祛湿' },
+        '胃俞':   { meridian:'足太阳膀胱经', loc:'第12胸椎棘突下旁开1.5寸', indication:'胃痛、腹胀、呕吐、消化不良', tip:'胃之背俞穴，和胃降逆' },
+        '肾俞':   { meridian:'足太阳膀胱经', loc:'第2腰椎棘突下旁开1.5寸', indication:'腰痛、肾虚耳鸣、遗精、月经不调', tip:'肾之背俞穴，双手搓热后按摩效果佳' },
+        '手三里': { meridian:'手阳明大肠经', loc:'曲池下2寸', indication:'肘臂痛、上肢不遂、腹痛腹泻', tip:'按揉可缓解手臂酸痛' },
+        '合谷':   { meridian:'手阳明大肠经', loc:'手背第1、2掌骨间，当第2掌骨桡侧中点', indication:'头痛牙痛、感冒发热、面瘫', tip:'面口诸疾首选穴，孕妇禁用' },
+        '中渚':   { meridian:'手少阳三焦经', loc:'手背第4、5掌骨间，掌指关节后方凹陷处', indication:'偏头痛、耳鸣、咽喉肿痛、手指屈伸不利', tip:'按揉可通调三焦气机' },
+        '环跳':   { meridian:'足少阳胆经', loc:'股骨大转子与骶管裂孔连线外1/3', indication:'腰腿痛、下肢痿痹、半身不遂', tip:'坐骨神经痛要穴，宜深按或艾灸' },
+        '委中':   { meridian:'足太阳膀胱经', loc:'腘横纹中点', indication:'腰痛、膝关节痛、小便不利、中暑', tip:'腰背委中求，按揉可缓解腰背痛' },
+        '太溪':   { meridian:'足少阴肾经', loc:'内踝尖与跟腱之间凹陷处', indication:'腰膝酸软、耳鸣遗精、失眠健忘', tip:'肾经原穴，常按可补肾滋阴' },
+        '照海':   { meridian:'足少阴肾经', loc:'内踝尖下方凹陷处', indication:'失眠、咽喉干痛、月经不调、便秘', tip:'滋阴要穴，睡前按揉可助眠' }
+      };
 
-      acupoints.forEach(function(point) {
-        point.addEventListener('click', function(e) {
+      // ========== 交互逻辑 ==========
+      var selectedPoint = null;
+      var allAcupoints = document.querySelectorAll('.acupoint');
+      var tooltipFront = document.getElementById('tooltip-front');
+      var tooltipBack  = document.getElementById('tooltip-back');
+
+      function clearSelection() {
+        if (selectedPoint) {
+          selectedPoint.classList.remove('selected');
+          selectedPoint = null;
+        }
+        tooltipFront.classList.remove('visible', 'interactive');
+        tooltipBack.classList.remove('visible', 'interactive');
+      }
+
+      function getActiveTooltip() {
+        var frontBody = document.getElementById('body-front');
+        return frontBody.style.display === 'none' ? tooltipBack : tooltipFront;
+      }
+
+      function showTooltip(acupointEl, isSelected) {
+        var name = acupointEl.getAttribute('data-name');
+        var data = acupointData[name];
+        if (!data) return;
+
+        var tooltip = getActiveTooltip();
+        var bodyMap = document.getElementById('body-map');
+
+        tooltip.innerHTML =
+          '<div class="tt-name">' + name + '</div>' +
+          '<div class="tt-meridian">' + data.meridian + '</div>' +
+          '<div class="tt-row"><span class="tt-label">定位：</span><span class="tt-val">' + data.loc + '</span></div>' +
+          '<div class="tt-row"><span class="tt-label">主治：</span><span class="tt-val">' + data.indication + '</span></div>' +
+          '<div class="tt-row"><span class="tt-label">保健：</span><span class="tt-val">' + data.tip + '</span></div>';
+
+        // 计算浮窗位置
+        var rect = acupointEl.getBoundingClientRect();
+        var mapRect = bodyMap.getBoundingClientRect();
+        var top = rect.top - mapRect.top;
+        var left = rect.left - mapRect.left;
+
+        // 先显示（透明）以测量实际尺寸
+        tooltip.classList.add('visible');
+        if (isSelected) tooltip.classList.add('interactive');
+
+        var ttW = tooltip.offsetWidth;
+        var ttH = tooltip.offsetHeight;
+
+        // 默认在穴位右上方，上方留10px间距
+        var tooltipLeft = left + 16;
+        var tooltipTop  = top - ttH - 10;
+
+        // 右侧不够放左侧
+        if (tooltipLeft + ttW > mapRect.width) {
+          tooltipLeft = left - ttW - 14;
+        }
+        // 上方不够放下方
+        if (tooltipTop < 5) {
+          tooltipTop = top + 16;
+        }
+
+        tooltip.style.top  = tooltipTop + 'px';
+        tooltip.style.left = tooltipLeft + 'px';
+      }
+
+      allAcupoints.forEach(function(pt) {
+        pt.addEventListener('click', function(e) {
           e.stopPropagation();
 
-          /* 读取data属性 */
-          var name     = this.getAttribute('data-name');
-          var meridian = this.getAttribute('data-meridian');
-          var pos      = this.getAttribute('data-pos');
-          var effect   = this.getAttribute('data-effect');
-          var method   = this.getAttribute('data-method');
-          var note     = this.getAttribute('data-note');
+          // 清除上次选中
+          if (selectedPoint && selectedPoint !== pt) {
+            selectedPoint.classList.remove('selected');
+          }
 
-          /* 更新详情区 */
-          document.getElementById('detail-name').textContent = name;
-          document.getElementById('detail-meridian').textContent = meridian;
-          document.getElementById('detail-pos').textContent = pos;
-          document.getElementById('detail-effect').textContent = effect;
-          document.getElementById('detail-method').textContent = method;
-          document.getElementById('detail-note').textContent = note;
+          // 如果点同一个穴位，取消选中
+          if (selectedPoint === pt) {
+            clearSelection();
+            return;
+          }
 
-          /* 显示详情 */
-          if (placeholder) placeholder.style.display = 'none';
-          if (detailContent) detailContent.style.display = 'block';
+          // 选中当前
+          selectedPoint = pt;
+          pt.classList.add('selected');
+          showTooltip(pt, true);
+        });
 
-          /* 高亮当前穴位 */
-          acupoints.forEach(function(p) { p.classList.remove('active-point'); });
-          this.classList.add('active-point');
+        // 悬停时清除之前的tooltip（但不影响selected状态）
+        pt.addEventListener('mouseenter', function() {
+          if (selectedPoint) return; // 有选中时不响应hover
+          showTooltip(pt);
+        });
+
+        pt.addEventListener('mouseleave', function() {
+          if (selectedPoint) return;
+          var tooltip = getActiveTooltip();
+          tooltip.classList.remove('visible');
         });
       });
 
-      (function() {
-        var params = new URLSearchParams(window.location.search);
-        var searchTerm = params.get('search');
-
-        if (!searchTerm) return;
-
-        for (var i = 0; i < acupoints.length; i++) {
-          var pointName = acupoints[i].getAttribute('data-name') || '';
-          if (pointName.indexOf(searchTerm) !== -1 || searchTerm.indexOf(pointName) !== -1) {
-            setTimeout(function(targetPoint) {
-              return function() {
-                targetPoint.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
-                targetPoint.click();
-              };
-            }(acupoints[i]), 300);
-            break;
-          }
+      // 点击空白处取消选中
+      document.addEventListener('click', function(e) {
+        if (!e.target.classList.contains('acupoint')) {
+          clearSelection();
         }
-      })();
+      });
+
+      // 点击浮窗不触发取消（pointer-events:auto 后在浮窗上点击）
+      [tooltipFront, tooltipBack].forEach(function(tt) {
+        tt.addEventListener('click', function(e) {
+          e.stopPropagation();
+        });
+      });
     })();
   </script>
 </body>

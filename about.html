@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>小组介绍 - 本草寻源</title>
+  <title>关于我们 - 本草寻源</title>
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/about.css">
 </head>
@@ -29,6 +29,7 @@
           <li><a href="herbs.html">本草百科</a></li>
           <li><a href="prescription.html">经典名方</a></li>
           <li><a href="wellness.html">养生保健</a></li>
+          <li><a href="about.html" class="nav-active">关于我们</a></li>
           <li><a href="login.html" class="nav-login">登录</a></li>
         </ul>
       </nav>
@@ -39,190 +40,77 @@
     </div>
   </header>
 
-  <!-- 太医院横幅 -->
+  <!-- 页面横幅 -->
   <section class="banner banner-about">
     <div class="banner-bg"></div>
     <div class="banner-content">
-      <h1>太医院 · 本草寻源项目组</h1>
-    <p>以本草、经络、养生与经典方剂为主线的中医药文化展示站点</p>
+      <h1>关于我们</h1>
+      <p>本草寻源项目组 —— 以代码为笔，绘中医药文化长卷</p>
     </div>
   </section>
 
   <!-- 项目简介 -->
-  <section class="project-intro">
+  <section class="about-intro">
     <div class="container">
-      <h2 class="section-title" style="text-align:center;">项目概述</h2>
+      <h2 class="section-title" style="text-align:center;">项目简介</h2>
+      <p class="section-desc" style="text-align:center;color:var(--color-dust);margin-bottom:28px;">
+        传承不泥古，创新不离宗
+      </p>
       <div class="intro-card">
-        <p>《本草寻源》是一个以中医药文化科普为主题的纯前端静态网站。网站以莫兰迪色系为视觉主调，结合宣纸质感背景，打造"低饱和·高级感·温柔"的中国风格调。</p>
-        <p>网站共包含8个页面：首页、中医历史、草药百科、经络穴位、经典名方、养生保健、用户登录及小组介绍。技术上全面运用HTML5语义化标签、CSS3动画与弹性布局、JavaScript DOM操作与事件处理，实现了视频背景、节气罗盘、飞入动画、Canvas验证码等多种交互效果。</p>
-        <p>技术栈：HTML5 + CSS3 + JavaScript（纯前端，无后端数据库）</p>
+        <p>《本草寻源》是一个以中医药文化科普为主题的纯前端静态展示网站，也是Web前端开发课程的团队实践项目。网站围绕中医文化、草药百科、经络穴位、经典名方、养生保健五大核心板块展开，通过现代化的网页设计与交互体验，将深厚的中医药知识转化为直观、生动的线上展示。</p>
+        <p>项目的初衷在于"以代码为笔，绘中医药文化长卷"——我们希望通过HTML5、CSS3与JavaScript等前端技术，让更多年轻人以轻松、沉浸的方式了解中医的博大精深。从四气五味到十二经络，从君臣佐使到二十四节气养生，每一页都是对中华传统医学智慧的一次数字化致敬。</p>
+        <p>网站采用莫兰迪低饱和色系与宣纸质感为主视觉基调，融合木纹、水墨等传统元素，打造兼具古典韵味与现代审美的浏览体验。技术上全面运用了语义化标签、CSS3动画与弹性布局、JavaScript DOM操作与事件处理，实现了3D翻牌、节气罗盘、百眼柜抽屉、Canvas验证码等多种交互效果，是对课堂所学的一次系统性综合实践。</p>
       </div>
     </div>
   </section>
 
-  <!-- 御医名录令牌卡片阵列（Grid 3×2） -->
+  <!-- 团队成员 -->
   <section class="team-section">
     <div class="container">
-      <h2 class="section-title" style="text-align:center;">御医名录</h2>
-      <p class="section-desc" style="text-align:center;color:var(--color-dust);margin-bottom:32px;">
-        太医院令牌 · 悬停查看详情
+      <h2 class="section-title" style="text-align:center;">团队成员</h2>
+      <p class="section-desc" style="text-align:center;color:var(--color-dust);margin-bottom:36px;">
+        各司其职，同心协力
       </p>
 
-      <div class="member-grid">
-
-        <!-- 成员1：组长 -->
-        <div class="member-card">
-          <div class="card-ribbon">太医院</div>
-          <div class="card-front">
-            <div class="member-avatar">
-              <span class="avatar-initial">首</span>
-            </div>
-            <div class="member-title">首席架构御医</div>
-            <div class="member-name">组长</div>
-          </div>
-          <div class="card-drawer">
-            <div class="drawer-item"><span>学号：</span>202XXXXXXXXX</div>
-            <div class="drawer-item"><span>负责：</span>首页 + 公共导航 + 全局样式系统</div>
-            <div class="drawer-item"><span>技术：</span>莫兰迪色系变量系统、视频Hero背景、农历节气JS、古乐播放器、全站搜索</div>
-          </div>
-        </div>
-
-        <!-- 成员2 -->
-        <div class="member-card">
-          <div class="card-ribbon">太医院</div>
-          <div class="card-front">
-            <div class="member-avatar">
-              <span class="avatar-initial">典</span>
-            </div>
-            <div class="member-title">典籍修撰御医</div>
-            <div class="member-name">成员A</div>
-          </div>
-          <div class="card-drawer">
-            <div class="drawer-item"><span>学号：</span>202XXXXXXXXX</div>
-            <div class="drawer-item"><span>负责：</span>中医历史页 + 经络穴位页</div>
-            <div class="drawer-item"><span>技术：</span>CSS时间轴、IntersectionObserver滚动触发、3D翻牌名医卡片、穴位热点图</div>
-          </div>
-        </div>
-
-        <!-- 成员3 -->
-        <div class="member-card">
-          <div class="card-ribbon">太医院</div>
-          <div class="card-front">
-            <div class="member-avatar">
-              <span class="avatar-initial">首</span>
-            </div>
-            <div class="member-title">本草鉴定御医</div>
-            <div class="member-name">成员B</div>
-          </div>
-          <div class="card-drawer">
-            <div class="drawer-item"><span>学号：</span>202XXXXXXXXX</div>
-            <div class="drawer-item"><span>负责：</span>中草药百科页</div>
-            <div class="drawer-item"><span>技术：</span>淘宝卡片风格设计、24种草药数据录入、多维JS筛选、画轴弹窗Modal</div>
-          </div>
-        </div>
-
-        <!-- 成员4 -->
-        <div class="member-card">
-          <div class="card-ribbon">太医院</div>
-          <div class="card-front">
-            <div class="member-avatar">
-              <span class="avatar-initial">典</span>
-            </div>
-            <div class="member-title">方剂配伍御医</div>
-            <div class="member-name">成员C</div>
-          </div>
-          <div class="card-drawer">
-            <div class="drawer-item"><span>学号：</span>202XXXXXXXXX</div>
-            <div class="drawer-item"><span>负责：</span>经典名方页</div>
-            <div class="drawer-item"><span>技术：</span>百草化方飞入动画、蒸汽CSS动效、成品揭晓、配方数据</div>
-          </div>
-        </div>
-
-        <!-- 成员5 -->
-        <div class="member-card">
-          <div class="card-ribbon">太医院</div>
-          <div class="card-front">
-            <div class="member-avatar">
-              <span class="avatar-initial">首</span>
-            </div>
-            <div class="member-title">养生调理御医</div>
-            <div class="member-name">成员D</div>
-          </div>
-          <div class="card-drawer">
-            <div class="drawer-item"><span>学号：</span>202XXXXXXXXX</div>
-            <div class="drawer-item"><span>负责：</span>养生保健页</div>
-            <div class="drawer-item"><span>技术：</span>节气罗盘CSS动画、全站色彩联动、体质测试、四季养生Tab</div>
-          </div>
-        </div>
-
-        <!-- 成员6 -->
-        <div class="member-card">
-          <div class="card-ribbon">太医院</div>
-          <div class="card-front">
-            <div class="member-avatar">
-              <span class="avatar-initial">典</span>
-            </div>
-            <div class="member-title">御药房掌事御医</div>
-            <div class="member-name">成员E</div>
-          </div>
-          <div class="card-drawer">
-            <div class="drawer-item"><span>学号：</span>202XXXXXXXXX</div>
-            <div class="drawer-item"><span>负责：</span>登录页 + 小组介绍页</div>
-            <div class="drawer-item"><span>技术：</span>毛玻璃卡片、Canvas验证码、localStorage登录态、御医令牌抽屉卡片</div>
-          </div>
-        </div>
-
+      <div class="member-grid" id="member-grid">
+        <!-- JS动态渲染 -->
       </div>
     </div>
   </section>
 
-  <!-- 技术自查清单 -->
-  <section class="checklist-section">
+  <!-- 技术栈 -->
+  <section class="tech-section">
     <div class="container">
-      <h2 class="section-title" style="text-align:center;margin-bottom:24px;">技术自查清单</h2>
-      <div class="table-wrapper">
-        <table>
-          <thead>
-            <tr><th>技术项</th><th>落地位置</th><th>状态</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>position:fixed 固定导航栏</td><td>common.css #nav-header</td><td>&#10004; 已实现</td></tr>
-            <tr><td>JS二级下拉菜单</td><td>nav.js</td><td>&#10004; 已实现</td></tr>
-            <tr><td>图文混排 float / flex</td><td>首页、历史页、经络页、养生页</td><td>&#10004; 已实现</td></tr>
-            <tr><td>HTML5 &lt;audio&gt;</td><td>全站古琴播放器、名方朗读</td><td>&#10004; 已实现</td></tr>
-            <tr><td>HTML5 &lt;video&gt; / CSS动画替代</td><td>首页Hero区CSS水墨动画 + 经络教学视频区</td><td>&#10004; 已实现（CSS动画）</td></tr>
-            <tr><td>HTML &lt;form&gt; 表单</td><td>登录页（admin/admin）</td><td>&#10004; 已实现</td></tr>
-            <tr><td>&lt;table&gt; 表格</td><td>典籍对比表、配伍分析表、饮食宜忌表、穴位对照表</td><td>&#10004; 已实现</td></tr>
-            <tr><td>&lt;ul&gt;/&lt;ol&gt; 列表</td><td>导航菜单、收藏夹</td><td>&#10004; 已实现</td></tr>
-            <tr><td>CSS盒模型</td><td>卡片设计、全站间距</td><td>&#10004; 已实现</td></tr>
-            <tr><td>CSS3过渡与动画</td><td>卡片hover、3D翻牌、飞入动画、蒸汽动画</td><td>&#10004; 已实现</td></tr>
-            <tr><td>JS DOM操作</td><td>筛选、弹窗、Tab切换、节气罗盘</td><td>&#10004; 已实现</td></tr>
-            <tr><td>JS事件处理</td><td>点击、悬停、滚动(IntersectionObserver)、表单提交</td><td>&#10004; 已实现</td></tr>
-            <tr><td>Canvas图形绘制</td><td>登录页验证码</td><td>&#10004; 已实现</td></tr>
-            <tr><td>代码注释 ≥ 20%</td><td>全部JS文件</td><td>&#10004; 已满足</td></tr>
-          </tbody>
-        </table>
+      <h2 class="section-title" style="text-align:center;margin-bottom:24px;">技术栈</h2>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h3>HTML5</h3>
+          <p>语义化标签 · 视频音频嵌入 · Canvas绘图 · 表单验证</p>
+        </div>
+        <div class="tech-card">
+          <h3>CSS3</h3>
+          <p>Flex/Grid布局 · 过渡动画 · 3D变换 · 响应式设计 · CSS变量系统</p>
+        </div>
+        <div class="tech-card">
+          <h3>JavaScript</h3>
+          <p>DOM操作 · 事件处理 · IntersectionObserver · localStorage · Canvas API</p>
+        </div>
+        <div class="tech-card">
+          <h3>设计系统</h3>
+          <p>莫兰迪色系 · 宣纸质感 · 古风字体 · 木纹材质 · 中式留白美学</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 素材参考 -->
-  <section class="reference-section">
+  <!-- 致谢 -->
+  <section class="thanks-section">
     <div class="container">
-      <h2 class="section-title" style="text-align:center;margin-bottom:16px;">素材与参考文献</h2>
-      <div class="ref-list">
-        <p><strong>学术参考：</strong></p>
-        <ul>
-          <li>高学敏.《中药学》. 中国中医药出版社</li>
-          <li>沈雪勇.《经络腧穴学》. 中国中医药出版社</li>
-          <li>李冀.《方剂学》. 中国中医药出版社</li>
-          <li>王琦.《中医体质学》. 人民卫生出版社</li>
-        </ul>
-        <p style="margin-top:12px;"><strong>技术参考：</strong></p>
-        <ul>
-          <li>黑马程序员.《HTML+CSS+JavaScript网页制作案例教程（第2版）》</li>
-          <li>MDN Web Docs — developer.mozilla.org</li>
-        </ul>
+      <h2 class="section-title" style="text-align:center;margin-bottom:16px;">致谢</h2>
+      <div class="thanks-card">
+        <p>感谢老师在Web前端开发课程中的悉心指导，让我们从零基础逐步掌握了前端开发的核心技术。</p>
+        <p>感谢每一位组员的辛勤付出，上百个文件、数千行代码，都是大家心血的凝聚。</p>
+        <p>也感谢所有参考资料的作者们，以及MDN、Stack Overflow等开源社区的贡献者。</p>
       </div>
     </div>
   </section>
@@ -233,10 +121,55 @@
   </footer>
 
   <div id="music-player">
-    <audio id="bgm" loop preload="none"></audio>
+    <audio id="bgm" loop preload="none">
+      <source src="music/bencaogangmu.webm" type="audio/webm">
+    </audio>
     <div id="jade-icon" class="paused" title="点击播放/暂停背景音乐">&#9835;</div>
   </div>
 
   <script src="javascript/nav.js"></script>
+  <script>
+    (function() {
+      'use strict';
+
+      var members = [
+        { name:'组长', role:'首席架构', id:'202XXXXXXXXX',
+          duties:'首页设计与开发 · 公共导航系统 · 全局CSS变量与样式体系 · 农历节气算法 · 背景音乐播放器',
+          tech:'莫兰迪色系变量系统 · 视频Hero背景 · 全站搜索 · 五行互动 · 每日一签' },
+        { name:'成员A', role:'典籍修撰', id:'202XXXXXXXXX',
+          duties:'中医历史溯源页 · 经络穴位页 · 穴位热点交互 · 名医卡片动画',
+          tech:'CSS时间轴 · IntersectionObserver滚动触发 · 3D翻牌动画 · 穴位浮窗系统' },
+        { name:'成员B', role:'本草鉴定', id:'202XXXXXXXXX',
+          duties:'中草药百科页 · 60味草药数据 · 百眼柜抽屉交互 · 多维筛选系统',
+          tech:'CSS Grid卡片布局 · JS多维筛选 · 画轴弹窗Modal · 抽屉3D动画' },
+        { name:'成员C', role:'方剂配伍', id:'202XXXXXXXXX',
+          duties:'经典名方页 · 方剂数据体系 · 配方飞入动画 · 煎煮展示',
+          tech:'百草化方飞入动画 · 蒸汽CSS动效 · 君臣佐使拆解 · 音频朗读' },
+        { name:'成员D', role:'养生调理', id:'202XXXXXXXXX',
+          duties:'养生保健页 · 节气罗盘 · 四季养生Tab · 体质测试 · 药茶配方',
+          tech:'CSS罗盘旋转动画 · 全站色彩联动 · 体质测试算法 · 饮食宜忌表' },
+        { name:'成员E', role:'御药掌事', id:'202XXXXXXXXX',
+          duties:'登录注册页 · Canvas验证码 · 收藏系统 · 小组介绍页 · 民族医药页',
+          tech:'毛玻璃卡片 · Canvas图形绘制 · localStorage用户态 · 令牌抽屉卡片' }
+      ];
+
+      var grid = document.getElementById('member-grid');
+      if (!grid) return;
+
+      var html = '';
+      members.forEach(function(m) {
+        html += '<div class="member-card">';
+        html += '  <div class="member-role">' + m.role + '</div>';
+        html += '  <div class="member-name">' + m.name + '</div>';
+        html += '  <div class="member-id">' + m.id + '</div>';
+        html += '  <div class="member-detail">';
+        html += '    <div class="detail-line"><span>负责模块</span>' + m.duties + '</div>';
+        html += '    <div class="detail-line"><span>技术亮点</span>' + m.tech + '</div>';
+        html += '  </div>';
+        html += '</div>';
+      });
+      grid.innerHTML = html;
+    })();
+  </script>
 </body>
 </html>
