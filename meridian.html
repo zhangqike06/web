@@ -326,6 +326,11 @@
     (function() {
       'use strict';
 
+      /*
+       * ========== 正/背面视图切换 ==========
+       * 点击"正面定位图"/"背面定位图"按钮时切换人体图显示
+       * 切换时会清除当前选中的穴位状态
+       */
       window.switchView = function(view) {
         var frontBtn = document.getElementById('btn-front');
         var backBtn  = document.getElementById('btn-back');
@@ -348,7 +353,11 @@
         clearSelection();
       };
 
-      // ========== 穴位数据 ==========
+      /*
+       * ========== 穴位数据（42个穴位） ==========
+       * 每个穴位包含所属经络(meridian)、定位(loc)、主治(indication)、保健应用(tip)
+       * 正面和背面共用同一份数据，穴位名作为key进行查找
+       */
       var acupointData = {
         '百会':   { meridian:'督脉', loc:'头顶正中，两耳尖连线中点', indication:'头痛眩晕、失眠健忘、脱肛', tip:'用手指轻叩或按摩，升阳举陷' },
         '头维':   { meridian:'足阳明胃经', loc:'额角发际上0.5寸', indication:'头痛、目眩、迎风流泪', tip:'双手拇指同时按揉' },
@@ -403,7 +412,13 @@
         '照海':   { meridian:'足少阴肾经', loc:'内踝尖下方凹陷处', indication:'失眠、咽喉干痛、月经不调、便秘', tip:'滋阴要穴，睡前按揉可助眠' }
       };
 
-      // ========== 交互逻辑 ==========
+      /*
+       * ========== 穴位点击交互 ==========
+       * 点击穴位点→脉冲动画+浮窗显示详细信息（经络/定位/主治/保健）
+       * 再次点击同一点→取消选中；点击空白→取消选中
+       * 浮窗智能定位：默认右上方，边界不够时翻转到左侧或下方
+       * 悬停时也显示浮窗但不锁定（pointer-events穿透避免闪烁）
+       */
       var selectedPoint = null;
       var allAcupoints = document.querySelectorAll('.acupoint');
       var tooltipFront = document.getElementById('tooltip-front');
