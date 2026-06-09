@@ -4,6 +4,7 @@
 
 /* === 筛选条 === */
 /* === 百眼柜 === */
+/* ===== 百眼柜抽屉 ===== */
 .cabinet-section {
   padding: 36px 0 24px;
 }
@@ -258,6 +259,7 @@
   margin: 0;
 }
 
+/* ===== 筛选条 ===== */
 .filter-bar {
   padding: 18px 0;
   margin-top: 12px;
@@ -319,6 +321,7 @@
 }
 
 /* === 卡片网格 === */
+/* ===== 药材卡片网格 ===== */
 .herbs-grid-section {
   padding: 40px 0 60px;
 }
@@ -529,6 +532,7 @@
 }
 
 /* === 四气五味 === */
+/* ===== 四气五味 ===== */
 .property-section { padding: 66px 0; background: rgba(222,200,196,0.06); }
 .property-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; margin-top: 24px; }
 .property-block {

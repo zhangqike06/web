@@ -1,5 +1,10 @@
 /* ============================================================
  * common.css - 全站公共样式
+ * 包含：CSS变量、导航栏、页脚、弹窗、音乐播放器、滚动动画等
+ * ============================================================ */
+
+/* ============================================================
+ * common.css - 全站公共样式
  * 主题：本草寻源 / 东方雅致 / 纸感与留白
  * ============================================================ */
 
@@ -473,6 +478,7 @@ ul, ol {
   color: var(--color-dust);
 }
 
+/* ===== 背景音乐播放器 ===== */
 #music-player {
   position: fixed;
   bottom: 30px;
@@ -565,6 +571,7 @@ ul, ol {
   margin: 5px 0;
 }
 
+/* ===== 通用按钮样式 ===== */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -633,6 +640,7 @@ ul, ol {
   box-shadow: var(--shadow-soft);
 }
 
+/* ===== 表格样式 ===== */
 .table-wrapper {
   overflow-x: auto;
 }
@@ -669,6 +677,7 @@ table tr:hover td {
   background: rgba(196, 164, 148, 0.12);
 }
 
+/* ===== 标签样式 ===== */
 .tag {
   display: inline-flex;
   align-items: center;
@@ -682,6 +691,7 @@ table tr:hover td {
   line-height: 1.4;
 }
 
+/* ===== 弹窗遮罩 ===== */
 .modal-overlay {
   display: none;
   position: fixed;
